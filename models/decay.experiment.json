@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "replications": 2,
+  "scenarios": [
+    { "id": 0, "parameters": {} },
+    { "id": 1, "parameters": { "decay_rate": 0.1 } }
+  ]
+}

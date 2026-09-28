@@ -1,0 +1,20 @@
+{
+  "ir_version":"0.1", "name":"Typed async workflow", "mode":"abm",
+  "time":{"unit":"day","dt":0.5,"horizon":4},
+  "parameters":[{"id":"duration","value":1,"unit":"day"}],
+  "components":[{
+    "id":"people","kind":"population","execution":"async",
+    "fields":[{"name":"state","type":"integer","unit":"1"},{"name":"entered","type":"real","unit":"day"},{"name":"generation","type":"integer","unit":"1"},{"name":"completed","type":"integer","unit":"1"},{"name":"ready","type":"boolean","unit":"1"}],
+    "agents":[{"state":-1,"entered":0,"generation":-1,"completed":0,"ready":true},{"state":-1,"entered":0,"generation":-1,"completed":0,"ready":false}],
+    "chart":{
+      "fields":{"state":"state","entered":"entered","generation":"generation"},"states":[0,1,2],"initial":0,
+      "transitions":[
+        {"id":"start","source":0,"target":1,"trigger":"message","event":"start","guard":"ready"},
+        {"id":"finish","source":1,"target":2,"trigger":"timeout","duration":"duration","assign":[{"field":"completed","expr":"completed+1"}]},
+        {"id":"restart","source":2,"target":1,"trigger":"message","event":"start"}
+      ]
+    },
+    "messages":[{"time":0.5,"agent":0,"sequence":0,"event":"start"},{"time":0.5,"agent":1,"sequence":0,"event":"start"},{"time":1.5,"agent":0,"sequence":1,"event":"start"}]
+  }],
+  "outputs":[{"id":"state","agent":0,"field":"state"},{"id":"completed","metric":"sum","field":"completed"},{"id":"busy","metric":"state_count","state":1},{"id":"active","metric":"active"}]
+}

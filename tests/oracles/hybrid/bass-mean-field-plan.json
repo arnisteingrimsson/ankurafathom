@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "populations": [
+    40,
+    160,
+    640
+  ],
+  "replications": 256,
+  "ensemble_steps": [
+    0.25,
+    0.0625
+  ],
+  "sd_steps": [
+    0.5,
+    0.25,
+    0.125,
+    0.0625,
+    0.03125
+  ],
+  "times": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "seed": 32452843,
+  "reference_seed": 49979687,
+  "scenario": 53,
+  "stream": 1501,
+  "cases": [
+    {
+      "id": "bass",
+      "p": 0.03,
+      "q": 0.7,
+      "initial_fraction": 0.0
+    },
+    {
+      "id": "innovation-only",
+      "p": 0.15,
+      "q": 0.0,
+      "initial_fraction": 0.0
+    },
+    {
+      "id": "seeded-imitation",
+      "p": 0.0,
+      "q": 0.7,
+      "initial_fraction": 0.1
+    }
+  ],
+  "independent_gates": {
+    "comparisons": 90,
+    "family_alpha": 0.001,
+    "mean_floor": 0.015,
+    "mean_sigma": 6
+  },
+  "power": {
+    "population_ks_alternative": 0.45,
+    "miss_probability_bound": 0.003934050809858859
+  },
+  "analytic_gates": {
+    "comparisons": 30,
+    "mean_sigma": 6,
+    "variance_sigma": 6,
+    "variance_floor": 1e-06
+  },
+  "limit_gates": {
+    "rmse_ratio_min": 0.25,
+    "rmse_ratio_max": 0.8,
+    "finest_coarse_max": 0.4,
+    "mean_floor": 0.012,
+    "mean_sigma": 6,
+    "mean_comparisons": 30
+  },
+  "numeric_gates": {
+    "reference_tolerance": 2e-11,
+    "euler_agreement": 2e-13,
+    "euler_halving_ratio": [
+      0.4,
+      0.6
+    ],
+    "finest_euler_error": 0.01,
+    "rk4_finest_error": 1e-08,
+    "rk4_halving_ratio": [
+      10,
+      22
+    ]
+  },
+  "scope": "fixed membership, linear Jacobi adoption probability dt*(p+q*a); N-limit is discrete Euler; dt-limit is continuous Bass; empirical finite-horizon evidence"
+}

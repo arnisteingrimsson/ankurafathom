@@ -1,0 +1,122 @@
+<xmile xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" version="1.0">
+  <sim_specs method="Euler">
+    <start>0</start>
+    <stop>4</stop>
+    <dt>0.125</dt>
+  </sim_specs>
+  <model>
+    <variables>
+      <aux name="tau">
+        <eqn>TIME</eqn>
+        <gf>
+          <xpts>0,1,1.125,2,2.125,3,4</xpts>
+          <ypts>3,3,1.5,1.5,6,6,3</ypts>
+        </gf>
+      </aux>
+      <aux name="forcing">
+        <eqn>TIME</eqn>
+        <gf>
+          <xpts>0,1,2,3,4</xpts>
+          <ypts>4,4,8,2,2</ypts>
+        </gf>
+      </aux>
+      <stock name="clock_stock">
+        <eqn>3.0</eqn>
+        <inflow>clock_rate</inflow>
+      </stock>
+      <flow name="clock_rate">
+        <eqn>0.25</eqn>
+      </flow>
+      <aux name="one_default">
+        <eqn>DELAYN(forcing, tau,2)</eqn>
+      </aux>
+      <stock name="stock_one_default">
+        <eqn>0</eqn>
+        <inflow>rate_one_default</inflow>
+      </stock>
+      <flow name="rate_one_default">
+        <eqn>one_default</eqn>
+      </flow>
+      <aux name="one_explicit">
+        <eqn>DELAYN(forcing, tau,2, 1)</eqn>
+      </aux>
+      <stock name="stock_one_explicit">
+        <eqn>0</eqn>
+        <inflow>rate_one_explicit</inflow>
+      </stock>
+      <flow name="rate_one_explicit">
+        <eqn>one_explicit</eqn>
+      </flow>
+      <aux name="three">
+        <eqn>DELAYN(forcing, tau,2, 1)</eqn>
+      </aux>
+      <stock name="stock_three">
+        <eqn>0</eqn>
+        <inflow>rate_three</inflow>
+      </stock>
+      <flow name="rate_three">
+        <eqn>three</eqn>
+      </flow>
+      <aux name="five">
+        <eqn>DELAYN(forcing, clock_stock,2, 2)</eqn>
+      </aux>
+      <stock name="stock_five">
+        <eqn>0</eqn>
+        <inflow>rate_five</inflow>
+      </stock>
+      <flow name="rate_five">
+        <eqn>five</eqn>
+      </flow>
+      <aux name="gradual">
+        <eqn>DELAYN(forcing, 2+TIME/2,2, 1)</eqn>
+      </aux>
+      <stock name="stock_gradual">
+        <eqn>0</eqn>
+        <inflow>rate_gradual</inflow>
+      </stock>
+      <flow name="rate_gradual">
+        <eqn>gradual</eqn>
+      </flow>
+      <aux name="feedback">
+        <eqn>DELAYN(forcing, 3+stock_feedback/10,2, 1)</eqn>
+      </aux>
+      <stock name="stock_feedback">
+        <eqn>0</eqn>
+        <inflow>rate_feedback</inflow>
+      </stock>
+      <flow name="rate_feedback">
+        <eqn>feedback</eqn>
+      </flow>
+      <aux name="inner">
+        <eqn>DELAYN(forcing, 2+TIME/2,2, 1)</eqn>
+      </aux>
+      <stock name="stock_inner">
+        <eqn>0</eqn>
+        <inflow>rate_inner</inflow>
+      </stock>
+      <flow name="rate_inner">
+        <eqn>inner</eqn>
+      </flow>
+      <aux name="nested">
+        <eqn>DELAYN(inner, tau,2, 2)</eqn>
+      </aux>
+      <stock name="stock_nested">
+        <eqn>0</eqn>
+        <inflow>rate_nested</inflow>
+      </stock>
+      <flow name="rate_nested">
+        <eqn>nested</eqn>
+      </flow>
+      <aux name="alias">
+        <eqn>three</eqn>
+      </aux>
+      <stock name="stock_alias">
+        <eqn>0</eqn>
+        <inflow>rate_alias</inflow>
+      </stock>
+      <flow name="rate_alias">
+        <eqn>alias</eqn>
+      </flow>
+    </variables>
+  </model>
+</xmile>

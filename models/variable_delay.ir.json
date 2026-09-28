@@ -1,0 +1,27 @@
+{
+  "ir_version": "0.1", "name": "variable_duration_material_and_information",
+  "time": {"unit": "day", "dt": 1, "horizon": 4},
+  "parameters": [
+    {"id": "intake", "value": 10, "unit": "kg/day"},
+    {"id": "tau", "value": 2, "unit": "day"},
+    {"id": "change", "value": 2, "unit": "day"}
+  ],
+  "components": [
+    {"id": "material_total", "kind": "stock", "init": 0, "unit": "kg"},
+    {"id": "signal_total", "kind": "stock", "init": 0, "unit": "kg"},
+    {"id": "material", "kind": "delay", "type": "material", "order": 1,
+     "duration": "tau+STEP(change,2)", "initial": 10, "input": "intake", "unit": "kg/day"},
+    {"id": "signal", "kind": "delay", "type": "information", "order": 1,
+     "duration": "tau+STEP(change,2)", "initial": 10, "input": "intake", "unit": "kg/day"},
+    {"id": "ship", "kind": "flow", "source": null, "destination": "material_total",
+     "expr": "material", "unit": "kg/day"},
+    {"id": "sense", "kind": "flow", "source": null, "destination": "signal_total",
+     "expr": "signal", "unit": "kg/day"}
+  ],
+  "outputs": [
+    {"id": "material_total_ts", "stock": "material_total"},
+    {"id": "signal_total_ts", "stock": "signal_total"},
+    {"id": "material_out", "component": "material"},
+    {"id": "signal_out", "component": "signal"}
+  ]
+}

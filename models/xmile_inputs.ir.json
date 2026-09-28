@@ -1,0 +1,20 @@
+{
+  "ir_version": "0.1", "name": "xmile_quantity_pulse_and_grid_inputs",
+  "time": {"unit": "day", "start": 10, "dt": 0.5, "horizon": 4},
+  "parameters": [
+    {"id": "quantity", "value": 3, "unit": "kg"},
+    {"id": "first", "value": 10, "unit": "day"},
+    {"id": "period", "value": 1, "unit": "day"},
+    {"id": "height", "value": 2, "unit": "kg/day"},
+    {"id": "slope", "value": 1, "unit": "kg/day/day"}
+  ],
+  "components": [
+    {"id": "amount", "kind": "stock", "init": 0, "non_negative": false, "unit": "kg"},
+    {"id": "intake", "kind": "flow", "source": null, "destination": "amount", "non_negative": false,
+     "expr": "XMILE_PULSE(quantity,first,period)+XMILE_STEP(height,11)+XMILE_RAMP(slope,11)", "unit": "kg/day"}
+  ],
+  "outputs": [
+    {"id": "amount_ts", "stock": "amount"},
+    {"id": "rate", "expr": "XMILE_PULSE(quantity,first,period)+XMILE_STEP(height,11)+XMILE_RAMP(slope,11)", "unit": "kg/day"}
+  ]
+}

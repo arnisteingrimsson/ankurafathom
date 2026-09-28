@@ -1,0 +1,802 @@
+{
+  "commit": "21aab02739dc5187bc9564e4d3de14e575905d2f",
+  "importer_sha256": "e919fd38658df5566f3426f220fd60a280d7de42a56e3a2e376bb9f23b1b55ba",
+  "audit_sha256": "1d7aa7af550b3fe7b2db26ee30cb5f3be5e171df493629d23d28103cfedb2f1b",
+  "eligibility_policy": {
+    "version": 2,
+    "method": "reviewed lexical inventory of the pinned corpus; not a general XMILE validator",
+    "functions": [
+      "DELAY",
+      "DELAY1",
+      "DELAY3",
+      "DELAYN",
+      "PULSE",
+      "RAMP",
+      "SMTH1",
+      "SMTH3",
+      "SMTHN",
+      "STEP"
+    ],
+    "operators": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "lookup_tables": true,
+    "structural_gaps_remain_eligible": true,
+    "malformed_xml": "unassessable, retained in total inventory",
+    "target_percent": 80
+  },
+  "total_xmile_files": 67,
+  "counts": {
+    "importable": 8,
+    "rejected": 59
+  },
+  "eligibility_counts": {
+    "eligible": 8,
+    "outside_equation_subset": 10,
+    "unassessable": 49
+  },
+  "eligible_coverage": {
+    "imported": 8,
+    "total": 8,
+    "percent": 100.0,
+    "directory_groups_imported": 6,
+    "directory_groups_total": 6,
+    "historical_reference_compatible": 7,
+    "historical_reference_percent": 87.5,
+    "structural_target_met": true
+  },
+  "scope": "Import coverage only; trajectory tests independently validate accepted cases. Malformed XML remains unassessable. No M2 completion claim.",
+  "cases": [
+    {
+      "path": "samples/SIR/SIR.xmile",
+      "sha256": "e691f9a94535e4d856da43bdcd28461a60b4e8dc16762592b4d37912c500879b",
+      "group": "samples/SIR",
+      "eligibility": "eligible",
+      "functions": [],
+      "unsupported_equations": [],
+      "structural_features": [],
+      "status": "importable"
+    },
+    {
+      "path": "samples/SIR/SIR_reciprocal-dt.xmile",
+      "sha256": "9a0be22e56311dcd29fe3142d8be8bc092b7813657b6615049acd57f00b3cf68",
+      "group": "samples/SIR",
+      "eligibility": "eligible",
+      "functions": [],
+      "unsupported_equations": [],
+      "structural_features": [],
+      "status": "importable"
+    },
+    {
+      "path": "samples/bpowers-hares_and_lynxes_modules/model.xmile",
+      "sha256": "51fc5f9013fa69cfc9d4561e873ab2fb38c54ebecd899134a2b6008cd4793063",
+      "group": "samples/bpowers-hares_and_lynxes_modules",
+      "eligibility": "outside_equation_subset",
+      "functions": [
+        "LOOKUP_TABLE",
+        "PULSE"
+      ],
+      "unsupported_equations": [
+        "syntax:NOT",
+        "syntax:placeholder"
+      ],
+      "structural_features": [
+        "multiple_models",
+        "nonnegative_clipping"
+      ],
+      "status": "rejected",
+      "reason": "expected exactly one model"
+    },
+    {
+      "path": "samples/teacup/teacup.xmile",
+      "sha256": "71890eb51d97ecef15c0df68777e0b728c5ebdb8b692897a29ebfeec10b11c70",
+      "group": "samples/teacup",
+      "eligibility": "eligible",
+      "functions": [],
+      "unsupported_equations": [],
+      "structural_features": [],
+      "status": "importable"
+    },
+    {
+      "path": "samples/teacup/teacup_w_diagram.xmile",
+      "sha256": "ce04f9a955a1645dbe4727d53078b7e451b1f72f2f2f4bd1b5178d839ddd65f2",
+      "group": "samples/teacup",
+      "eligibility": "eligible",
+      "functions": [],
+      "unsupported_equations": [],
+      "structural_features": [
+        "nonnegative_clipping"
+      ],
+      "status": "importable"
+    },
+    {
+      "path": "tests/abs/test_abs.xmile",
+      "sha256": "4c2683b4dbe7dfc3dfb5642d53542770be80201adc91dfcdf468ea111c29e773",
+      "group": "tests/abs",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/active_initial/test_active_initial.xmile",
+      "sha256": "2551598e2793dbb98c5555b2fabf7e0d650c7020f407053a1c0f41ec309d988b",
+      "group": "tests/active_initial",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/arithmetics_exp/test_arithmetics_exp.xmile",
+      "sha256": "0d24010e16d9bff265a5d2f3f9b927a68ae75b4ba1de380f2dfc453637931ce5",
+      "group": "tests/arithmetics_exp",
+      "eligibility": "outside_equation_subset",
+      "functions": [],
+      "unsupported_equations": [
+        "syntax:power"
+      ],
+      "structural_features": [
+        "arrays",
+        "integrator:RK4",
+        "no_stocks",
+        "nonzero_start"
+      ],
+      "status": "rejected",
+      "reason": "subscripts/dimensions are unsupported"
+    },
+    {
+      "path": "tests/builtin_max/builtin_max.xmile",
+      "sha256": "ddbc7357a9fde278064a7746c834098356f59ac10a14fb90d4ef5b0e04ee0c92",
+      "group": "tests/builtin_max",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/builtin_min/builtin_min.xmile",
+      "sha256": "c40c0fe13c1c42b8d9bcb661e9a92aa0109e1ea10a1430e05a1c1f5d801deae1",
+      "group": "tests/builtin_min",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/chained_initialization/test_chained_initialization.xmile",
+      "sha256": "abaf936b8a522d6d2ce3517bf725f94317f95529ac34899568ca28d01d2a1f25",
+      "group": "tests/chained_initialization",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/comparisons/comparisons.xmile",
+      "sha256": "25165781428546bb0e81843d04dda4c827bb917e3c2941e8d975a04d33e23067",
+      "group": "tests/comparisons",
+      "eligibility": "outside_equation_subset",
+      "functions": [],
+      "unsupported_equations": [
+        "syntax:comparison"
+      ],
+      "structural_features": [
+        "no_stocks"
+      ],
+      "status": "rejected",
+      "reason": "unsupported equation token"
+    },
+    {
+      "path": "tests/constant_expressions/test_constant_expressions.xmile",
+      "sha256": "7ac016222791ccb2c9ad1a800584deb72e6fe4db2a94011e9c448372d56035d6",
+      "group": "tests/constant_expressions",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/delay_xmile/test_delay_xmile.xmile",
+      "sha256": "305c4cc7202be546f858edb226f508a71d4f1226d8f7a104d7897329a8ce6eec",
+      "group": "tests/delay_xmile",
+      "eligibility": "eligible",
+      "functions": [
+        "DELAY"
+      ],
+      "unsupported_equations": [],
+      "structural_features": [
+        "nonnegative_clipping",
+        "nonzero_start",
+        "vendor_extensions"
+      ],
+      "status": "importable"
+    },
+    {
+      "path": "tests/eval_order/eval_order.xmile",
+      "sha256": "c61d65de0c93c09627ed02744cb9b407e8d4a340b55ae5bc2bfd2158afbb50a4",
+      "group": "tests/eval_order",
+      "eligibility": "eligible",
+      "functions": [],
+      "unsupported_equations": [],
+      "structural_features": [
+        "no_stocks"
+      ],
+      "status": "importable"
+    },
+    {
+      "path": "tests/exp/test_exp.xmile",
+      "sha256": "8395e152cb8f92a739d7aeb83c6629278d3a658362f18028595c05d7df1e880a",
+      "group": "tests/exp",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/exponentiation/exponentiation.xmile",
+      "sha256": "7559024c631846c5cd18ab078d1468492fa3b09d41d3ba73ead478357d95e767",
+      "group": "tests/exponentiation",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/function_capitalization/test_function_capitalization.xmile",
+      "sha256": "5209551395f2c590bb34dec819ae915951b984146033e3ffede7f7cf3e6afe49",
+      "group": "tests/function_capitalization",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/game/test_game.xmile",
+      "sha256": "b2ee2868f5e76c6180ed9d752724b52c3982de1cbcb1cec6b81a47945448959f",
+      "group": "tests/game",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/if_stmt/if_stmt.xmile",
+      "sha256": "9775919b4dbc26fad94c4dae52b327473b10ad0cc7b865565f2677b61d5abcfa",
+      "group": "tests/if_stmt",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/initial_function/test_initial.xmile",
+      "sha256": "b9029fb01a54deff82a83846e0f4101fb7de113e09d561b285421e143304c7f9",
+      "group": "tests/initial_function",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/limits/test_limits.xmile",
+      "sha256": "812e8ea60d97bf25919910b860545a157f052f2cce60d0efca3acf873d8f33ca",
+      "group": "tests/limits",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/line_breaks/test_line_breaks.xmile",
+      "sha256": "2d4da51095bae938604fe75e157b13770128cbe47eac384e3a2c34639a60dd0f",
+      "group": "tests/line_breaks",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/line_continuation/test_line_continuation.xmile",
+      "sha256": "946c945b01ccfcf410b339e858bbafeaecbe6b55e3d432b51329de0d67d7b8d3",
+      "group": "tests/line_continuation",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/ln/test_ln.xmile",
+      "sha256": "b17d936c8b31b89b4c6b5fe48ef5d7991e3fad1da0faef28e86c069c3229ccf5",
+      "group": "tests/ln",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/log/test_log.xmile",
+      "sha256": "7c5ecbcd5ed8274e4ebc38a4098356f4d2a20814b835db574aabbf6bf9fc87aa",
+      "group": "tests/log",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/logicals/test_logicals.xmile",
+      "sha256": "8dc5bdd576a52caa3f52a20428322ca62687e0b259e582b331ee149c525d21d0",
+      "group": "tests/logicals",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/logicals/test_logicals_caseinsensitive.xmile",
+      "sha256": "8649af24af3c4eb8f5253a7646d32e628057413d9026c47267faa60ee8712569",
+      "group": "tests/logicals",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/lookups/test_lookups.xmile",
+      "sha256": "e6af5806a5155c3aecd32971c135d674fc3eaa54c0c2ac3e7c5f76c3a672dabd",
+      "group": "tests/lookups",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/lookups/test_lookups_no-indirect.xmile",
+      "sha256": "e211b3efbe5c7e10d71f0ef25955e1197ade9ef1b3117dafe6180e639f2718c6",
+      "group": "tests/lookups",
+      "eligibility": "eligible",
+      "functions": [
+        "LOOKUP_TABLE"
+      ],
+      "unsupported_equations": [],
+      "structural_features": [],
+      "status": "importable"
+    },
+    {
+      "path": "tests/lookups/test_lookups_xpts_sep.xmile",
+      "sha256": "83c66bf65398db77791daa9c10fd34cec0e9cab2074960afdba751e0f2ed7af7",
+      "group": "tests/lookups",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/lookups/test_lookups_xscale.xmile",
+      "sha256": "69ece18987958505b2fad130aba1626855fc026280eae2050debd4369b246082",
+      "group": "tests/lookups",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/lookups/test_lookups_ypts_sep.xmile",
+      "sha256": "9c92139e20ecb771ef0d920070551b94c8b1f434a6bdc5a0482a75a290d217ce",
+      "group": "tests/lookups",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/lookups_inline/test_lookups_inline.xmile",
+      "sha256": "71e35d3fc97371f016ecea6b6b0b9327af6ff667243646b0edcce3544acf3be8",
+      "group": "tests/lookups_inline",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/macro_expression/test_macro_expression.xmile",
+      "sha256": "8423c3ff3a0345fec617cc39ba3bdaf6bcbd823201a27054d97ec11f5185f3ae",
+      "group": "tests/macro_expression",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/macro_multi_expression/test_macro_multi_expression.xmile",
+      "sha256": "8423c3ff3a0345fec617cc39ba3bdaf6bcbd823201a27054d97ec11f5185f3ae",
+      "group": "tests/macro_multi_expression",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/macro_multi_macros/test_macro_multi_macros.xmile",
+      "sha256": "2dc036f5c8eb9c053417410562587ee03878f2b85b45765baf3e6dfd239da6b5",
+      "group": "tests/macro_multi_macros",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/macro_stock/test_macro_stock.xmile",
+      "sha256": "67e4b39353eba7ed362a766984992cc50121c169464fcb40011f0782277a0296",
+      "group": "tests/macro_stock",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/min_max_1arg/test_min_max_1arg.xmile",
+      "sha256": "26ef9cfcc5d735068ba9fcf296ded8ad970bfccb3cdc2e10a57d8f6f7c47dbdc",
+      "group": "tests/min_max_1arg",
+      "eligibility": "outside_equation_subset",
+      "functions": [
+        "MAX",
+        "MIN"
+      ],
+      "unsupported_equations": [
+        "function:MAX",
+        "function:MIN",
+        "syntax:subscript"
+      ],
+      "structural_features": [
+        "arrays",
+        "integrator:RK4",
+        "no_stocks"
+      ],
+      "status": "rejected",
+      "reason": "subscripts/dimensions are unsupported"
+    },
+    {
+      "path": "tests/model_doc/model_doc.xmile",
+      "sha256": "399b0b19980b26f4e8a21e5ab55b735b92408b5f2dca9bfb18221007966f86d9",
+      "group": "tests/model_doc",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/non_negative_all/test_non_negative_all1.xmile",
+      "sha256": "5552fcca5237322b1c617d76b47f7171d0ef190e4f4d0cf29840044c2362920d",
+      "group": "tests/non_negative_all",
+      "eligibility": "outside_equation_subset",
+      "functions": [],
+      "unsupported_equations": [
+        "syntax:ELSE",
+        "syntax:IF",
+        "syntax:THEN",
+        "syntax:comparison"
+      ],
+      "structural_features": [
+        "nonnegative_clipping",
+        "source_dialect"
+      ],
+      "status": "rejected",
+      "reason": "expected XMILE 1.0 in a supported namespace"
+    },
+    {
+      "path": "tests/non_negative_all/test_non_negative_all2.xmile",
+      "sha256": "3f729974ff78191a587e722af6816961937fb8e98ae888600f61ef48533da25c",
+      "group": "tests/non_negative_all",
+      "eligibility": "outside_equation_subset",
+      "functions": [],
+      "unsupported_equations": [
+        "syntax:ELSE",
+        "syntax:IF",
+        "syntax:THEN",
+        "syntax:comparison"
+      ],
+      "structural_features": [
+        "nonnegative_clipping",
+        "source_dialect"
+      ],
+      "status": "rejected",
+      "reason": "expected XMILE 1.0 in a supported namespace"
+    },
+    {
+      "path": "tests/non_negative_flows/test_non_negative_flows.xmile",
+      "sha256": "64b29b55156a949afec7edabeec9bf37f67eda0534baf39aee30bba6765c65dd",
+      "group": "tests/non_negative_flows",
+      "eligibility": "unassessable",
+      "xml_error": "mismatched tag: line 45, column 10",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: mismatched tag: line 45, column 10"
+    },
+    {
+      "path": "tests/non_negative_flows/test_non_negative_flows_behavior.xmile",
+      "sha256": "01336cf50ff3adc37c373886f2a88d7487355a3a903c815347cf26ba83877285",
+      "group": "tests/non_negative_flows",
+      "eligibility": "unassessable",
+      "xml_error": "mismatched tag: line 49, column 10",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: mismatched tag: line 49, column 10"
+    },
+    {
+      "path": "tests/non_negative_stocks/test_non_negative_stocks.xmile",
+      "sha256": "cc2c5dad138898329a29863057206c5b638542ce0f2edf5bf773a9f67e50e718",
+      "group": "tests/non_negative_stocks",
+      "eligibility": "outside_equation_subset",
+      "functions": [],
+      "unsupported_equations": [
+        "syntax:ELSE",
+        "syntax:IF",
+        "syntax:THEN",
+        "syntax:comparison"
+      ],
+      "structural_features": [
+        "nonnegative_clipping",
+        "source_dialect"
+      ],
+      "status": "rejected",
+      "reason": "expected XMILE 1.0 in a supported namespace"
+    },
+    {
+      "path": "tests/non_negative_stocks/test_non_negative_stocks_behavior.xmile",
+      "sha256": "b40c6fab828a1d3867a309d1cafa9aece428f54d2b0b866f75bb5edeb0e95b72",
+      "group": "tests/non_negative_stocks",
+      "eligibility": "outside_equation_subset",
+      "functions": [],
+      "unsupported_equations": [
+        "syntax:ELSE",
+        "syntax:IF",
+        "syntax:THEN",
+        "syntax:comparison"
+      ],
+      "structural_features": [
+        "nonnegative_clipping",
+        "source_dialect"
+      ],
+      "status": "rejected",
+      "reason": "expected XMILE 1.0 in a supported namespace"
+    },
+    {
+      "path": "tests/number_handling/test_number_handling.xmile",
+      "sha256": "bfb5de83783726784d25e91d008f3c09276304abebf13450e7d39a2fdcb36ea8",
+      "group": "tests/number_handling",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/parentheses/test_parens.xmile",
+      "sha256": "fbfb51c936074cab62b447cac27483cfc50ecd9f2d206e722e6a2008ae67138c",
+      "group": "tests/parentheses",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/pi/test_pi.xmile",
+      "sha256": "f36f13a85be4c839f86638bf78ba1b42e9b1d209dbfb68d8e6a1a1a930bf2e4e",
+      "group": "tests/pi",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/reference_capitalization/test_reference_capitalization.xmile",
+      "sha256": "a22ef645b33f3785d21e693364e7c43e98c68aaca489223c2833c227cc4ff19b",
+      "group": "tests/reference_capitalization",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/rounding/test_rounding.xmile",
+      "sha256": "1e15b6683d2dd0558d14d0ad31087b48a86d643bc3536b79c95ed9271df0a5fa",
+      "group": "tests/rounding",
+      "eligibility": "outside_equation_subset",
+      "functions": [
+        "INT"
+      ],
+      "unsupported_equations": [
+        "function:INT",
+        "syntax:MOD"
+      ],
+      "structural_features": [
+        "integrator:RK4",
+        "no_stocks"
+      ],
+      "status": "rejected",
+      "reason": "unknown symbol or unsupported function: INT"
+    },
+    {
+      "path": "tests/smooth_and_stock/test_smooth_and_stock.xmile",
+      "sha256": "60e9933ab52f88842ee66ba859a7f6c7cac2c5292852f416c2f80155fe952233",
+      "group": "tests/smooth_and_stock",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/special_characters_xmile/test_special_variable_names.xmile",
+      "sha256": "a07a89035dbfdfc69c98b242ea35edd675800c7e6c5f17660c28e5ea12cc3971",
+      "group": "tests/special_characters_xmile",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/sqrt/test_sqrt.xmile",
+      "sha256": "ef7cbe6dcff575a8a2c2b3759669080ab8ec1e6cbb210d7284e1286f99b0c8df",
+      "group": "tests/sqrt",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_1d_arrays/test_subscript_1d_arrays.xmile",
+      "sha256": "591ae62aab6c162ef9907d136f189f53f85d7081adff49b90fe208bbbc33a950",
+      "group": "tests/subscript_1d_arrays",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_constant_call/test_subscript_constant_call.xmile",
+      "sha256": "902800a7252762dda3bd2aa71fe0c057f5302f9631b877d8d088b9a9e1eb036c",
+      "group": "tests/subscript_constant_call",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_individually_defined_1d_arrays/subscript_individually_defined_1d_arrays.xmile",
+      "sha256": "548dd097081959b3461e4197faf95bdb561c7790f710abcbad2c5dd715bf66c4",
+      "group": "tests/subscript_individually_defined_1d_arrays",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_mixed_assembly/test_subscript_mixed_assembly.xmile",
+      "sha256": "26a667e96b3e2b236d0a5758c06a9b4432734876f6d25658b82b2cb60426a753",
+      "group": "tests/subscript_mixed_assembly",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_multiples/test_multiple_subscripts.xmile",
+      "sha256": "bab7f41df8d4944f9a574ef919be6b7b6f61240e1a2c1bc02830b1ccb8a49603",
+      "group": "tests/subscript_multiples",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_subranges/test_subscript_subrange.xmile",
+      "sha256": "1851e654bba073b8231a78f87d57bda2f17bc4bf889194281afd6bbcf9b2255b",
+      "group": "tests/subscript_subranges",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_subranges_equal/test_subscript_subrange_equal.xmile",
+      "sha256": "417b85d0cf18f33dc1cb444a0aac672b92c8203590c05cc5ef149837e5b07c90",
+      "group": "tests/subscript_subranges_equal",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscript_updimensioning/test_subscript_updimensioning.xmile",
+      "sha256": "71a47855a5052a376cd84a80b40f11ecd56499fbeb3db286f9fe1276e6033f5c",
+      "group": "tests/subscript_updimensioning",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscripted_flows/test_subscripted_flows.xmile",
+      "sha256": "7f7ad75bc80dfd13ef6ef2c9595074b0b2057fd28171f57e5d2751bb54a803c4",
+      "group": "tests/subscripted_flows",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/subscripted_trig/test_subscripted_trig.xmile",
+      "sha256": "751765b6dc9a0582497df8aca942ab1d88d4e08a3425346e8ddcf7757c930d38",
+      "group": "tests/subscripted_trig",
+      "eligibility": "outside_equation_subset",
+      "functions": [
+        "ABS",
+        "ARCCOS",
+        "ARCSIN",
+        "ARCTAN",
+        "COS",
+        "COSH",
+        "EXP",
+        "LN",
+        "SIN",
+        "SINH",
+        "TAN",
+        "TANH"
+      ],
+      "unsupported_equations": [
+        "function:ABS",
+        "function:ARCCOS",
+        "function:ARCSIN",
+        "function:ARCTAN",
+        "function:COS",
+        "function:COSH",
+        "function:EXP",
+        "function:LN",
+        "function:SIN",
+        "function:SINH",
+        "function:TAN",
+        "function:TANH",
+        "syntax:subscript"
+      ],
+      "structural_features": [
+        "arrays",
+        "integrator:RK4",
+        "no_stocks"
+      ],
+      "status": "rejected",
+      "reason": "subscripts/dimensions are unsupported"
+    },
+    {
+      "path": "tests/trig/test_trig.xmile",
+      "sha256": "c60f2d5d057959f15963085f8f56b1daa078506c016827008a1abb97c766069c",
+      "group": "tests/trig",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/xidz_zidz/xidz_zidz.xmile",
+      "sha256": "148216f401875319d61944b6bff208ceb81261040a22527e125b92c5e46b3139",
+      "group": "tests/xidz_zidz",
+      "eligibility": "unassessable",
+      "xml_error": "unbound prefix: line 2, column 4",
+      "status": "rejected",
+      "reason": "invalid or excessively nested XML/equation: unbound prefix: line 2, column 4"
+    },
+    {
+      "path": "tests/zeroled_decimals/test_zeroled_decimals.xmile",
+      "sha256": "d90b64ecc232ea7f24cf085b18b389a2d5647c611158c904cadf64e3ee5f299a",
+      "group": "tests/zeroled_decimals",
+      "eligibility": "eligible",
+      "functions": [],
+      "unsupported_equations": [],
+      "structural_features": [
+        "integrator:RK4"
+      ],
+      "reference_conflict": "XMILE declares RK4; historical output.tab follows Euler for the time-dependent stock. RK4 is checked against a closed form; the full historical trajectory is not a source-faithful pass.",
+      "status": "importable"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "ir_version": "0.1",
+  "name": "Message and timeout transition publications",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 0.25,
+    "horizon": 2.25
+  },
+  "parameters": [
+    {
+      "id": "duration",
+      "value": 0.5,
+      "unit": "day"
+    }
+  ],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "async",
+      "fields": [
+        {
+          "name": "state",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "entered",
+          "type": "real",
+          "unit": "day"
+        },
+        {
+          "name": "generation",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "credit",
+          "type": "integer",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "state": 0,
+          "entered": 0,
+          "generation": -1,
+          "count": 0,
+          "credit": 0
+        },
+        {
+          "state": 0,
+          "entered": 0,
+          "generation": -1,
+          "count": 0,
+          "credit": 0
+        }
+      ],
+      "chart": {
+        "fields": {
+          "state": "state",
+          "entered": "entered",
+          "generation": "generation"
+        },
+        "states": [
+          0,
+          1
+        ],
+        "initial": 0,
+        "transitions": [
+          {
+            "id": "kick",
+            "source": 0,
+            "target": 1,
+            "trigger": "message",
+            "event": "kick",
+            "assign": [
+              {
+                "field": "count",
+                "expr": "count+1"
+              }
+            ],
+            "publish": [
+              {
+                "topic": "credit",
+                "receiver": "self",
+                "value": "count+1"
+              }
+            ]
+          },
+          {
+            "id": "finish",
+            "source": 1,
+            "target": 0,
+            "trigger": "timeout",
+            "duration": "duration",
+            "assign": [
+              {
+                "field": "count",
+                "expr": "count+1"
+              }
+            ],
+            "publish": [
+              {
+                "topic": "credit",
+                "receiver": "self",
+                "value": "count"
+              }
+            ]
+          }
+        ]
+      },
+      "messages": [
+        {
+          "time": 0,
+          "agent": 0,
+          "sequence": 0,
+          "event": "kick"
+        },
+        {
+          "time": 0.25,
+          "agent": 1,
+          "sequence": 0,
+          "event": "kick"
+        },
+        {
+          "time": 0.75,
+          "agent": 0,
+          "sequence": 0,
+          "event": "kick"
+        },
+        {
+          "time": 1,
+          "agent": 1,
+          "sequence": 0,
+          "event": "kick"
+        },
+        {
+          "time": 1.5,
+          "agent": 0,
+          "sequence": 0,
+          "event": "kick"
+        }
+      ],
+      "topics": [
+        {
+          "id": "credit",
+          "capacity": 8,
+          "unit": "1",
+          "assign": [
+            {
+              "field": "credit",
+              "expr": "credit+message_value"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "state0",
+      "agent": 0,
+      "field": "state"
+    },
+    {
+      "id": "count0",
+      "agent": 0,
+      "field": "count"
+    },
+    {
+      "id": "credit0",
+      "agent": 0,
+      "field": "credit"
+    },
+    {
+      "id": "state1",
+      "agent": 1,
+      "field": "state"
+    },
+    {
+      "id": "count1",
+      "agent": 1,
+      "field": "count"
+    },
+    {
+      "id": "credit1",
+      "agent": 1,
+      "field": "credit"
+    }
+  ]
+}

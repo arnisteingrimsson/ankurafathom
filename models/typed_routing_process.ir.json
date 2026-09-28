@@ -1,0 +1,346 @@
+{
+  "ir_version": "0.1",
+  "name": "typed_categorical_delivery",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.125,
+    "horizon": 6
+  },
+  "components": [
+    {
+      "id": "work",
+      "kind": "entity_type",
+      "fields": [
+        {
+          "id": "duration",
+          "type": "real",
+          "unit": "day"
+        },
+        {
+          "id": "rank",
+          "type": "integer",
+          "unit": "1"
+        }
+      ]
+    },
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "entity_type": "work",
+      "priority": "rank",
+      "schedule": [
+        {
+          "arrival": 0.0,
+          "values": {
+            "duration": 1.0,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 0.125,
+          "values": {
+            "duration": 1.25,
+            "rank": -1
+          }
+        },
+        {
+          "arrival": 0.25,
+          "values": {
+            "duration": 1.5,
+            "rank": 0
+          }
+        },
+        {
+          "arrival": 0.375,
+          "values": {
+            "duration": 1.0,
+            "rank": 1
+          }
+        },
+        {
+          "arrival": 0.5,
+          "values": {
+            "duration": 1.25,
+            "rank": 2
+          }
+        },
+        {
+          "arrival": 0.625,
+          "values": {
+            "duration": 1.5,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 0.75,
+          "values": {
+            "duration": 1.0,
+            "rank": -1
+          }
+        },
+        {
+          "arrival": 0.875,
+          "values": {
+            "duration": 1.25,
+            "rank": 0
+          }
+        },
+        {
+          "arrival": 1.0,
+          "values": {
+            "duration": 1.5,
+            "rank": 1
+          }
+        },
+        {
+          "arrival": 1.125,
+          "values": {
+            "duration": 1.0,
+            "rank": 2
+          }
+        },
+        {
+          "arrival": 1.25,
+          "values": {
+            "duration": 1.25,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 1.375,
+          "values": {
+            "duration": 1.5,
+            "rank": -1
+          }
+        },
+        {
+          "arrival": 1.5,
+          "values": {
+            "duration": 1.0,
+            "rank": 0
+          }
+        },
+        {
+          "arrival": 1.625,
+          "values": {
+            "duration": 1.25,
+            "rank": 1
+          }
+        },
+        {
+          "arrival": 1.75,
+          "values": {
+            "duration": 1.5,
+            "rank": 2
+          }
+        },
+        {
+          "arrival": 1.875,
+          "values": {
+            "duration": 1.0,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 2.0,
+          "values": {
+            "duration": 1.25,
+            "rank": -1
+          }
+        },
+        {
+          "arrival": 2.125,
+          "values": {
+            "duration": 1.5,
+            "rank": 0
+          }
+        },
+        {
+          "arrival": 2.25,
+          "values": {
+            "duration": 1.0,
+            "rank": 1
+          }
+        },
+        {
+          "arrival": 2.375,
+          "values": {
+            "duration": 1.25,
+            "rank": 2
+          }
+        },
+        {
+          "arrival": 2.5,
+          "values": {
+            "duration": 1.5,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 2.625,
+          "values": {
+            "duration": 1.0,
+            "rank": -1
+          }
+        },
+        {
+          "arrival": 2.75,
+          "values": {
+            "duration": 1.25,
+            "rank": 0
+          }
+        },
+        {
+          "arrival": 2.875,
+          "values": {
+            "duration": 1.5,
+            "rank": 1
+          }
+        },
+        {
+          "arrival": 3.0,
+          "values": {
+            "duration": 1.0,
+            "rank": 2
+          }
+        },
+        {
+          "arrival": 3.125,
+          "values": {
+            "duration": 1.25,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 3.25,
+          "values": {
+            "duration": 1.5,
+            "rank": -1
+          }
+        },
+        {
+          "arrival": 3.375,
+          "values": {
+            "duration": 1.0,
+            "rank": 0
+          }
+        },
+        {
+          "arrival": 3.5,
+          "values": {
+            "duration": 1.25,
+            "rank": 1
+          }
+        },
+        {
+          "arrival": 3.625,
+          "values": {
+            "duration": 1.5,
+            "rank": 2
+          }
+        },
+        {
+          "arrival": 3.75,
+          "values": {
+            "duration": 1.0,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 3.875,
+          "values": {
+            "duration": 1.25,
+            "rank": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "kind": "select_output",
+      "entity_type": "work",
+      "stream": 500,
+      "branches": [
+        {
+          "port": "fast",
+          "probability": 0.25
+        },
+        {
+          "port": "unused",
+          "probability": 0
+        },
+        {
+          "port": "regular",
+          "probability": 0.75
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "kind": "delay_block",
+      "entity_type": "work",
+      "duration": "duration"
+    },
+    {
+      "id": "done",
+      "kind": "sink",
+      "entity_type": "work"
+    }
+  ],
+  "links": [
+    {
+      "from": "arrivals",
+      "to": "choice"
+    },
+    {
+      "from": "choice",
+      "port": "fast",
+      "to": "delivery"
+    },
+    {
+      "from": "choice",
+      "port": "unused",
+      "to": "delivery"
+    },
+    {
+      "from": "choice",
+      "port": "regular",
+      "to": "delivery"
+    },
+    {
+      "from": "delivery",
+      "to": "done"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fast_count",
+      "component": "choice",
+      "metric": "routed",
+      "port": "fast"
+    },
+    {
+      "id": "unused_count",
+      "component": "choice",
+      "metric": "routed",
+      "port": "unused"
+    },
+    {
+      "id": "regular_count",
+      "component": "choice",
+      "metric": "routed",
+      "port": "regular"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    }
+  ]
+}

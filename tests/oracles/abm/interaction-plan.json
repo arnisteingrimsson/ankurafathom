@@ -1,0 +1,4753 @@
+{
+  "cases": [
+    {
+      "id": "interaction_0_grid",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 0,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0,
+                "x": 1,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 0,
+                "x": 3,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0,
+                "x": 2,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": false,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": false,
+                "moore": false,
+                "op": "mean",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": false,
+                "moore": false,
+                "op": "sum",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": false,
+                "moore": false,
+                "op": "count",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": false,
+                "moore": false,
+                "op": "count_same",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "height": 3,
+              "kind": "grid",
+              "width": 4,
+              "wrap": false,
+              "x": "x",
+              "y": "y"
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_0_grid",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_1_grid",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 0,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0,
+                "x": 1,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 0,
+                "x": 3,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0,
+                "x": 2,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": true,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": true,
+                "moore": true,
+                "op": "mean",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": true,
+                "moore": true,
+                "op": "sum",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": true,
+                "moore": true,
+                "op": "count",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": true,
+                "moore": true,
+                "op": "count_same",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "height": 3,
+              "kind": "grid",
+              "width": 4,
+              "wrap": false,
+              "x": "x",
+              "y": "y"
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_1_grid",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_2_grid",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 1,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 1,
+                "x": 1,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 1,
+                "x": 3,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 1,
+                "x": 2,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": false,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": false,
+                "moore": false,
+                "op": "mean",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": false,
+                "moore": false,
+                "op": "sum",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": false,
+                "moore": false,
+                "op": "count",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": false,
+                "moore": false,
+                "op": "count_same",
+                "radius": 1,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "height": 3,
+              "kind": "grid",
+              "width": 4,
+              "wrap": true,
+              "x": "x",
+              "y": "y"
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_2_grid",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_3_grid",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 1,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 1,
+                "x": 1,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 1,
+                "x": 3,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 1,
+                "x": 2,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": true,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": true,
+                "moore": true,
+                "op": "mean",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": true,
+                "moore": true,
+                "op": "sum",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": true,
+                "moore": true,
+                "op": "count",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": true,
+                "moore": true,
+                "op": "count_same",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "height": 3,
+              "kind": "grid",
+              "width": 4,
+              "wrap": true,
+              "x": "x",
+              "y": "y"
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_3_grid",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_4_grid",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 1,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 1,
+                "x": 1,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 1,
+                "x": 3,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 1,
+                "x": 2,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": true,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": true,
+                "moore": true,
+                "op": "mean",
+                "radius": 0,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": true,
+                "moore": true,
+                "op": "sum",
+                "radius": 0,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": true,
+                "moore": true,
+                "op": "count",
+                "radius": 0,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": true,
+                "moore": true,
+                "op": "count_same",
+                "radius": 0,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "height": 3,
+              "kind": "grid",
+              "width": 4,
+              "wrap": true,
+              "x": "x",
+              "y": "y"
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_4_grid",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_5_grid",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 1,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 1,
+                "x": 1,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 1,
+                "x": 3,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 1,
+                "x": 2,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "integer",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": true,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": true,
+                "moore": true,
+                "op": "mean",
+                "radius": 8,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": true,
+                "moore": true,
+                "op": "sum",
+                "radius": 8,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": true,
+                "moore": true,
+                "op": "count",
+                "radius": 8,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": true,
+                "moore": true,
+                "op": "count_same",
+                "radius": 8,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "height": 3,
+              "kind": "grid",
+              "width": 4,
+              "wrap": true,
+              "x": "x",
+              "y": "y"
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_5_grid",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_6_continuous",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 0,
+                "x": 0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0,
+                "x": 1.75,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": false,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": false,
+                "op": "mean",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": false,
+                "op": "sum",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": false,
+                "op": "count",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": false,
+                "op": "count_same",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "bin_width": 0.6,
+              "fields": [
+                "x",
+                "y"
+              ],
+              "kind": "continuous",
+              "lower": [
+                -1,
+                -1
+              ],
+              "unit": "1",
+              "upper": [
+                3,
+                3
+              ],
+              "wrap": false
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_6_continuous",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_7_continuous",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 0,
+                "x": 0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0,
+                "x": 1.75,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": true,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": true,
+                "op": "mean",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": true,
+                "op": "sum",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": true,
+                "op": "count",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": true,
+                "op": "count_same",
+                "radius": 2,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "bin_width": 0.6,
+              "fields": [
+                "x",
+                "y"
+              ],
+              "kind": "continuous",
+              "lower": [
+                -1,
+                -1
+              ],
+              "unit": "1",
+              "upper": [
+                3,
+                3
+              ],
+              "wrap": false
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_7_continuous",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_8_continuous",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": -0.5,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0.25,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": -0.5,
+                "x": 0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0.25,
+                "x": 1.75,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": false,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": false,
+                "op": "mean",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": false,
+                "op": "sum",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": false,
+                "op": "count",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": false,
+                "op": "count_same",
+                "radius": 0.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "bin_width": 0.6,
+              "fields": [
+                "x",
+                "y"
+              ],
+              "kind": "continuous",
+              "lower": [
+                -1,
+                -1
+              ],
+              "unit": "1",
+              "upper": [
+                3,
+                3
+              ],
+              "wrap": true
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_8_continuous",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_9_continuous",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": -0.5,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0.25,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": -0.5,
+                "x": 0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0.25,
+                "x": 1.75,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": true,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": true,
+                "op": "mean",
+                "radius": 1.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": true,
+                "op": "sum",
+                "radius": 1.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "id": "degree",
+                "include_self": true,
+                "op": "count",
+                "radius": 1.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": true,
+                "op": "count_same",
+                "radius": 1.5,
+                "source": "space",
+                "unit": "1"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ],
+            "space": {
+              "bin_width": 0.6,
+              "fields": [
+                "x",
+                "y"
+              ],
+              "kind": "continuous",
+              "lower": [
+                -1,
+                -1
+              ],
+              "unit": "1",
+              "upper": [
+                3,
+                3
+              ],
+              "wrap": true
+            }
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_9_continuous",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_10_network",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 0,
+                "x": 0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0,
+                "x": 1.75,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": false,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": false,
+                "op": "mean",
+                "source": "network"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": false,
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "degree",
+                "include_self": false,
+                "op": "count",
+                "source": "network"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": false,
+                "op": "count_same",
+                "source": "network"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ]
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_10_network",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_11_network",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 0,
+                "x": 0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0,
+                "x": 1.75,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": true,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": true,
+                "op": "mean",
+                "source": "network"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": true,
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "degree",
+                "include_self": true,
+                "op": "count",
+                "source": "network"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": true,
+                "op": "count_same",
+                "source": "network"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ]
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_11_network",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    },
+    {
+      "id": "interaction_12_population",
+      "model": {
+        "components": [
+          {
+            "agents": [
+              {
+                "group": "a",
+                "value": 1.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "a",
+                "value": 3.0,
+                "vx": 0,
+                "x": -0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 5.0,
+                "vx": 0,
+                "x": 0.25,
+                "y": 0
+              },
+              {
+                "group": "b",
+                "value": 7.0,
+                "vx": 0,
+                "x": 1.75,
+                "y": 1
+              }
+            ],
+            "execution": "sync",
+            "fields": [
+              {
+                "name": "x",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "y",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "value",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "vx",
+                "type": "real",
+                "unit": "1"
+              },
+              {
+                "name": "group",
+                "type": "string",
+                "unit": "1"
+              }
+            ],
+            "id": "people",
+            "kind": "population",
+            "network": {
+              "directed": false,
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            },
+            "phases": [
+              {
+                "assign": [
+                  {
+                    "expr": "(value+near_mean)/2",
+                    "field": "value"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "x+vx",
+                    "field": "x"
+                  }
+                ]
+              },
+              {
+                "assign": [
+                  {
+                    "expr": "value+linked_sum/8",
+                    "field": "value"
+                  }
+                ]
+              }
+            ],
+            "queries": [
+              {
+                "field": "value",
+                "id": "near_mean",
+                "include_self": false,
+                "op": "mean",
+                "source": "population"
+              },
+              {
+                "field": "value",
+                "id": "near_sum",
+                "include_self": false,
+                "op": "sum",
+                "source": "population"
+              },
+              {
+                "id": "degree",
+                "include_self": false,
+                "op": "count",
+                "source": "population"
+              },
+              {
+                "field": "group",
+                "id": "same",
+                "include_self": false,
+                "op": "count_same",
+                "source": "population"
+              },
+              {
+                "field": "value",
+                "id": "linked_sum",
+                "op": "sum",
+                "source": "network"
+              },
+              {
+                "id": "all_count",
+                "include_self": true,
+                "op": "count",
+                "source": "population"
+              }
+            ]
+          }
+        ],
+        "ir_version": "0.1",
+        "mode": "abm",
+        "name": "interaction_12_population",
+        "outputs": [
+          {
+            "agent": 0,
+            "field": "x",
+            "id": "a0_x"
+          },
+          {
+            "agent": 0,
+            "field": "y",
+            "id": "a0_y"
+          },
+          {
+            "agent": 0,
+            "field": "value",
+            "id": "a0_value"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 0,
+            "id": "a0_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 0,
+            "id": "a0_same",
+            "query": "same"
+          },
+          {
+            "agent": 0,
+            "id": "a0_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 0,
+            "id": "a0_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 1,
+            "field": "x",
+            "id": "a1_x"
+          },
+          {
+            "agent": 1,
+            "field": "y",
+            "id": "a1_y"
+          },
+          {
+            "agent": 1,
+            "field": "value",
+            "id": "a1_value"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 1,
+            "id": "a1_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 1,
+            "id": "a1_same",
+            "query": "same"
+          },
+          {
+            "agent": 1,
+            "id": "a1_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 1,
+            "id": "a1_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 2,
+            "field": "x",
+            "id": "a2_x"
+          },
+          {
+            "agent": 2,
+            "field": "y",
+            "id": "a2_y"
+          },
+          {
+            "agent": 2,
+            "field": "value",
+            "id": "a2_value"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 2,
+            "id": "a2_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 2,
+            "id": "a2_same",
+            "query": "same"
+          },
+          {
+            "agent": 2,
+            "id": "a2_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 2,
+            "id": "a2_all_count",
+            "query": "all_count"
+          },
+          {
+            "agent": 3,
+            "field": "x",
+            "id": "a3_x"
+          },
+          {
+            "agent": 3,
+            "field": "y",
+            "id": "a3_y"
+          },
+          {
+            "agent": 3,
+            "field": "value",
+            "id": "a3_value"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_mean",
+            "query": "near_mean"
+          },
+          {
+            "agent": 3,
+            "id": "a3_near_sum",
+            "query": "near_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_degree",
+            "query": "degree"
+          },
+          {
+            "agent": 3,
+            "id": "a3_same",
+            "query": "same"
+          },
+          {
+            "agent": 3,
+            "id": "a3_linked_sum",
+            "query": "linked_sum"
+          },
+          {
+            "agent": 3,
+            "id": "a3_all_count",
+            "query": "all_count"
+          }
+        ],
+        "parameters": [],
+        "time": {
+          "dt": 1,
+          "horizon": 8,
+          "unit": "day"
+        }
+      }
+    }
+  ],
+  "version": 1
+}

@@ -1,0 +1,42 @@
+<xmile xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" version="1.0">
+<header><name>Variable delay conformance</name></header>
+<sim_specs method="Euler"><start>0</start><stop>4</stop><dt>0.125</dt></sim_specs>
+<model><variables>
+<aux name="tau"><eqn>TIME</eqn><gf><xpts>0,1,1.125,2,2.125,3,4</xpts><ypts>3,3,1.5,1.5,6,6,3</ypts></gf></aux>
+<aux name="forcing"><eqn>TIME</eqn><gf><xpts>0,1,2,3,4</xpts><ypts>4,4,8,2,2</ypts></gf></aux>
+<stock name="clock_stock"><eqn>1.5</eqn><inflow>clock_rate</inflow></stock>
+<flow name="clock_rate"><eqn>0.25</eqn></flow>
+<aux name="smth1_default"><eqn>SMTH1(forcing,tau)</eqn></aux>
+<stock name="stock_smth1_default"><eqn>0</eqn><inflow>flow_smth1_default</inflow></stock>
+<flow name="flow_smth1_default"><eqn>smth1_default</eqn></flow>
+<aux name="smth1_explicit"><eqn>SMTH1(forcing,tau,1)</eqn></aux>
+<stock name="stock_smth1_explicit"><eqn>0</eqn><inflow>flow_smth1_explicit</inflow></stock>
+<flow name="flow_smth1_explicit"><eqn>smth1_explicit</eqn></flow>
+<aux name="smth3_default"><eqn>SMTH3(forcing,tau)</eqn></aux>
+<stock name="stock_smth3_default"><eqn>0</eqn><inflow>flow_smth3_default</inflow></stock>
+<flow name="flow_smth3_default"><eqn>smth3_default</eqn></flow>
+<aux name="smth3_explicit"><eqn>SMTH3(forcing,tau,1)</eqn></aux>
+<stock name="stock_smth3_explicit"><eqn>0</eqn><inflow>flow_smth3_explicit</inflow></stock>
+<flow name="flow_smth3_explicit"><eqn>smth3_explicit</eqn></flow>
+<aux name="delay1_default"><eqn>DELAY1(forcing,tau)</eqn></aux>
+<stock name="stock_delay1_default"><eqn>0</eqn><inflow>flow_delay1_default</inflow></stock>
+<flow name="flow_delay1_default"><eqn>delay1_default</eqn></flow>
+<aux name="delay1_explicit"><eqn>DELAY1(forcing,tau,1)</eqn></aux>
+<stock name="stock_delay1_explicit"><eqn>0</eqn><inflow>flow_delay1_explicit</inflow></stock>
+<flow name="flow_delay1_explicit"><eqn>delay1_explicit</eqn></flow>
+<aux name="delay3_default"><eqn>DELAY3(forcing,tau)</eqn></aux>
+<stock name="stock_delay3_default"><eqn>0</eqn><inflow>flow_delay3_default</inflow></stock>
+<flow name="flow_delay3_default"><eqn>delay3_default</eqn></flow>
+<aux name="delay3_explicit"><eqn>DELAY3(forcing,tau,1)</eqn></aux>
+<stock name="stock_delay3_explicit"><eqn>0</eqn><inflow>flow_delay3_explicit</inflow></stock>
+<flow name="flow_delay3_explicit"><eqn>delay3_explicit</eqn></flow>
+<aux name="nested"><eqn>SMTH1(DELAY3(forcing,tau,1),tau)</eqn></aux>
+<stock name="stock_nested"><eqn>0</eqn><inflow>flow_nested</inflow></stock>
+<flow name="flow_nested"><eqn>nested</eqn></flow>
+<aux name="stock_tau"><eqn>DELAY3(forcing,clock_stock,1)</eqn></aux>
+<stock name="stock_stock_tau"><eqn>0</eqn><inflow>flow_stock_tau</inflow></stock>
+<flow name="flow_stock_tau"><eqn>stock_tau</eqn></flow>
+<aux name="feedback_tau"><eqn>DELAY1(forcing,1.5+stock_feedback_tau/20,1)</eqn></aux>
+<stock name="stock_feedback_tau"><eqn>0</eqn><inflow>flow_feedback_tau</inflow></stock>
+<flow name="flow_feedback_tau"><eqn>feedback_tau</eqn></flow>
+</variables></model></xmile>

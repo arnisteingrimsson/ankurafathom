@@ -1,0 +1,2345 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "case_00",
+      "dt": 0.25,
+      "initial": [
+        100,
+        200,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775809,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775825,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775825,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775826,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775841,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775842,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775873,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775874,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775889,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775890,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775905,
+          "quantity": 2,
+          "price": 3
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.03125
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.0625
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.09375
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.125
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.03125
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.0625
+        }
+      ]
+    },
+    {
+      "id": "case_01",
+      "dt": 0.5,
+      "initial": [
+        102,
+        203,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775809,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775809,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775810,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775825,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775826,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775857,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775858,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775873,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775874,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775889,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775905,
+          "quantity": 3,
+          "price": 4
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.0625
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.09375
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.125
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.03125
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.0625
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.09375
+        }
+      ]
+    },
+    {
+      "id": "case_02",
+      "dt": 1,
+      "initial": [
+        104,
+        206,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775809,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775810,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775841,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775842,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775857,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775858,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775873,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775889,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 3,
+          "price": 3
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.09375
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.125
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.03125
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.0625
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.09375
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.125
+        }
+      ]
+    },
+    {
+      "id": "case_03",
+      "dt": 0.25,
+      "initial": [
+        106,
+        209,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775825,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775826,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775841,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775842,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775857,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775873,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775905,
+          "quantity": 2,
+          "price": 2
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.125
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.03125
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.0625
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.09375
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.125
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.03125
+        }
+      ]
+    },
+    {
+      "id": "case_04",
+      "dt": 0.5,
+      "initial": [
+        108,
+        212,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775809,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775810,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775825,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775826,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775841,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775857,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775889,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775905,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775905,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775906,
+          "quantity": 1,
+          "price": 1
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.03125
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.0625
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.09375
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.125
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.03125
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.0625
+        }
+      ]
+    },
+    {
+      "id": "case_05",
+      "dt": 1,
+      "initial": [
+        110,
+        215,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775809,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775810,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775825,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775841,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775873,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775889,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775889,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775890,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775905,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775906,
+          "quantity": 2,
+          "price": 2
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.0625
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.09375
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.125
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.03125
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.0625
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.09375
+        }
+      ]
+    },
+    {
+      "id": "case_06",
+      "dt": 0.25,
+      "initial": [
+        112,
+        218,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775809,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775825,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775857,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775873,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775873,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775874,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775889,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775890,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775905,
+          "quantity": 2,
+          "price": 1
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.09375
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.125
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.03125
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.0625
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.09375
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.125
+        }
+      ]
+    },
+    {
+      "id": "case_07",
+      "dt": 0.5,
+      "initial": [
+        114,
+        221,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775809,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775841,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775857,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775857,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775858,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775873,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775874,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775889,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775905,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775905,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775906,
+          "quantity": 1,
+          "price": 4
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.125
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.03125
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.0625
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.09375
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.125
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.03125
+        }
+      ]
+    },
+    {
+      "id": "case_08",
+      "dt": 1,
+      "initial": [
+        116,
+        224,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775825,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775841,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775841,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775842,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775857,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775858,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775873,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775889,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775889,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775890,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775905,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775906,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 3,
+          "price": 1
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.03125
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.0625
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.09375
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.125
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.03125
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.0625
+        }
+      ]
+    },
+    {
+      "id": "case_09",
+      "dt": 0.25,
+      "initial": [
+        118,
+        227,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775809,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775825,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775825,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775826,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775841,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775842,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775857,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775873,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775873,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775874,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775889,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775890,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 1,
+          "price": 2
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.0625
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.09375
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.125
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.03125
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.0625
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.09375
+        }
+      ]
+    },
+    {
+      "id": "case_10",
+      "dt": 0.5,
+      "initial": [
+        120,
+        230,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775809,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775808,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775809,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0,
+          "channel": 1,
+          "key": 9223372036854775810,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775824,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775825,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 0.25,
+          "channel": 0,
+          "key": 9223372036854775826,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775841,
+          "quantity": 2,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775857,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775857,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775858,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775873,
+          "quantity": 1,
+          "price": 1
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775874,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 1.125,
+          "channel": 1,
+          "key": 9223372036854775872,
+          "quantity": 3,
+          "price": 3
+        },
+        {
+          "time": 1.5,
+          "channel": 0,
+          "key": 9223372036854775888,
+          "quantity": 1,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 2,
+          "price": 3
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775905,
+          "quantity": 3,
+          "price": 1
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775906,
+          "quantity": 1,
+          "price": 3
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.09375
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.125
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.03125
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.0625
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.09375
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.125
+        }
+      ]
+    },
+    {
+      "id": "case_11",
+      "dt": 1,
+      "initial": [
+        122,
+        233,
+        0
+      ],
+      "events": [
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775808,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775809,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0,
+          "channel": 0,
+          "key": 9223372036854775810,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775824,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.25,
+          "channel": 1,
+          "key": 9223372036854775825,
+          "quantity": 2,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775840,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 0,
+          "key": 9223372036854775841,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775840,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775841,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 0.375,
+          "channel": 1,
+          "key": 9223372036854775842,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775856,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775857,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 0.5,
+          "channel": 0,
+          "key": 9223372036854775858,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 0.5,
+          "channel": 1,
+          "key": 9223372036854775856,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 1.125,
+          "channel": 0,
+          "key": 9223372036854775872,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775888,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775889,
+          "quantity": 3,
+          "price": 2
+        },
+        {
+          "time": 1.5,
+          "channel": 1,
+          "key": 9223372036854775890,
+          "quantity": 1,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775904,
+          "quantity": 3,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775905,
+          "quantity": 1,
+          "price": 2
+        },
+        {
+          "time": 2.25,
+          "channel": 0,
+          "key": 9223372036854775906,
+          "quantity": 2,
+          "price": 4
+        },
+        {
+          "time": 2.25,
+          "channel": 1,
+          "key": 9223372036854775904,
+          "quantity": 3,
+          "price": 4
+        }
+      ],
+      "signals": [
+        {
+          "time": 0,
+          "revision": 0,
+          "value": 0.125
+        },
+        {
+          "time": 0.375,
+          "revision": 3,
+          "value": 0.03125
+        },
+        {
+          "time": 0.5,
+          "revision": 6,
+          "value": 0.0625
+        },
+        {
+          "time": 1.125,
+          "revision": 9,
+          "value": 0.09375
+        },
+        {
+          "time": 1.5,
+          "revision": 12,
+          "value": 0.125
+        },
+        {
+          "time": 2.25,
+          "revision": 15,
+          "value": 0.03125
+        }
+      ]
+    }
+  ],
+  "orders": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      1
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      2,
+      0,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ]
+  ],
+  "input_orders": [
+    0,
+    1
+  ],
+  "horizons": [
+    0.0,
+    0.125,
+    0.25,
+    0.375,
+    0.5,
+    0.625,
+    0.75,
+    0.875,
+    1.0,
+    1.125,
+    1.25,
+    1.375,
+    1.5,
+    1.625,
+    1.75,
+    1.875,
+    2.0,
+    2.125,
+    2.25,
+    2.375,
+    2.5
+  ],
+  "tolerance": 2e-12
+}

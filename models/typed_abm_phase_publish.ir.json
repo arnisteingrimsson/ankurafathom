@@ -1,0 +1,90 @@
+{
+  "ir_version": "0.1",
+  "name": "Phase publications after a complete synchronous tick",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 1,
+    "horizon": 3
+  },
+  "parameters": [],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "fields": [
+        {
+          "name": "value",
+          "type": "integer",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "value",
+              "expr": "value+10"
+            }
+          ],
+          "publish": [
+            {
+              "topic": "collect",
+              "receiver": "self",
+              "value": "value"
+            }
+          ]
+        },
+        {
+          "assign": [
+            {
+              "field": "value",
+              "expr": "value*2"
+            }
+          ],
+          "publish": [
+            {
+              "topic": "collect",
+              "receiver": "self",
+              "value": "value"
+            }
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "id": "collect",
+          "capacity": 8,
+          "unit": "1",
+          "assign": [
+            {
+              "field": "value",
+              "expr": "value+message_value"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "first",
+      "agent": 0,
+      "field": "value"
+    },
+    {
+      "id": "second",
+      "agent": 1,
+      "field": "value"
+    }
+  ]
+}

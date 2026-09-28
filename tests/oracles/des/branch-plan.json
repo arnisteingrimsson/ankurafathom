@@ -1,0 +1,621 @@
+{
+  "version": 1,
+  "warmup": 200,
+  "window": 1000,
+  "native_seed": 2026092501,
+  "arrival_rate": 0.6,
+  "arrival_stream": 400,
+  "service_streams": [
+    401,
+    402,
+    403
+  ],
+  "routing_stream": 404,
+  "pilot_replications": 64,
+  "pilot_seed_base": 1031001,
+  "sigma_inflation": 1.25,
+  "false_alarm_z": 4.0,
+  "power_z": 1.645,
+  "cases": [
+    {
+      "name": "branch_35",
+      "scenario": 40,
+      "service_rates": [
+        1.0,
+        0.8,
+        1.2
+      ],
+      "branch_probability": 0.35,
+      "replications": 56,
+      "metrics": {
+        "s0_queue": {
+          "target": 0.9,
+          "exact": "9/10",
+          "tolerance": 0.22000000000000003,
+          "pilot_sd": 0.21995922662,
+          "required_replications": 50
+        },
+        "s0_wait": {
+          "target": 1.5,
+          "exact": "3/2",
+          "tolerance": 0.36000000000000004,
+          "pilot_sd": 0.361064845084,
+          "required_replications": 51
+        },
+        "s0_utilization": {
+          "target": 0.6,
+          "exact": "3/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0323094086296,
+          "required_replications": 43
+        },
+        "s0_throughput": {
+          "target": 0.6,
+          "exact": "3/5",
+          "tolerance": 0.045,
+          "pilot_sd": 0.0217003401334,
+          "required_replications": 12
+        },
+        "s1_queue": {
+          "target": 0.0934322033898305,
+          "exact": "441/4720",
+          "tolerance": 0.058686440677966106,
+          "pilot_sd": 0.0299608869473,
+          "required_replications": 13
+        },
+        "s1_wait": {
+          "target": 0.4449152542372881,
+          "exact": "105/236",
+          "tolerance": 0.1489830508474576,
+          "pilot_sd": 0.13434379276,
+          "required_replications": 41
+        },
+        "s1_utilization": {
+          "target": 0.2625,
+          "exact": "21/80",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0247692089442,
+          "required_replications": 25
+        },
+        "s1_throughput": {
+          "target": 0.21,
+          "exact": "21/100",
+          "tolerance": 0.025500000000000002,
+          "pilot_sd": 0.0123968762066,
+          "required_replications": 12
+        },
+        "s2_queue": {
+          "target": 0.15648148148148147,
+          "exact": "169/1080",
+          "tolerance": 0.0712962962962963,
+          "pilot_sd": 0.0408405455863,
+          "required_replications": 17
+        },
+        "s2_wait": {
+          "target": 0.4012345679012346,
+          "exact": "65/162",
+          "tolerance": 0.14024691358024693,
+          "pilot_sd": 0.0986833904756,
+          "required_replications": 25
+        },
+        "s2_utilization": {
+          "target": 0.325,
+          "exact": "13/40",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0210273959253,
+          "required_replications": 18
+        },
+        "s2_throughput": {
+          "target": 0.39,
+          "exact": "39/100",
+          "tolerance": 0.0345,
+          "pilot_sd": 0.0173323889395,
+          "required_replications": 13
+        },
+        "cycle": {
+          "target": 3.89568947478552,
+          "exact": "37235/9558",
+          "tolerance": 0.734353421217828,
+          "pilot_sd": 0.412745351475,
+          "required_replications": 16
+        },
+        "match_fraction": {
+          "target": 0.35,
+          "exact": "7/20",
+          "tolerance": 0.025,
+          "pilot_sd": 0.01633206635,
+          "required_replications": 22
+        },
+        "p000": {
+          "target": 0.199125,
+          "exact": "1593/8000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0254891550045,
+          "required_replications": 52
+        },
+        "p001": {
+          "target": 0.064715625,
+          "exact": "20709/320000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00886266160237,
+          "required_replications": 7
+        },
+        "p002": {
+          "target": 0.031159375,
+          "exact": "9971/320000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00794090704925,
+          "required_replications": 6
+        },
+        "p010": {
+          "target": 0.0522703125,
+          "exact": "33453/640000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00921228182154,
+          "required_replications": 7
+        },
+        "p011": {
+          "target": 0.0169878515625,
+          "exact": "434889/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00318078836148,
+          "required_replications": 1
+        },
+        "p012": {
+          "target": 0.0081793359375,
+          "exact": "209391/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00323159912536,
+          "required_replications": 1
+        },
+        "p020": {
+          "target": 0.0186046875,
+          "exact": "11907/640000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00594925660623,
+          "required_replications": 3
+        },
+        "p021": {
+          "target": 0.0060465234375,
+          "exact": "154791/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00252612074833,
+          "required_replications": 1
+        },
+        "p022": {
+          "target": 0.0029112890625,
+          "exact": "74529/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00181494833393,
+          "required_replications": 1
+        },
+        "p100": {
+          "target": 0.119475,
+          "exact": "4779/40000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0123267246567,
+          "required_replications": 13
+        },
+        "p101": {
+          "target": 0.038829375,
+          "exact": "62127/1600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00583525051263,
+          "required_replications": 3
+        },
+        "p102": {
+          "target": 0.018695625,
+          "exact": "29913/1600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00451854056901,
+          "required_replications": 2
+        },
+        "p110": {
+          "target": 0.0313621875,
+          "exact": "100359/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00610494679546,
+          "required_replications": 3
+        },
+        "p111": {
+          "target": 0.0101927109375,
+          "exact": "1304667/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00256284782155,
+          "required_replications": 1
+        },
+        "p112": {
+          "target": 0.0049076015625,
+          "exact": "628173/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00212304022007,
+          "required_replications": 1
+        },
+        "p120": {
+          "target": 0.0111628125,
+          "exact": "35721/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00392808592478,
+          "required_replications": 2
+        },
+        "p121": {
+          "target": 0.0036279140625,
+          "exact": "464373/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00141822009032,
+          "required_replications": 1
+        },
+        "p122": {
+          "target": 0.0017467734375,
+          "exact": "223587/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00137910223354,
+          "required_replications": 1
+        },
+        "p200": {
+          "target": 0.1792125,
+          "exact": "14337/80000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0231870952729,
+          "required_replications": 43
+        },
+        "p201": {
+          "target": 0.0582440625,
+          "exact": "186381/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00909910211929,
+          "required_replications": 7
+        },
+        "p202": {
+          "target": 0.0280434375,
+          "exact": "89739/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00775169662271,
+          "required_replications": 5
+        },
+        "p210": {
+          "target": 0.04704328125,
+          "exact": "301077/6400000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0101685024444,
+          "required_replications": 9
+        },
+        "p211": {
+          "target": 0.01528906640625,
+          "exact": "3914001/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00435434151336,
+          "required_replications": 2
+        },
+        "p212": {
+          "target": 0.00736140234375,
+          "exact": "1884519/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00267307731429,
+          "required_replications": 1
+        },
+        "p220": {
+          "target": 0.01674421875,
+          "exact": "107163/6400000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00743115569785,
+          "required_replications": 5
+        },
+        "p221": {
+          "target": 0.00544187109375,
+          "exact": "1393119/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0028112317354,
+          "required_replications": 1
+        },
+        "p222": {
+          "target": 0.00262016015625,
+          "exact": "670761/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0017989016137,
+          "required_replications": 1
+        }
+      }
+    },
+    {
+      "name": "branch_65",
+      "scenario": 41,
+      "service_rates": [
+        1.0,
+        0.8,
+        1.2
+      ],
+      "branch_probability": 0.65,
+      "replications": 64,
+      "metrics": {
+        "s0_queue": {
+          "target": 0.9,
+          "exact": "9/10",
+          "tolerance": 0.22000000000000003,
+          "pilot_sd": 0.1813257604,
+          "required_replications": 34
+        },
+        "s0_wait": {
+          "target": 1.5,
+          "exact": "3/2",
+          "tolerance": 0.36000000000000004,
+          "pilot_sd": 0.286888061341,
+          "required_replications": 32
+        },
+        "s0_utilization": {
+          "target": 0.6,
+          "exact": "3/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0293321207087,
+          "required_replications": 35
+        },
+        "s0_throughput": {
+          "target": 0.6,
+          "exact": "3/5",
+          "tolerance": 0.045,
+          "pilot_sd": 0.0215203795531,
+          "required_replications": 12
+        },
+        "s1_queue": {
+          "target": 0.463719512195122,
+          "exact": "1521/3280",
+          "tolerance": 0.1327439024390244,
+          "pilot_sd": 0.136781640181,
+          "required_replications": 53
+        },
+        "s1_wait": {
+          "target": 1.1890243902439024,
+          "exact": "195/164",
+          "tolerance": 0.2978048780487805,
+          "pilot_sd": 0.31353666791,
+          "required_replications": 56
+        },
+        "s1_utilization": {
+          "target": 0.4875,
+          "exact": "39/80",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0383755068986,
+          "required_replications": 60
+        },
+        "s1_throughput": {
+          "target": 0.39,
+          "exact": "39/100",
+          "tolerance": 0.0345,
+          "pilot_sd": 0.0176271387873,
+          "required_replications": 13
+        },
+        "s2_queue": {
+          "target": 0.037121212121212124,
+          "exact": "49/1320",
+          "tolerance": 0.047424242424242424,
+          "pilot_sd": 0.0142425336606,
+          "required_replications": 5
+        },
+        "s2_wait": {
+          "target": 0.17676767676767677,
+          "exact": "35/198",
+          "tolerance": 0.09535353535353536,
+          "pilot_sd": 0.0622156441835,
+          "required_replications": 22
+        },
+        "s2_utilization": {
+          "target": 0.175,
+          "exact": "7/40",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0164360689302,
+          "required_replications": 11
+        },
+        "s2_throughput": {
+          "target": 0.21,
+          "exact": "21/100",
+          "tolerance": 0.025500000000000002,
+          "pilot_sd": 0.0136007411096,
+          "required_replications": 15
+        },
+        "cycle": {
+          "target": 4.43890120719389,
+          "exact": "36035/8118",
+          "tolerance": 0.8158351810790835,
+          "pilot_sd": 0.428956927453,
+          "required_replications": 14
+        },
+        "match_fraction": {
+          "target": 0.65,
+          "exact": "13/20",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0184402195281,
+          "required_replications": 28
+        },
+        "p000": {
+          "target": 0.169125,
+          "exact": "1353/8000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0218235138996,
+          "required_replications": 38
+        },
+        "p001": {
+          "target": 0.029596875,
+          "exact": "9471/320000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00697515608966,
+          "required_replications": 4
+        },
+        "p002": {
+          "target": 0.006278125,
+          "exact": "2009/320000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00257634969253,
+          "required_replications": 1
+        },
+        "p010": {
+          "target": 0.0824484375,
+          "exact": "52767/640000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0125682986993,
+          "required_replications": 13
+        },
+        "p011": {
+          "target": 0.0144284765625,
+          "exact": "369369/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0034065069644,
+          "required_replications": 1
+        },
+        "p012": {
+          "target": 0.0030605859375,
+          "exact": "78351/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0016803593092,
+          "required_replications": 1
+        },
+        "p020": {
+          "target": 0.0784265625,
+          "exact": "50193/640000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0185560995219,
+          "required_replications": 28
+        },
+        "p021": {
+          "target": 0.0137246484375,
+          "exact": "351351/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00372565422018,
+          "required_replications": 2
+        },
+        "p022": {
+          "target": 0.0029112890625,
+          "exact": "74529/25600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00185486102957,
+          "required_replications": 1
+        },
+        "p100": {
+          "target": 0.101475,
+          "exact": "4059/40000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.012705107644,
+          "required_replications": 13
+        },
+        "p101": {
+          "target": 0.017758125,
+          "exact": "28413/1600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00467428895654,
+          "required_replications": 2
+        },
+        "p102": {
+          "target": 0.003766875,
+          "exact": "6027/1600000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0022393002986,
+          "required_replications": 1
+        },
+        "p110": {
+          "target": 0.0494690625,
+          "exact": "158301/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00731150008767,
+          "required_replications": 5
+        },
+        "p111": {
+          "target": 0.0086570859375,
+          "exact": "1108107/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00238378075634,
+          "required_replications": 1
+        },
+        "p112": {
+          "target": 0.0018363515625,
+          "exact": "235053/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.000981538867513,
+          "required_replications": 1
+        },
+        "p120": {
+          "target": 0.0470559375,
+          "exact": "150579/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0107429914961,
+          "required_replications": 10
+        },
+        "p121": {
+          "target": 0.0082347890625,
+          "exact": "1054053/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00292025828524,
+          "required_replications": 1
+        },
+        "p122": {
+          "target": 0.0017467734375,
+          "exact": "223587/128000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00139010790141,
+          "required_replications": 1
+        },
+        "p200": {
+          "target": 0.1522125,
+          "exact": "12177/80000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0196393732575,
+          "required_replications": 31
+        },
+        "p201": {
+          "target": 0.0266371875,
+          "exact": "85239/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00590017080382,
+          "required_replications": 3
+        },
+        "p202": {
+          "target": 0.0056503125,
+          "exact": "18081/3200000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00366133160709,
+          "required_replications": 2
+        },
+        "p210": {
+          "target": 0.07420359375,
+          "exact": "474903/6400000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0125625408046,
+          "required_replications": 13
+        },
+        "p211": {
+          "target": 0.01298562890625,
+          "exact": "3324321/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00365838637588,
+          "required_replications": 2
+        },
+        "p212": {
+          "target": 0.00275452734375,
+          "exact": "705159/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00148651802581,
+          "required_replications": 1
+        },
+        "p220": {
+          "target": 0.07058390625,
+          "exact": "451737/6400000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0218455871681,
+          "required_replications": 39
+        },
+        "p221": {
+          "target": 0.01235218359375,
+          "exact": "3162159/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00471464343553,
+          "required_replications": 2
+        },
+        "p222": {
+          "target": 0.00262016015625,
+          "exact": "670761/256000000",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00208794415183,
+          "required_replications": 1
+        }
+      }
+    }
+  ]
+}

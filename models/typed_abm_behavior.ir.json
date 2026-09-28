@@ -1,0 +1,114 @@
+{
+  "ir_version": "0.1",
+  "name": "Phase-driven agent replacement",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 1,
+    "horizon": 4
+  },
+  "parameters": [],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "agent_limit": 20,
+      "fields": [
+        {
+          "name": "age",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "lineage",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "work",
+          "type": "integer",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "age": 0,
+          "lineage": 0,
+          "work": 1
+        },
+        {
+          "age": 1,
+          "lineage": 10,
+          "work": 3
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "age",
+              "expr": "age+1"
+            },
+            {
+              "field": "work",
+              "expr": "work+1"
+            }
+          ],
+          "lifecycle": {
+            "retire": "age",
+            "births": [
+              {
+                "guard": "age",
+                "record": {
+                  "age": 0,
+                  "lineage": 0,
+                  "work": 0
+                },
+                "assign": [
+                  {
+                    "field": "lineage",
+                    "expr": "lineage+1"
+                  },
+                  {
+                    "field": "work",
+                    "expr": "work*2"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "assign": [
+            {
+              "field": "work",
+              "expr": "work+10"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "active",
+      "metric": "active"
+    },
+    {
+      "id": "total",
+      "metric": "sum",
+      "field": "work"
+    },
+    {
+      "id": "lineages",
+      "metric": "sum",
+      "field": "lineage"
+    },
+    {
+      "id": "initial_alive",
+      "agent": 0,
+      "metric": "alive"
+    }
+  ]
+}

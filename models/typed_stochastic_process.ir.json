@@ -1,0 +1,136 @@
+{
+  "ir_version": "0.1",
+  "name": "typed_generated_stochastic_delivery",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 20
+  },
+  "components": [
+    {
+      "id": "work",
+      "kind": "entity_type",
+      "fields": [
+        {
+          "id": "duration",
+          "type": "real",
+          "unit": "day"
+        },
+        {
+          "id": "rank",
+          "type": "integer",
+          "unit": "1"
+        }
+      ]
+    },
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "entity_type": "work",
+      "priority": "rank",
+      "generator": {
+        "count": 24,
+        "values": {
+          "duration": 1,
+          "rank": 0
+        },
+        "interarrival": {
+          "kind": "exponential",
+          "rate": "arrival_rate",
+          "stream": 100
+        }
+      }
+    },
+    {
+      "id": "waiting_room",
+      "kind": "queue",
+      "entity_type": "work",
+      "discipline": "fifo"
+    },
+    {
+      "id": "delivery",
+      "kind": "delay_block",
+      "entity_type": "work",
+      "duration": {
+        "kind": "exponential",
+        "rate": "service_rate",
+        "stream": 101
+      },
+      "capacity": 1
+    },
+    {
+      "id": "done",
+      "kind": "sink",
+      "entity_type": "work"
+    }
+  ],
+  "links": [
+    {
+      "from": "arrivals",
+      "to": "waiting_room"
+    },
+    {
+      "from": "waiting_room",
+      "to": "delivery"
+    },
+    {
+      "from": "delivery",
+      "to": "done"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "emitted",
+      "component": "arrivals",
+      "metric": "emitted"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "waiting",
+      "component": "waiting_room",
+      "metric": "waiting"
+    },
+    {
+      "id": "queue_mean",
+      "component": "waiting_room",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "wait_total",
+      "component": "waiting_room",
+      "metric": "wait_total"
+    },
+    {
+      "id": "active",
+      "component": "delivery",
+      "metric": "active"
+    },
+    {
+      "id": "utilization",
+      "component": "delivery",
+      "metric": "utilization"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "arrival_rate",
+      "unit": "1/day",
+      "value": 0.7
+    },
+    {
+      "id": "service_rate",
+      "unit": "1/day",
+      "value": 1.2
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "ir_version":"0.1", "name":"Reproducible agent renewal events", "mode":"abm",
+  "time":{"unit":"day","dt":0.5,"horizon":5},
+  "parameters":[{"id":"hazard","value":0.7,"unit":"1/day"}],
+  "components":[{
+    "id":"people","kind":"population","execution":"async",
+    "fields":[{"name":"state","type":"integer","unit":"1"},{"name":"entered","type":"real","unit":"day"},{"name":"generation","type":"integer","unit":"1"},{"name":"events","type":"integer","unit":"1"}],
+    "agents":[{"state":-1,"entered":0,"generation":-1,"events":0},{"state":-1,"entered":0,"generation":-1,"events":0}],
+    "chart":{
+      "fields":{"state":"state","entered":"entered","generation":"generation"},"states":[0],"initial":0,
+      "transitions":[{"id":"jump","source":0,"target":0,"trigger":"rate","rate":"hazard","stream":71,"assign":[{"field":"events","expr":"events+1"}]}]
+    }
+  }],
+  "outputs":[{"id":"first","agent":0,"field":"events"},{"id":"second","agent":1,"field":"events"},{"id":"total","metric":"sum","field":"events"}]
+}

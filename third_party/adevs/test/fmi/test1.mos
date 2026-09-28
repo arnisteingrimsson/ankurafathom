@@ -1,0 +1,3 @@
+loadFile("test1.mo");getErrorString();
+setCommandLineOptions("-d=newInst,-disableDirectionalDerivatives"); getErrorString();
+buildModelFMU(test1,"2.0");getErrorString();

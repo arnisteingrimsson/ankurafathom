@@ -1,0 +1,133 @@
+{
+  "ir_version": "0.1",
+  "name": "bounded_priority_delivery",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 8
+  },
+  "components": [
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "schedule": [
+        {
+          "id": 1,
+          "arrival": 0,
+          "service": 3,
+          "priority": 0
+        },
+        {
+          "id": 2,
+          "arrival": 0,
+          "service": 2,
+          "priority": 1
+        },
+        {
+          "id": 3,
+          "arrival": 0,
+          "service": 1,
+          "priority": 2
+        },
+        {
+          "id": 4,
+          "arrival": 0,
+          "service": 1,
+          "priority": -1
+        },
+        {
+          "id": 7,
+          "arrival": 0.5,
+          "service": 1,
+          "priority": -10
+        },
+        {
+          "id": 5,
+          "arrival": 1,
+          "service": 1,
+          "priority": -2
+        },
+        {
+          "id": 6,
+          "arrival": 2,
+          "service": 1,
+          "priority": -3
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "kind": "server",
+      "capacity": 1,
+      "queue_capacity": 2,
+      "discipline": "priority"
+    },
+    {
+      "id": "done",
+      "kind": "sink"
+    }
+  ],
+  "links": [
+    {
+      "from": "arrivals",
+      "to": "delivery"
+    },
+    {
+      "from": "delivery",
+      "to": "done"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "emitted",
+      "component": "arrivals",
+      "metric": "emitted"
+    },
+    {
+      "id": "accepted",
+      "component": "delivery",
+      "metric": "accepted"
+    },
+    {
+      "id": "rejected",
+      "component": "delivery",
+      "metric": "rejected"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "waiting",
+      "component": "delivery",
+      "metric": "waiting"
+    },
+    {
+      "id": "busy",
+      "component": "delivery",
+      "metric": "busy"
+    },
+    {
+      "id": "queue_mean",
+      "component": "delivery",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "utilization",
+      "component": "delivery",
+      "metric": "utilization"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    },
+    {
+      "id": "cycle_mean",
+      "component": "done",
+      "metric": "cycle_mean"
+    }
+  ]
+}

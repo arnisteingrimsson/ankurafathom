@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "scales": [
+    8,
+    32,
+    128
+  ],
+  "replications": 256,
+  "times": [
+    0,
+    0.5,
+    1,
+    2,
+    3,
+    4
+  ],
+  "sd_steps": [
+    0.25,
+    0.125
+  ],
+  "seed": 67867967,
+  "reference_seed": 86028121,
+  "scenario": 59,
+  "arrival_stream": 1601,
+  "service_stream": 1602,
+  "max_entities": 65536,
+  "cases": [
+    {
+      "id": "growing",
+      "arrival_rate": 1.5,
+      "service_rate": 1.0,
+      "initial_backlog": 0.5
+    },
+    {
+      "id": "draining",
+      "arrival_rate": 0.5,
+      "service_rate": 1.0,
+      "initial_backlog": 1.0
+    },
+    {
+      "id": "critical",
+      "arrival_rate": 1.0,
+      "service_rate": 1.0,
+      "initial_backlog": 0.0
+    },
+    {
+      "id": "underloaded",
+      "arrival_rate": 0.5,
+      "service_rate": 1.0,
+      "initial_backlog": 0.0
+    }
+  ],
+  "independent_gates": {
+    "comparisons": 180,
+    "family_alpha": 0.001,
+    "mean_floor": 0.02,
+    "mean_sigma": 6
+  },
+  "power": {
+    "population_ks_alternative": 0.45,
+    "miss_probability_bound": 0.005643155499286163
+  },
+  "limit_gates": {
+    "rmse_ratio_min": 0.15,
+    "rmse_ratio_max": 0.8,
+    "finest_coarse_max": 0.4,
+    "finest_rmse_max": 0.4
+  },
+  "numeric_tolerance": 2e-12,
+  "scope": "FIFO M/M/1 with arrival/service rates multiplied by N and initial jobs N*b0; backlog includes service; integer SD pulse ledger; constant-rate reflected fluid; all native event steps transactional"
+}

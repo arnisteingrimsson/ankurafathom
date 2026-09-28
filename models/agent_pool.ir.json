@@ -1,0 +1,32 @@
+{
+  "ir_version": "0.1",
+  "name": "staffing_pool",
+  "mode": "agent_pool",
+  "time": { "unit": "day", "dt": 1, "horizon": 4 },
+  "agent_pool": {
+    "population": { "id": "consultants", "unit": "slot", "agents": [1, 1] },
+    "pool": { "id": "staffing", "unit": "slot", "max_request_units": 1 },
+    "bridge": { "kind": "agent_pool", "from": "consultants", "to": "staffing", "unit": "slot" },
+    "schedule": [
+      { "time": 0, "requests": [
+        { "request_id": 1, "units": 1 },
+        { "request_id": 2, "units": 1 },
+        { "request_id": 3, "units": 1 }
+      ] },
+      { "time": 1, "releases": [{ "request_id": 1 }], "departures": [0] },
+      { "time": 2, "hires": [1] },
+      { "time": 3, "releases": [{ "request_id": 2 }],
+        "updates": [{ "agent_id": 1, "capacity": 0 }] },
+      { "time": 4, "releases": [{ "request_id": 3 }], "departures": [2] }
+    ]
+  },
+  "outputs": [
+    { "id": "capacity", "pool": "staffing", "metric": "capacity" },
+    { "id": "available", "pool": "staffing", "metric": "available" },
+    { "id": "allocated", "pool": "staffing", "metric": "allocated_units" },
+    { "id": "waiting", "pool": "staffing", "metric": "waiting" },
+    { "id": "active", "population": "consultants", "metric": "active" },
+    { "id": "new_agent_allocated", "agent_id": 2, "metric": "allocated" },
+    { "id": "third_granted", "request_id": 3, "metric": "granted" }
+  ]
+}

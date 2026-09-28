@@ -1,0 +1,15 @@
+{
+  "ir_version": "0.1", "name": "reversing_transfer",
+  "time": {"unit": "day", "dt": 1, "horizon": 3},
+  "parameters": [
+    {"id": "initial_rate", "value": -1, "unit": "kg/day"},
+    {"id": "slope", "value": 1, "unit": "kg/day/day"}
+  ],
+  "components": [
+    {"id": "left", "kind": "stock", "init": 10, "unit": "kg"},
+    {"id": "right", "kind": "stock", "init": 10, "unit": "kg"},
+    {"id": "transfer", "kind": "flow", "source": "left", "destination": "right",
+     "expr": "initial_rate+slope*t", "unit": "kg/day", "non_negative": false}
+  ],
+  "outputs": [{"id": "left_ts", "stock": "left"}, {"id": "right_ts", "stock": "right"}]
+}

@@ -1,0 +1,33 @@
+{
+  "ir_version": "0.1",
+  "name": "agent_adoption_aggregate",
+  "mode": "abm_sd",
+  "time": { "unit": "day", "dt": 0.1, "horizon": 2 },
+  "sd": {
+    "parameters": [
+      { "id": "innovation", "value": 0.03, "unit": "1/day" },
+      { "id": "imitation", "value": 0.7, "unit": "1/day" },
+      { "id": "impact_rate", "value": 2, "unit": "USD/person/day" }
+    ],
+    "components": [
+      { "id": "adopted_stock", "kind": "stock", "init": 0, "unit": "person" },
+      { "id": "impact", "kind": "stock", "init": 0, "unit": "USD" },
+      { "id": "impact_flow", "kind": "flow", "source": null, "destination": "impact",
+        "expr": "adopted_stock * impact_rate", "unit": "USD/day" }
+    ]
+  },
+  "abm": {
+    "population": { "id": "consultants", "count": 128, "initial_adopters": 3,
+      "innovation_param": "innovation", "imitation_param": "imitation", "stream": 30 }
+  },
+  "bridges": [
+    { "kind": "adoption_to_stock", "from": "consultants", "to": "adopted_stock",
+      "unit": "person" }
+  ],
+  "outputs": [
+    { "id": "adopted_ts", "stock": "adopted_stock" },
+    { "id": "impact_ts", "stock": "impact" },
+    { "id": "active", "population": "consultants", "metric": "active" },
+    { "id": "adopters", "population": "consultants", "metric": "adopted" }
+  ]
+}

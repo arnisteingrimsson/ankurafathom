@@ -1,0 +1,123 @@
+{
+  "ir_version": "0.1",
+  "name": "Topic request and acknowledgement rounds",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 2
+  },
+  "parameters": [],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "fields": [
+        {
+          "name": "received",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "last_sender",
+          "type": "integer",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "received": 0,
+          "last_sender": 0
+        },
+        {
+          "received": 0,
+          "last_sender": 0
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "received",
+              "expr": "received+10"
+            }
+          ]
+        }
+      ],
+      "topics": [
+        {
+          "id": "request",
+          "capacity": 4,
+          "unit": "1",
+          "assign": [
+            {
+              "field": "received",
+              "expr": "received+message_value"
+            },
+            {
+              "field": "last_sender",
+              "expr": "message_sender"
+            }
+          ],
+          "publish": [
+            {
+              "topic": "ack",
+              "receiver": "sender",
+              "value": "message_value*2"
+            }
+          ]
+        },
+        {
+          "id": "ack",
+          "capacity": 4,
+          "unit": "1",
+          "assign": [
+            {
+              "field": "received",
+              "expr": "received+message_value"
+            },
+            {
+              "field": "last_sender",
+              "expr": "message_sender"
+            }
+          ]
+        }
+      ],
+      "publications": [
+        {
+          "time": 0.25,
+          "topic": "request",
+          "sender": 0,
+          "sequence": 0,
+          "value": 1
+        },
+        {
+          "time": 1,
+          "topic": "request",
+          "sender": 1,
+          "receiver": 0,
+          "sequence": 0,
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "first",
+      "agent": 0,
+      "field": "received"
+    },
+    {
+      "id": "second",
+      "agent": 1,
+      "field": "received"
+    },
+    {
+      "id": "sender",
+      "agent": 0,
+      "field": "last_sender"
+    }
+  ]
+}

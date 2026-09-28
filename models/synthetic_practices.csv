@@ -1,0 +1,3 @@
+name,fte,paid_hours_per_fte_month,delivery_share,realized_rate,monthly_pipeline_hours,win_rate,fixed_fee_share,annual_pay_per_fte,variable_cost_per_hour,annual_demand_growth,ai_task_share,tool_task_share,automation_task_share,initial_tm_backlog_hours,initial_fixed_backlog_hours
+Disputes,120,160,0.75,260,36000,0.28,0.18,175000,42,0.03,0.65,0.35,0.55,9000,2500
+Advisory,95,160,0.73,300,39000,0.27,0.62,190000,48,0.04,0.35,0.55,0.25,4500,6500

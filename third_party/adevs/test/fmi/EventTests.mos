@@ -1,0 +1,2 @@
+loadFile("EventTests.mo");
+buildModelFMU(EventTests,"2.0");

@@ -1,0 +1,5 @@
+loadFile("BaseRobot.mo");
+loadFile("SampledRobot.mo");
+loadFile("ControlTrajectory.mo");
+translateModelFMU(Robot,"2.0");
+getErrorString();

@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "plan_sha256": "3bc4352e8100553a4da84e8f13baf411a5548b05f3791670254a82ca96690561",
+    "adapter_sha256": "a3bf2d7303541649f0a6c6a4f74c55db0fc00b136cfcf0874e6411684b5947cc",
+    "requirements_sha256": "6e69ffe6f7841e5d8aea3f05a4bf77c60055d3b0717fcccbb31fd19647e07b7b",
+    "engines": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    }
+  },
+  "report_sha256": "da4133e24230977564531718f17f37d09022d65bab04d29285c0849ea0d39ceb",
+  "matplotlib": "3.10.8"
+}

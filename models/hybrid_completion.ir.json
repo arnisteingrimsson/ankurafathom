@@ -1,0 +1,37 @@
+{
+  "ir_version": "0.1",
+  "name": "completion_driven_stock",
+  "mode": "hybrid",
+  "time": { "unit": "day", "dt": 1, "horizon": 4 },
+  "sd": {
+    "parameters": [ { "id": "k", "value": 0.5, "unit": "1/day" } ],
+    "components": [
+      { "id": "completed_stock", "kind": "stock", "init": 0, "unit": "engagement" },
+      { "id": "decay", "kind": "flow", "source": "completed_stock", "destination": null,
+        "expr": "completed_stock * k", "unit": "engagement/day" }
+    ]
+  },
+  "des": {
+    "components": [
+      { "id": "arrivals", "kind": "source", "schedule": [
+        { "id": 1, "arrival": 0, "service": 1 },
+        { "id": 2, "arrival": 1, "service": 1 },
+        { "id": 3, "arrival": 2.25, "service": 0.25 }
+      ] },
+      { "id": "delivery", "kind": "server", "capacity": 1 },
+      { "id": "done", "kind": "sink" }
+    ],
+    "links": [
+      { "from": "arrivals", "to": "delivery" },
+      { "from": "delivery", "to": "done" }
+    ]
+  },
+  "bridges": [
+    { "kind": "completion_to_stock", "from": "done", "to": "completed_stock",
+      "amount": 1, "unit": "engagement" }
+  ],
+  "outputs": [
+    { "id": "stock_ts", "stock": "completed_stock" },
+    { "id": "finished", "component": "done", "metric": "completed" }
+  ]
+}

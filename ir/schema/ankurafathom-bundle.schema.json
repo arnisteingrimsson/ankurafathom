@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ankurafathom.local/schema/bundle/0.1",
+  "title": "AnkuraFathom portable input bundle descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["bundle_version", "manifest"],
+  "properties": {
+    "bundle_version": {"const": "0.1"},
+    "manifest": {
+      "allOf": [
+        {"$ref": "https://ankurafathom.local/schema/manifest/0.3"},
+        {"properties": {"manifest_version": {"enum": ["0.1", "0.2"]}}}
+      ]
+    }
+  }
+}

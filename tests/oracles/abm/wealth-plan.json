@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "replications": 512,
+  "seed": 630127,
+  "reference_seed": 982451653,
+  "scenario": 23,
+  "order_stream": 1001,
+  "recipient_stream": 1002,
+  "ticks": [
+    0,
+    8,
+    32
+  ],
+  "cases": [
+    {
+      "id": "mixed-1",
+      "n": 24,
+      "initial": 1,
+      "topology": "mixed"
+    },
+    {
+      "id": "mixed-4",
+      "n": 24,
+      "initial": 4,
+      "topology": "mixed"
+    },
+    {
+      "id": "ring-1",
+      "n": 24,
+      "initial": 1,
+      "topology": "ring"
+    },
+    {
+      "id": "star-1",
+      "n": 24,
+      "initial": 1,
+      "topology": "star"
+    }
+  ],
+  "metrics": [
+    "gini",
+    "zero_fraction",
+    "maximum_share",
+    "concentration"
+  ],
+  "gates": {
+    "family_alpha": 0.001,
+    "comparisons": 32,
+    "mean_sigma": 6,
+    "mean_floor": {
+      "gini": 0.025,
+      "zero_fraction": 0.04,
+      "maximum_share": 0.025,
+      "concentration": 0.015
+    }
+  },
+  "power": {
+    "population_ks_alternative": 0.3,
+    "miss_probability_bound": 0.010002333333060017
+  },
+  "scope": "finite-time distributions; no equilibrium or universal parameter claim"
+}

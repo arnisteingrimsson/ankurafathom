@@ -1,0 +1,19 @@
+{
+  "ir_version":"0.1", "name":"priority_allocation_with_clipped_inflow",
+  "time":{"unit":"day","dt":0.5,"horizon":2},
+  "parameters":[
+    {"id":"arrival","value":3,"unit":"kg/day"},
+    {"id":"decline","value":4,"unit":"kg/day/day"},
+    {"id":"high_rate","value":6,"unit":"kg/day"},
+    {"id":"low_rate","value":8,"unit":"kg/day"}
+  ],
+  "components":[
+    {"id":"inventory","kind":"stock","init":2,"unit":"kg","clip_outflows":true,"outflow_order":["high","low"]},
+    {"id":"first","kind":"stock","init":0,"unit":"kg"},
+    {"id":"second","kind":"stock","init":0,"unit":"kg"},
+    {"id":"inflow","kind":"flow","source":null,"destination":"inventory","expr":"arrival-decline*t","unit":"kg/day","clip_negative":true},
+    {"id":"high","kind":"flow","source":"inventory","destination":"first","expr":"high_rate","unit":"kg/day","clip_negative":true},
+    {"id":"low","kind":"flow","source":"inventory","destination":"second","expr":"low_rate","unit":"kg/day","clip_negative":true}
+  ],
+  "outputs":[{"id":"inventory_ts","stock":"inventory"},{"id":"first_ts","stock":"first"},{"id":"second_ts","stock":"second"}]
+}

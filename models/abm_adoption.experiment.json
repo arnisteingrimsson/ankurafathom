@@ -1,0 +1,8 @@
+{
+  "seed": 123,
+  "replications": 2,
+  "scenarios": [
+    { "id": 0, "parameters": {} },
+    { "id": 1, "parameters": { "innovation": 0, "imitation": 0 } }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "report_sha256": "6a818a7d6a08c36c439456f4220e7d8d0bb78dfbe3b83db356d587139a3d9c19",
+  "plan_sha256": "b3c206535cffa4680fa9ef25dd19915f5513fa707a1b781dcd05715786d25f93",
+  "native_sha256": "61565691368b0be820a7a8cd82de7e32da3fcf05ea4af80cf026e5109b743d0c",
+  "method": "Independent discrete and continuous closed forms; no stochastic sampling"
+}

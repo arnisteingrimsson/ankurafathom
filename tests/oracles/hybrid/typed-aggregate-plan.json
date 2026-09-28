@@ -1,0 +1,5039 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "case_00",
+      "dt": 0.5,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 0,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_01",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_02",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_03",
+      "dt": 0.25,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_04",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_05",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_06",
+      "dt": 0.5,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_07",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_08",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_09",
+      "dt": 0.25,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_10",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_11",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 0,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_12",
+      "dt": 0.5,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_13",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_14",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_15",
+      "dt": 0.25,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_16",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_17",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": 6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_18",
+      "dt": 0.5,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_19",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_20",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_21",
+      "dt": 0.25,
+      "filtered": false,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_22",
+      "dt": 0.5,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 0,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 5,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_23",
+      "dt": 0.25,
+      "filtered": true,
+      "snapshots": [
+        {
+          "time": 0,
+          "revision": 100,
+          "records": [
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.375,
+          "revision": 107,
+          "records": [
+            {
+              "value": 6,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 2,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "revision": 114,
+          "records": [
+            {
+              "value": -5,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -6,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.125,
+          "revision": 121,
+          "records": [
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": 3,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -4,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -1,
+              "selected": true,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "revision": 128,
+          "records": [
+            {
+              "value": -1,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 5,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": -5,
+              "selected": false,
+              "alive": true
+            },
+            {
+              "value": -2,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 1,
+              "selected": true,
+              "alive": true
+            },
+            {
+              "value": 4,
+              "selected": false,
+              "alive": true
+            }
+          ]
+        },
+        {
+          "time": 2.25,
+          "revision": 135,
+          "records": [
+            {
+              "value": 1,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 4,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -6,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": -3,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 0,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": 3,
+              "selected": false,
+              "alive": false
+            },
+            {
+              "value": 6,
+              "selected": true,
+              "alive": false
+            },
+            {
+              "value": -4,
+              "selected": true,
+              "alive": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "orders": [
+    0,
+    1
+  ],
+  "horizons": [
+    0.0,
+    0.125,
+    0.25,
+    0.375,
+    0.5,
+    0.625,
+    0.75,
+    0.875,
+    1.0,
+    1.125,
+    1.25,
+    1.375,
+    1.5,
+    1.625,
+    1.75,
+    1.875,
+    2.0,
+    2.125,
+    2.25,
+    2.375,
+    2.5
+  ],
+  "tolerance": 2e-12,
+  "reducers": [
+    "sum",
+    "mean",
+    "count",
+    "min",
+    "max"
+  ],
+  "empty": [
+    0,
+    0,
+    0,
+    -1,
+    1
+  ]
+}

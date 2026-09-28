@@ -1,0 +1,124 @@
+{
+  "ir_version": "0.1",
+  "name": "Scheduled agent replacement",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 2
+  },
+  "parameters": [
+    {
+      "id": "gain",
+      "value": 2,
+      "unit": "1"
+    }
+  ],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "fields": [
+        {
+          "name": "work",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "ready",
+          "type": "boolean",
+          "unit": "1"
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "work": 1,
+          "ready": true,
+          "role": "analyst"
+        },
+        {
+          "work": 3,
+          "ready": false,
+          "role": "partner"
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "work",
+              "expr": "work + gain"
+            },
+            {
+              "field": "ready",
+              "expr": "1-ready"
+            }
+          ]
+        },
+        {
+          "assign": [
+            {
+              "field": "work",
+              "expr": "work*2"
+            }
+          ]
+        }
+      ],
+      "lifecycle": [
+        {
+          "time": 1,
+          "sequence": 1,
+          "retire": [
+            0
+          ],
+          "births": []
+        },
+        {
+          "time": 1,
+          "sequence": 0,
+          "retire": [],
+          "births": [
+            {
+              "work": 10,
+              "ready": true,
+              "role": "new hire"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "active",
+      "metric": "active"
+    },
+    {
+      "id": "total",
+      "metric": "sum",
+      "field": "work"
+    },
+    {
+      "id": "old_alive",
+      "agent": 0,
+      "metric": "alive"
+    },
+    {
+      "id": "new_alive",
+      "agent": 2,
+      "metric": "alive"
+    },
+    {
+      "id": "new_work",
+      "agent": 2,
+      "field": "work",
+      "inactive_value": -1
+    }
+  ]
+}

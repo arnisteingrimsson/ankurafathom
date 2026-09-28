@@ -1,0 +1,38 @@
+{
+  "recorded_at_utc": "2026-09-24T15:25:18.855482+00:00",
+  "platform": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "machine": "arm64"
+  },
+  "compiler": [
+    "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+    "Target: arm64-apple-darwin25.6.0"
+  ],
+  "build_type": "Debug",
+  "sanitizers": false,
+  "flags": [
+    "CXX_DEFINES = -DFATHOM_ALLOCATION_BENCH=1",
+    "CXX_FLAGS = -g -std=c++20 -Wall -Wextra -Wpedantic -Werror -fsized-deallocation"
+  ],
+  "adevs_commit": "ee9fed91224ed412088a3795ea8e67ffe2ee9b59",
+  "workload_cases": 48,
+  "measurements_per_case": [
+    "native_nested",
+    "native_flat",
+    "adevs"
+  ],
+  "measurement": "successful current-thread C++ new/new[] requests and requested bytes; construction, execution, and trace recording; no frees or live-heap accounting",
+  "repeat_check": "all non-timing fields identical in two executions of this build; diagnostic only",
+  "csv_sha256": "81ff989a05386d27627e7a58411ccc323846ebb977342c2bfdb20049915ba4e2",
+  "source_sha256": {
+    "CMakeLists.txt": "7e06b070bce398ee45ee53687272ef92734cba8a8e85a4e3bab3576962de1e9b",
+    "bench/allocation_counter.hpp": "08affbec26cc4e6a06e5a658749323203a7d7b637bb6a7bdd02c97563213ecae",
+    "bench/allocation_counter.cpp": "ae3fb25e94b2e32b3b2fcede71c853cdd4bd8765660ced605f62754a09eee8e9",
+    "tests/conformance/devs/devstone.cpp": "a43775222d7657984722eb127278e085aff72909fd1eb218195fc95f57a61ece",
+    "tests/conformance/devs/harness.hpp": "db193d208f344c555bc7d04c063344b472fc62c03d44072f42975c6e7de273c1",
+    "include/ankurafathom/devs/simulator.hpp": "fb53fe19056e8a40e7328f233aad654b1b2ef6709e55cee8b49ad94c740f440d",
+    "include/ankurafathom/devs/coupled.hpp": "173c48d8324a525cc290bf1d31cadcbb95d6a51e0d384d4581b61fe63a0f9f2b",
+    "third_party/adevs/UPSTREAM.md": "47bb541119697418522a710cbe552dcccfd9ff8235c9da293208259dea9d860a"
+  }
+}

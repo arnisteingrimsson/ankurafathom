@@ -1,0 +1,32 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_feedback_id_overlap",
+  "mode": "hybrid",
+  "time": { "unit": "day", "dt": 1, "horizon": 2 },
+  "sd": { "components": [
+    { "id": "finished_stock", "kind": "stock", "init": 0, "unit": "engagement" }
+  ] },
+  "des": {
+    "components": [
+      { "id": "arrivals", "kind": "source", "schedule": [
+        { "id": 1, "arrival": 0, "service": 1 }
+      ] },
+      { "id": "delivery", "kind": "server", "capacity": 1 },
+      { "id": "done", "kind": "sink" }
+    ],
+    "links": [
+      { "from": "arrivals", "to": "delivery" },
+      { "from": "delivery", "to": "done" }
+    ]
+  },
+  "bridges": [
+    { "kind": "completion_to_stock", "from": "done", "to": "finished_stock",
+      "amount": 1, "unit": "engagement" },
+    { "kind": "stock_to_arrival", "from": "finished_stock", "to": "delivery",
+      "threshold": 1, "unit": "engagement", "service": 1,
+      "first_id": 1, "max_count": 2 }
+  ],
+  "outputs": [
+    { "id": "stock", "stock": "finished_stock" }
+  ]
+}

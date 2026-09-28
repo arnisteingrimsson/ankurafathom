@@ -1,0 +1,2 @@
+loadFile("bounce.mo");
+buildModelFMU(bounce,"2.0");

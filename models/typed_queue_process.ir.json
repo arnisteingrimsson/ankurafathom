@@ -1,0 +1,161 @@
+{
+  "ir_version": "0.1",
+  "name": "typed_queue_delivery",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 4
+  },
+  "components": [
+    {
+      "id": "work",
+      "kind": "entity_type",
+      "fields": [
+        {
+          "id": "duration",
+          "type": "real",
+          "unit": "day"
+        },
+        {
+          "id": "rank",
+          "type": "integer",
+          "unit": "1"
+        }
+      ]
+    },
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "entity_type": "work",
+      "priority": "rank",
+      "schedule": [
+        {
+          "arrival": 0,
+          "values": {
+            "duration": 1,
+            "rank": -2
+          }
+        },
+        {
+          "arrival": 0,
+          "values": {
+            "duration": 1,
+            "rank": -1
+          }
+        },
+        {
+          "arrival": 0,
+          "values": {
+            "duration": 1,
+            "rank": 0
+          }
+        },
+        {
+          "arrival": 0,
+          "values": {
+            "duration": 1,
+            "rank": 1
+          }
+        },
+        {
+          "arrival": 1,
+          "values": {
+            "duration": 1,
+            "rank": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "waiting_room",
+      "kind": "queue",
+      "entity_type": "work",
+      "capacity": 1,
+      "discipline": "fifo"
+    },
+    {
+      "id": "delivery",
+      "kind": "delay_block",
+      "entity_type": "work",
+      "duration": "duration",
+      "capacity": 1
+    },
+    {
+      "id": "done",
+      "kind": "sink",
+      "entity_type": "work"
+    },
+    {
+      "id": "lost",
+      "kind": "sink",
+      "entity_type": "work"
+    }
+  ],
+  "links": [
+    {
+      "from": "arrivals",
+      "to": "waiting_room"
+    },
+    {
+      "from": "waiting_room",
+      "to": "delivery"
+    },
+    {
+      "from": "waiting_room",
+      "port": "rejected",
+      "to": "lost"
+    },
+    {
+      "from": "delivery",
+      "to": "done"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "emitted",
+      "component": "arrivals",
+      "metric": "emitted"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "lost_count",
+      "component": "lost",
+      "metric": "completed"
+    },
+    {
+      "id": "waiting",
+      "component": "waiting_room",
+      "metric": "waiting"
+    },
+    {
+      "id": "queue_mean",
+      "component": "waiting_room",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "wait_total",
+      "component": "waiting_room",
+      "metric": "wait_total"
+    },
+    {
+      "id": "active",
+      "component": "delivery",
+      "metric": "active"
+    },
+    {
+      "id": "utilization",
+      "component": "delivery",
+      "metric": "utilization"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    }
+  ]
+}

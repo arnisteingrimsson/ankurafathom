@@ -1,0 +1,12 @@
+<xmile xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" version="1.0">
+  <sim_specs method="RK4" time_units="Day"><start>0</start><stop>32</stop><dt>0.25</dt></sim_specs>
+  <model><variables>
+    <stock name="susceptible"><eqn>.99</eqn><outflow>infection</outflow></stock>
+    <stock name="infectious"><eqn>.01</eqn><inflow>infection</inflow><outflow>recovery</outflow></stock>
+    <stock name="recovered"><eqn>0</eqn><inflow>recovery</inflow></stock>
+    <flow name="infection"><eqn>beta*susceptible*infectious</eqn></flow>
+    <flow name="recovery"><eqn>gamma*infectious</eqn></flow>
+    <aux name="beta"><eqn>.6</eqn></aux>
+    <aux name="gamma"><eqn>.2</eqn></aux>
+  </variables></model>
+</xmile>

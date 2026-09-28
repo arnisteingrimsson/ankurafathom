@@ -1,0 +1,538 @@
+{
+  "version": 1,
+  "warmup": 200,
+  "window": 1000,
+  "native_seed": 2026092401,
+  "numerical_epsilon": 2e-09,
+  "pilot_replications": 64,
+  "pilot_seed_base": 701001,
+  "sigma_inflation": 1.25,
+  "false_alarm_z": 4.0,
+  "power_z": 1.645,
+  "cases": [
+    {
+      "name": "md1",
+      "scenario": 20,
+      "servers": 1,
+      "queue_capacity": null,
+      "arrival_rate": 0.5,
+      "service": "deterministic",
+      "service_mean": 1,
+      "service_second_moment": 1.0,
+      "replications": 24,
+      "metrics": {
+        "queue": {
+          "target": 0.25,
+          "exact": "1/4",
+          "tolerance": 0.09,
+          "pilot_sd": 0.0433181673473,
+          "required_replications": 12
+        },
+        "wait": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.16,
+          "pilot_sd": 0.0711124049824,
+          "required_replications": 10
+        },
+        "utilization": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.035,
+          "pilot_sd": 0.023758155681,
+          "required_replications": 23
+        },
+        "throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0237566197959,
+          "required_replications": 18
+        },
+        "blocking": {
+          "target": 0.0,
+          "exact": "0",
+          "tolerance": 0.0,
+          "pilot_sd": 0.0,
+          "required_replications": 0
+        }
+      }
+    },
+    {
+      "name": "me2_1",
+      "scenario": 21,
+      "servers": 1,
+      "queue_capacity": null,
+      "arrival_rate": 0.5,
+      "service": "erlang2",
+      "service_mean": 1,
+      "service_second_moment": 1.5,
+      "replications": 40,
+      "metrics": {
+        "queue": {
+          "target": 0.375,
+          "exact": "3/8",
+          "tolerance": 0.11500000000000002,
+          "pilot_sd": 0.099234605173,
+          "required_replications": 38
+        },
+        "wait": {
+          "target": 0.75,
+          "exact": "3/4",
+          "tolerance": 0.21000000000000002,
+          "pilot_sd": 0.165238120775,
+          "required_replications": 31
+        },
+        "utilization": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0271515936856,
+          "required_replications": 30
+        },
+        "throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0253868482386,
+          "required_replications": 21
+        },
+        "blocking": {
+          "target": 0.0,
+          "exact": "0",
+          "tolerance": 0.0,
+          "pilot_sd": 0.0,
+          "required_replications": 0
+        }
+      }
+    },
+    {
+      "name": "mixed_mg1",
+      "scenario": 22,
+      "servers": 1,
+      "queue_capacity": null,
+      "arrival_rate": 0.5,
+      "service": "two_point",
+      "service_mean": 1,
+      "service_second_moment": 3.25,
+      "replications": 72,
+      "metrics": {
+        "queue": {
+          "target": 0.8125,
+          "exact": "13/16",
+          "tolerance": 0.2025,
+          "pilot_sd": 0.195675519529,
+          "required_replications": 47
+        },
+        "wait": {
+          "target": 1.625,
+          "exact": "13/8",
+          "tolerance": 0.385,
+          "pilot_sd": 0.376561737887,
+          "required_replications": 48
+        },
+        "utilization": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0417773091734,
+          "required_replications": 71
+        },
+        "throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0208051237584,
+          "required_replications": 14
+        },
+        "blocking": {
+          "target": 0.0,
+          "exact": "0",
+          "tolerance": 0.0,
+          "pilot_sd": 0.0,
+          "required_replications": 0
+        }
+      }
+    },
+    {
+      "name": "mm1_k1",
+      "scenario": 23,
+      "servers": 1,
+      "queue_capacity": 0,
+      "arrival_rate": 0.7,
+      "service": "exponential",
+      "service_mean": 1,
+      "service_second_moment": 2.0,
+      "replications": 48,
+      "metrics": {
+        "queue": {
+          "target": 0.0,
+          "exact": "0",
+          "tolerance": 0.0,
+          "pilot_sd": 0.0,
+          "required_replications": 0
+        },
+        "wait": {
+          "target": 0.0,
+          "exact": "0",
+          "tolerance": 0.0,
+          "pilot_sd": 0.0,
+          "required_replications": 0
+        },
+        "utilization": {
+          "target": 0.4117647058823529,
+          "exact": "7/17",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0170172244659,
+          "required_replications": 12
+        },
+        "throughput": {
+          "target": 0.4117647058823529,
+          "exact": "7/17",
+          "tolerance": 0.03558823529411764,
+          "pilot_sd": 0.0152174630131,
+          "required_replications": 10
+        },
+        "blocking": {
+          "target": 0.4117647058823529,
+          "exact": "7/17",
+          "tolerance": 0.02,
+          "pilot_sd": 0.0186724869106,
+          "required_replications": 44
+        },
+        "p0": {
+          "target": 0.5882352941176471,
+          "exact": "10/17",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0170172244659,
+          "required_replications": 12
+        },
+        "p1": {
+          "target": 0.4117647058823529,
+          "exact": "7/17",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0170172244659,
+          "required_replications": 12
+        }
+      }
+    },
+    {
+      "name": "mm1_k4_balanced",
+      "scenario": 24,
+      "servers": 1,
+      "queue_capacity": 3,
+      "arrival_rate": 1.0,
+      "service": "exponential",
+      "service_mean": 1,
+      "service_second_moment": 2.0,
+      "replications": 56,
+      "metrics": {
+        "queue": {
+          "target": 1.2,
+          "exact": "6/5",
+          "tolerance": 0.27999999999999997,
+          "pilot_sd": 0.0744743606908,
+          "required_replications": 4
+        },
+        "wait": {
+          "target": 1.5,
+          "exact": "3/2",
+          "tolerance": 0.36000000000000004,
+          "pilot_sd": 0.099025290823,
+          "required_replications": 4
+        },
+        "utilization": {
+          "target": 0.8,
+          "exact": "4/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0201120894832,
+          "required_replications": 17
+        },
+        "throughput": {
+          "target": 0.8,
+          "exact": "4/5",
+          "tolerance": 0.05500000000000001,
+          "pilot_sd": 0.0216129140922,
+          "required_replications": 8
+        },
+        "blocking": {
+          "target": 0.2,
+          "exact": "1/5",
+          "tolerance": 0.02,
+          "pilot_sd": 0.0200777469139,
+          "required_replications": 51
+        },
+        "p0": {
+          "target": 0.2,
+          "exact": "1/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0201120894832,
+          "required_replications": 17
+        },
+        "p1": {
+          "target": 0.2,
+          "exact": "1/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0134342090588,
+          "required_replications": 8
+        },
+        "p2": {
+          "target": 0.2,
+          "exact": "1/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0124323335759,
+          "required_replications": 7
+        },
+        "p3": {
+          "target": 0.2,
+          "exact": "1/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0149625037537,
+          "required_replications": 10
+        },
+        "p4": {
+          "target": 0.2,
+          "exact": "1/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0192244999823,
+          "required_replications": 16
+        }
+      }
+    },
+    {
+      "name": "mm1_k3_overloaded",
+      "scenario": 25,
+      "servers": 1,
+      "queue_capacity": 2,
+      "arrival_rate": 2.0,
+      "service": "exponential",
+      "service_mean": 1,
+      "service_second_moment": 2.0,
+      "replications": 40,
+      "metrics": {
+        "queue": {
+          "target": 1.3333333333333333,
+          "exact": "4/3",
+          "tolerance": 0.30666666666666664,
+          "pilot_sd": 0.0357218627763,
+          "required_replications": 1
+        },
+        "wait": {
+          "target": 1.4285714285714286,
+          "exact": "10/7",
+          "tolerance": 0.34571428571428575,
+          "pilot_sd": 0.0753084367034,
+          "required_replications": 3
+        },
+        "utilization": {
+          "target": 0.9333333333333333,
+          "exact": "14/15",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00887717817441,
+          "required_replications": 4
+        },
+        "throughput": {
+          "target": 0.9333333333333333,
+          "exact": "14/15",
+          "tolerance": 0.06166666666666667,
+          "pilot_sd": 0.0286744175568,
+          "required_replications": 11
+        },
+        "blocking": {
+          "target": 0.5333333333333333,
+          "exact": "8/15",
+          "tolerance": 0.02,
+          "pilot_sd": 0.0176882290177,
+          "required_replications": 39
+        },
+        "p0": {
+          "target": 0.06666666666666667,
+          "exact": "1/15",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00887717817441,
+          "required_replications": 4
+        },
+        "p1": {
+          "target": 0.13333333333333333,
+          "exact": "2/15",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0111382776456,
+          "required_replications": 6
+        },
+        "p2": {
+          "target": 0.26666666666666666,
+          "exact": "4/15",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00954002758144,
+          "required_replications": 4
+        },
+        "p3": {
+          "target": 0.5333333333333333,
+          "exact": "8/15",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0203589268415,
+          "required_replications": 17
+        }
+      }
+    },
+    {
+      "name": "mm2_k2_loss",
+      "scenario": 26,
+      "servers": 2,
+      "queue_capacity": 0,
+      "arrival_rate": 3.0,
+      "service": "exponential",
+      "service_mean": 1,
+      "service_second_moment": 2.0,
+      "replications": 16,
+      "metrics": {
+        "queue": {
+          "target": 0.0,
+          "exact": "0",
+          "tolerance": 0.0,
+          "pilot_sd": 0.0,
+          "required_replications": 0
+        },
+        "wait": {
+          "target": 0.0,
+          "exact": "0",
+          "tolerance": 0.0,
+          "pilot_sd": 0.0,
+          "required_replications": 0
+        },
+        "utilization": {
+          "target": 0.7058823529411765,
+          "exact": "12/17",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00829823375118,
+          "required_replications": 3
+        },
+        "throughput": {
+          "target": 1.411764705882353,
+          "exact": "24/17",
+          "tolerance": 0.08558823529411766,
+          "pilot_sd": 0.0274034922754,
+          "required_replications": 6
+        },
+        "blocking": {
+          "target": 0.5294117647058824,
+          "exact": "9/17",
+          "tolerance": 0.02,
+          "pilot_sd": 0.00980164546447,
+          "required_replications": 12
+        },
+        "p0": {
+          "target": 0.11764705882352941,
+          "exact": "2/17",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00792736549345,
+          "required_replications": 3
+        },
+        "p1": {
+          "target": 0.35294117647058826,
+          "exact": "6/17",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00860409183628,
+          "required_replications": 4
+        },
+        "p2": {
+          "target": 0.5294117647058824,
+          "exact": "9/17",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0105779696197,
+          "required_replications": 5
+        }
+      }
+    },
+    {
+      "name": "mm2_k5_overloaded",
+      "scenario": 27,
+      "servers": 2,
+      "queue_capacity": 3,
+      "arrival_rate": 2.4,
+      "service": "exponential",
+      "service_mean": 1,
+      "service_second_moment": 2.0,
+      "replications": 40,
+      "metrics": {
+        "queue": {
+          "target": 1.4146631148514515,
+          "exact": "83376/58937",
+          "tolerance": 0.3229326229702903,
+          "pilot_sd": 0.070783478594,
+          "required_replications": 3
+        },
+        "wait": {
+          "target": 0.8007375821136338,
+          "exact": "6948/8677",
+          "tolerance": 0.22014751642272676,
+          "pilot_sd": 0.0490706133946,
+          "required_replications": 3
+        },
+        "utilization": {
+          "target": 0.8833500178156336,
+          "exact": "52062/58937",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0139526294408,
+          "required_replications": 8
+        },
+        "throughput": {
+          "target": 1.7667000356312672,
+          "exact": "104124/58937",
+          "tolerance": 0.10333500178156337,
+          "pilot_sd": 0.0405301670912,
+          "required_replications": 8
+        },
+        "blocking": {
+          "target": 0.2638749851536386,
+          "exact": "15552/58937",
+          "tolerance": 0.02,
+          "pilot_sd": 0.0173685810138,
+          "required_replications": 38
+        },
+        "p0": {
+          "target": 0.053022719174711984,
+          "exact": "3125/58937",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00866725663221,
+          "required_replications": 4
+        },
+        "p1": {
+          "target": 0.12725452601930876,
+          "exact": "7500/58937",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0134592337274,
+          "required_replications": 8
+        },
+        "p2": {
+          "target": 0.1527054312231705,
+          "exact": "9000/58937",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0116595131717,
+          "required_replications": 6
+        },
+        "p3": {
+          "target": 0.1832465174678046,
+          "exact": "10800/58937",
+          "tolerance": 0.035,
+          "pilot_sd": 0.00830558797129,
+          "required_replications": 3
+        },
+        "p4": {
+          "target": 0.21989582096136553,
+          "exact": "12960/58937",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0124197150458,
+          "required_replications": 7
+        },
+        "p5": {
+          "target": 0.2638749851536386,
+          "exact": "15552/58937",
+          "tolerance": 0.035,
+          "pilot_sd": 0.018348502679,
+          "required_replications": 14
+        }
+      }
+    }
+  ]
+}

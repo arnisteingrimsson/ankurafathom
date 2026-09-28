@@ -1,0 +1,24 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_adoption_rate_unit",
+  "mode": "abm_sd",
+  "time": { "unit": "day", "dt": 0.1, "horizon": 1 },
+  "sd": {
+    "parameters": [
+      { "id": "innovation", "value": 0.03, "unit": "USD/day" },
+      { "id": "imitation", "value": 0.7, "unit": "1/day" }
+    ],
+    "components": [
+      { "id": "adopted_stock", "kind": "stock", "init": 0, "unit": "person" }
+    ]
+  },
+  "abm": {
+    "population": { "id": "consultants", "count": 10, "initial_adopters": 1,
+      "innovation_param": "innovation", "imitation_param": "imitation", "stream": 30 }
+  },
+  "bridges": [
+    { "kind": "adoption_to_stock", "from": "consultants", "to": "adopted_stock",
+      "unit": "person" }
+  ],
+  "outputs": [ { "id": "adopted", "stock": "adopted_stock" } ]
+}

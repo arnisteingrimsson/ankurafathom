@@ -1,0 +1,16 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_unit",
+  "time": { "unit": "day", "dt": 0.1, "horizon": 1.0 },
+  "parameters": [
+    { "id": "decay_rate", "value": 0.2, "unit": "day" }
+  ],
+  "components": [
+    { "id": "material", "kind": "stock", "init": 100.0, "unit": "kg" },
+    { "id": "loss", "kind": "flow", "source": "material", "destination": null,
+      "expr": "decay_rate * material", "unit": "kg/day" }
+  ],
+  "outputs": [
+    { "id": "material_ts", "stock": "material" }
+  ]
+}

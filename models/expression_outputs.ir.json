@@ -1,0 +1,11 @@
+{
+  "ir_version": "0.1", "name": "pure_expression_observations",
+  "time": {"unit": "day", "dt": 0.5, "horizon": 2},
+  "parameters": [{"id": "rate", "value": 2, "unit": "kg/day"}],
+  "components": [],
+  "outputs": [
+    {"id": "quantity", "expr": "rate*t", "unit": "kg"},
+    {"id": "arithmetic", "expr": "4-5+6", "unit": "1"},
+    {"id": "clock", "expr": "t", "unit": "day"}
+  ]
+}

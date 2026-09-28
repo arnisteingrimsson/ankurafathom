@@ -1,0 +1,31 @@
+{
+  "ir_version": "0.1",
+  "name": "two_stage_engagement_queue",
+  "mode": "des",
+  "time": { "unit": "day", "dt": 1, "horizon": 5 },
+  "components": [
+    { "id": "arrivals", "kind": "source", "schedule": [
+      { "id": 1, "arrival": 0, "service": 1 },
+      { "id": 2, "arrival": 0, "service": 1 }
+    ] },
+    { "id": "delivery", "kind": "server", "capacity": 1, "service_scale": 2 },
+    { "id": "done", "kind": "sink" },
+    { "id": "review", "kind": "server", "capacity": 1 }
+  ],
+  "links": [
+    { "from": "delivery", "to": "done" },
+    { "from": "arrivals", "to": "review" },
+    { "from": "review", "to": "delivery" }
+  ],
+  "outputs": [
+    { "id": "created", "component": "arrivals", "metric": "emitted" },
+    { "id": "review_done", "component": "review", "metric": "completed" },
+    { "id": "delivery_wait", "component": "delivery", "metric": "waiting" },
+    { "id": "delivery_busy", "component": "delivery", "metric": "busy" },
+    { "id": "delivery_util", "component": "delivery", "metric": "utilization" },
+    { "id": "delivery_queue_mean", "component": "delivery", "metric": "queue_mean" },
+    { "id": "completed", "component": "done", "metric": "completed" },
+    { "id": "cycle_total", "component": "done", "metric": "cycle_total" },
+    { "id": "cycle_mean", "component": "done", "metric": "cycle_mean" }
+  ]
+}

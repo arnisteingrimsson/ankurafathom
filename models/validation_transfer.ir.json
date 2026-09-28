@@ -1,0 +1,82 @@
+{
+  "ir_version": "0.1",
+  "name": "Declared closed transfer",
+  "mode": "sd",
+  "time": {
+    "unit": "day",
+    "dt": 1,
+    "horizon": 3
+  },
+  "parameters": [
+    {
+      "id": "rate",
+      "value": 2,
+      "unit": "kg/day"
+    },
+    {
+      "id": "total",
+      "value": 10,
+      "unit": "kg"
+    }
+  ],
+  "components": [
+    {
+      "id": "a",
+      "kind": "stock",
+      "init": 10,
+      "unit": "kg"
+    },
+    {
+      "id": "b",
+      "kind": "stock",
+      "init": 0,
+      "unit": "kg"
+    },
+    {
+      "id": "move",
+      "kind": "flow",
+      "source": "a",
+      "destination": "b",
+      "expr": "rate",
+      "unit": "kg/day"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "a_ts",
+      "stock": "a"
+    },
+    {
+      "id": "b_ts",
+      "stock": "b"
+    }
+  ],
+  "checks": [
+    {
+      "id": "mass",
+      "kind": "conserved",
+      "stocks": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "range",
+      "kind": "bounds",
+      "output": "b_ts",
+      "min": 0,
+      "max": 6
+    },
+    {
+      "id": "growth",
+      "kind": "monotone",
+      "output": "b_ts",
+      "direction": "increasing"
+    },
+    {
+      "id": "balance",
+      "kind": "assert",
+      "expr": "a+b == total"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/scipy/scipy/blob/v1.18.1/scipy/stats/_sobol_direction_numbers.npz",
+  "scipy_version": "1.18.1",
+  "dataset_sha256": "4859931147d42ce465b8605cb277f957d98b839d03194fdf06579357906d193b",
+  "selection": "First 32 polynomial/vinit rows; first seven initial numbers, zero-padded",
+  "origin": "https://web.maths.unsw.edu.au/~fkuo/sobol/",
+  "subset_sha256": "f4ae9e49778fbc6e5a0771b53d75160686b337d4db1c560a4d1fa8f2971c074a"
+}

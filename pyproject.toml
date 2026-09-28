@@ -1,0 +1,29 @@
+[build-system]
+requires = ["scikit-build-core==0.11.6", "nanobind==3.1.0", "pyarrow==25.0.1"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "ankurafathom"
+version = "0.1.0"
+description = "Standalone correctness-first hybrid simulation runtime"
+readme = "docs/PYTHON_API.md"
+requires-python = ">=3.10"
+dependencies = ["pyarrow==25.0.1"]
+
+[tool.scikit-build]
+minimum-version = "0.11.6"
+cmake.version = ">=3.20"
+cmake.build-type = "Release"
+build.targets = ["fathom_python"]
+install.components = ["Python"]
+wheel.packages = ["bindings/python/ankurafathom"]
+wheel.license-files = ["third_party/arrow_c/LICENSE.txt", "third_party/arrow_c/NOTICE.txt", "third_party/nlohmann_json/LICENSE.MIT", "third_party/sobol/LICENSE.txt", "third_party/nanobind/LICENSE"]
+# Production sources only; no local data, environments, build products or caches.
+sdist.exclude = ["**"]
+sdist.include = ["/pyproject.toml", "/CMakeLists.txt", "/README.md", "/cmake/**", "/include/**", "/src/**", "/runtime/**", "/bindings/python/*.cpp", "/bindings/python/CMakeLists.txt", "/bindings/python/ankurafathom/*.py", "/third_party/nlohmann_json/**", "/third_party/arrow_c/**", "/third_party/sobol/**", "/third_party/nanobind/**", "/docs/PYTHON_API.md", "/docs/PACKAGING.md", "/docs/API_PROVENANCE.md", "/docs/API_EXECUTION_CALLBACKS.md", "/docs/RUN_MANIFESTS.md", "/docs/PORTABLE_REPLAY.md", "/ir/schema/ankurafathom-manifest.schema.json", "/ir/schema/ankurafathom-bundle.schema.json"]
+
+[tool.scikit-build.cmake.define]
+BUILD_TESTING = "OFF"
+FATHOM_ENABLE_PYTHON = "ON"
+FATHOM_ENABLE_ARROW = "ON"
+FATHOM_PYTHON_WHEEL = "ON"

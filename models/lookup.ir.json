@@ -1,0 +1,13 @@
+{
+  "ir_version": "0.1",
+  "name": "table_driven_flow",
+  "time": { "unit": "day", "dt": 1, "horizon": 2 },
+  "components": [
+    { "id": "material", "kind": "stock", "init": 100, "unit": "kg" },
+    { "id": "rate_table", "kind": "table", "x_unit": "day", "unit": "kg/day",
+      "x": [0, 1, 2], "y": [1, 2, 3], "extrapolate": "clamp" },
+    { "id": "loss", "kind": "flow", "source": "material", "destination": null,
+      "expr": "rate_table(t)", "unit": "kg/day" }
+  ],
+  "outputs": [ { "id": "material_ts", "stock": "material" } ]
+}

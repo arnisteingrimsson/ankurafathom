@@ -1,0 +1,9 @@
+{
+  "seed": 123,
+  "replications": 2,
+  "scenarios": [
+    {"id": 0, "parameters": {"productivity": 0}},
+    {"id": 1, "parameters": {"productivity": 1}},
+    {"id": 2, "parameters": {"productivity": 1.5}}
+  ]
+}

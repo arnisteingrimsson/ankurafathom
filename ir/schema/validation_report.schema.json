@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ankurafathom.local/schema/validation/0.1",
+  "title": "Bounded standalone SD validation report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "validation_version",
+    "scope",
+    "verdict",
+    "checks",
+    "coverage",
+    "result"
+  ],
+  "properties": {
+    "validation_version": {
+      "const": "0.1"
+    },
+    "scope": {
+      "const": "standalone-sd-declared-checks"
+    },
+    "verdict": {
+      "enum": [
+        "pass",
+        "warn",
+        "fail"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "code",
+          "pointer",
+          "verdict"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "pointer": {
+            "type": "string"
+          },
+          "verdict": {
+            "enum": [
+              "pass",
+              "warn",
+              "fail"
+            ]
+          },
+          "samples": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "failures": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "first_failure": {
+            "type": "object",
+            "required": [
+              "scenario",
+              "replication",
+              "time",
+              "actual",
+              "reference"
+            ],
+            "properties": {
+              "scenario": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "replication": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "time": {
+                "type": "number"
+              },
+              "actual": {
+                "type": "number"
+              },
+              "reference": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "result": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "inputs": {
+      "type": "object"
+    },
+    "sampling": {
+      "type": "object",
+      "required": [
+        "policy",
+        "start",
+        "dt",
+        "horizon"
+      ],
+      "properties": {
+        "policy": {
+          "const": "output-grid-including-initial-and-final"
+        },
+        "start": {
+          "type": "number"
+        },
+        "dt": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "horizon": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

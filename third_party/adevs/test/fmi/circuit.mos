@@ -1,0 +1,2 @@
+loadFile("circuit.mo");
+buildModelFMU(Circuit,"2.0");

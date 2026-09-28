@@ -1,0 +1,38 @@
+{
+  "ir_version": "0.1",
+  "name": "stock_driven_arrival_rate",
+  "mode": "hybrid",
+  "time": { "unit": "day", "dt": 1, "horizon": 4 },
+  "sd": {
+    "components": [
+      { "id": "signal", "kind": "stock", "init": 1, "unit": "engagement" }
+    ]
+  },
+  "des": {
+    "components": [
+      { "id": "arrivals", "kind": "source", "schedule": [
+        { "id": 1, "arrival": 0, "service": 1 }
+      ] },
+      { "id": "delivery", "kind": "server", "capacity": 1 },
+      { "id": "done", "kind": "sink" }
+    ],
+    "links": [
+      { "from": "arrivals", "to": "delivery" },
+      { "from": "delivery", "to": "done" }
+    ]
+  },
+  "bridges": [
+    { "kind": "completion_to_stock", "from": "done", "to": "signal",
+      "amount": 1, "unit": "engagement" },
+    { "kind": "stock_to_rate", "from": "signal", "to": "delivery",
+      "base_rate": 0, "gain": 1,
+      "rate_unit": "1/day", "gain_unit": "1/day/engagement",
+      "service_rate": 0.000000001, "service_rate_unit": "1/day",
+      "first_id": 100, "max_count": 5, "stream": 20 }
+  ],
+  "outputs": [
+    { "id": "stock", "stock": "signal" },
+    { "id": "accepted", "component": "delivery", "metric": "accepted" },
+    { "id": "completed", "component": "done", "metric": "completed" }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "populations": [
+    40,
+    160,
+    640
+  ],
+  "replications": 256,
+  "initial_infected_denominator": 10,
+  "times": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8,
+    12
+  ],
+  "seed": 179424673,
+  "reference_seed": 198491317,
+  "scenario": 47,
+  "waiting_stream": 1401,
+  "selection_stream": 1402,
+  "cases": [
+    {
+      "id": "epidemic",
+      "beta": 0.8,
+      "gamma": 0.3
+    },
+    {
+      "id": "declining",
+      "beta": 0.4,
+      "gamma": 0.6
+    },
+    {
+      "id": "infection-only",
+      "beta": 0.6,
+      "gamma": 0
+    },
+    {
+      "id": "recovery-only",
+      "beta": 0,
+      "gamma": 0.4
+    }
+  ],
+  "sd_steps": [
+    0.03125,
+    0.015625
+  ],
+  "sd_error_limit": 1e-08,
+  "sd_halving_ratio": [
+    10,
+    22
+  ],
+  "reference_tolerance": 2e-11,
+  "metrics": [
+    "infected",
+    "recovered"
+  ],
+  "power": {
+    "population_ks_alternative": 0.45,
+    "miss_probability_bound": 0.005448860832618446
+  },
+  "independent_gates": {
+    "comparisons": 168,
+    "family_alpha": 0.001,
+    "mean_sigma": 6,
+    "mean_floor": 0.015
+  },
+  "limit_gates": {
+    "finest_mean_floor": 0.012,
+    "mean_sigma": 6,
+    "rmse_ratio_min": 0.25,
+    "rmse_ratio_max": 0.8,
+    "finest_coarse_max": 0.4,
+    "mean_comparisons": 84
+  },
+  "scope": "individual well-mixed CTMC infection hazard beta*I/N, recovery gamma; fixed initial fraction; path RMS convergence to SD as N increases; no finite-dt ABM bias or universal parameter claim"
+}

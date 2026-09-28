@@ -1,0 +1,27 @@
+build/
+build-sanitize/
+build-fuzz/
+.venv-sd-oracle/
+.venv-des-oracle/
+.venv-abm-oracle/
+.venv-runtime/
+build-arrow/
+build-arrow-sanitize/
+__pycache__/
+.DS_Store
+
+dist/
+build-native-package/
+build-package-wheelhouse/
+
+# Local build variants, environments and generated run evidence.
+/build*/
+/.venv*/
+/artifacts/
+/*.log
+*.py[cod]
+
+# Local credentials (example templates may be committed).
+.env
+.env.*
+!.env.example

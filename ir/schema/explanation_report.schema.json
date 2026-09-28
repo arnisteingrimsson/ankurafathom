@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ankurafathom.local/schema/explanation/0.1",
+  "title": "Verified standalone SD explanation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "explanation_version",
+    "scope",
+    "model_name",
+    "manifest_id",
+    "model_sha256",
+    "result_sha256",
+    "scenario",
+    "replication",
+    "output",
+    "window",
+    "verification",
+    "method",
+    "start_value",
+    "value",
+    "accounting",
+    "dependencies",
+    "limitations"
+  ],
+  "properties": {
+    "manifest_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "model_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "result_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "explanation_version": {
+      "const": "0.1"
+    },
+    "scope": {
+      "const": "standalone-sd-unclipped-integrator-accounting"
+    },
+    "model_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "output": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenario": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "replication": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "at",
+        "steps",
+        "time_unit"
+      ],
+      "properties": {
+        "from": {
+          "type": "number"
+        },
+        "at": {
+          "type": "number"
+        },
+        "steps": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "time_unit": {
+          "type": "string"
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inputs",
+        "result",
+        "passive_observations",
+        "artifact"
+      ],
+      "properties": {
+        "inputs": {
+          "const": "exact-match"
+        },
+        "result": {
+          "const": "exact-match"
+        },
+        "passive_observations": {
+          "const": "bit-identical"
+        },
+        "artifact": {
+          "enum": [
+            "verified",
+            "not-supplied; manifest numeric identity re-executed"
+          ]
+        }
+      }
+    },
+    "method": {
+      "enum": [
+        "euler-passive-flow-integrals",
+        "rk4-passive-flow-integrals"
+      ]
+    },
+    "start_value": {
+      "type": "number"
+    },
+    "value": {
+      "type": "number"
+    },
+    "accounting": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "stock",
+            "unit",
+            "change",
+            "flows",
+            "flow_total",
+            "rounding_residual"
+          ],
+          "properties": {
+            "stock": {
+              "type": "string"
+            },
+            "unit": {
+              "type": "string"
+            },
+            "change": {
+              "type": "number"
+            },
+            "flow_total": {
+              "type": "number"
+            },
+            "rounding_residual": {
+              "type": "number"
+            },
+            "flows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "flow",
+                  "endpoint_sign",
+                  "integrated_amount",
+                  "contribution"
+                ],
+                "properties": {
+                  "flow": {
+                    "type": "string"
+                  },
+                  "endpoint_sign": {
+                    "enum": [
+                      -1,
+                      0,
+                      1
+                    ]
+                  },
+                  "integrated_amount": {
+                    "type": "number"
+                  },
+                  "contribution": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodes",
+        "edges"
+      ],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "kind"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "time",
+                  "time-step",
+                  "parameter",
+                  "stock",
+                  "auxiliary",
+                  "delay",
+                  "flow",
+                  "table",
+                  "exogenous-series",
+                  "output"
+                ]
+              }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "from",
+              "to",
+              "role"
+            ],
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

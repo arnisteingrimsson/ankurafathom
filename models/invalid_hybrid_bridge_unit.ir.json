@@ -1,0 +1,25 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_bridge_unit",
+  "mode": "hybrid",
+  "time": { "unit": "day", "dt": 1, "horizon": 2 },
+  "sd": { "components": [
+    { "id": "completed_stock", "kind": "stock", "init": 0, "unit": "engagement" }
+  ] },
+  "des": {
+    "components": [
+      { "id": "arrivals", "kind": "source", "schedule": [] },
+      { "id": "delivery", "kind": "server", "capacity": 1 },
+      { "id": "done", "kind": "sink" }
+    ],
+    "links": [
+      { "from": "arrivals", "to": "delivery" },
+      { "from": "delivery", "to": "done" }
+    ]
+  },
+  "bridges": [
+    { "kind": "completion_to_stock", "from": "done", "to": "completed_stock",
+      "amount": 1, "unit": "USD" }
+  ],
+  "outputs": [ { "id": "stock_ts", "stock": "completed_stock" } ]
+}

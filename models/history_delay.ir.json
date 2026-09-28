@@ -1,0 +1,12 @@
+{
+  "ir_version": "0.1", "name": "second_order_history_delay",
+  "time": {"unit": "day", "dt": 0.5, "horizon": 1.5},
+  "parameters": [{"id":"base_tau","value":4,"unit":"day"}, {"id":"feed","value":6,"unit":"kg/day"}],
+  "components": [
+    {"id":"total","kind":"stock","init":0,"unit":"kg","non_negative":false},
+    {"id":"tau","kind":"table","x":[0,0.5,1,1.5],"y":[0,-2,2,2],"x_unit":"day","unit":"day","extrapolate":"clamp"},
+    {"id":"lag","kind":"delay","type":"history2","order":2,"duration":"base_tau+tau(t)","initial":2,"input":"feed","unit":"kg/day"},
+    {"id":"released","kind":"flow","source":null,"destination":"total","expr":"lag","unit":"kg/day","non_negative":false}
+  ],
+  "outputs":[{"id":"total_ts","stock":"total"},{"id":"lag_ts","component":"lag"}]
+}

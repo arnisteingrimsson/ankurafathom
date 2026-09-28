@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AnkuraFathom standalone SD visualization receipt",
+  "type": "object",
+  "required": [
+    "visualization_version",
+    "scope",
+    "model_name",
+    "model_sha256",
+    "manifest_id",
+    "selected_output",
+    "verification",
+    "stock_flow",
+    "dependencies",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "visualization_version": {
+      "const": "0.1"
+    },
+    "scope": {
+      "const": "standalone-sd-static-structure"
+    },
+    "model_name": {
+      "type": "string"
+    },
+    "model_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "manifest_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "selected_output": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "inputs",
+        "results"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "enum": [
+            "model-loaded",
+            "exact-manifest-match"
+          ]
+        },
+        "results": {
+          "const": "not-verified"
+        }
+      }
+    },
+    "stock_flow": {
+      "type": "object",
+      "required": [
+        "nodes",
+        "edges"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "kind",
+              "declaration"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "time",
+                  "time-step",
+                  "parameter",
+                  "stock",
+                  "flow",
+                  "auxiliary",
+                  "delay",
+                  "table",
+                  "boundary",
+                  "output",
+                  "parameter-data",
+                  "exogenous-series"
+                ]
+              },
+              "declaration": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "to",
+              "role"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "required": [
+        "nodes",
+        "edges"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "kind",
+              "declaration"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "time",
+                  "time-step",
+                  "parameter",
+                  "stock",
+                  "flow",
+                  "auxiliary",
+                  "delay",
+                  "table",
+                  "boundary",
+                  "output",
+                  "parameter-data",
+                  "exogenous-series"
+                ]
+              },
+              "declaration": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "to",
+              "role"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

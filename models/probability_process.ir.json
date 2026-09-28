@@ -1,0 +1,261 @@
+{
+  "ir_version": "0.1",
+  "name": "addressed_probability_routing",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.25,
+    "horizon": 24
+  },
+  "components": [
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "schedule": [
+        {
+          "id": 0,
+          "arrival": 0.0,
+          "service": 0.25
+        },
+        {
+          "id": 1,
+          "arrival": 0.125,
+          "service": 0.25
+        },
+        {
+          "id": 2,
+          "arrival": 0.25,
+          "service": 0.25
+        },
+        {
+          "id": 3,
+          "arrival": 0.375,
+          "service": 0.25
+        },
+        {
+          "id": 4,
+          "arrival": 0.5,
+          "service": 0.25
+        },
+        {
+          "id": 5,
+          "arrival": 0.625,
+          "service": 0.25
+        },
+        {
+          "id": 6,
+          "arrival": 0.75,
+          "service": 0.25
+        },
+        {
+          "id": 7,
+          "arrival": 0.875,
+          "service": 0.25
+        },
+        {
+          "id": 8,
+          "arrival": 1.0,
+          "service": 0.25
+        },
+        {
+          "id": 9,
+          "arrival": 1.125,
+          "service": 0.25
+        },
+        {
+          "id": 10,
+          "arrival": 1.25,
+          "service": 0.25
+        },
+        {
+          "id": 11,
+          "arrival": 1.375,
+          "service": 0.25
+        },
+        {
+          "id": 12,
+          "arrival": 1.5,
+          "service": 0.25
+        },
+        {
+          "id": 13,
+          "arrival": 1.625,
+          "service": 0.25
+        },
+        {
+          "id": 14,
+          "arrival": 1.75,
+          "service": 0.25
+        },
+        {
+          "id": 15,
+          "arrival": 1.875,
+          "service": 0.25
+        },
+        {
+          "id": 16,
+          "arrival": 2.0,
+          "service": 0.25
+        },
+        {
+          "id": 17,
+          "arrival": 2.125,
+          "service": 0.25
+        },
+        {
+          "id": 18,
+          "arrival": 2.25,
+          "service": 0.25
+        },
+        {
+          "id": 19,
+          "arrival": 2.375,
+          "service": 0.25
+        },
+        {
+          "id": 20,
+          "arrival": 2.5,
+          "service": 0.25
+        },
+        {
+          "id": 21,
+          "arrival": 2.625,
+          "service": 0.25
+        },
+        {
+          "id": 22,
+          "arrival": 2.75,
+          "service": 0.25
+        },
+        {
+          "id": 23,
+          "arrival": 2.875,
+          "service": 0.25
+        },
+        {
+          "id": 24,
+          "arrival": 3.0,
+          "service": 0.25
+        },
+        {
+          "id": 25,
+          "arrival": 3.125,
+          "service": 0.25
+        },
+        {
+          "id": 26,
+          "arrival": 3.25,
+          "service": 0.25
+        },
+        {
+          "id": 27,
+          "arrival": 3.375,
+          "service": 0.25
+        },
+        {
+          "id": 28,
+          "arrival": 3.5,
+          "service": 0.25
+        },
+        {
+          "id": 29,
+          "arrival": 3.625,
+          "service": 0.25
+        },
+        {
+          "id": 30,
+          "arrival": 3.75,
+          "service": 0.25
+        },
+        {
+          "id": 31,
+          "arrival": 3.875,
+          "service": 0.25
+        }
+      ]
+    },
+    {
+      "id": "intake",
+      "kind": "server",
+      "capacity": 1
+    },
+    {
+      "id": "choice",
+      "kind": "router",
+      "probability": {
+        "match": 0.35,
+        "stream": 301
+      }
+    },
+    {
+      "id": "fast",
+      "kind": "server",
+      "capacity": 1
+    },
+    {
+      "id": "slow",
+      "kind": "server",
+      "capacity": 1,
+      "service_scale": 2
+    },
+    {
+      "id": "done",
+      "kind": "sink"
+    }
+  ],
+  "links": [
+    {
+      "from": "arrivals",
+      "to": "intake"
+    },
+    {
+      "from": "intake",
+      "to": "choice"
+    },
+    {
+      "from": "choice",
+      "port": "match",
+      "to": "fast"
+    },
+    {
+      "from": "choice",
+      "port": "otherwise",
+      "to": "slow"
+    },
+    {
+      "from": "fast",
+      "to": "done"
+    },
+    {
+      "from": "slow",
+      "to": "done"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "received",
+      "component": "choice",
+      "metric": "received"
+    },
+    {
+      "id": "matched",
+      "component": "choice",
+      "metric": "matched"
+    },
+    {
+      "id": "otherwise",
+      "component": "choice",
+      "metric": "otherwise"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    }
+  ]
+}

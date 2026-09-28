@@ -1,0 +1,195 @@
+{
+  "ir_version": "0.1",
+  "name": "typed_generated_capacity_delivery",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 6
+  },
+  "parameters": [
+    {
+      "id": "speed",
+      "value": 1,
+      "unit": "1"
+    },
+    {
+      "id": "gap",
+      "unit": "day",
+      "value": 0.5
+    },
+    {
+      "id": "initial_staff",
+      "unit": "1",
+      "value": 0
+    }
+  ],
+  "components": [
+    {
+      "id": "work",
+      "kind": "entity_type",
+      "fields": [
+        {
+          "id": "duration",
+          "type": "real",
+          "unit": "day"
+        },
+        {
+          "id": "rank",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "id": "urgent",
+          "type": "boolean"
+        },
+        {
+          "id": "label",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "entity_type": "work",
+      "priority": "rank",
+      "generator": {
+        "count": 3,
+        "start": 0.5,
+        "values": {
+          "duration": 1,
+          "rank": 0,
+          "urgent": false,
+          "label": "generated"
+        },
+        "interarrival": {
+          "kind": "constant",
+          "interval": "gap"
+        }
+      }
+    },
+    {
+      "id": "staff",
+      "kind": "resource_pool",
+      "capacity": "initial_staff",
+      "max_request_units": 1,
+      "discipline": "priority",
+      "schedule": [
+        {
+          "time": 0.5,
+          "capacity": "1"
+        },
+        {
+          "time": 4.5,
+          "capacity": 0
+        }
+      ]
+    },
+    {
+      "id": "claim",
+      "kind": "seize",
+      "entity_type": "work",
+      "pool": "staff",
+      "units": "1",
+      "preempt": false
+    },
+    {
+      "id": "delivery",
+      "kind": "delay_block",
+      "entity_type": "work",
+      "duration": "duration / speed"
+    },
+    {
+      "id": "give_back",
+      "kind": "release",
+      "entity_type": "work",
+      "pool": "staff"
+    },
+    {
+      "id": "done",
+      "kind": "sink",
+      "entity_type": "work"
+    }
+  ],
+  "links": [
+    {
+      "from": "arrivals",
+      "to": "claim"
+    },
+    {
+      "from": "claim",
+      "to": "delivery"
+    },
+    {
+      "from": "delivery",
+      "to": "give_back"
+    },
+    {
+      "from": "give_back",
+      "to": "done"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "emitted",
+      "component": "arrivals",
+      "metric": "emitted"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    },
+    {
+      "id": "cycle_mean",
+      "component": "done",
+      "metric": "cycle_mean"
+    },
+    {
+      "id": "waiting",
+      "component": "staff",
+      "metric": "waiting"
+    },
+    {
+      "id": "allocated",
+      "component": "staff",
+      "metric": "allocated"
+    },
+    {
+      "id": "queue_mean",
+      "component": "staff",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "utilization",
+      "component": "staff",
+      "metric": "utilization"
+    },
+    {
+      "id": "in_process",
+      "component": "delivery",
+      "metric": "active"
+    },
+    {
+      "id": "granted",
+      "component": "claim",
+      "metric": "granted"
+    },
+    {
+      "id": "released",
+      "component": "give_back",
+      "metric": "released"
+    },
+    {
+      "id": "available_staff",
+      "component": "staff",
+      "metric": "capacity"
+    }
+  ]
+}

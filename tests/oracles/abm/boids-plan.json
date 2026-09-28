@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "replications": 512,
+  "seed": 15485863,
+  "reference_seed": 49979687,
+  "scenario": 31,
+  "position_stream": 1201,
+  "velocity_stream": 1202,
+  "ticks": [
+    0,
+    8,
+    24
+  ],
+  "cases": [
+    {
+      "id": "periodic-balanced",
+      "n": 20,
+      "parameters": {
+        "width": 10.0,
+        "height": 8.0,
+        "wrap": true,
+        "dt": 0.125,
+        "vision": 3.0,
+        "separation_radius": 1.0,
+        "alignment": 1.0,
+        "cohesion": 0.3,
+        "separation": 0.5,
+        "max_acceleration": 2.0,
+        "max_speed": 2.0,
+        "softening": 0.1,
+        "bin_width": 1.0
+      }
+    },
+    {
+      "id": "periodic-alignment",
+      "n": 20,
+      "parameters": {
+        "width": 10.0,
+        "height": 8.0,
+        "wrap": true,
+        "dt": 0.125,
+        "vision": 3.0,
+        "separation_radius": 1.0,
+        "alignment": 3.0,
+        "cohesion": 0.1,
+        "separation": 0.2,
+        "max_acceleration": 2.0,
+        "max_speed": 2.0,
+        "softening": 0.1,
+        "bin_width": 1.0
+      }
+    },
+    {
+      "id": "periodic-separation",
+      "n": 20,
+      "parameters": {
+        "width": 10.0,
+        "height": 8.0,
+        "wrap": true,
+        "dt": 0.125,
+        "vision": 3.0,
+        "separation_radius": 2.0,
+        "alignment": 0.3,
+        "cohesion": 0.1,
+        "separation": 2.0,
+        "max_acceleration": 2.0,
+        "max_speed": 2.0,
+        "softening": 0.1,
+        "bin_width": 1.0
+      }
+    },
+    {
+      "id": "reflecting-balanced",
+      "n": 20,
+      "parameters": {
+        "width": 10.0,
+        "height": 8.0,
+        "wrap": false,
+        "dt": 0.125,
+        "vision": 3.0,
+        "separation_radius": 1.0,
+        "alignment": 1.0,
+        "cohesion": 0.3,
+        "separation": 0.5,
+        "max_acceleration": 2.0,
+        "max_speed": 2.0,
+        "softening": 0.1,
+        "bin_width": 1.0
+      }
+    }
+  ],
+  "metrics": [
+    "polarization",
+    "mean_speed",
+    "neighbor_fraction",
+    "mean_pair_distance"
+  ],
+  "gates": {
+    "family_alpha": 0.001,
+    "comparisons": 32,
+    "mean_sigma": 6,
+    "mean_floor": {
+      "polarization": 0.04,
+      "mean_speed": 0.025,
+      "neighbor_fraction": 0.025,
+      "mean_pair_distance": 0.025
+    }
+  },
+  "power": {
+    "population_ks_alternative": 0.3,
+    "miss_probability_bound": 0.010002333333060017
+  },
+  "path_tolerance": {
+    "relative": 2e-10,
+    "absolute": 2e-10
+  },
+  "scope": "declared synchronous finite-time variant, randomized initial states; no long-time chaos/equilibrium claim"
+}

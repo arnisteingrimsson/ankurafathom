@@ -1,0 +1,192 @@
+{
+  "ir_version": "0.1",
+  "name": "independent_service_completion_to_stock",
+  "mode": "hybrid",
+  "time": {
+    "unit": "day",
+    "dt": 1,
+    "horizon": 30
+  },
+  "outputs": [
+    {
+      "id": "s0_completed",
+      "component": "stage0",
+      "metric": "completed"
+    },
+    {
+      "id": "s0_queue_mean",
+      "component": "stage0",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "s0_utilization",
+      "component": "stage0",
+      "metric": "utilization"
+    },
+    {
+      "id": "s1_completed",
+      "component": "stage1",
+      "metric": "completed"
+    },
+    {
+      "id": "s1_queue_mean",
+      "component": "stage1",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "s1_utilization",
+      "component": "stage1",
+      "metric": "utilization"
+    },
+    {
+      "id": "s2_completed",
+      "component": "stage2",
+      "metric": "completed"
+    },
+    {
+      "id": "s2_queue_mean",
+      "component": "stage2",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "s2_utilization",
+      "component": "stage2",
+      "metric": "utilization"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    },
+    {
+      "id": "total",
+      "stock": "total"
+    }
+  ],
+  "sd": {
+    "components": [
+      {
+        "id": "total",
+        "kind": "stock",
+        "init": 0,
+        "unit": "engagement"
+      }
+    ]
+  },
+  "des": {
+    "components": [
+      {
+        "id": "arrivals",
+        "kind": "source",
+        "schedule": [
+          {
+            "id": 0,
+            "arrival": 0.0,
+            "service": 7
+          },
+          {
+            "id": 1,
+            "arrival": 0.5,
+            "service": 8
+          },
+          {
+            "id": 2,
+            "arrival": 1.0,
+            "service": 9
+          },
+          {
+            "id": 3,
+            "arrival": 1.5,
+            "service": 10
+          },
+          {
+            "id": 4,
+            "arrival": 2.0,
+            "service": 11
+          },
+          {
+            "id": 5,
+            "arrival": 2.5,
+            "service": 12
+          },
+          {
+            "id": 6,
+            "arrival": 3.0,
+            "service": 13
+          },
+          {
+            "id": 7,
+            "arrival": 3.5,
+            "service": 14
+          }
+        ]
+      },
+      {
+        "id": "stage0",
+        "kind": "server",
+        "capacity": 1,
+        "service": {
+          "kind": "exponential",
+          "rate": 1,
+          "stream": 201
+        }
+      },
+      {
+        "id": "stage1",
+        "kind": "server",
+        "capacity": 1,
+        "service": {
+          "kind": "exponential",
+          "rate": 1.25,
+          "stream": 202
+        }
+      },
+      {
+        "id": "stage2",
+        "kind": "server",
+        "capacity": 1,
+        "service": {
+          "kind": "exponential",
+          "rate": 0.8,
+          "stream": 203
+        }
+      },
+      {
+        "id": "done",
+        "kind": "sink"
+      }
+    ],
+    "links": [
+      {
+        "from": "arrivals",
+        "to": "stage0"
+      },
+      {
+        "from": "stage0",
+        "to": "stage1"
+      },
+      {
+        "from": "stage1",
+        "to": "stage2"
+      },
+      {
+        "from": "stage2",
+        "to": "done"
+      }
+    ]
+  },
+  "bridges": [
+    {
+      "kind": "completion_to_stock",
+      "from": "done",
+      "to": "total",
+      "amount": 1,
+      "unit": "engagement"
+    }
+  ]
+}

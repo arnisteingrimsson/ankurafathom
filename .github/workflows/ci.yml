@@ -1,0 +1,258 @@
+name: correctness
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure instrumented parser and loader
+        env:
+          CC: clang
+          CXX: clang++
+        run: cmake -S . -B build-fuzz -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=OFF -DFATHOM_ENABLE_FUZZING=ON -DFATHOM_ENABLE_SANITIZERS=ON -DFATHOM_ENABLE_ARROW=OFF
+      - name: Build
+        run: cmake --build build-fuzz --target fuzz_expression fuzz_ir_loader --parallel 2
+      - name: Fuzz (ten minutes per target nightly, smoke on pull requests)
+        env:
+          FUZZ_SECONDS: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && '600' || '20' }}
+        run: python3 tests/fuzz/run.py --build build-fuzz --output build-fuzz/evidence --seconds "$FUZZ_SECONDS"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fuzz-evidence
+          path: build-fuzz/evidence
+
+  cpu-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Graphviz for native diagrams
+        run: |
+          if [ "$(uname)" = Darwin ]; then
+            command -v dot || brew install graphviz
+          else
+            sudo apt-get update
+            sudo apt-get install -y graphviz
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+      - name: Build
+        run: cmake --build build --parallel 2
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+      - name: Run independent benchmark workloads
+        run: python3 tests/benchmarks/run.py --out build/benchmark-workloads
+      - name: Validate IR schema contract
+        run: |
+          python -m pip install jsonschema==4.26.0
+          python tests/schema_contract.py ./build/fathom
+          python tests/experiment_design_cli.py ./build/fathom --schema
+      - name: Verify independent SD reference trajectories
+        run: |
+          python -m pip install -r tests/oracles/sd/requirements.txt
+          python tests/oracles/sd/generate.py --verify
+      - name: Verify pinned XMILE reference trajectories
+        run: |
+          python -m pip install -r tests/oracles/xmile/requirements.txt
+          python tests/oracles/xmile/generate.py --verify
+          python tests/oracles/xmile/generate_delayn.py --verify
+          python tests/oracles/xmile/generate_history.py --verify
+          python tests/oracles/xmile/generate_inputs.py --verify
+
+  sanitizers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Graphviz for native diagrams
+        run: |
+          if [ "$(uname)" = Darwin ]; then
+            command -v dot || brew install graphviz
+          else
+            sudo apt-get update
+            sudo apt-get install -y graphviz
+          fi
+      - name: Configure
+        run: cmake -S . -B build-sanitize -DCMAKE_BUILD_TYPE=Debug -DFATHOM_ENABLE_SANITIZERS=ON
+      - name: Build
+        run: cmake --build build-sanitize --parallel 2
+      - name: Test
+        run: ctest --test-dir build-sanitize --output-on-failure
+      - name: Run instrumented benchmark workloads
+        run: python3 tests/benchmarks/run.py --out build-sanitize/benchmark-workloads --sanitize
+
+  des-oracles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned independent simulators
+        run: python -m pip install -r tests/oracles/des/requirements.txt
+      - name: Check adapters and regenerate independent DES evidence
+        run: |
+          python tests/oracles/des/engine_plan.py --verify
+          python tests/oracles/des/adapter_tests.py
+          python tests/oracles/des/engine_oracles.py --verify
+          python tests/oracles/des/discipline_plan.py --verify
+          python tests/oracles/des/discipline_oracles.py --verify
+
+  abm-oracles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned Mesa and NetworkX
+        run: python -m pip install -r tests/oracles/abm/requirements.txt
+      - name: Regenerate independent spatial and network evidence
+        run: |
+          python tests/oracles/abm/foundation_plan.py --verify
+          python tests/oracles/abm/foundation_oracle.py --contract
+          python tests/oracles/abm/foundation_oracle.py --verify
+          python tests/oracles/abm/interaction_plan.py --verify
+          python tests/oracles/abm/interaction_oracle.py --contract
+          python tests/oracles/abm/interaction_oracle.py --verify
+          python tests/oracles/abm/generator_plan.py --verify
+          python tests/oracles/abm/generator_oracle.py --contract
+          python tests/oracles/abm/generator_oracle.py --verify
+          python tests/oracles/abm/wealth_plan.py --verify
+          python tests/oracles/abm/wealth_oracle.py --contract
+          python tests/oracles/abm/wealth_oracle.py --verify
+          python tests/oracles/abm/schelling_plan.py --verify
+          python tests/oracles/abm/schelling_oracle.py --contract
+          python tests/oracles/abm/schelling_oracle.py --verify
+          python tests/oracles/abm/boids_plan.py --verify
+          python tests/oracles/abm/boids_oracle.py --contract
+          python tests/oracles/abm/boids_oracle.py --verify
+          python tests/oracles/abm/sugarscape_plan.py --verify
+          python tests/oracles/abm/sugarscape_oracle.py --contract
+          python tests/oracles/abm/sugarscape_oracle.py --verify
+          python tests/oracles/abm/sir_plan.py --verify
+          python tests/oracles/abm/sir_oracle.py --contract
+          python tests/oracles/abm/sir_oracle.py --verify
+          python tests/oracles/abm/sir_async_plan.py --verify
+          python tests/oracles/abm/sir_async_oracle.py --contract
+          python tests/oracles/abm/sir_async_oracle.py --verify
+          python tests/oracles/abm/sir_convergence.py --contract
+
+  hybrid-oracles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned independent hybrid references
+        run: python -m pip install -r tests/oracles/hybrid/requirements.txt
+      - name: Regenerate hybrid evidence and check analytical contracts
+        run: |
+          python tests/oracles/hybrid/sir_mean_field_plan.py --verify
+          python tests/oracles/hybrid/sir_mean_field_oracle.py --contract --verify
+          python tests/oracles/hybrid/bass_mean_field_plan.py --verify
+          python tests/oracles/hybrid/bass_mean_field_oracle.py --contract --verify
+          python tests/oracles/hybrid/des_fluid_plan.py --verify
+          python tests/oracles/hybrid/des_fluid_oracle.py --contract --verify
+          python tests/oracles/hybrid/agent_stocks_oracle.py --contract
+          python tests/oracles/hybrid/typed_aggregate_oracle.py --verify --contract
+          python tests/oracles/hybrid/agent_stocks_atomic_oracle.py --verify --contract
+          python tests/oracles/hybrid/agent_stock_ir_oracle.py --verify --contract
+          python tests/oracles/hybrid/typed_pulse_oracle.py --verify --contract
+          python tests/oracles/hybrid/lifecycle_bridge_oracle.py --verify --contract
+          python tests/oracles/hybrid/entity_agent_oracle.py --verify --contract
+          python tests/oracles/hybrid/signal_rate_oracle.py --verify --contract
+          python tests/oracles/hybrid/typed_pool_oracle.py --verify --contract
+          python tests/oracles/hybrid/dynamic_agent_stocks_oracle.py --verify --contract
+
+  thread-sanitizer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check ordered experiment execution for data races
+        run: |
+          c++ -std=c++20 -O1 -g -pthread -fsanitize=thread -fno-omit-frame-pointer -ffp-contract=off -fno-fast-math -Iinclude tests/experiment_parallel_tests.cpp -o experiment-parallel-tsan
+          ./experiment-parallel-tsan
+
+  runtime-design-oracles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate pinned scenario designs
+        run: |
+          python -m pip install -r tests/oracles/runtime/requirements.txt
+          python tests/oracles/runtime/design_oracle.py --verify --contract
+
+  runtime-outputs:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        sanitize: ['OFF', 'ON']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Graphviz for native diagrams
+        run: |
+          if [ "$(uname)" = Darwin ]; then
+            command -v dot || brew install graphviz
+          else
+            sudo apt-get update
+            sudo apt-get install -y graphviz
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned output SDK and readers
+        run: python -m pip install -r runtime/requirements.txt jsonschema==4.26.0
+      - name: Configure optional Arrow output
+        run: cmake -S . -B build-arrow -DCMAKE_BUILD_TYPE=Debug -DFATHOM_ENABLE_SANITIZERS=${{ matrix.sanitize }} -DFATHOM_ARROW_PYTHON="$(command -v python)" -DFATHOM_ENABLE_PYTHON=ON -DPython_EXECUTABLE="$(command -v python)"
+      - name: Build runtime output and experiment tests
+        run: cmake --build build-arrow --target fathom fathom_python economics_monthly_probe expression_decision_tests expression_limits_tests c_api_tests c_api_probe c_api_arrow_tests c_api_arrow_ipc_probe provenance_tests output_provenance_tests ir_population_data_tests ir_series_data_tests ir_parameter_data_tests runtime_outputs_tests runtime_data_probe data_inputs_tests fathom_series_from_data population_init_tests fathom_population_from_data abm_typed_population_tests sha256_tests fathom_data_table experiment_tests experiment_parallel_tests experiment_design_tests experiment_design_oracle_tests --parallel 2
+      - name: Build instrumented Python host
+        if: matrix.sanitize == 'ON'
+        run: cmake --build build-arrow --target fathom_python_test_host --parallel 2
+      - name: Verify output schema, decoded bits, failures and thread counts
+        run: ctest --test-dir build-arrow -R '^(runtime_(bundle|default_manifest|callbacks|api_provenance|python|c_api|outputs|output_provenance|result_verification|data|sha256|population_init|provenance)|visualization_contract|explanation_contract|validation_declared_checks|ankura_pilot|ir_sd_auxiliaries|ir_expression_|ir_abm_data_composition|abm_typed_population|experiment|ir_parameter_data|ir_series_data|ir_population_data|ir_.*_cli$)' --output-on-failure
+      - name: Validate worked pricing and staffing examples against hand calculations
+        run: python examples/worked_validation/validate.py build-arrow/fathom build-arrow/worked-examples
+      - name: Build local distribution artifacts
+        if: matrix.sanitize == 'OFF'
+        env:
+          CMAKE_GENERATOR: Unix Makefiles
+          CMAKE_BUILD_PARALLEL_LEVEL: '2'
+        run: |
+          python -m pip install -r runtime/packaging-requirements.txt
+          python -m build --no-isolation --outdir dist
+          python -m pip download --only-binary=:all: --no-deps --dest build-package-wheelhouse pyarrow==25.0.1
+          cmake -S . -B build-native-package -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DFATHOM_ENABLE_ARROW=OFF
+          cmake --build build-native-package --target fathom fathom_c_api --parallel 2
+      - name: Verify isolated installation and relocation
+        if: matrix.sanitize == 'OFF'
+        run: python tests/packaging_contract.py --wheel dist/*.whl --sdist dist/*.tar.gz --wheelhouse build-package-wheelhouse --native-build build-native-package --probe build-arrow/c_api_probe
+      - name: Verify editable source installation
+        if: matrix.sanitize == 'OFF'
+        env:
+          CMAKE_GENERATOR: Unix Makefiles
+          CMAKE_BUILD_PARALLEL_LEVEL: '2'
+        run: |
+          python -m pip install --no-build-isolation --no-deps -e .
+          python -I tests/editable_contract.py

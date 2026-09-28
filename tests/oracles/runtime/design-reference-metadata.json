@@ -1,0 +1,8 @@
+{
+  "source_engine": "SciPy 1.18.1 unscrambled Sobol(bits=32); independent integer Philox/Fisher-Yates LHS; itertools grid",
+  "compressed_sha256": "c260f1be6ff52b582fc2e0709ccd639424f5f5e81d3a97f68b8cc7f96297dda0",
+  "decoded_sha256": "3837df357e11088a901f79c2c390173b229518b817b82dfc663673b6074460e1",
+  "cases": 46,
+  "scenarios": 141916,
+  "coordinates": 255482
+}

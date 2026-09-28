@@ -1,0 +1,27 @@
+{
+  "ir_version": "0.1",
+  "name": "stochastic_engagement_queue",
+  "mode": "des",
+  "time": { "unit": "day", "dt": 1, "horizon": 60 },
+  "components": [
+    { "id": "arrivals", "kind": "source", "exponential": {
+      "count": 30,
+      "arrival_rate": 1.2,
+      "service_rate": 2.0,
+      "start": 0,
+      "first_id": 100,
+      "stream": 12
+    } },
+    { "id": "delivery", "kind": "server", "capacity": 2 },
+    { "id": "done", "kind": "sink" }
+  ],
+  "links": [
+    { "from": "arrivals", "to": "delivery" },
+    { "from": "delivery", "to": "done" }
+  ],
+  "outputs": [
+    { "id": "emitted", "component": "arrivals", "metric": "emitted" },
+    { "id": "completed", "component": "done", "metric": "completed" },
+    { "id": "cycle_mean", "component": "done", "metric": "cycle_mean" }
+  ]
+}

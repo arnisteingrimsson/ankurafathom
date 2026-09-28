@@ -1,0 +1,31 @@
+{
+  "recorded_at_utc": "2026-09-24T16:08:22.119326+00:00",
+  "platform": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "machine": "arm64"
+  },
+  "compiler": [
+    "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+    "Target: arm64-apple-darwin25.6.0"
+  ],
+  "build_type": "Debug",
+  "sanitizers": false,
+  "flags": [
+    "CXX_DEFINES = ",
+    "CXX_FLAGS = -g -std=c++20 -Wall -Wextra -Wpedantic -Werror -ffp-contract=off -fno-fast-math"
+  ],
+  "trajectories": 72,
+  "models": 6,
+  "integrators": 3,
+  "resolutions": 4,
+  "csv_sha256": "8003fc57902b7796738da54f87f81fbfd999ed8d12aa9d4a854c5b8d1b2cc06a",
+  "source_sha256": {
+    "CMakeLists.txt": "90dcc719dec2d47de928d922c33b19beeea155b2199ca92894d770229fa70741",
+    "include/ankurafathom/sd/model.hpp": "e0d2ea36dc9ebd4e752b92846a096688bab7fe71f69d33f6bc90c0a73526571d",
+    "tests/sd/nonlinear_tests.cpp": "2f5e5460019477ddee296f859ef43007584a94f36e2c64ffe92bab4e6520f0b4",
+    "tests/oracles/sd/generate.py": "bc6fc8cb624198907572a9baad5805dd471c80c343735d3b6713370e94f87eaf",
+    "tests/oracles/sd/reference.json": "08ae30f89d420393df042b17481cc12ef7e55d97abc1f3c9d8e971a50bc13285",
+    "tests/oracles/sd/requirements.txt": "e7795fa6c435ab86b906a51554efdfc9eb8b94a6ff0f01d8e03cfdd16bb4b120"
+  }
+}

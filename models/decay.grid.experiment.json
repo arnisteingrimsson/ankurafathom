@@ -1,0 +1,1 @@
+{"seed":42,"replications":2,"design":{"kind":"grid","axes":{"decay_rate":[0.1,0.2,0.3]}}}

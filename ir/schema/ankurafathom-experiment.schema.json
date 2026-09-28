@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ankurafathom.local/schema/experiment-0.1.json",
+  "title": "AnkuraFathom CPU experiment",
+  "type": "object",
+  "required": ["seed", "replications"],
+  "additionalProperties": false,
+  "properties": {
+    "seed": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+    "replications": {"type": "integer", "minimum": 1, "maximum": 65536},
+    "scenarios": {"type": "array", "minItems": 1, "maxItems": 65536, "items": {
+      "type": "object", "required": ["id", "parameters"], "additionalProperties": false,
+      "properties": {"id": {"type": "integer", "minimum": 0, "maximum": 65535},
+                     "parameters": {"type": "object", "additionalProperties": {"type": "number"}}}
+    }},
+    "design": {"oneOf": [
+      {"type": "object", "required": ["kind", "axes"], "additionalProperties": false,
+       "properties": {"kind": {"const": "grid"}, "first_id": {"$ref": "#/$defs/first"},
+                      "axes": {"type": "object", "minProperties": 1, "maxProperties": 32,
+                               "additionalProperties": {"type": "array", "minItems": 1, "maxItems": 65536, "items": {"type": "number"}}}}},
+      {"type": "object", "required": ["kind", "bounds", "count", "design_seed"], "additionalProperties": false,
+       "properties": {"kind": {"const": "lhs"}, "first_id": {"$ref": "#/$defs/first"},
+                      "bounds": {"$ref": "#/$defs/bounds"}, "count": {"type": "integer", "minimum": 1, "maximum": 65536},
+                      "design_seed": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615}}},
+      {"type": "object", "required": ["kind", "bounds", "count"], "additionalProperties": false,
+       "properties": {"kind": {"const": "sobol"}, "first_id": {"$ref": "#/$defs/first"},
+                      "bounds": {"$ref": "#/$defs/bounds"},
+                      "count": {"enum": [1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536]}}}
+    ]}
+  },
+  "oneOf": [{"required": ["scenarios"], "not": {"required": ["design"]}},
+            {"required": ["design"], "not": {"required": ["scenarios"]}}],
+  "$defs": {
+    "first": {"type": "integer", "minimum": 0, "maximum": 65535},
+    "bounds": {"type": "object", "minProperties": 1, "maxProperties": 32,
+               "additionalProperties": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}],
+                                        "minItems": 2, "maxItems": 2}}
+  }
+}

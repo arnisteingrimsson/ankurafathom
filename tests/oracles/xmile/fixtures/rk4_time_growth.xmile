@@ -1,0 +1,7 @@
+<xmile xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" version="1.0">
+  <sim_specs method="RK4" time_units="Day"><start>0</start><stop>2</stop><dt>0.125</dt></sim_specs>
+  <model><variables>
+    <stock name="stock"><eqn>1</eqn><inflow>growth</inflow></stock>
+    <flow name="growth"><eqn>TIME*stock</eqn></flow>
+  </variables></model>
+</xmile>

@@ -1,0 +1,26 @@
+{
+  "ir_version": "0.1",
+  "name": "synthetic_seasonal_stock",
+  "mode": "sd",
+  "integrator": "rk4",
+  "time": {"unit": "day", "dt": 1, "horizon": 4},
+  "parameters": [{"id": "rate", "value": 2, "unit": "kg/day"}],
+  "data": [{
+    "id": "seasonality", "source": "synthetic_seasonality.csv",
+    "schema": {"key_column": "time", "columns": [
+      {"name": "time", "type": "f64", "unit": "day"},
+      {"name": "factor", "type": "f64", "unit": "1"}
+    ]},
+    "use": {"kind": "exogenous_series", "time_column": "time", "value_column": "factor",
+            "interpolate": "linear", "extrapolate": "hold"}
+  }],
+  "components": [
+    {"id": "total", "kind": "stock", "init": 0, "unit": "kg"},
+    {"id": "inflow", "kind": "flow", "source": null, "destination": "total",
+     "expr": "rate * seasonality(t)", "unit": "kg/day"}
+  ],
+  "outputs": [
+    {"id": "total_ts", "stock": "total"},
+    {"id": "factor_ts", "expr": "seasonality(t)", "unit": "1"}
+  ]
+}

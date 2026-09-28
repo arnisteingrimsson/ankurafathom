@@ -1,0 +1,13 @@
+{
+  "ir_version": "0.1", "name": "rk4_time_dependent_growth", "integrator": "rk4",
+  "time": {"unit": "day", "dt": 0.125, "horizon": 2},
+  "parameters": [{"id": "gain", "value": 1, "unit": "1/day/day"}],
+  "components": [
+    {"id": "level", "kind": "stock", "init": 1, "unit": "kg"},
+    {"id": "growth", "kind": "flow", "source": null, "destination": "level", "expr": "gain*t*level", "unit": "kg/day"}
+  ],
+  "outputs": [
+    {"id": "level_ts", "stock": "level"},
+    {"id": "rate_ts", "expr": "gain*t*level", "unit": "kg/day"}
+  ]
+}

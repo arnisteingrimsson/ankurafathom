@@ -1,0 +1,181 @@
+{
+  "ir_version": "0.1",
+  "name": "Spatial and network neighborhood diffusion",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 1,
+    "horizon": 4
+  },
+  "parameters": [],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "fields": [
+        {
+          "name": "x",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "y",
+          "type": "integer",
+          "unit": "1"
+        },
+        {
+          "name": "value",
+          "type": "real",
+          "unit": "1"
+        },
+        {
+          "name": "group",
+          "type": "string",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "x": 0,
+          "y": 0,
+          "value": 1,
+          "group": "a"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "value": 3,
+          "group": "a"
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "value": 7,
+          "group": "b"
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "value": 9,
+          "group": "b"
+        }
+      ],
+      "space": {
+        "kind": "grid",
+        "x": "x",
+        "y": "y",
+        "width": 4,
+        "height": 3,
+        "wrap": true
+      },
+      "network": {
+        "directed": true,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      "queries": [
+        {
+          "id": "near_mean",
+          "source": "space",
+          "op": "mean",
+          "field": "value",
+          "radius": 1,
+          "unit": "1",
+          "moore": false
+        },
+        {
+          "id": "same_group",
+          "source": "space",
+          "op": "count_same",
+          "field": "group",
+          "radius": 1,
+          "unit": "1"
+        },
+        {
+          "id": "linked_sum",
+          "source": "network",
+          "op": "sum",
+          "field": "value"
+        },
+        {
+          "id": "all_count",
+          "source": "population",
+          "op": "count",
+          "include_self": true
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "value",
+              "expr": "(value+near_mean)/2"
+            }
+          ]
+        },
+        {
+          "assign": [
+            {
+              "field": "x",
+              "expr": "x+1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "first_value",
+      "agent": 0,
+      "field": "value"
+    },
+    {
+      "id": "first_near",
+      "agent": 0,
+      "query": "near_mean"
+    },
+    {
+      "id": "first_links",
+      "agent": 0,
+      "query": "linked_sum"
+    },
+    {
+      "id": "first_same",
+      "agent": 0,
+      "query": "same_group"
+    },
+    {
+      "id": "last_links",
+      "agent": 3,
+      "query": "linked_sum"
+    },
+    {
+      "id": "count",
+      "agent": 0,
+      "query": "all_count"
+    },
+    {
+      "id": "first_x",
+      "agent": 0,
+      "field": "x"
+    }
+  ]
+}

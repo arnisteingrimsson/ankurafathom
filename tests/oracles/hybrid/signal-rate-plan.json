@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "constant",
+      "initial": 2,
+      "slope": 0,
+      "dt": 0.5,
+      "pulses": [],
+      "limit": 256,
+      "first_id": 0,
+      "seed": 123,
+      "scenario": 0,
+      "replication_start": 0,
+      "replications": 256,
+      "source_stream": 7,
+      "routing_stream": 8
+    },
+    {
+      "id": "ramp",
+      "initial": 0.5,
+      "slope": 0.5,
+      "dt": 0.25,
+      "pulses": [],
+      "limit": 256,
+      "first_id": 0,
+      "seed": 123,
+      "scenario": 1,
+      "replication_start": 0,
+      "replications": 256,
+      "source_stream": 7,
+      "routing_stream": 8
+    },
+    {
+      "id": "pause_resume",
+      "initial": 2,
+      "slope": 0,
+      "dt": 0.5,
+      "pulses": [
+        [
+          1,
+          -2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "limit": 256,
+      "first_id": 0,
+      "seed": 123,
+      "scenario": 2,
+      "replication_start": 0,
+      "replications": 256,
+      "source_stream": 7,
+      "routing_stream": 8
+    },
+    {
+      "id": "off_grid",
+      "initial": 1,
+      "slope": 0.25,
+      "dt": 0.5,
+      "pulses": [
+        [
+          0.375,
+          1
+        ],
+        [
+          1.125,
+          -1
+        ]
+      ],
+      "limit": 256,
+      "first_id": 0,
+      "seed": 123,
+      "scenario": 3,
+      "replication_start": 0,
+      "replications": 256,
+      "source_stream": 7,
+      "routing_stream": 8
+    },
+    {
+      "id": "zero",
+      "initial": 0,
+      "slope": 0,
+      "dt": 0.5,
+      "pulses": [],
+      "limit": 256,
+      "first_id": 0,
+      "seed": 123,
+      "scenario": 4,
+      "replication_start": 0,
+      "replications": 256,
+      "source_stream": 7,
+      "routing_stream": 8
+    },
+    {
+      "id": "bounded",
+      "initial": 4,
+      "slope": 0,
+      "dt": 0.5,
+      "pulses": [],
+      "limit": 2,
+      "first_id": 0,
+      "seed": 123,
+      "scenario": 5,
+      "replication_start": 0,
+      "replications": 256,
+      "source_stream": 7,
+      "routing_stream": 8
+    },
+    {
+      "id": "high_address",
+      "initial": 1,
+      "slope": 0,
+      "dt": 0.5,
+      "pulses": [],
+      "limit": 8,
+      "first_id": 281474976710648,
+      "seed": 18446744073709551615,
+      "scenario": 65535,
+      "replication_start": 65504,
+      "replications": 32,
+      "source_stream": 65534,
+      "routing_stream": 65535
+    }
+  ],
+  "orders": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      1
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      2,
+      0,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ]
+  ],
+  "horizon": 4,
+  "tolerance": 2e-11,
+  "mean_standard_errors": 6,
+  "variance_standard_errors": 7
+}

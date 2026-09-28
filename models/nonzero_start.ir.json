@@ -1,0 +1,15 @@
+{
+  "ir_version": "0.1", "name": "absolute_clock_and_fixed_delay",
+  "time": {"unit": "day", "start": 10, "dt": 0.5, "horizon": 2},
+  "parameters": [{"id": "slope", "value": 1, "unit": "kg/day/day"}],
+  "components": [
+    {"id": "amount", "kind": "stock", "init": 0, "unit": "kg"},
+    {"id": "intake", "kind": "flow", "source": null, "destination": "amount", "expr": "NONNEGATIVE(slope*t)", "unit": "kg/day"},
+    {"id": "lagged", "kind": "delay", "type": "fixed", "order": 1, "duration": "t/10", "initial": -1, "input": "NONNEGATIVE(slope*t*dt)", "unit": "kg"}
+  ],
+  "outputs": [
+    {"id": "amount_ts", "stock": "amount"},
+    {"id": "clock", "expr": "t", "unit": "day"},
+    {"id": "lagged_ts", "component": "lagged"}
+  ]
+}

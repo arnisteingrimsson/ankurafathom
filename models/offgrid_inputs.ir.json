@@ -1,0 +1,15 @@
+{
+  "ir_version":"0.1", "name":"next_tick_inputs",
+  "time":{"unit":"day","start":10,"dt":0.5,"horizon":2},
+  "parameters":[
+    {"id":"quantity","value":3,"unit":"kg"},
+    {"id":"first","value":10.125,"unit":"day"},
+    {"id":"period","value":0.25,"unit":"day"},
+    {"id":"origin","value":10,"unit":"day"}
+  ],
+  "components":[
+    {"id":"total","kind":"stock","init":0,"unit":"kg","non_negative":false},
+    {"id":"intake","kind":"flow","source":null,"destination":"total","expr":"XMILE_NEXT_PULSE(quantity,first,period,origin)","unit":"kg/day","non_negative":false}
+  ],
+  "outputs":[{"id":"total_ts","stock":"total"},{"id":"rate","expr":"XMILE_NEXT_PULSE(quantity,first,period,origin)","unit":"kg/day"}]
+}

@@ -1,0 +1,154 @@
+{
+  "ir_version": "0.1",
+  "name": "Changing agent collaborations",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 1,
+    "horizon": 3
+  },
+  "parameters": [],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "fields": [
+        {
+          "name": "value",
+          "type": "real",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 4
+        }
+      ],
+      "network": {
+        "directed": false,
+        "edges": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "queries": [
+        {
+          "id": "degree",
+          "source": "network",
+          "op": "count"
+        },
+        {
+          "id": "neighbor_sum",
+          "source": "network",
+          "op": "sum",
+          "field": "value"
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "value",
+              "expr": "value+neighbor_sum"
+            }
+          ]
+        }
+      ],
+      "lifecycle": [
+        {
+          "time": 2,
+          "sequence": 0,
+          "retire": [
+            1
+          ],
+          "births": [
+            {
+              "value": 10
+            }
+          ]
+        }
+      ],
+      "network_updates": [
+        {
+          "time": 1,
+          "sequence": 0,
+          "add": [
+            [
+              1,
+              2
+            ]
+          ],
+          "remove": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "time": 2,
+          "sequence": 0,
+          "add": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "remove": []
+        },
+        {
+          "time": 3,
+          "sequence": 0,
+          "add": [
+            [
+              0,
+              2
+            ]
+          ],
+          "remove": [
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "total",
+      "metric": "sum",
+      "field": "value"
+    },
+    {
+      "id": "first",
+      "agent": 0,
+      "field": "value"
+    },
+    {
+      "id": "degree0",
+      "agent": 0,
+      "query": "degree"
+    },
+    {
+      "id": "new_degree",
+      "agent": 3,
+      "query": "degree",
+      "inactive_value": -1
+    }
+  ]
+}

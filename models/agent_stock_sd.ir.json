@@ -1,0 +1,48 @@
+{
+  "ir_version": "0.1",
+  "name": "Continuous consultant work and delivered-work ledger",
+  "mode": "agent_stock_sd",
+  "time": {"unit": "day", "dt": 0.5, "horizon": 2},
+  "parameters": [{"id": "productivity", "value": 1, "unit": "1"}],
+  "components": [
+    {
+      "id": "people", "kind": "population", "execution": "continuous", "dt": 0.25,
+      "fields": [
+        {"name": "todo", "type": "real", "unit": "hour"},
+        {"name": "done", "type": "real", "unit": "hour"},
+        {"name": "speed", "type": "real", "unit": "1/day"},
+        {"name": "enabled", "type": "boolean", "unit": "1"},
+        {"name": "level", "type": "integer", "unit": "1"},
+        {"name": "role", "type": "string", "unit": "1"}
+      ],
+      "agents": [
+        {"todo": 2, "done": 0, "speed": 0.5, "enabled": true, "level": 1, "role": "analyst"},
+        {"todo": 4, "done": 0, "speed": 0.25, "enabled": false, "level": 2, "role": "manager"}
+      ]
+    },
+    {"id": "remaining_work", "kind": "agent_stock", "population": "people", "field": "todo", "outflow_expr": "productivity*speed*todo"},
+    {"id": "finished_work", "kind": "agent_stock", "population": "people", "field": "done", "inflow_expr": "productivity*speed*todo"},
+    {"id": "pending", "kind": "aggregate", "population": "people", "op": "sum", "expr": "todo", "unit": "hour"},
+    {"id": "completed", "kind": "aggregate", "population": "people", "op": "sum", "expr": "done", "unit": "hour"},
+    {"id": "throughput", "kind": "aggregate", "population": "people", "op": "sum", "expr": "productivity*speed*todo", "unit": "hour/day"},
+    {"id": "selected_mean", "kind": "aggregate", "population": "people", "op": "mean", "expr": "todo", "filter": "enabled", "empty_value": 0, "unit": "hour"},
+    {"id": "headcount", "kind": "aggregate", "population": "people", "op": "count", "unit": "1"},
+    {"id": "least_work", "kind": "aggregate", "population": "people", "op": "min", "expr": "todo", "empty_value": 0, "unit": "hour"},
+    {"id": "most_work", "kind": "aggregate", "population": "people", "op": "max", "expr": "todo", "empty_value": 0, "unit": "hour"},
+    {"id": "weighted_work", "kind": "aggregate", "population": "people", "op": "sum", "expr": "level*todo", "unit": "hour"},
+    {"id": "delivered", "kind": "stock", "init": 0, "unit": "hour"},
+    {"id": "deliver", "kind": "flow", "destination": "delivered", "expr": "throughput", "unit": "hour/day"}
+  ],
+  "outputs": [
+    {"id": "pending_total", "expr": "pending", "unit": "hour"},
+    {"id": "completed_total", "expr": "completed", "unit": "hour"},
+    {"id": "delivered_total", "expr": "delivered", "unit": "hour"},
+    {"id": "balance", "expr": "pending+delivered", "unit": "hour"},
+    {"id": "selected_average", "expr": "selected_mean", "unit": "hour"},
+    {"id": "people_count", "expr": "headcount", "unit": "1"},
+    {"id": "minimum_work", "expr": "least_work", "unit": "hour"},
+    {"id": "maximum_work", "expr": "most_work", "unit": "hour"},
+    {"id": "completion_rate", "expr": "throughput", "unit": "hour/day"},
+    {"id": "weighted_total", "expr": "weighted_work", "unit": "hour"}
+  ]
+}

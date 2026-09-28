@@ -1,0 +1,134 @@
+{
+  "ir_version": "0.1",
+  "name": "Generated collaboration network",
+  "mode": "abm",
+  "time": {
+    "unit": "day",
+    "dt": 1,
+    "horizon": 2
+  },
+  "parameters": [
+    {
+      "id": "density",
+      "value": 0.3,
+      "unit": "1"
+    }
+  ],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "fields": [
+        {
+          "name": "value",
+          "type": "real",
+          "unit": "1"
+        }
+      ],
+      "agents": [
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 3
+        },
+        {
+          "value": 4
+        },
+        {
+          "value": 5
+        },
+        {
+          "value": 6
+        },
+        {
+          "value": 7
+        },
+        {
+          "value": 8
+        }
+      ],
+      "network": {
+        "generator": {
+          "kind": "erdos_renyi",
+          "probability": "density",
+          "stream": 901
+        }
+      },
+      "queries": [
+        {
+          "id": "degree",
+          "source": "network",
+          "op": "count"
+        },
+        {
+          "id": "neighbor_mean",
+          "source": "network",
+          "op": "mean",
+          "field": "value"
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "value",
+              "expr": "(value+neighbor_mean)/2"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "degree0",
+      "agent": 0,
+      "query": "degree"
+    },
+    {
+      "id": "degree1",
+      "agent": 1,
+      "query": "degree"
+    },
+    {
+      "id": "degree2",
+      "agent": 2,
+      "query": "degree"
+    },
+    {
+      "id": "degree3",
+      "agent": 3,
+      "query": "degree"
+    },
+    {
+      "id": "degree4",
+      "agent": 4,
+      "query": "degree"
+    },
+    {
+      "id": "degree5",
+      "agent": 5,
+      "query": "degree"
+    },
+    {
+      "id": "degree6",
+      "agent": 6,
+      "query": "degree"
+    },
+    {
+      "id": "degree7",
+      "agent": 7,
+      "query": "degree"
+    },
+    {
+      "id": "total",
+      "metric": "sum",
+      "field": "value"
+    }
+  ]
+}

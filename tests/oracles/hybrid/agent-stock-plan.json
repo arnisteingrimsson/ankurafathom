@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "steps": [0.25, 0.125, 0.0625, 0.03125],
+  "times": [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4],
+  "tolerance": 1e-11,
+  "order_bounds": [0.85, 1.15],
+  "cases": [
+    {"id": "homogeneous_decay", "initial": [2, 2, 2, 2, 2, 2, 2, 2], "rates": [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5], "reservoir": 0, "supply_rate": 0},
+    {"id": "heterogeneous_decay", "initial": [2, 4, 6, 8], "rates": [0.25, 0.5, 0.75, 1], "reservoir": 0, "supply_rate": 0},
+    {"id": "homogeneous_feedback", "initial": [2, 2, 2, 2, 2, 2, 2, 2], "rates": [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25], "reservoir": 32, "supply_rate": 0.5}
+  ]
+}

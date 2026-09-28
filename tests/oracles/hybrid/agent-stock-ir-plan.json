@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "agent_steps": [
+    0.125,
+    0.25,
+    0.375,
+    0.5
+  ],
+  "sd_steps": [
+    0.125,
+    0.25,
+    0.5
+  ],
+  "orders": [
+    "forward",
+    "reverse"
+  ],
+  "horizon": 2,
+  "tolerance": 2e-12,
+  "experiment_productivity": [
+    0,
+    1,
+    1.5
+  ],
+  "experiment_replications": 2
+}

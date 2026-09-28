@@ -1,0 +1,11 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_delay_input_unit",
+  "time": { "unit": "day", "dt": 1, "horizon": 2 },
+  "components": [
+    { "id": "delivered", "kind": "stock", "init": 0, "unit": "kg" },
+    { "id": "queue", "kind": "delay", "type": "material", "order": 1,
+      "duration": 2, "initial": 0, "input": "delivered", "unit": "kg/day" }
+  ],
+  "outputs": [ { "id": "delivered_ts", "stock": "delivered" } ]
+}

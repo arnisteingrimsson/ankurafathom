@@ -1,0 +1,182 @@
+{
+  "ir_version": "0.1",
+  "name": "Synthetic workforce capacity with bound practice assumptions",
+  "mode": "abm",
+  "time": {
+    "unit": "month",
+    "dt": 1,
+    "horizon": 60
+  },
+  "parameters": [
+    {
+      "id": "ai_multiplier",
+      "value": 1,
+      "unit": "1"
+    },
+    {
+      "id": "hourly_cost",
+      "value": 0,
+      "unit": "USD/hours"
+    },
+    {
+      "id": "period",
+      "value": 1,
+      "unit": "month"
+    }
+  ],
+  "components": [
+    {
+      "id": "people",
+      "kind": "population",
+      "execution": "sync",
+      "fields": [
+        {
+          "name": "capacity",
+          "type": "real",
+          "unit": "hours/month"
+        },
+        {
+          "name": "adoption",
+          "type": "real",
+          "unit": "1"
+        },
+        {
+          "name": "work_capacity",
+          "type": "real",
+          "unit": "hours"
+        },
+        {
+          "name": "payroll",
+          "type": "real",
+          "unit": "USD"
+        }
+      ],
+      "phases": [
+        {
+          "assign": [
+            {
+              "field": "work_capacity",
+              "expr": "work_capacity + capacity * (1 + adoption * (ai_multiplier - 1)) * period"
+            },
+            {
+              "field": "payroll",
+              "expr": "payroll + capacity * hourly_cost * period"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "potential_work_hours",
+      "metric": "sum",
+      "field": "work_capacity"
+    },
+    {
+      "id": "payroll",
+      "metric": "sum",
+      "field": "payroll"
+    },
+    {
+      "id": "headcount",
+      "metric": "active"
+    }
+  ],
+  "data": [
+    {
+      "id": "practice_assumptions",
+      "source": "capacity_assumptions.csv",
+      "schema": {
+        "key_column": "practice",
+        "columns": [
+          {
+            "name": "practice",
+            "type": "string",
+            "unit": ""
+          },
+          {
+            "name": "ai_multiplier",
+            "type": "f64",
+            "unit": "1"
+          },
+          {
+            "name": "hourly_cost",
+            "type": "f64",
+            "unit": "USD/hours"
+          }
+        ]
+      },
+      "use": {
+        "kind": "parameter_table",
+        "key": "disputes",
+        "parameters": [
+          {
+            "parameter": "ai_multiplier",
+            "column": "ai_multiplier"
+          },
+          {
+            "parameter": "hourly_cost",
+            "column": "hourly_cost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "workforce",
+      "source": "capacity_workforce.csv",
+      "schema": {
+        "key_column": "key",
+        "columns": [
+          {
+            "name": "key",
+            "type": "u64",
+            "unit": ""
+          },
+          {
+            "name": "capacity",
+            "type": "f64",
+            "unit": "hours/month"
+          },
+          {
+            "name": "adoption",
+            "type": "f64",
+            "unit": "1"
+          },
+          {
+            "name": "work_capacity",
+            "type": "f64",
+            "unit": "hours"
+          },
+          {
+            "name": "payroll",
+            "type": "f64",
+            "unit": "USD"
+          }
+        ]
+      },
+      "use": {
+        "kind": "population_init",
+        "population": "people",
+        "fields": [
+          {
+            "field": "capacity",
+            "column": "capacity"
+          },
+          {
+            "field": "adoption",
+            "column": "adoption"
+          },
+          {
+            "field": "work_capacity",
+            "column": "work_capacity"
+          },
+          {
+            "field": "payroll",
+            "column": "payroll"
+          }
+        ]
+      }
+    }
+  ]
+}

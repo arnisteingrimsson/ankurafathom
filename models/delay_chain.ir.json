@@ -1,0 +1,20 @@
+{
+  "ir_version": "0.1",
+  "name": "simultaneous_delay_chain",
+  "time": { "unit": "day", "dt": 1, "horizon": 3 },
+  "parameters": [ { "id": "intake", "value": 10, "unit": "kg/day" } ],
+  "components": [
+    { "id": "delivered", "kind": "stock", "init": 0, "unit": "kg" },
+    { "id": "stage_a", "kind": "delay", "type": "material", "order": 1,
+      "duration": 1, "initial": 0, "input": "intake", "unit": "kg/day" },
+    { "id": "stage_b", "kind": "delay", "type": "material", "order": 1,
+      "duration": 1, "initial": 0, "input": "stage_a", "unit": "kg/day" },
+    { "id": "completion", "kind": "flow", "source": null, "destination": "delivered",
+      "expr": "stage_b", "unit": "kg/day" }
+  ],
+  "outputs": [
+    { "id": "delivered_ts", "stock": "delivered" },
+    { "id": "stage_a_out", "component": "stage_a" },
+    { "id": "stage_b_out", "component": "stage_b" }
+  ]
+}

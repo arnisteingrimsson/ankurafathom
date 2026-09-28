@@ -1,0 +1,1246 @@
+{
+  "version": 1,
+  "engines": {
+    "simpy": "4.1.2",
+    "ciw": "3.2.7"
+  },
+  "requirements_sha256": "b1c1b61d6387ee4c6b0830f184984fa5815596355d25d5bf9331b8db3bafc6a3",
+  "numerical_tolerance": 2e-09,
+  "pair_tolerance_factor": 1.4142135623730951,
+  "reference_seed_base": 921001,
+  "case_seed_stride": 1000,
+  "service_seed_offset": 9000000,
+  "station_seed_stride": 100000,
+  "routing_seed_offset": 8000000,
+  "plans": {
+    "queue": {
+      "sha256": "21af29a592ded454fa08eec9fc88e6d2feadb005b02c79e9c92dec7da0d2e180",
+      "version": 1,
+      "native_seed": 2026092401,
+      "warmup": 200,
+      "window": 1000
+    },
+    "jackson": {
+      "sha256": "ff8d9e625f12222e5f6abc4640d89be671484eaf6e96fed713253cbb53d4aa7c",
+      "version": 1,
+      "native_seed": 2026092402,
+      "warmup": 200,
+      "window": 1000
+    },
+    "branch": {
+      "sha256": "b3d1618d2254cc243f460c475b8a01de6db7ee0cab6d6eb7a0bb4527150414df",
+      "version": 1,
+      "native_seed": 2026092501,
+      "warmup": 200,
+      "window": 1000
+    }
+  },
+  "cases": [
+    {
+      "name": "md1",
+      "group": "queue",
+      "seed_base": 921001,
+      "replications": 24,
+      "metrics": {
+        "queue": {
+          "target": 0.25,
+          "analytic_tolerance": 0.09,
+          "comparison_tolerance": 0.12727922061357855
+        },
+        "wait": {
+          "target": 0.5,
+          "analytic_tolerance": 0.16,
+          "comparison_tolerance": 0.22627416997969524
+        },
+        "utilization": {
+          "target": 0.5,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "blocking": {
+          "target": 0.0,
+          "analytic_tolerance": 0.0,
+          "comparison_tolerance": 0.0
+        }
+      }
+    },
+    {
+      "name": "me2_1",
+      "group": "queue",
+      "seed_base": 922001,
+      "replications": 40,
+      "metrics": {
+        "queue": {
+          "target": 0.375,
+          "analytic_tolerance": 0.11500000000000002,
+          "comparison_tolerance": 0.16263455967290597
+        },
+        "wait": {
+          "target": 0.75,
+          "analytic_tolerance": 0.21000000000000002,
+          "comparison_tolerance": 0.29698484809835
+        },
+        "utilization": {
+          "target": 0.5,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "blocking": {
+          "target": 0.0,
+          "analytic_tolerance": 0.0,
+          "comparison_tolerance": 0.0
+        }
+      }
+    },
+    {
+      "name": "mixed_mg1",
+      "group": "queue",
+      "seed_base": 923001,
+      "replications": 72,
+      "metrics": {
+        "queue": {
+          "target": 0.8125,
+          "analytic_tolerance": 0.2025,
+          "comparison_tolerance": 0.28637824638055176
+        },
+        "wait": {
+          "target": 1.625,
+          "analytic_tolerance": 0.385,
+          "comparison_tolerance": 0.5444722215136416
+        },
+        "utilization": {
+          "target": 0.5,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "blocking": {
+          "target": 0.0,
+          "analytic_tolerance": 0.0,
+          "comparison_tolerance": 0.0
+        }
+      }
+    },
+    {
+      "name": "mm1_k1",
+      "group": "queue",
+      "seed_base": 924001,
+      "replications": 48,
+      "metrics": {
+        "queue": {
+          "target": 0.0,
+          "analytic_tolerance": 0.0,
+          "comparison_tolerance": 0.0
+        },
+        "wait": {
+          "target": 0.0,
+          "analytic_tolerance": 0.0,
+          "comparison_tolerance": 0.0
+        },
+        "utilization": {
+          "target": 0.4117647058823529,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 0.4117647058823529,
+          "analytic_tolerance": 0.03558823529411764,
+          "comparison_tolerance": 0.05032936501386603
+        },
+        "blocking": {
+          "target": 0.4117647058823529,
+          "analytic_tolerance": 0.02,
+          "comparison_tolerance": 0.028284271247461905
+        },
+        "p0": {
+          "target": 0.5882352941176471,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p1": {
+          "target": 0.4117647058823529,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        }
+      }
+    },
+    {
+      "name": "mm1_k4_balanced",
+      "group": "queue",
+      "seed_base": 925001,
+      "replications": 56,
+      "metrics": {
+        "queue": {
+          "target": 1.2,
+          "analytic_tolerance": 0.27999999999999997,
+          "comparison_tolerance": 0.3959797974644666
+        },
+        "wait": {
+          "target": 1.5,
+          "analytic_tolerance": 0.36000000000000004,
+          "comparison_tolerance": 0.5091168824543143
+        },
+        "utilization": {
+          "target": 0.8,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 0.8,
+          "analytic_tolerance": 0.05500000000000001,
+          "comparison_tolerance": 0.07778174593052024
+        },
+        "blocking": {
+          "target": 0.2,
+          "analytic_tolerance": 0.02,
+          "comparison_tolerance": 0.028284271247461905
+        },
+        "p0": {
+          "target": 0.2,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p1": {
+          "target": 0.2,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p2": {
+          "target": 0.2,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p3": {
+          "target": 0.2,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p4": {
+          "target": 0.2,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        }
+      }
+    },
+    {
+      "name": "mm1_k3_overloaded",
+      "group": "queue",
+      "seed_base": 926001,
+      "replications": 40,
+      "metrics": {
+        "queue": {
+          "target": 1.3333333333333333,
+          "analytic_tolerance": 0.30666666666666664,
+          "comparison_tolerance": 0.43369215912774917
+        },
+        "wait": {
+          "target": 1.4285714285714286,
+          "analytic_tolerance": 0.34571428571428575,
+          "comparison_tolerance": 0.48891383156327006
+        },
+        "utilization": {
+          "target": 0.9333333333333333,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 0.9333333333333333,
+          "analytic_tolerance": 0.06166666666666667,
+          "comparison_tolerance": 0.08720983634634087
+        },
+        "blocking": {
+          "target": 0.5333333333333333,
+          "analytic_tolerance": 0.02,
+          "comparison_tolerance": 0.028284271247461905
+        },
+        "p0": {
+          "target": 0.06666666666666667,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p1": {
+          "target": 0.13333333333333333,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p2": {
+          "target": 0.26666666666666666,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p3": {
+          "target": 0.5333333333333333,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        }
+      }
+    },
+    {
+      "name": "mm2_k2_loss",
+      "group": "queue",
+      "seed_base": 927001,
+      "replications": 16,
+      "metrics": {
+        "queue": {
+          "target": 0.0,
+          "analytic_tolerance": 0.0,
+          "comparison_tolerance": 0.0
+        },
+        "wait": {
+          "target": 0.0,
+          "analytic_tolerance": 0.0,
+          "comparison_tolerance": 0.0
+        },
+        "utilization": {
+          "target": 0.7058823529411765,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 1.411764705882353,
+          "analytic_tolerance": 0.08558823529411766,
+          "comparison_tolerance": 0.12104004313252081
+        },
+        "blocking": {
+          "target": 0.5294117647058824,
+          "analytic_tolerance": 0.02,
+          "comparison_tolerance": 0.028284271247461905
+        },
+        "p0": {
+          "target": 0.11764705882352941,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p1": {
+          "target": 0.35294117647058826,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p2": {
+          "target": 0.5294117647058824,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        }
+      }
+    },
+    {
+      "name": "mm2_k5_overloaded",
+      "group": "queue",
+      "seed_base": 928001,
+      "replications": 40,
+      "metrics": {
+        "queue": {
+          "target": 1.4146631148514515,
+          "analytic_tolerance": 0.3229326229702903,
+          "comparison_tolerance": 0.45669569513730185
+        },
+        "wait": {
+          "target": 0.8007375821136338,
+          "analytic_tolerance": 0.22014751642272676,
+          "comparison_tolerance": 0.3113356034477739
+        },
+        "utilization": {
+          "target": 0.8833500178156336,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "throughput": {
+          "target": 1.7667000356312672,
+          "analytic_tolerance": 0.10333500178156337,
+          "comparison_tolerance": 0.14613776098733486
+        },
+        "blocking": {
+          "target": 0.2638749851536386,
+          "analytic_tolerance": 0.02,
+          "comparison_tolerance": 0.028284271247461905
+        },
+        "p0": {
+          "target": 0.053022719174711984,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p1": {
+          "target": 0.12725452601930876,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p2": {
+          "target": 0.1527054312231705,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p3": {
+          "target": 0.1832465174678046,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p4": {
+          "target": 0.21989582096136553,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "p5": {
+          "target": 0.2638749851536386,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        }
+      }
+    },
+    {
+      "name": "downstream_bottleneck",
+      "group": "jackson",
+      "seed_base": 929001,
+      "replications": 112,
+      "metrics": {
+        "s0_queue": {
+          "target": 0.5,
+          "analytic_tolerance": 0.14,
+          "comparison_tolerance": 0.19798989873223333
+        },
+        "s0_wait": {
+          "target": 1.0,
+          "analytic_tolerance": 0.26,
+          "comparison_tolerance": 0.36769552621700474
+        },
+        "s0_utilization": {
+          "target": 0.5,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s0_throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "s1_queue": {
+          "target": 0.26666666666666666,
+          "analytic_tolerance": 0.09333333333333334,
+          "comparison_tolerance": 0.13199326582148888
+        },
+        "s1_wait": {
+          "target": 0.5333333333333333,
+          "analytic_tolerance": 0.16666666666666669,
+          "comparison_tolerance": 0.2357022603955159
+        },
+        "s1_utilization": {
+          "target": 0.4,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s1_throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "s2_queue": {
+          "target": 1.0416666666666667,
+          "analytic_tolerance": 0.24833333333333338,
+          "comparison_tolerance": 0.3511963679893187
+        },
+        "s2_wait": {
+          "target": 2.0833333333333335,
+          "analytic_tolerance": 0.47666666666666674,
+          "comparison_tolerance": 0.6741084647311755
+        },
+        "s2_utilization": {
+          "target": 0.625,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s2_throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "cycle": {
+          "target": 6.666666666666667,
+          "analytic_tolerance": 1.15,
+          "comparison_tolerance": 1.6263455967290592
+        },
+        "p000": {
+          "target": 0.1125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p001": {
+          "target": 0.0703125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p002": {
+          "target": 0.1171875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p010": {
+          "target": 0.045,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p011": {
+          "target": 0.028125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p012": {
+          "target": 0.046875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p020": {
+          "target": 0.03,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p021": {
+          "target": 0.01875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p022": {
+          "target": 0.03125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p100": {
+          "target": 0.05625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p101": {
+          "target": 0.03515625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p102": {
+          "target": 0.05859375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p110": {
+          "target": 0.0225,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p111": {
+          "target": 0.0140625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p112": {
+          "target": 0.0234375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p120": {
+          "target": 0.015,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p121": {
+          "target": 0.009375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p122": {
+          "target": 0.015625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p200": {
+          "target": 0.05625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p201": {
+          "target": 0.03515625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p202": {
+          "target": 0.05859375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p210": {
+          "target": 0.0225,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p211": {
+          "target": 0.0140625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p212": {
+          "target": 0.0234375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p220": {
+          "target": 0.015,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p221": {
+          "target": 0.009375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p222": {
+          "target": 0.015625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        }
+      }
+    },
+    {
+      "name": "upstream_bottleneck",
+      "group": "jackson",
+      "seed_base": 930001,
+      "replications": 104,
+      "metrics": {
+        "s0_queue": {
+          "target": 1.0416666666666667,
+          "analytic_tolerance": 0.24833333333333338,
+          "comparison_tolerance": 0.3511963679893187
+        },
+        "s0_wait": {
+          "target": 2.0833333333333335,
+          "analytic_tolerance": 0.47666666666666674,
+          "comparison_tolerance": 0.6741084647311755
+        },
+        "s0_utilization": {
+          "target": 0.625,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s0_throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "s1_queue": {
+          "target": 0.26666666666666666,
+          "analytic_tolerance": 0.09333333333333334,
+          "comparison_tolerance": 0.13199326582148888
+        },
+        "s1_wait": {
+          "target": 0.5333333333333333,
+          "analytic_tolerance": 0.16666666666666669,
+          "comparison_tolerance": 0.2357022603955159
+        },
+        "s1_utilization": {
+          "target": 0.4,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s1_throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "s2_queue": {
+          "target": 0.5,
+          "analytic_tolerance": 0.14,
+          "comparison_tolerance": 0.19798989873223333
+        },
+        "s2_wait": {
+          "target": 1.0,
+          "analytic_tolerance": 0.26,
+          "comparison_tolerance": 0.36769552621700474
+        },
+        "s2_utilization": {
+          "target": 0.5,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s2_throughput": {
+          "target": 0.5,
+          "analytic_tolerance": 0.04,
+          "comparison_tolerance": 0.05656854249492381
+        },
+        "cycle": {
+          "target": 6.666666666666667,
+          "analytic_tolerance": 1.15,
+          "comparison_tolerance": 1.6263455967290592
+        },
+        "p000": {
+          "target": 0.1125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p001": {
+          "target": 0.05625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p002": {
+          "target": 0.05625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p010": {
+          "target": 0.045,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p011": {
+          "target": 0.0225,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p012": {
+          "target": 0.0225,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p020": {
+          "target": 0.03,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p021": {
+          "target": 0.015,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p022": {
+          "target": 0.015,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p100": {
+          "target": 0.0703125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p101": {
+          "target": 0.03515625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p102": {
+          "target": 0.03515625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p110": {
+          "target": 0.028125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p111": {
+          "target": 0.0140625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p112": {
+          "target": 0.0140625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p120": {
+          "target": 0.01875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p121": {
+          "target": 0.009375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p122": {
+          "target": 0.009375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p200": {
+          "target": 0.1171875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p201": {
+          "target": 0.05859375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p202": {
+          "target": 0.05859375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p210": {
+          "target": 0.046875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p211": {
+          "target": 0.0234375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p212": {
+          "target": 0.0234375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p220": {
+          "target": 0.03125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p221": {
+          "target": 0.015625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p222": {
+          "target": 0.015625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        }
+      }
+    },
+    {
+      "name": "branch_35",
+      "group": "branch",
+      "seed_base": 931001,
+      "replications": 56,
+      "metrics": {
+        "s0_queue": {
+          "target": 0.9,
+          "analytic_tolerance": 0.22000000000000003,
+          "comparison_tolerance": 0.311126983722081
+        },
+        "s0_wait": {
+          "target": 1.5,
+          "analytic_tolerance": 0.36000000000000004,
+          "comparison_tolerance": 0.5091168824543143
+        },
+        "s0_utilization": {
+          "target": 0.6,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s0_throughput": {
+          "target": 0.6,
+          "analytic_tolerance": 0.045,
+          "comparison_tolerance": 0.06363961030678927
+        },
+        "s1_queue": {
+          "target": 0.0934322033898305,
+          "analytic_tolerance": 0.058686440677966106,
+          "comparison_tolerance": 0.08299516033418376
+        },
+        "s1_wait": {
+          "target": 0.4449152542372881,
+          "analytic_tolerance": 0.1489830508474576,
+          "comparison_tolerance": 0.210693851072195
+        },
+        "s1_utilization": {
+          "target": 0.2625,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s1_throughput": {
+          "target": 0.21,
+          "analytic_tolerance": 0.025500000000000002,
+          "comparison_tolerance": 0.03606244584051393
+        },
+        "s2_queue": {
+          "target": 0.15648148148148147,
+          "analytic_tolerance": 0.0712962962962963,
+          "comparison_tolerance": 0.10082818916919291
+        },
+        "s2_wait": {
+          "target": 0.4012345679012346,
+          "analytic_tolerance": 0.14024691358024693,
+          "comparison_tolerance": 0.19833908726615262
+        },
+        "s2_utilization": {
+          "target": 0.325,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s2_throughput": {
+          "target": 0.39,
+          "analytic_tolerance": 0.0345,
+          "comparison_tolerance": 0.04879036790187179
+        },
+        "cycle": {
+          "target": 3.89568947478552,
+          "analytic_tolerance": 0.734353421217828,
+          "comparison_tolerance": 1.0385325678613346
+        },
+        "match_fraction": {
+          "target": 0.35,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p000": {
+          "target": 0.199125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p001": {
+          "target": 0.064715625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p002": {
+          "target": 0.031159375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p010": {
+          "target": 0.0522703125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p011": {
+          "target": 0.0169878515625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p012": {
+          "target": 0.0081793359375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p020": {
+          "target": 0.0186046875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p021": {
+          "target": 0.0060465234375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p022": {
+          "target": 0.0029112890625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p100": {
+          "target": 0.119475,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p101": {
+          "target": 0.038829375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p102": {
+          "target": 0.018695625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p110": {
+          "target": 0.0313621875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p111": {
+          "target": 0.0101927109375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p112": {
+          "target": 0.0049076015625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p120": {
+          "target": 0.0111628125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p121": {
+          "target": 0.0036279140625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p122": {
+          "target": 0.0017467734375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p200": {
+          "target": 0.1792125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p201": {
+          "target": 0.0582440625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p202": {
+          "target": 0.0280434375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p210": {
+          "target": 0.04704328125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p211": {
+          "target": 0.01528906640625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p212": {
+          "target": 0.00736140234375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p220": {
+          "target": 0.01674421875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p221": {
+          "target": 0.00544187109375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p222": {
+          "target": 0.00262016015625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        }
+      }
+    },
+    {
+      "name": "branch_65",
+      "group": "branch",
+      "seed_base": 932001,
+      "replications": 64,
+      "metrics": {
+        "s0_queue": {
+          "target": 0.9,
+          "analytic_tolerance": 0.22000000000000003,
+          "comparison_tolerance": 0.311126983722081
+        },
+        "s0_wait": {
+          "target": 1.5,
+          "analytic_tolerance": 0.36000000000000004,
+          "comparison_tolerance": 0.5091168824543143
+        },
+        "s0_utilization": {
+          "target": 0.6,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s0_throughput": {
+          "target": 0.6,
+          "analytic_tolerance": 0.045,
+          "comparison_tolerance": 0.06363961030678927
+        },
+        "s1_queue": {
+          "target": 0.463719512195122,
+          "analytic_tolerance": 0.1327439024390244,
+          "comparison_tolerance": 0.1877282271515993
+        },
+        "s1_wait": {
+          "target": 1.1890243902439024,
+          "analytic_tolerance": 0.2978048780487805,
+          "comparison_tolerance": 0.421159697477451
+        },
+        "s1_utilization": {
+          "target": 0.4875,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s1_throughput": {
+          "target": 0.39,
+          "analytic_tolerance": 0.0345,
+          "comparison_tolerance": 0.04879036790187179
+        },
+        "s2_queue": {
+          "target": 0.037121212121212124,
+          "analytic_tolerance": 0.047424242424242424,
+          "comparison_tolerance": 0.06706800682163315
+        },
+        "s2_wait": {
+          "target": 0.17676767676767677,
+          "analytic_tolerance": 0.09535353535353536,
+          "comparison_tolerance": 0.1348502629171921
+        },
+        "s2_utilization": {
+          "target": 0.175,
+          "analytic_tolerance": 0.035,
+          "comparison_tolerance": 0.04949747468305833
+        },
+        "s2_throughput": {
+          "target": 0.21,
+          "analytic_tolerance": 0.025500000000000002,
+          "comparison_tolerance": 0.03606244584051393
+        },
+        "cycle": {
+          "target": 4.43890120719389,
+          "analytic_tolerance": 0.8158351810790835,
+          "comparison_tolerance": 1.15376517774315
+        },
+        "match_fraction": {
+          "target": 0.65,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p000": {
+          "target": 0.169125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p001": {
+          "target": 0.029596875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p002": {
+          "target": 0.006278125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p010": {
+          "target": 0.0824484375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p011": {
+          "target": 0.0144284765625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p012": {
+          "target": 0.0030605859375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p020": {
+          "target": 0.0784265625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p021": {
+          "target": 0.0137246484375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p022": {
+          "target": 0.0029112890625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p100": {
+          "target": 0.101475,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p101": {
+          "target": 0.017758125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p102": {
+          "target": 0.003766875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p110": {
+          "target": 0.0494690625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p111": {
+          "target": 0.0086570859375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p112": {
+          "target": 0.0018363515625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p120": {
+          "target": 0.0470559375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p121": {
+          "target": 0.0082347890625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p122": {
+          "target": 0.0017467734375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p200": {
+          "target": 0.1522125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p201": {
+          "target": 0.0266371875,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p202": {
+          "target": 0.0056503125,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p210": {
+          "target": 0.07420359375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p211": {
+          "target": 0.01298562890625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p212": {
+          "target": 0.00275452734375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p220": {
+          "target": 0.07058390625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p221": {
+          "target": 0.01235218359375,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        },
+        "p222": {
+          "target": 0.00262016015625,
+          "analytic_tolerance": 0.025,
+          "comparison_tolerance": 0.03535533905932738
+        }
+      }
+    }
+  ]
+}

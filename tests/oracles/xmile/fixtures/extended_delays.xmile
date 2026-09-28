@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmile xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" version="1.0">
+  <sim_specs method="Euler" time_units="Day"><start>0</start><stop>6</stop><dt>0.125</dt></sim_specs>
+  <model><variables>
+    <stock name="stock_smthn_2_explicit"><eqn>0</eqn><inflow>flow_smthn_2_explicit</inflow></stock>
+    <flow name="flow_smthn_2_explicit"><eqn>SMTHN(4+TIME, 2, 2, 1)</eqn></flow>
+    <stock name="stock_smthn_2_default"><eqn>0</eqn><inflow>flow_smthn_2_default</inflow></stock>
+    <flow name="flow_smthn_2_default"><eqn>SMTHN(4+TIME, 2, 2)</eqn></flow>
+    <stock name="stock_delayn_2_explicit"><eqn>0</eqn><inflow>flow_delayn_2_explicit</inflow></stock>
+    <flow name="flow_delayn_2_explicit"><eqn>DELAYN(4+TIME, 2, 2, 1)</eqn></flow>
+    <stock name="stock_delayn_2_default"><eqn>0</eqn><inflow>flow_delayn_2_default</inflow></stock>
+    <flow name="flow_delayn_2_default"><eqn>DELAYN(4+TIME, 2, 2)</eqn></flow>
+    <stock name="stock_smthn_5_explicit"><eqn>0</eqn><inflow>flow_smthn_5_explicit</inflow></stock>
+    <flow name="flow_smthn_5_explicit"><eqn>SMTHN(4+TIME, 2, 5, 1)</eqn></flow>
+    <stock name="stock_smthn_5_default"><eqn>0</eqn><inflow>flow_smthn_5_default</inflow></stock>
+    <flow name="flow_smthn_5_default"><eqn>SMTHN(4+TIME, 2, 5)</eqn></flow>
+    <stock name="stock_delayn_5_explicit"><eqn>0</eqn><inflow>flow_delayn_5_explicit</inflow></stock>
+    <flow name="flow_delayn_5_explicit"><eqn>DELAYN(4+TIME, 2, 5, 1)</eqn></flow>
+    <stock name="stock_delayn_5_default"><eqn>0</eqn><inflow>flow_delayn_5_default</inflow></stock>
+    <flow name="flow_delayn_5_default"><eqn>DELAYN(4+TIME, 2, 5)</eqn></flow>
+    <stock name="stock_smthn_8_explicit"><eqn>0</eqn><inflow>flow_smthn_8_explicit</inflow></stock>
+    <flow name="flow_smthn_8_explicit"><eqn>SMTHN(4+TIME, 2, 8, 1)</eqn></flow>
+    <stock name="stock_smthn_8_default"><eqn>0</eqn><inflow>flow_smthn_8_default</inflow></stock>
+    <flow name="flow_smthn_8_default"><eqn>SMTHN(4+TIME, 2, 8)</eqn></flow>
+    <stock name="stock_delayn_8_explicit"><eqn>0</eqn><inflow>flow_delayn_8_explicit</inflow></stock>
+    <flow name="flow_delayn_8_explicit"><eqn>DELAYN(4+TIME, 2, 8, 1)</eqn></flow>
+    <stock name="stock_delayn_8_default"><eqn>0</eqn><inflow>flow_delayn_8_default</inflow></stock>
+    <flow name="flow_delayn_8_default"><eqn>DELAYN(4+TIME, 2, 8)</eqn></flow>
+    <stock name="stock_fixed_one"><eqn>0</eqn><inflow>flow_fixed_one</inflow></stock>
+    <flow name="flow_fixed_one"><eqn>DELAY(TIME-2,.125,-3)</eqn></flow>
+    <stock name="stock_fixed_three"><eqn>0</eqn><inflow>flow_fixed_three</inflow></stock>
+    <flow name="flow_fixed_three"><eqn>DELAY(TIME-2,.375,-3)</eqn></flow>
+    <stock name="stock_fixed_default"><eqn>0</eqn><inflow>flow_fixed_default</inflow></stock>
+    <flow name="flow_fixed_default"><eqn>DELAY(4+TIME,.5)</eqn></flow>
+    <stock name="stock_fixed_variable"><eqn>0</eqn><inflow>flow_fixed_variable</inflow></stock>
+    <flow name="flow_fixed_variable"><eqn>DELAY(4+TIME,1+TIME,0)</eqn></flow>
+    <stock name="stock_fixed_nested"><eqn>0</eqn><inflow>flow_fixed_nested</inflow></stock>
+    <flow name="flow_fixed_nested"><eqn>DELAY(DELAY(4+TIME,.25,0),.5,0)</eqn></flow>
+    <stock name="stock_variable_smooth"><eqn>0</eqn><inflow>flow_variable_smooth</inflow></stock>
+    <flow name="flow_variable_smooth"><eqn>SMTHN(TIME-2,2+TIME,5,-1)</eqn></flow>
+  </variables></model>
+</xmile>

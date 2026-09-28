@@ -1,0 +1,121 @@
+{
+  "ir_version": "0.1",
+  "name": "bounded_lifo_delivery",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 4
+  },
+  "components": [
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "schedule": [
+        {
+          "id": 1,
+          "arrival": 0,
+          "service": 1
+        },
+        {
+          "id": 2,
+          "arrival": 0,
+          "service": 1
+        },
+        {
+          "id": 3,
+          "arrival": 0,
+          "service": 1
+        },
+        {
+          "id": 4,
+          "arrival": 0,
+          "service": 1
+        },
+        {
+          "id": 5,
+          "arrival": 1,
+          "service": 1
+        },
+        {
+          "id": 6,
+          "arrival": 1.5,
+          "service": 1
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "kind": "server",
+      "capacity": 1,
+      "queue_capacity": 2,
+      "discipline": "lifo"
+    },
+    {
+      "id": "done",
+      "kind": "sink"
+    }
+  ],
+  "links": [
+    {
+      "from": "arrivals",
+      "to": "delivery"
+    },
+    {
+      "from": "delivery",
+      "to": "done"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "emitted",
+      "component": "arrivals",
+      "metric": "emitted"
+    },
+    {
+      "id": "accepted",
+      "component": "delivery",
+      "metric": "accepted"
+    },
+    {
+      "id": "rejected",
+      "component": "delivery",
+      "metric": "rejected"
+    },
+    {
+      "id": "completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "waiting",
+      "component": "delivery",
+      "metric": "waiting"
+    },
+    {
+      "id": "busy",
+      "component": "delivery",
+      "metric": "busy"
+    },
+    {
+      "id": "queue_mean",
+      "component": "delivery",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "utilization",
+      "component": "delivery",
+      "metric": "utilization"
+    },
+    {
+      "id": "cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    },
+    {
+      "id": "cycle_mean",
+      "component": "done",
+      "metric": "cycle_mean"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"seed":42,"replications":2,"design":{"kind":"lhs","count":16,"design_seed":73,"bounds":{"decay_rate":[0.1,0.3]}}}

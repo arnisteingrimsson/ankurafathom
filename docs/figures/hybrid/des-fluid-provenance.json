@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "plan_sha256": "105e02e37d40925729d3b6aa4e77e8aa3a01f38a892f719e240f71bf6f4c37d1",
+    "adapter_sha256": "4973d0af13013a0f8069fab98e5283b6d4a5bceb4e283b85e389b14753aa9ea6",
+    "engine": "Python Random direct birth/death CTMC; closed-form reflected fluid"
+  },
+  "report_sha256": "eeca03d0af91b3887c02ea626cfa12f35c37dd5de3e384675313cfc13436455a",
+  "matplotlib": "3.10.8"
+}

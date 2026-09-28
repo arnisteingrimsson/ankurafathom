@@ -1,0 +1,604 @@
+{
+  "version": 1,
+  "warmup": 200,
+  "window": 1000,
+  "native_seed": 2026092402,
+  "arrival_rate": 0.5,
+  "arrival_stream": 200,
+  "service_streams": [
+    201,
+    202,
+    203
+  ],
+  "pilot_replications": 64,
+  "pilot_seed_base": 811001,
+  "sigma_inflation": 1.25,
+  "false_alarm_z": 4.0,
+  "power_z": 1.645,
+  "cases": [
+    {
+      "name": "downstream_bottleneck",
+      "scenario": 30,
+      "service_rates": [
+        1.0,
+        1.25,
+        0.8
+      ],
+      "replications": 112,
+      "metrics": {
+        "s0_queue": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.14,
+          "pilot_sd": 0.115170923163,
+          "required_replications": 34
+        },
+        "s0_wait": {
+          "target": 1.0,
+          "exact": "1",
+          "tolerance": 0.26,
+          "pilot_sd": 0.215059957027,
+          "required_replications": 35
+        },
+        "s0_utilization": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0289379416499,
+          "required_replications": 35
+        },
+        "s0_throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0250696598944,
+          "required_replications": 20
+        },
+        "s1_queue": {
+          "target": 0.26666666666666666,
+          "exact": "4/15",
+          "tolerance": 0.09333333333333334,
+          "pilot_sd": 0.0632788984088,
+          "required_replications": 23
+        },
+        "s1_wait": {
+          "target": 0.5333333333333333,
+          "exact": "8/15",
+          "tolerance": 0.16666666666666669,
+          "pilot_sd": 0.112069598332,
+          "required_replications": 23
+        },
+        "s1_utilization": {
+          "target": 0.4,
+          "exact": "2/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.02871715071,
+          "required_replications": 34
+        },
+        "s1_throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0250166958139,
+          "required_replications": 20
+        },
+        "s2_queue": {
+          "target": 1.0416666666666667,
+          "exact": "25/24",
+          "tolerance": 0.24833333333333338,
+          "pilot_sd": 0.364193647118,
+          "required_replications": 108
+        },
+        "s2_wait": {
+          "target": 2.0833333333333335,
+          "exact": "25/12",
+          "tolerance": 0.47666666666666674,
+          "pilot_sd": 0.686397626625,
+          "required_replications": 104
+        },
+        "s2_utilization": {
+          "target": 0.625,
+          "exact": "5/8",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0448293263524,
+          "required_replications": 82
+        },
+        "s2_throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0251539259377,
+          "required_replications": 20
+        },
+        "cycle": {
+          "target": 6.666666666666667,
+          "exact": "20/3",
+          "tolerance": 1.15,
+          "pilot_sd": 0.856964565221,
+          "required_replications": 28
+        },
+        "p000": {
+          "target": 0.1125,
+          "exact": "9/80",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0260782071959,
+          "required_replications": 55
+        },
+        "p001": {
+          "target": 0.0703125,
+          "exact": "9/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.012633066233,
+          "required_replications": 13
+        },
+        "p002": {
+          "target": 0.1171875,
+          "exact": "15/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0180066896672,
+          "required_replications": 26
+        },
+        "p010": {
+          "target": 0.045,
+          "exact": "9/200",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00881387483154,
+          "required_replications": 7
+        },
+        "p011": {
+          "target": 0.028125,
+          "exact": "9/320",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0050758753849,
+          "required_replications": 3
+        },
+        "p012": {
+          "target": 0.046875,
+          "exact": "3/64",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00850763642508,
+          "required_replications": 6
+        },
+        "p020": {
+          "target": 0.03,
+          "exact": "3/100",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00648579470437,
+          "required_replications": 4
+        },
+        "p021": {
+          "target": 0.01875,
+          "exact": "3/160",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00408558898773,
+          "required_replications": 2
+        },
+        "p022": {
+          "target": 0.03125,
+          "exact": "1/32",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00890575871964,
+          "required_replications": 7
+        },
+        "p100": {
+          "target": 0.05625,
+          "exact": "9/160",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0112019117978,
+          "required_replications": 10
+        },
+        "p101": {
+          "target": 0.03515625,
+          "exact": "9/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00776941659487,
+          "required_replications": 5
+        },
+        "p102": {
+          "target": 0.05859375,
+          "exact": "15/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0112229996821,
+          "required_replications": 11
+        },
+        "p110": {
+          "target": 0.0225,
+          "exact": "9/400",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00448258176492,
+          "required_replications": 2
+        },
+        "p111": {
+          "target": 0.0140625,
+          "exact": "9/640",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00279058195315,
+          "required_replications": 1
+        },
+        "p112": {
+          "target": 0.0234375,
+          "exact": "3/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00498671501536,
+          "required_replications": 2
+        },
+        "p120": {
+          "target": 0.015,
+          "exact": "3/200",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00384988681602,
+          "required_replications": 2
+        },
+        "p121": {
+          "target": 0.009375,
+          "exact": "3/320",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00309130510658,
+          "required_replications": 1
+        },
+        "p122": {
+          "target": 0.015625,
+          "exact": "1/64",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00584041133388,
+          "required_replications": 3
+        },
+        "p200": {
+          "target": 0.05625,
+          "exact": "9/160",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0104019045543,
+          "required_replications": 9
+        },
+        "p201": {
+          "target": 0.03515625,
+          "exact": "9/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00676819122258,
+          "required_replications": 4
+        },
+        "p202": {
+          "target": 0.05859375,
+          "exact": "15/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0148585840407,
+          "required_replications": 18
+        },
+        "p210": {
+          "target": 0.0225,
+          "exact": "9/400",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00494241603993,
+          "required_replications": 2
+        },
+        "p211": {
+          "target": 0.0140625,
+          "exact": "9/640",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00336273128141,
+          "required_replications": 1
+        },
+        "p212": {
+          "target": 0.0234375,
+          "exact": "3/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00726513685345,
+          "required_replications": 5
+        },
+        "p220": {
+          "target": 0.015,
+          "exact": "3/200",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00490256354506,
+          "required_replications": 2
+        },
+        "p221": {
+          "target": 0.009375,
+          "exact": "3/320",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00386633841114,
+          "required_replications": 2
+        },
+        "p222": {
+          "target": 0.015625,
+          "exact": "1/64",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00746623047802,
+          "required_replications": 5
+        }
+      }
+    },
+    {
+      "name": "upstream_bottleneck",
+      "scenario": 31,
+      "service_rates": [
+        0.8,
+        1.25,
+        1.0
+      ],
+      "replications": 104,
+      "metrics": {
+        "s0_queue": {
+          "target": 1.0416666666666667,
+          "exact": "25/24",
+          "tolerance": 0.24833333333333338,
+          "pilot_sd": 0.348221066461,
+          "required_replications": 98
+        },
+        "s0_wait": {
+          "target": 2.0833333333333335,
+          "exact": "25/12",
+          "tolerance": 0.47666666666666674,
+          "pilot_sd": 0.643620115051,
+          "required_replications": 91
+        },
+        "s0_utilization": {
+          "target": 0.625,
+          "exact": "5/8",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0397749986414,
+          "required_replications": 65
+        },
+        "s0_throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0208381363511,
+          "required_replications": 14
+        },
+        "s1_queue": {
+          "target": 0.26666666666666666,
+          "exact": "4/15",
+          "tolerance": 0.09333333333333334,
+          "pilot_sd": 0.0721657580899,
+          "required_replications": 30
+        },
+        "s1_wait": {
+          "target": 0.5333333333333333,
+          "exact": "8/15",
+          "tolerance": 0.16666666666666669,
+          "pilot_sd": 0.133720672899,
+          "required_replications": 33
+        },
+        "s1_utilization": {
+          "target": 0.4,
+          "exact": "2/5",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0249577228343,
+          "required_replications": 26
+        },
+        "s1_throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0206384636191,
+          "required_replications": 14
+        },
+        "s2_queue": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.14,
+          "pilot_sd": 0.114844724841,
+          "required_replications": 34
+        },
+        "s2_wait": {
+          "target": 1.0,
+          "exact": "1",
+          "tolerance": 0.26,
+          "pilot_sd": 0.204300044721,
+          "required_replications": 31
+        },
+        "s2_utilization": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.035,
+          "pilot_sd": 0.0336046990696,
+          "required_replications": 46
+        },
+        "s2_throughput": {
+          "target": 0.5,
+          "exact": "1/2",
+          "tolerance": 0.04,
+          "pilot_sd": 0.0205532059736,
+          "required_replications": 14
+        },
+        "cycle": {
+          "target": 6.666666666666667,
+          "exact": "20/3",
+          "tolerance": 1.15,
+          "pilot_sd": 0.869880833277,
+          "required_replications": 29
+        },
+        "p000": {
+          "target": 0.1125,
+          "exact": "9/80",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0220738577131,
+          "required_replications": 39
+        },
+        "p001": {
+          "target": 0.05625,
+          "exact": "9/160",
+          "tolerance": 0.025,
+          "pilot_sd": 0.011894841965,
+          "required_replications": 12
+        },
+        "p002": {
+          "target": 0.05625,
+          "exact": "9/160",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0108407373844,
+          "required_replications": 10
+        },
+        "p010": {
+          "target": 0.045,
+          "exact": "9/200",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00897176623359,
+          "required_replications": 7
+        },
+        "p011": {
+          "target": 0.0225,
+          "exact": "9/400",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00484762231452,
+          "required_replications": 2
+        },
+        "p012": {
+          "target": 0.0225,
+          "exact": "9/400",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00518568445067,
+          "required_replications": 3
+        },
+        "p020": {
+          "target": 0.03,
+          "exact": "3/100",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00736261214303,
+          "required_replications": 5
+        },
+        "p021": {
+          "target": 0.015,
+          "exact": "3/200",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00371122412345,
+          "required_replications": 2
+        },
+        "p022": {
+          "target": 0.015,
+          "exact": "3/200",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00483799075591,
+          "required_replications": 2
+        },
+        "p100": {
+          "target": 0.0703125,
+          "exact": "9/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0124071681682,
+          "required_replications": 13
+        },
+        "p101": {
+          "target": 0.03515625,
+          "exact": "9/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00759760539396,
+          "required_replications": 5
+        },
+        "p102": {
+          "target": 0.03515625,
+          "exact": "9/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00746344302646,
+          "required_replications": 5
+        },
+        "p110": {
+          "target": 0.028125,
+          "exact": "9/320",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00626896022081,
+          "required_replications": 4
+        },
+        "p111": {
+          "target": 0.0140625,
+          "exact": "9/640",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00345378096366,
+          "required_replications": 1
+        },
+        "p112": {
+          "target": 0.0140625,
+          "exact": "9/640",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00352534498855,
+          "required_replications": 1
+        },
+        "p120": {
+          "target": 0.01875,
+          "exact": "3/160",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00469025594152,
+          "required_replications": 2
+        },
+        "p121": {
+          "target": 0.009375,
+          "exact": "3/320",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00292520302077,
+          "required_replications": 1
+        },
+        "p122": {
+          "target": 0.009375,
+          "exact": "3/320",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00393169934653,
+          "required_replications": 2
+        },
+        "p200": {
+          "target": 0.1171875,
+          "exact": "15/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0154436557224,
+          "required_replications": 20
+        },
+        "p201": {
+          "target": 0.05859375,
+          "exact": "15/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00942559121081,
+          "required_replications": 8
+        },
+        "p202": {
+          "target": 0.05859375,
+          "exact": "15/256",
+          "tolerance": 0.025,
+          "pilot_sd": 0.0147490046236,
+          "required_replications": 18
+        },
+        "p210": {
+          "target": 0.046875,
+          "exact": "3/64",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00898557021453,
+          "required_replications": 7
+        },
+        "p211": {
+          "target": 0.0234375,
+          "exact": "3/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00535683055092,
+          "required_replications": 3
+        },
+        "p212": {
+          "target": 0.0234375,
+          "exact": "3/128",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00814422590013,
+          "required_replications": 6
+        },
+        "p220": {
+          "target": 0.03125,
+          "exact": "1/32",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00824254090674,
+          "required_replications": 6
+        },
+        "p221": {
+          "target": 0.015625,
+          "exact": "1/64",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00560632686617,
+          "required_replications": 3
+        },
+        "p222": {
+          "target": 0.015625,
+          "exact": "1/64",
+          "tolerance": 0.025,
+          "pilot_sd": 0.00908111788221,
+          "required_replications": 7
+        }
+      }
+    }
+  ]
+}

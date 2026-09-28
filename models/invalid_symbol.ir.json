@@ -1,0 +1,13 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_symbol",
+  "time": { "unit": "day", "dt": 0.1, "horizon": 1.0 },
+  "components": [
+    { "id": "material", "kind": "stock", "init": 100.0, "unit": "kg" },
+    { "id": "loss", "kind": "flow", "source": "material", "destination": null,
+      "expr": "missing_rate * material", "unit": "kg/day" }
+  ],
+  "outputs": [
+    { "id": "material_ts", "stock": "material" }
+  ]
+}

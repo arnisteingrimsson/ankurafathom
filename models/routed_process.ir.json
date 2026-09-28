@@ -1,0 +1,298 @@
+{
+  "ir_version": "0.1",
+  "name": "routed_delivery_with_backup",
+  "mode": "des",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 4
+  },
+  "components": [
+    {
+      "id": "arrivals",
+      "kind": "source",
+      "schedule": [
+        {
+          "id": 1,
+          "arrival": 0,
+          "service": 2,
+          "priority": -2
+        },
+        {
+          "id": 2,
+          "arrival": 0,
+          "service": 1,
+          "priority": -1
+        },
+        {
+          "id": 3,
+          "arrival": 0,
+          "service": 1,
+          "priority": -3
+        },
+        {
+          "id": 4,
+          "arrival": 0,
+          "service": 2,
+          "priority": 2
+        },
+        {
+          "id": 5,
+          "arrival": 0,
+          "service": 1,
+          "priority": 3
+        },
+        {
+          "id": 6,
+          "arrival": 0,
+          "service": 1,
+          "priority": 4
+        },
+        {
+          "id": 7,
+          "arrival": 1,
+          "service": 1,
+          "priority": -4
+        },
+        {
+          "id": 8,
+          "arrival": 2,
+          "service": 1,
+          "priority": 5
+        }
+      ]
+    },
+    {
+      "id": "triage",
+      "kind": "router",
+      "priority_at_most": 0
+    },
+    {
+      "id": "urgent",
+      "kind": "server",
+      "capacity": 1,
+      "queue_capacity": 0,
+      "discipline": "priority"
+    },
+    {
+      "id": "normal",
+      "kind": "server",
+      "capacity": 1,
+      "queue_capacity": 0
+    },
+    {
+      "id": "backup",
+      "kind": "server",
+      "capacity": 1,
+      "queue_capacity": 1,
+      "discipline": "priority"
+    },
+    {
+      "id": "audit",
+      "kind": "router",
+      "priority_at_most": 0
+    },
+    {
+      "id": "lost",
+      "kind": "discard"
+    },
+    {
+      "id": "done",
+      "kind": "sink"
+    }
+  ],
+  "links": [
+    {
+      "to": "triage",
+      "port": "out",
+      "from": "arrivals"
+    },
+    {
+      "to": "urgent",
+      "port": "match",
+      "from": "triage"
+    },
+    {
+      "to": "normal",
+      "port": "otherwise",
+      "from": "triage"
+    },
+    {
+      "to": "audit",
+      "port": "out",
+      "from": "urgent"
+    },
+    {
+      "to": "audit",
+      "port": "out",
+      "from": "normal"
+    },
+    {
+      "to": "audit",
+      "port": "out",
+      "from": "backup"
+    },
+    {
+      "to": "backup",
+      "port": "rejected",
+      "from": "urgent"
+    },
+    {
+      "to": "backup",
+      "port": "rejected",
+      "from": "normal"
+    },
+    {
+      "to": "lost",
+      "port": "rejected",
+      "from": "backup"
+    },
+    {
+      "to": "done",
+      "port": "match",
+      "from": "audit"
+    },
+    {
+      "to": "done",
+      "port": "otherwise",
+      "from": "audit"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "arrivals_emitted",
+      "component": "arrivals",
+      "metric": "emitted"
+    },
+    {
+      "id": "triage_received",
+      "component": "triage",
+      "metric": "received"
+    },
+    {
+      "id": "triage_matched",
+      "component": "triage",
+      "metric": "matched"
+    },
+    {
+      "id": "triage_otherwise",
+      "component": "triage",
+      "metric": "otherwise"
+    },
+    {
+      "id": "urgent_accepted",
+      "component": "urgent",
+      "metric": "accepted"
+    },
+    {
+      "id": "urgent_rejected",
+      "component": "urgent",
+      "metric": "rejected"
+    },
+    {
+      "id": "urgent_completed",
+      "component": "urgent",
+      "metric": "completed"
+    },
+    {
+      "id": "urgent_waiting",
+      "component": "urgent",
+      "metric": "waiting"
+    },
+    {
+      "id": "urgent_busy",
+      "component": "urgent",
+      "metric": "busy"
+    },
+    {
+      "id": "normal_accepted",
+      "component": "normal",
+      "metric": "accepted"
+    },
+    {
+      "id": "normal_rejected",
+      "component": "normal",
+      "metric": "rejected"
+    },
+    {
+      "id": "normal_completed",
+      "component": "normal",
+      "metric": "completed"
+    },
+    {
+      "id": "normal_waiting",
+      "component": "normal",
+      "metric": "waiting"
+    },
+    {
+      "id": "normal_busy",
+      "component": "normal",
+      "metric": "busy"
+    },
+    {
+      "id": "backup_accepted",
+      "component": "backup",
+      "metric": "accepted"
+    },
+    {
+      "id": "backup_rejected",
+      "component": "backup",
+      "metric": "rejected"
+    },
+    {
+      "id": "backup_completed",
+      "component": "backup",
+      "metric": "completed"
+    },
+    {
+      "id": "backup_waiting",
+      "component": "backup",
+      "metric": "waiting"
+    },
+    {
+      "id": "backup_busy",
+      "component": "backup",
+      "metric": "busy"
+    },
+    {
+      "id": "backup_queue_mean",
+      "component": "backup",
+      "metric": "queue_mean"
+    },
+    {
+      "id": "backup_utilization",
+      "component": "backup",
+      "metric": "utilization"
+    },
+    {
+      "id": "audit_received",
+      "component": "audit",
+      "metric": "received"
+    },
+    {
+      "id": "audit_matched",
+      "component": "audit",
+      "metric": "matched"
+    },
+    {
+      "id": "audit_otherwise",
+      "component": "audit",
+      "metric": "otherwise"
+    },
+    {
+      "id": "lost_discarded",
+      "component": "lost",
+      "metric": "discarded"
+    },
+    {
+      "id": "done_completed",
+      "component": "done",
+      "metric": "completed"
+    },
+    {
+      "id": "done_cycle_total",
+      "component": "done",
+      "metric": "cycle_total"
+    }
+  ]
+}

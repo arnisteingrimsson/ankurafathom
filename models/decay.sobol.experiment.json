@@ -1,0 +1,1 @@
+{"seed":42,"replications":2,"design":{"kind":"sobol","count":16,"bounds":{"decay_rate":[0.1,0.3]}}}

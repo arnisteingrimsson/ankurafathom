@@ -1,0 +1,162 @@
+{
+  "ir_version": "0.1",
+  "name": "time_weighted_staffing",
+  "mode": "agent_pool",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 4
+  },
+  "agent_pool": {
+    "population": {
+      "id": "consultants",
+      "unit": "slot",
+      "agents": [
+        1,
+        1
+      ]
+    },
+    "pool": {
+      "id": "staffing",
+      "unit": "slot",
+      "max_request_units": 2
+    },
+    "bridge": {
+      "kind": "agent_pool",
+      "from": "consultants",
+      "to": "staffing",
+      "unit": "slot"
+    },
+    "delivery": {
+      "id": "engagement_delivery",
+      "time_unit": "day"
+    },
+    "phases": [
+      {
+        "id": "check_released_capacity",
+        "capacity_expr": "capacity + allocated",
+        "unit": "slot"
+      }
+    ],
+    "schedule": [
+      {
+        "time": 0,
+        "engagements": [
+          {
+            "request_id": 10,
+            "units": 1,
+            "duration": 1
+          },
+          {
+            "request_id": 11,
+            "units": 1,
+            "duration": 2
+          },
+          {
+            "request_id": 12,
+            "units": 1,
+            "duration": 0.5
+          },
+          {
+            "request_id": 13,
+            "units": 2,
+            "duration": 1
+          }
+        ]
+      },
+      {
+        "time": 1,
+        "departures": [
+          0
+        ]
+      },
+      {
+        "time": 1.5,
+        "hires": [
+          1
+        ]
+      },
+      {
+        "time": 2,
+        "phases": [
+          "check_released_capacity"
+        ],
+        "engagements": [
+          {
+            "request_id": 14,
+            "units": 1,
+            "duration": 0.25
+          }
+        ]
+      },
+      {
+        "time": 3,
+        "departures": [
+          1
+        ]
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "id": "capacity_time",
+      "process": "engagement_delivery",
+      "metric": "capacity_time"
+    },
+    {
+      "id": "allocated_time",
+      "process": "engagement_delivery",
+      "metric": "allocated_time"
+    },
+    {
+      "id": "available_time",
+      "process": "engagement_delivery",
+      "metric": "available_time"
+    },
+    {
+      "id": "queue_time",
+      "process": "engagement_delivery",
+      "metric": "queue_time"
+    },
+    {
+      "id": "service_time",
+      "process": "engagement_delivery",
+      "metric": "service_time"
+    },
+    {
+      "id": "population_time",
+      "process": "engagement_delivery",
+      "metric": "population_time"
+    },
+    {
+      "id": "utilization",
+      "process": "engagement_delivery",
+      "metric": "utilization"
+    },
+    {
+      "id": "mean_queue",
+      "process": "engagement_delivery",
+      "metric": "mean_queue"
+    },
+    {
+      "id": "mean_in_service",
+      "process": "engagement_delivery",
+      "metric": "mean_in_service"
+    },
+    {
+      "id": "mean_headcount",
+      "process": "engagement_delivery",
+      "metric": "mean_headcount"
+    },
+    {
+      "id": "wait_total",
+      "process": "engagement_delivery",
+      "metric": "wait_total"
+    },
+    {
+      "id": "cycle_total",
+      "process": "engagement_delivery",
+      "metric": "cycle_total"
+    }
+  ]
+}

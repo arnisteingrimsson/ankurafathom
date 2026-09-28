@@ -1,0 +1,55 @@
+{
+  "ir_version": "0.1",
+  "name": "auxiliary decay",
+  "time": {
+    "unit": "day",
+    "dt": 0.1,
+    "horizon": 1
+  },
+  "parameters": [
+    {
+      "id": "k",
+      "value": 0.2,
+      "unit": "1/day"
+    }
+  ],
+  "components": [
+    {
+      "id": "x",
+      "kind": "stock",
+      "init": 100,
+      "unit": "kg"
+    },
+    {
+      "id": "a",
+      "kind": "aux",
+      "expr": "k*x",
+      "unit": "kg/day"
+    },
+    {
+      "id": "b",
+      "kind": "aux",
+      "expr": "2*a",
+      "unit": "kg/day"
+    },
+    {
+      "id": "loss",
+      "kind": "flow",
+      "source": "x",
+      "destination": null,
+      "expr": "b",
+      "unit": "kg/day"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "stock",
+      "stock": "x"
+    },
+    {
+      "id": "rate",
+      "expr": "b",
+      "unit": "kg/day"
+    }
+  ]
+}

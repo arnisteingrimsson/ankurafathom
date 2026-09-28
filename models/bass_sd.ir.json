@@ -1,0 +1,79 @@
+{
+  "ir_version": "0.1",
+  "name": "Bass diffusion accounting",
+  "time": {
+    "unit": "year",
+    "dt": 0.1,
+    "horizon": 1
+  },
+  "parameters": [
+    {
+      "id": "innovation",
+      "value": 0.01,
+      "unit": "1/year"
+    },
+    {
+      "id": "imitation",
+      "value": 0.3,
+      "unit": "1/year"
+    },
+    {
+      "id": "market",
+      "value": 1000,
+      "unit": "people"
+    }
+  ],
+  "components": [
+    {
+      "id": "potential",
+      "kind": "stock",
+      "init": 990,
+      "unit": "people"
+    },
+    {
+      "id": "adopted",
+      "kind": "stock",
+      "init": 10,
+      "unit": "people"
+    },
+    {
+      "id": "pressure",
+      "kind": "aux",
+      "expr": "innovation + imitation*adopted/market",
+      "unit": "1/year"
+    },
+    {
+      "id": "adoption",
+      "kind": "flow",
+      "source": "potential",
+      "destination": "adopted",
+      "expr": "pressure*potential",
+      "unit": "people/year"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "adopters",
+      "stock": "adopted"
+    },
+    {
+      "id": "remaining",
+      "stock": "potential"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "conserved",
+      "stocks": [
+        "potential",
+        "adopted"
+      ],
+      "absolute_tolerance": 1e-10
+    },
+    {
+      "kind": "monotone",
+      "output": "adopters",
+      "direction": "increasing"
+    }
+  ]
+}

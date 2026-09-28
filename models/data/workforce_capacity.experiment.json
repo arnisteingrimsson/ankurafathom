@@ -1,0 +1,16 @@
+{
+  "seed": 0,
+  "replications": 1,
+  "scenarios": [
+    {
+      "id": 0,
+      "parameters": {
+        "ai_multiplier": 1
+      }
+    },
+    {
+      "id": 1,
+      "parameters": {}
+    }
+  ]
+}

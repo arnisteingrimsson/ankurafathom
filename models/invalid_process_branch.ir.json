@@ -1,0 +1,18 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_process_branch",
+  "mode": "des",
+  "time": { "unit": "day", "dt": 1, "horizon": 2 },
+  "components": [
+    { "id": "arrivals", "kind": "source", "schedule": [] },
+    { "id": "review", "kind": "server", "capacity": 1 },
+    { "id": "delivery", "kind": "server", "capacity": 1 },
+    { "id": "done", "kind": "sink" }
+  ],
+  "links": [
+    { "from": "arrivals", "to": "review" },
+    { "from": "review", "to": "delivery" },
+    { "from": "review", "to": "done" }
+  ],
+  "outputs": [ { "id": "completed", "component": "done", "metric": "completed" } ]
+}

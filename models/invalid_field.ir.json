@@ -1,0 +1,9 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_field",
+  "time": { "unit": "day", "dt": 1, "horizon": 1 },
+  "components": [
+    { "id": "stock_a", "kind": "stock", "init": 1, "non_negativ": true, "unit": "kg" }
+  ],
+  "outputs": [ { "id": "stock_ts", "stock": "stock_a" } ]
+}

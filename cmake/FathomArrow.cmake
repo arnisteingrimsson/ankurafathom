@@ -1,0 +1,35 @@
+# Arrow stays outside the simulation core. A caller can use a system CMake
+# package or explicitly select an isolated PyArrow wheel's C++ SDK.
+option(FATHOM_ENABLE_ARROW "Enable Arrow/Parquet when an SDK is available" ON)
+set(FATHOM_ARROW_PYTHON "" CACHE FILEPATH "Python interpreter whose PyArrow C++ SDK to use")
+set(FATHOM_HAS_ARROW OFF)
+if(FATHOM_ENABLE_ARROW)
+  if(FATHOM_ARROW_PYTHON)
+    execute_process(COMMAND "${FATHOM_ARROW_PYTHON}" "${CMAKE_CURRENT_LIST_DIR}/pyarrow_sdk.py"
+      RESULT_VARIABLE _arrow_result OUTPUT_VARIABLE _arrow_paths ERROR_VARIABLE _arrow_error
+      OUTPUT_STRIP_TRAILING_WHITESPACE)
+    if(NOT _arrow_result EQUAL 0)
+      message(FATAL_ERROR "Cannot inspect requested PyArrow SDK: ${_arrow_error}")
+    endif()
+    string(REPLACE "\n" ";" _arrow_paths "${_arrow_paths}")
+    list(GET _arrow_paths 0 _arrow_include)
+    list(GET _arrow_paths 1 _arrow_library)
+    list(GET _arrow_paths 2 _parquet_library)
+    add_library(fathom_arrow_sdk SHARED IMPORTED)
+    set_target_properties(fathom_arrow_sdk PROPERTIES IMPORTED_LOCATION "${_arrow_library}"
+      INTERFACE_INCLUDE_DIRECTORIES "${_arrow_include}")
+    add_library(fathom_parquet_sdk SHARED IMPORTED)
+    set_target_properties(fathom_parquet_sdk PROPERTIES IMPORTED_LOCATION "${_parquet_library}"
+      INTERFACE_INCLUDE_DIRECTORIES "${_arrow_include}" INTERFACE_LINK_LIBRARIES fathom_arrow_sdk)
+    set(FATHOM_ARROW_LIBRARIES fathom_arrow_sdk fathom_parquet_sdk)
+    set(FATHOM_HAS_ARROW ON)
+  else()
+    find_package(Arrow 25 CONFIG QUIET)
+    find_package(Parquet 25 CONFIG QUIET)
+    if(TARGET Arrow::arrow_shared AND TARGET Parquet::parquet_shared)
+      set(FATHOM_ARROW_LIBRARIES Arrow::arrow_shared Parquet::parquet_shared)
+      set(FATHOM_HAS_ARROW ON)
+    endif()
+  endif()
+endif()
+message(STATUS "Fathom Arrow/Parquet output: ${FATHOM_HAS_ARROW}")

@@ -1,0 +1,70 @@
+{
+  "ir_version": "0.1",
+  "name": "synthetic_parameter_decay",
+  "time": {
+    "unit": "day",
+    "dt": 0.1,
+    "horizon": 1.0
+  },
+  "parameters": [
+    {
+      "id": "decay_rate",
+      "value": 0.2,
+      "unit": "1/day"
+    }
+  ],
+  "components": [
+    {
+      "id": "material",
+      "kind": "stock",
+      "init": 100.0,
+      "non_negative": true,
+      "unit": "kg"
+    },
+    {
+      "id": "loss",
+      "kind": "flow",
+      "source": "material",
+      "destination": null,
+      "expr": "decay_rate * material",
+      "unit": "kg/day"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "material_ts",
+      "stock": "material"
+    }
+  ],
+  "data": [
+    {
+      "id": "practice_parameters",
+      "source": "synthetic_decay_rates.csv",
+      "schema": {
+        "key_column": "practice",
+        "columns": [
+          {
+            "name": "practice",
+            "type": "string",
+            "unit": ""
+          },
+          {
+            "name": "rate",
+            "type": "f64",
+            "unit": "1/day"
+          }
+        ]
+      },
+      "use": {
+        "kind": "parameter_table",
+        "key": "disputes",
+        "parameters": [
+          {
+            "parameter": "decay_rate",
+            "column": "rate"
+          }
+        ]
+      }
+    }
+  ]
+}

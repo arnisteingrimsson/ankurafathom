@@ -1,0 +1,16 @@
+{
+  "ir_version": "0.1",
+  "name": "invalid_process_link",
+  "mode": "des",
+  "time": { "unit": "day", "dt": 1, "horizon": 2 },
+  "components": [
+    { "id": "arrivals", "kind": "source", "schedule": [] },
+    { "id": "delivery", "kind": "server", "capacity": 1 },
+    { "id": "done", "kind": "sink" }
+  ],
+  "links": [
+    { "from": "arrivals", "to": "missing" },
+    { "from": "delivery", "to": "done" }
+  ],
+  "outputs": [ { "id": "completed", "component": "done", "metric": "completed" } ]
+}

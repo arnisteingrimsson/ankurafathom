@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmile xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" version="1.0">
+<header><name>Fathom stateful function conformance</name></header>
+<sim_specs method="Euler"><start>0</start><stop>6</stop><dt>0.125</dt></sim_specs>
+<model><variables>
+<aux name="forcing"><eqn>TIME</eqn><gf><xpts>0,0.5,1,2,3,4,5,6</xpts><ypts>2,2,6,6,1,1,3,3</ypts></gf></aux>
+<aux name="tau"><eqn>1.5</eqn></aux>
+<aux name="smooth_one"><eqn>SMTH1(forcing,tau,0)</eqn></aux>
+<stock name="stock_smooth_one"><eqn>0</eqn><inflow>flow_smooth_one</inflow></stock>
+<flow name="flow_smooth_one"><eqn>smooth_one</eqn></flow>
+<aux name="smooth_three"><eqn>SMTH3(forcing,tau,0)</eqn></aux>
+<stock name="stock_smooth_three"><eqn>0</eqn><inflow>flow_smooth_three</inflow></stock>
+<flow name="flow_smooth_three"><eqn>smooth_three</eqn></flow>
+<aux name="delay_one"><eqn>DELAY1(forcing,tau,0)</eqn></aux>
+<stock name="stock_delay_one"><eqn>0</eqn><inflow>flow_delay_one</inflow></stock>
+<flow name="flow_delay_one"><eqn>delay_one</eqn></flow>
+<aux name="delay_three"><eqn>DELAY3(forcing,tau,0)</eqn></aux>
+<stock name="stock_delay_three"><eqn>0</eqn><inflow>flow_delay_three</inflow></stock>
+<flow name="flow_delay_three"><eqn>delay_three</eqn></flow>
+<aux name="smooth_default"><eqn>SMTH1(forcing,tau)</eqn></aux>
+<stock name="stock_smooth_default"><eqn>0</eqn><inflow>flow_smooth_default</inflow></stock>
+<flow name="flow_smooth_default"><eqn>smooth_default</eqn></flow>
+<aux name="smooth_three_default"><eqn>SMTH3(forcing,tau)</eqn></aux>
+<stock name="stock_smooth_three_default"><eqn>0</eqn><inflow>flow_smooth_three_default</inflow></stock>
+<flow name="flow_smooth_three_default"><eqn>smooth_three_default</eqn></flow>
+<aux name="delay_default"><eqn>DELAY1(forcing,tau)</eqn></aux>
+<stock name="stock_delay_default"><eqn>0</eqn><inflow>flow_delay_default</inflow></stock>
+<flow name="flow_delay_default"><eqn>delay_default</eqn></flow>
+<aux name="delay_three_default"><eqn>DELAY3(forcing,tau)</eqn></aux>
+<stock name="stock_delay_three_default"><eqn>0</eqn><inflow>flow_delay_three_default</inflow></stock>
+<flow name="flow_delay_three_default"><eqn>delay_three_default</eqn></flow>
+<aux name="nested"><eqn>SMTH1(DELAY1(forcing,0.75,0),0.5,1)</eqn></aux>
+<stock name="stock_nested"><eqn>0</eqn><inflow>flow_nested</inflow></stock>
+<flow name="flow_nested"><eqn>nested</eqn></flow>
+<aux name="feedback"><eqn>SMTH1(1+feedback,1,0)</eqn></aux>
+<stock name="stock_feedback"><eqn>0</eqn><inflow>flow_feedback</inflow></stock>
+<flow name="flow_feedback"><eqn>feedback</eqn></flow>
+<aux name="shared"><eqn>smooth_one+smooth_one</eqn></aux>
+<stock name="stock_shared"><eqn>0</eqn><inflow>flow_shared</inflow></stock>
+<flow name="flow_shared"><eqn>shared</eqn></flow>
+<aux name="independent"><eqn>SMTH1(forcing,tau,1)+SMTH1(forcing,tau,4)</eqn></aux>
+<stock name="stock_independent"><eqn>0</eqn><inflow>flow_independent</inflow></stock>
+<flow name="flow_independent"><eqn>independent</eqn></flow>
+<aux name="stock_default"><eqn>SMTH1(stock_shared,1)</eqn></aux>
+<stock name="stock_stock_default"><eqn>0</eqn><inflow>flow_stock_default</inflow></stock>
+<flow name="flow_stock_default"><eqn>stock_default</eqn></flow>
+</variables></model>
+</xmile>

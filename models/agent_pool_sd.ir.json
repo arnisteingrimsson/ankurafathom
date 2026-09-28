@@ -1,0 +1,233 @@
+{
+  "ir_version": "0.1",
+  "name": "staffed_delivery_to_sd",
+  "mode": "agent_pool_sd",
+  "time": {
+    "unit": "day",
+    "dt": 0.5,
+    "horizon": 4
+  },
+  "agent_pool": {
+    "population": {
+      "id": "consultants",
+      "unit": "slot",
+      "agents": [
+        1,
+        1
+      ]
+    },
+    "pool": {
+      "id": "staffing",
+      "unit": "slot",
+      "max_request_units": 2
+    },
+    "bridge": {
+      "kind": "agent_pool",
+      "from": "consultants",
+      "to": "staffing",
+      "unit": "slot"
+    },
+    "delivery": {
+      "id": "engagement_delivery",
+      "time_unit": "day"
+    },
+    "phases": [
+      {
+        "id": "check_released_capacity",
+        "capacity_expr": "capacity + allocated",
+        "unit": "slot"
+      }
+    ],
+    "schedule": [
+      {
+        "time": 0,
+        "engagements": [
+          {
+            "request_id": 10,
+            "units": 1,
+            "duration": 1
+          },
+          {
+            "request_id": 11,
+            "units": 1,
+            "duration": 2
+          },
+          {
+            "request_id": 12,
+            "units": 1,
+            "duration": 0.5
+          },
+          {
+            "request_id": 13,
+            "units": 2,
+            "duration": 1
+          }
+        ]
+      },
+      {
+        "time": 1,
+        "departures": [
+          0
+        ]
+      },
+      {
+        "time": 1.5,
+        "hires": [
+          1
+        ]
+      },
+      {
+        "time": 2,
+        "phases": [
+          "check_released_capacity"
+        ],
+        "engagements": [
+          {
+            "request_id": 14,
+            "units": 1,
+            "duration": 0.25
+          }
+        ]
+      },
+      {
+        "time": 3,
+        "departures": [
+          1
+        ]
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "id": "revenue",
+      "stock": "revenue"
+    },
+    {
+      "id": "capacity",
+      "pool": "staffing",
+      "metric": "capacity"
+    },
+    {
+      "id": "allocated",
+      "pool": "staffing",
+      "metric": "allocated_units"
+    },
+    {
+      "id": "cost",
+      "stock": "cost"
+    },
+    {
+      "id": "accepted",
+      "process": "engagement_delivery",
+      "metric": "accepted"
+    },
+    {
+      "id": "started",
+      "process": "engagement_delivery",
+      "metric": "started"
+    },
+    {
+      "id": "completed",
+      "process": "engagement_delivery",
+      "metric": "completed"
+    },
+    {
+      "id": "in_service",
+      "process": "engagement_delivery",
+      "metric": "in_service"
+    },
+    {
+      "id": "waiting",
+      "process": "engagement_delivery",
+      "metric": "waiting"
+    },
+    {
+      "id": "wait_total",
+      "process": "engagement_delivery",
+      "metric": "wait_total"
+    },
+    {
+      "id": "cycle_total",
+      "process": "engagement_delivery",
+      "metric": "cycle_total"
+    },
+    {
+      "id": "final_running",
+      "request_id": 14,
+      "metric": "in_service"
+    },
+    {
+      "id": "final_completed",
+      "request_id": 14,
+      "metric": "completed"
+    },
+    {
+      "id": "final_granted",
+      "request_id": 14,
+      "metric": "granted"
+    },
+    {
+      "id": "revenue_time",
+      "stock": "revenue_time"
+    },
+    {
+      "id": "utilization",
+      "process": "engagement_delivery",
+      "metric": "utilization"
+    }
+  ],
+  "sd": {
+    "parameters": [
+      {
+        "id": "daily_cost",
+        "value": 20,
+        "unit": "USD/day"
+      }
+    ],
+    "components": [
+      {
+        "id": "revenue",
+        "kind": "stock",
+        "unit": "USD",
+        "init": 0
+      },
+      {
+        "id": "cost",
+        "kind": "stock",
+        "unit": "USD",
+        "init": 0
+      },
+      {
+        "id": "revenue_time",
+        "kind": "stock",
+        "unit": "USD*day",
+        "init": 0
+      },
+      {
+        "id": "operating_cost",
+        "kind": "flow",
+        "expr": "daily_cost",
+        "unit": "USD/day",
+        "source": null,
+        "destination": "cost"
+      },
+      {
+        "id": "accumulate_revenue_time",
+        "kind": "flow",
+        "expr": "revenue",
+        "unit": "USD",
+        "source": null,
+        "destination": "revenue_time"
+      }
+    ]
+  },
+  "bridges": [
+    {
+      "kind": "completion_to_stock",
+      "from": "engagement_delivery",
+      "to": "revenue",
+      "amount": 100,
+      "unit": "USD"
+    }
+  ]
+}

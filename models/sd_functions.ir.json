@@ -1,0 +1,16 @@
+{
+  "ir_version": "0.1", "name": "sd_function_semantics",
+  "time": {"unit": "day", "dt": 1, "horizon": 4},
+  "parameters": [
+    {"id": "height", "value": 10, "unit": "kg/day"},
+    {"id": "slope", "value": 2, "unit": "kg/day/day"}
+  ],
+  "components": [
+    {"id": "total", "kind": "stock", "init": 0, "unit": "kg"},
+    {"id": "smooth", "kind": "delay", "type": "information", "order": 1,
+     "duration": 2, "initial": 0, "input": "STEP(height,1)", "unit": "kg/day"},
+    {"id": "inflow", "kind": "flow", "source": null, "destination": "total",
+     "expr": "smooth+height*PULSE(1,0)+RAMP(slope,1,3)", "unit": "kg/day"}
+  ],
+  "outputs": [{"id": "total_ts", "stock": "total"}, {"id": "smooth_ts", "component": "smooth"}]
+}

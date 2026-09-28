@@ -1,0 +1,5 @@
+{
+  "seed": 987,
+  "replications": 3,
+  "scenarios": [ { "id": 2, "parameters": {} } ]
+}

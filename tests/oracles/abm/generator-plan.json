@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "replications": 512,
+  "seed": 908172635,
+  "reference_seed": 271828183,
+  "scenario": 17,
+  "stream": 901,
+  "metrics": [
+    "density",
+    "max_degree",
+    "degree_second_moment",
+    "transitivity",
+    "giant_fraction"
+  ],
+  "gates": {
+    "family_alpha": 0.001,
+    "ks_tests": 45,
+    "mean_sigma": 6,
+    "mean_floor": {
+      "density": 0.005,
+      "max_degree": 0.01,
+      "degree_second_moment": 0.005,
+      "transitivity": 0.01,
+      "giant_fraction": 0.01
+    },
+    "er_mean_sigma": 6,
+    "er_variance_relative_tolerance": 0.35
+  },
+  "cases": [
+    {
+      "id": "er-0.05",
+      "kind": "erdos_renyi",
+      "n": 48,
+      "probability": 0.05
+    },
+    {
+      "id": "er-0.3",
+      "kind": "erdos_renyi",
+      "n": 48,
+      "probability": 0.3
+    },
+    {
+      "id": "er-0.8",
+      "kind": "erdos_renyi",
+      "n": 48,
+      "probability": 0.8
+    },
+    {
+      "id": "ws-4-0",
+      "kind": "watts_strogatz",
+      "n": 48,
+      "degree": 4,
+      "probability": 0
+    },
+    {
+      "id": "ws-4-0.25",
+      "kind": "watts_strogatz",
+      "n": 48,
+      "degree": 4,
+      "probability": 0.25
+    },
+    {
+      "id": "ws-8-1",
+      "kind": "watts_strogatz",
+      "n": 48,
+      "degree": 8,
+      "probability": 1
+    },
+    {
+      "id": "ba-1",
+      "kind": "barabasi_albert",
+      "n": 48,
+      "m": 1
+    },
+    {
+      "id": "ba-3",
+      "kind": "barabasi_albert",
+      "n": 48,
+      "m": 3
+    },
+    {
+      "id": "ba-8",
+      "kind": "barabasi_albert",
+      "n": 48,
+      "m": 8
+    }
+  ]
+}

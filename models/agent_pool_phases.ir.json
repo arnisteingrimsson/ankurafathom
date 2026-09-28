@@ -1,0 +1,41 @@
+{
+  "ir_version": "0.1",
+  "name": "staffing_capacity_rules",
+  "mode": "agent_pool",
+  "time": { "unit": "day", "dt": 1, "horizon": 4 },
+  "agent_pool": {
+    "population": { "id": "consultants", "unit": "slot", "agents": [2, 4] },
+    "pool": { "id": "staffing", "unit": "slot", "max_request_units": 4 },
+    "bridge": { "kind": "agent_pool", "from": "consultants", "to": "staffing", "unit": "slot" },
+    "phases": [
+      { "id": "balance_free", "capacity_expr": "allocated + (total_capacity - total_allocated) / active", "unit": "slot" },
+      { "id": "double_capacity", "capacity_expr": "capacity * 2", "unit": "slot" },
+      { "id": "retain_committed", "capacity_expr": "allocated", "unit": "slot" }
+    ],
+    "schedule": [
+      { "time": 0, "requests": [
+        { "request_id": 1, "units": 2 },
+        { "request_id": 2, "units": 4 },
+        { "request_id": 3, "units": 2 }
+      ] },
+      { "time": 0.5, "releases": [{ "request_id": 1 }],
+        "phases": ["balance_free", "double_capacity"] },
+      { "time": 2, "releases": [{ "request_id": 2 }], "departures": [1],
+        "hires": [4], "phases": ["balance_free"] },
+      { "time": 3, "phases": ["double_capacity", "double_capacity"] },
+      { "time": 4, "releases": [{ "request_id": 3 }], "phases": ["retain_committed"] }
+    ]
+  },
+  "outputs": [
+    { "id": "capacity", "pool": "staffing", "metric": "capacity" },
+    { "id": "allocated", "pool": "staffing", "metric": "allocated_units" },
+    { "id": "available", "pool": "staffing", "metric": "available" },
+    { "id": "waiting", "pool": "staffing", "metric": "waiting" },
+    { "id": "active", "population": "consultants", "metric": "active" },
+    { "id": "first_capacity", "agent_id": 0, "metric": "capacity" },
+    { "id": "departed_capacity", "agent_id": 1, "metric": "capacity" },
+    { "id": "hired_capacity", "agent_id": 2, "metric": "capacity" },
+    { "id": "first_allocated", "agent_id": 0, "metric": "allocated" },
+    { "id": "third_granted", "request_id": 3, "metric": "granted" }
+  ]
+}

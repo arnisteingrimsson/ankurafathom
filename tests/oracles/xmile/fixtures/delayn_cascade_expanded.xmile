@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xmile xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" version="1.0">
+  <sim_specs method="Euler">
+    <start>0</start>
+    <stop>4</stop>
+    <dt>0.125</dt>
+  </sim_specs>
+  <model>
+    <variables>
+      <aux name="tau">
+        <eqn>TIME</eqn>
+        <gf>
+          <xpts>0,1,1.125,2,2.125,3,4</xpts>
+          <ypts>3,3,1.5,1.5,6,6,3</ypts>
+        </gf>
+      </aux>
+      <aux name="forcing">
+        <eqn>TIME</eqn>
+        <gf>
+          <xpts>0,1,2,3,4</xpts>
+          <ypts>4,4,8,2,2</ypts>
+        </gf>
+      </aux>
+      <stock name="clock_stock">
+        <eqn>3</eqn>
+        <inflow>clock_rate</inflow>
+      </stock>
+      <flow name="clock_rate">
+        <eqn>0.25</eqn>
+      </flow>
+      <stock name="one_default_q0">
+        <eqn>4*3/1</eqn>
+        <inflow>one_default_in</inflow>
+        <outflow>one_default_transfer0</outflow>
+      </stock>
+      <flow name="one_default_transfer0">
+        <eqn>one_default_q0/((tau)/1)</eqn>
+      </flow>
+      <flow name="one_default_in">
+        <eqn>forcing</eqn>
+      </flow>
+      <aux name="one_default">
+        <eqn>one_default_q0/((tau)/1)</eqn>
+      </aux>
+      <stock name="stock_one_default">
+        <eqn>0</eqn>
+        <inflow>rate_one_default</inflow>
+      </stock>
+      <flow name="rate_one_default">
+        <eqn>one_default</eqn>
+      </flow>
+      <stock name="one_explicit_q0">
+        <eqn>1*3/1</eqn>
+        <inflow>one_explicit_in</inflow>
+        <outflow>one_explicit_transfer0</outflow>
+      </stock>
+      <flow name="one_explicit_transfer0">
+        <eqn>one_explicit_q0/((tau)/1)</eqn>
+      </flow>
+      <flow name="one_explicit_in">
+        <eqn>forcing</eqn>
+      </flow>
+      <aux name="one_explicit">
+        <eqn>one_explicit_q0/((tau)/1)</eqn>
+      </aux>
+      <stock name="stock_one_explicit">
+        <eqn>0</eqn>
+        <inflow>rate_one_explicit</inflow>
+      </stock>
+      <flow name="rate_one_explicit">
+        <eqn>one_explicit</eqn>
+      </flow>
+      <stock name="three_q0">
+        <eqn>1*3/3</eqn>
+        <inflow>three_in</inflow>
+        <outflow>three_transfer0</outflow>
+      </stock>
+      <flow name="three_transfer0">
+        <eqn>three_q0/((tau)/3)</eqn>
+      </flow>
+      <stock name="three_q1">
+        <eqn>1*3/3</eqn>
+        <inflow>three_transfer0</inflow>
+        <outflow>three_transfer1</outflow>
+      </stock>
+      <flow name="three_transfer1">
+        <eqn>three_q1/((tau)/3)</eqn>
+      </flow>
+      <stock name="three_q2">
+        <eqn>1*3/3</eqn>
+        <inflow>three_transfer1</inflow>
+        <outflow>three_transfer2</outflow>
+      </stock>
+      <flow name="three_transfer2">
+        <eqn>three_q2/((tau)/3)</eqn>
+      </flow>
+      <flow name="three_in">
+        <eqn>forcing</eqn>
+      </flow>
+      <aux name="three">
+        <eqn>three_q2/((tau)/3)</eqn>
+      </aux>
+      <stock name="stock_three">
+        <eqn>0</eqn>
+        <inflow>rate_three</inflow>
+      </stock>
+      <flow name="rate_three">
+        <eqn>three</eqn>
+      </flow>
+      <stock name="five_q0">
+        <eqn>2*3/5</eqn>
+        <inflow>five_in</inflow>
+        <outflow>five_transfer0</outflow>
+      </stock>
+      <flow name="five_transfer0">
+        <eqn>five_q0/((clock_stock)/5)</eqn>
+      </flow>
+      <stock name="five_q1">
+        <eqn>2*3/5</eqn>
+        <inflow>five_transfer0</inflow>
+        <outflow>five_transfer1</outflow>
+      </stock>
+      <flow name="five_transfer1">
+        <eqn>five_q1/((clock_stock)/5)</eqn>
+      </flow>
+      <stock name="five_q2">
+        <eqn>2*3/5</eqn>
+        <inflow>five_transfer1</inflow>
+        <outflow>five_transfer2</outflow>
+      </stock>
+      <flow name="five_transfer2">
+        <eqn>five_q2/((clock_stock)/5)</eqn>
+      </flow>
+      <stock name="five_q3">
+        <eqn>2*3/5</eqn>
+        <inflow>five_transfer2</inflow>
+        <outflow>five_transfer3</outflow>
+      </stock>
+      <flow name="five_transfer3">
+        <eqn>five_q3/((clock_stock)/5)</eqn>
+      </flow>
+      <stock name="five_q4">
+        <eqn>2*3/5</eqn>
+        <inflow>five_transfer3</inflow>
+        <outflow>five_transfer4</outflow>
+      </stock>
+      <flow name="five_transfer4">
+        <eqn>five_q4/((clock_stock)/5)</eqn>
+      </flow>
+      <flow name="five_in">
+        <eqn>forcing</eqn>
+      </flow>
+      <aux name="five">
+        <eqn>five_q4/((clock_stock)/5)</eqn>
+      </aux>
+      <stock name="stock_five">
+        <eqn>0</eqn>
+        <inflow>rate_five</inflow>
+      </stock>
+      <flow name="rate_five">
+        <eqn>five</eqn>
+      </flow>
+      <stock name="gradual_q0">
+        <eqn>1*2/3</eqn>
+        <inflow>gradual_in</inflow>
+        <outflow>gradual_transfer0</outflow>
+      </stock>
+      <flow name="gradual_transfer0">
+        <eqn>gradual_q0/((2+TIME/2)/3)</eqn>
+      </flow>
+      <stock name="gradual_q1">
+        <eqn>1*2/3</eqn>
+        <inflow>gradual_transfer0</inflow>
+        <outflow>gradual_transfer1</outflow>
+      </stock>
+      <flow name="gradual_transfer1">
+        <eqn>gradual_q1/((2+TIME/2)/3)</eqn>
+      </flow>
+      <stock name="gradual_q2">
+        <eqn>1*2/3</eqn>
+        <inflow>gradual_transfer1</inflow>
+        <outflow>gradual_transfer2</outflow>
+      </stock>
+      <flow name="gradual_transfer2">
+        <eqn>gradual_q2/((2+TIME/2)/3)</eqn>
+      </flow>
+      <flow name="gradual_in">
+        <eqn>forcing</eqn>
+      </flow>
+      <aux name="gradual">
+        <eqn>gradual_q2/((2+TIME/2)/3)</eqn>
+      </aux>
+      <stock name="stock_gradual">
+        <eqn>0</eqn>
+        <inflow>rate_gradual</inflow>
+      </stock>
+      <flow name="rate_gradual">
+        <eqn>gradual</eqn>
+      </flow>
+      <stock name="feedback_q0">
+        <eqn>1*3/3</eqn>
+        <inflow>feedback_in</inflow>
+        <outflow>feedback_transfer0</outflow>
+      </stock>
+      <flow name="feedback_transfer0">
+        <eqn>feedback_q0/((3+stock_feedback/10)/3)</eqn>
+      </flow>
+      <stock name="feedback_q1">
+        <eqn>1*3/3</eqn>
+        <inflow>feedback_transfer0</inflow>
+        <outflow>feedback_transfer1</outflow>
+      </stock>
+      <flow name="feedback_transfer1">
+        <eqn>feedback_q1/((3+stock_feedback/10)/3)</eqn>
+      </flow>
+      <stock name="feedback_q2">
+        <eqn>1*3/3</eqn>
+        <inflow>feedback_transfer1</inflow>
+        <outflow>feedback_transfer2</outflow>
+      </stock>
+      <flow name="feedback_transfer2">
+        <eqn>feedback_q2/((3+stock_feedback/10)/3)</eqn>
+      </flow>
+      <flow name="feedback_in">
+        <eqn>forcing</eqn>
+      </flow>
+      <aux name="feedback">
+        <eqn>feedback_q2/((3+stock_feedback/10)/3)</eqn>
+      </aux>
+      <stock name="stock_feedback">
+        <eqn>0</eqn>
+        <inflow>rate_feedback</inflow>
+      </stock>
+      <flow name="rate_feedback">
+        <eqn>feedback</eqn>
+      </flow>
+      <stock name="inner_q0">
+        <eqn>1*2/2</eqn>
+        <inflow>inner_in</inflow>
+        <outflow>inner_transfer0</outflow>
+      </stock>
+      <flow name="inner_transfer0">
+        <eqn>inner_q0/((2+TIME/2)/2)</eqn>
+      </flow>
+      <stock name="inner_q1">
+        <eqn>1*2/2</eqn>
+        <inflow>inner_transfer0</inflow>
+        <outflow>inner_transfer1</outflow>
+      </stock>
+      <flow name="inner_transfer1">
+        <eqn>inner_q1/((2+TIME/2)/2)</eqn>
+      </flow>
+      <flow name="inner_in">
+        <eqn>forcing</eqn>
+      </flow>
+      <aux name="inner">
+        <eqn>inner_q1/((2+TIME/2)/2)</eqn>
+      </aux>
+      <stock name="stock_inner">
+        <eqn>0</eqn>
+        <inflow>rate_inner</inflow>
+      </stock>
+      <flow name="rate_inner">
+        <eqn>inner</eqn>
+      </flow>
+      <stock name="nested_q0">
+        <eqn>2*3/3</eqn>
+        <inflow>nested_in</inflow>
+        <outflow>nested_transfer0</outflow>
+      </stock>
+      <flow name="nested_transfer0">
+        <eqn>nested_q0/((tau)/3)</eqn>
+      </flow>
+      <stock name="nested_q1">
+        <eqn>2*3/3</eqn>
+        <inflow>nested_transfer0</inflow>
+        <outflow>nested_transfer1</outflow>
+      </stock>
+      <flow name="nested_transfer1">
+        <eqn>nested_q1/((tau)/3)</eqn>
+      </flow>
+      <stock name="nested_q2">
+        <eqn>2*3/3</eqn>
+        <inflow>nested_transfer1</inflow>
+        <outflow>nested_transfer2</outflow>
+      </stock>
+      <flow name="nested_transfer2">
+        <eqn>nested_q2/((tau)/3)</eqn>
+      </flow>
+      <flow name="nested_in">
+        <eqn>inner</eqn>
+      </flow>
+      <aux name="nested">
+        <eqn>nested_q2/((tau)/3)</eqn>
+      </aux>
+      <stock name="stock_nested">
+        <eqn>0</eqn>
+        <inflow>rate_nested</inflow>
+      </stock>
+      <flow name="rate_nested">
+        <eqn>nested</eqn>
+      </flow>
+      <aux name="alias">
+        <eqn>three</eqn>
+      </aux>
+      <stock name="stock_alias">
+        <eqn>0</eqn>
+        <inflow>rate_alias</inflow>
+      </stock>
+      <flow name="rate_alias">
+        <eqn>alias</eqn>
+      </flow>
+    </variables>
+  </model>
+</xmile>
