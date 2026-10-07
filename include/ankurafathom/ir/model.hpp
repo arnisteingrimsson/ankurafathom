@@ -15,6 +15,8 @@
 #include "ankurafathom/runtime/experiment.hpp"
 
 #include <map>
+#include <functional>
+#include <span>
 #include <cstddef>
 #include <cstdint>
 #include <optional>
@@ -287,6 +289,15 @@ std::vector<Row> run(const Model& model,
                      const std::map<std::string, double>& parameter_overrides = {},
                      std::uint64_t seed = 0, std::uint32_t scenario = 0,
                      std::uint32_t replication = 0);
+// Standalone SD observation barrier. Called with the initial state and after
+// each committed integration step, before any subsequent step is computed.
+// Arguments are borrowed for the duration of the callback. Blocking the callback
+// pauses computation; returning false stops with the computed prefix only.
+using SDObserver = std::function<bool(double, const std::map<std::string, double>&,
+                                     std::span<const Row>)>;
+std::vector<Row> run_observed_sd(const Model& model,
+                     const std::map<std::string, double>& parameter_overrides,
+                     const SDObserver& observer);
 int cli(int argc, char** argv);
 
 } // namespace ankurafathom::ir

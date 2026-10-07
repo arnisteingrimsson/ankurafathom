@@ -1,0 +1,128 @@
+{
+  "created_utc": "2026-09-30T22:14:08.007618+00:00",
+  "source_sha256": {
+    "../../include/ankurafathom/ir/model.hpp": "d01cb3d9f20d6082bc0e2a2b1b38ec3948f570ad3f93b4f463786044008e1a06",
+    "app.js": "da1a6830b69be4c303733e8d7ae40d803c11bb87c80831a94001dca91f317145",
+    "build_live.py": "0f92e2ddcbdd4ceba0d0f12e26284802ed9fd4983e0c2b0ee1f67ef1011cb94b",
+    "build_preview.py": "bf12d50fd44478fa9d92b6970664d04f7dea2e75fe74fb82e70ba102171f7755",
+    "index.html": "d9453bd1c2a5d17d895de8790b7259aa9bd902494d7b7345c6f7b13cf7eb7acd",
+    "live.css": "4e3b9c073ca1c0fc72d776686768b1a4cf2989c39277379637381b41662245ed",
+    "live.html": "be784c989617d5b39b36c663898645b21e7d40ecbbf5f17a5dae5f8d9908bdf8",
+    "live.js": "a2ef0bf6789ace80f28f407d58dda38fdde7e95f2eae0bda087a8d8fb1b86bc3",
+    "live.py": "41dd93ccfa31ff115f6568948d5452b9ffa982ca1583e0f5481990a4df750738",
+    "native/live_runner.cpp": "a3ec7a3a4fa324e807355617b89d7b00fe9ebc56abf5a2971f902f59ac69d9a3",
+    "native/observer_tests.cpp": "c81ff1003db9e99237043b76eacb3e11bfc4152190a7a8ce4c4124b8c64eba0b",
+    "record_validation.py": "0c1fd9bf1a49192a4493d6a901a3b6d6f7f72af8d9174d31e7858437950504ef",
+    "server.py": "71b0a917aef923922c5af8ede22ce702c5f8924029c7a719a55a914d393af823",
+    "style.css": "1fdfd0b1fc106290e46235282f2ab352a7cba81cb5ed0647d1c3d3fac9a631ef",
+    "test_live.py": "b02f5b439220e48df79f5b0000b6732a6ffc4cdf65c0a4f85dcd4444d6938f51",
+    "test_project.py": "004bf9c5a18a1e11c4a53fc07851179283787b9d20525a5fe30f8e6062bc9916",
+    "test_ui.mjs": "6fd5a29b2ac2021fcc1a7057752a82bc784f4ca3c9896e543dc17634542660cb",
+    "test_validation.py": "96fe2d6bff9bc3eb66e7794701df3030a54279ba96bd8ac837b4a7a5caae111a",
+    "ui-model.mjs": "2e2ddb6ab8dd61f0f3a7e3db633a90a98cfe1dbdcda1644810f657f168ff033c",
+    "validation.js": "c6f61d034a45b7ea429695045deb14174899706af3b7c7e47abec00405081c52",
+    "validation.py": "cae16cedc11a5f5a05a819568cf4911bd7c87a9441a8aeb60ca3c3701b3bf4c8",
+    "verify_live.py": "e5eda0c154411b0acbe17635762f7ab80bc3e11ab9387a69b78afbf481c8f6a6",
+    "../../src/ir.cpp": "c36e66302d2f26d11d685a3c389809a96af3a020c86ca65c786f6dbfd4ffe24f"
+  },
+  "source_unchanged_during_checks": true,
+  "checks": [
+    {
+      "command": [
+        "/Users/arni.steingrimsson/Documents/Arni/Ankura/sim/AnkuraFathom/.venv-runtime/bin/python",
+        "projects/tr-ui/test_project.py"
+      ],
+      "started_utc": "2026-09-30T22:13:33.556825+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_bound_table_has_precedence_over_literals (__main__.ProjectContract.test_bound_table_has_precedence_over_literals) ... ok\ntest_changed_timestep_rejected_for_monthly_transition_model (__main__.ProjectContract.test_changed_timestep_rejected_for_monthly_transition_model) ... ok\ntest_conflicting_workforce_policies_rejected (__main__.ProjectContract.test_conflicting_workforce_policies_rejected) ... ok\ntest_fixed_fee_bound_rejected_before_execution (__main__.ProjectContract.test_fixed_fee_bound_rejected_before_execution) ... ok\ntest_revenue_breakdown_reconciles (__main__.ProjectContract.test_revenue_breakdown_reconciles) ... ok\ntest_saved_examples_match_verified_annual_results (__main__.ProjectContract.test_saved_examples_match_verified_annual_results) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.106s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/arni.steingrimsson/Documents/Arni/Ankura/sim/AnkuraFathom/.venv-runtime/bin/python",
+        "projects/tr-ui/test_validation.py"
+      ],
+      "started_utc": "2026-09-30T22:13:33.793716+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_hand_calculated_errors_and_partition (__main__.HistoricalTests.test_hand_calculated_errors_and_partition) ... ok\ntest_observed_independence_explicit (__main__.HistoricalTests.test_observed_independence_explicit) ... ok\ntest_rejects_invalid_alignment_units_and_values (__main__.HistoricalTests.test_rejects_invalid_alignment_units_and_values) ... ok\ntest_synthetic_never_called_historical_validation (__main__.HistoricalTests.test_synthetic_never_called_historical_validation) ... ok\ntest_threshold_boundary_inclusive_and_no_fitting (__main__.HistoricalTests.test_threshold_boundary_inclusive_and_no_fitting) ... ok\ntest_utilization_fraction_units_checked (__main__.HistoricalTests.test_utilization_fraction_units_checked) ... ok\ntest_wrong_financial_formula_is_detected (__main__.HistoricalTests.test_wrong_financial_formula_is_detected) ... ok\ntest_zero_actual_denominator_is_undefined (__main__.HistoricalTests.test_zero_actual_denominator_is_undefined) ... ok\ntest_catalog_has_bound_defaults_and_run_identities (__main__.SavedRunTests.test_catalog_has_bound_defaults_and_run_identities) ... ok\ntest_modified_result_is_rejected (__main__.SavedRunTests.test_modified_result_is_rejected) ... ok\ntest_persisted_history_rejects_changed_receipt (__main__.SavedRunTests.test_persisted_history_rejects_changed_receipt) ... ok\ntest_saved_native_evidence_and_playback_aggregation (__main__.SavedRunTests.test_saved_native_evidence_and_playback_aggregation) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 2.860s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/arni.steingrimsson/Documents/Arni/Ankura/sim/AnkuraFathom/.venv-runtime/bin/python",
+        "projects/tr-ui/test_live.py"
+      ],
+      "started_utc": "2026-09-30T22:13:36.728242+00:00",
+      "exit_code": 0,
+      "stdout": "Scenario 1: 14884 native values exactly match saved batch; 61 barriers and 1403 live assertion checks\nScenario 0: 14884 native values exactly match saved batch; 61 barriers and 1403 live assertion checks\n",
+      "stderr": "test_configuration_rejected_before_worker_start (__main__.LiveTests.test_configuration_rejected_before_worker_start) ... ok\ntest_full_trajectories_match_verified_batch (__main__.LiveTests.test_full_trajectories_match_verified_batch) ... ok\ntest_initialization_does_not_advance_without_command (__main__.LiveTests.test_initialization_does_not_advance_without_command) ... ok\ntest_native_failure_stops_at_first_failing_month (__main__.LiveTests.test_native_failure_stops_at_first_failing_month) ... ok\ntest_record_detects_changed_controls (__main__.LiveTests.test_record_detects_changed_controls) ... ok\ntest_reset_creates_new_initial_state (__main__.LiveTests.test_reset_creates_new_initial_state) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 30.400s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/arni.steingrimsson/Documents/Arni/Ankura/sim/AnkuraFathom/projects/tr-ui/native/build/observer-tests",
+        "/Users/arni.steingrimsson/Documents/Arni/Ankura/sim/AnkuraFathom"
+      ],
+      "started_utc": "2026-09-30T22:14:07.229208+00:00",
+      "exit_code": 0,
+      "stdout": "decay: 11 barriers; bit-identical and prefix stop passed\nrk4_growth: 17 barriers; bit-identical and prefix stop passed\nlookup: 3 barriers; bit-identical and prefix stop passed\ndelay: 5 barriers; bit-identical and prefix stop passed\nsigned_flow: 4 barriers; bit-identical and prefix stop passed\nextended_delay: 8 barriers; bit-identical and prefix stop passed\nFuture transition not computed at paused boundary; invalid observer rejected\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arni.steingrimsson/Documents/Arni/Ankura/sim/AnkuraFathom/projects/tr-ui/native/build/observer-tests-sanitize",
+        "/Users/arni.steingrimsson/Documents/Arni/Ankura/sim/AnkuraFathom"
+      ],
+      "started_utc": "2026-09-30T22:14:07.525917+00:00",
+      "exit_code": 0,
+      "stdout": "decay: 11 barriers; bit-identical and prefix stop passed\nrk4_growth: 17 barriers; bit-identical and prefix stop passed\nlookup: 3 barriers; bit-identical and prefix stop passed\ndelay: 5 barriers; bit-identical and prefix stop passed\nsigned_flow: 4 barriers; bit-identical and prefix stop passed\nextended_delay: 8 barriers; bit-identical and prefix stop passed\nFuture transition not computed at paused boundary; invalid observer rejected\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "projects/tr-ui/live.js"
+      ],
+      "started_utc": "2026-09-30T22:14:07.894196+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "projects/tr-ui/test_ui.mjs"
+      ],
+      "started_utc": "2026-09-30T22:14:07.921560+00:00",
+      "exit_code": 0,
+      "stdout": "UI mapping contracts passed: matched controls, draft detection, undefined values and escaping.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "projects/tr-ui/app.js"
+      ],
+      "started_utc": "2026-09-30T22:14:07.955146+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "projects/tr-ui/validation.js"
+      ],
+      "started_utc": "2026-09-30T22:14:07.981663+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "scope": "Project contracts, live compute barriers and native parity, native observer normal/sanitizer checks, historical evaluation arithmetic and saved-result integration. Not a full engine regression or observed business validation.",
+  "author_model_identity": null,
+  "reviewer_model_identity": null,
+  "provenance": "Commands executed by record_validation.py; author/reviewer AI identities were not supplied."
+}

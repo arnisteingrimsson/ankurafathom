@@ -1,0 +1,1701 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AnkuraFathom local project API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8765"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "health",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/models": {
+      "get": {
+        "operationId": "listModels",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/models/{id}/describe": {
+      "get": {
+        "operationId": "describeModel",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Description"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/runs": {
+      "post": {
+        "operationId": "createRun",
+        "description": "Runs are immutable. Completed exact matches return cache_hit=true and the original run ID.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Run"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted asynchronous execution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Run"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runs/{id}": {
+      "get": {
+        "operationId": "getRun",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Run"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/runs/{id}/cancel": {
+      "post": {
+        "operationId": "cancelRun",
+        "description": "Idempotent; retained run record. Cancelled runs publish no result API.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Run"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Empty"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runs/{id}/results": {
+      "get": {
+        "operationId": "getResults",
+        "description": "Raw declared output series; endpoints preserved under sample selection. Derived metrics use summary. Never compute KPIs from downsampled rows.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Results"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "dimension",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "dimension-name:value"
+              }
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "scenario",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          },
+          {
+            "name": "replication",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "max_points",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 2
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            }
+          }
+        ]
+      }
+    },
+    "/v1/runs/{id}/summary": {
+      "post": {
+        "operationId": "summarizeRun",
+        "description": "Full-resolution aggregation on recorded interval endpoints; single selected scenario/replication.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Summary"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SummaryRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/compare": {
+      "post": {
+        "operationId": "compareRuns",
+        "description": "Same model and engine version only; no implicit averaging across replications.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comparison"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompareRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runs/{id}/explain": {
+      "post": {
+        "operationId": "explainRun",
+        "description": "Existing native standalone SD verified re-execution; 120-second request limit.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExplainRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runs/{id}/events": {
+      "get": {
+        "operationId": "streamStatus",
+        "description": "SSE status events. Reconnect receives current status, not historical event replay. Stream ends at terminal state.",
+        "responses": {
+          "200": {
+            "description": "Stage updates",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Structured error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Scenario": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "overrides": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "overrides"
+        ]
+      },
+      "RunRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "model_id": {
+            "type": "string"
+          },
+          "model_version": {
+            "type": "string"
+          },
+          "overrides": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "scenarios": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 1024,
+            "items": {
+              "$ref": "#/components/schemas/Scenario"
+            }
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "replications": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1024
+          },
+          "threads": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 32
+          },
+          "require_check": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "model_id",
+          "model_version"
+        ],
+        "not": {
+          "required": [
+            "overrides",
+            "scenarios"
+          ]
+        }
+      },
+      "Threshold": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "gte",
+              "lte"
+            ]
+          },
+          "value": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "metric",
+          "operator",
+          "value"
+        ]
+      },
+      "SummaryRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metrics": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "scenario": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "replication": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "from": {
+            "type": "number"
+          },
+          "to": {
+            "type": "number"
+          },
+          "thresholds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Threshold"
+            }
+          }
+        },
+        "required": [
+          "metrics",
+          "from",
+          "to"
+        ]
+      },
+      "Valuation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "annual_discount_rate": {
+            "type": "number",
+            "exclusiveMinimum": -1
+          },
+          "time_units_per_year": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "initial_incremental_cash_flow": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "metric",
+          "annual_discount_rate",
+          "time_units_per_year",
+          "initial_incremental_cash_flow"
+        ]
+      },
+      "CompareRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "baseline_run": {
+            "type": "string"
+          },
+          "candidate_run": {
+            "type": "string"
+          },
+          "baseline_scenario": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "candidate_scenario": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "replication": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "metrics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "from": {
+            "type": "number"
+          },
+          "to": {
+            "type": "number"
+          },
+          "valuation": {
+            "$ref": "#/components/schemas/Valuation"
+          }
+        },
+        "required": [
+          "baseline_run",
+          "candidate_run",
+          "metrics",
+          "from",
+          "to"
+        ]
+      },
+      "ExplainRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "at": {
+            "type": "number"
+          },
+          "from": {
+            "type": "number"
+          },
+          "scenario": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "replication": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        },
+        "required": [
+          "metric",
+          "at"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ]
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "Progress": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "execution_stages"
+          },
+          "completed_trajectories": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "total_trajectories": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "kind",
+          "completed_trajectories",
+          "total_trajectories"
+        ]
+      },
+      "Run": {
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "stage",
+          "model_id",
+          "model_version",
+          "progress",
+          "artifacts"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "running",
+              "cancelling",
+              "completed",
+              "cancelled",
+              "failed",
+              "interrupted"
+            ]
+          },
+          "stage": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "model_version": {
+            "type": "string"
+          },
+          "progress": {
+            "$ref": "#/components/schemas/Progress"
+          },
+          "artifacts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "cache_hit": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Parameter": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "number",
+              "integer",
+              "boolean"
+            ]
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "choices": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "number"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "synthetic",
+              "calibrated",
+              "agreed",
+              "unspecified"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "description",
+          "kind",
+          "status",
+          "source"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "choices"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "minimum"
+                  ]
+                },
+                {
+                  "required": [
+                    "maximum"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "minimum",
+              "maximum"
+            ],
+            "not": {
+              "required": [
+                "choices"
+              ]
+            }
+          }
+        ]
+      },
+      "Metric": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "number",
+              "integer",
+              "currency",
+              "percent"
+            ]
+          },
+          "dimensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "aggregation": {
+            "type": "string",
+            "enum": [
+              "last",
+              "sum",
+              "delta",
+              "integral",
+              "mean",
+              "ratio",
+              "sum_metrics"
+            ]
+          },
+          "output": {
+            "type": "string"
+          },
+          "numerator": {
+            "type": "string"
+          },
+          "denominator": {
+            "type": "string"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "interpolation": {
+            "type": "string",
+            "enum": [
+              "hold",
+              "linear"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "definition",
+          "unit",
+          "format",
+          "dimensions",
+          "aggregation"
+        ]
+      },
+      "Descriptor": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0"
+          },
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Parameter"
+            }
+          },
+          "metrics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Metric"
+            }
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "sum_lte",
+                    "sum_equal"
+                  ]
+                },
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "value": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "parameters",
+                "value",
+                "message"
+              ]
+            }
+          }
+        },
+        "required": [
+          "schema_version",
+          "id",
+          "label",
+          "description",
+          "parameters",
+          "metrics"
+        ]
+      },
+      "Description": {
+        "type": "object",
+        "required": [
+          "id",
+          "model_version",
+          "parameters",
+          "metrics",
+          "capabilities",
+          "time"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "model_version": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "number",
+                    "integer",
+                    "boolean"
+                  ]
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "maximum": {
+                  "type": "number"
+                },
+                "choices": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "synthetic",
+                    "calibrated",
+                    "agreed",
+                    "unspecified"
+                  ]
+                },
+                "source": {
+                  "type": "string"
+                },
+                "default": {
+                  "type": "number"
+                },
+                "unit": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "description",
+                "kind",
+                "status",
+                "source"
+              ],
+              "oneOf": [
+                {
+                  "required": [
+                    "choices"
+                  ],
+                  "not": {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "minimum"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "maximum"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "required": [
+                    "minimum",
+                    "maximum"
+                  ],
+                  "not": {
+                    "required": [
+                      "choices"
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Metric"
+            }
+          },
+          "capabilities": {
+            "type": "object"
+          },
+          "time": {
+            "type": "object"
+          },
+          "input_sha256": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Observation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "time": {
+            "type": "number"
+          },
+          "value": {
+            "type": "number"
+          },
+          "scenario": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "replication": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "dimensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "metric",
+          "time",
+          "value",
+          "scenario",
+          "replication",
+          "dimensions"
+        ]
+      },
+      "Results": {
+        "type": "object",
+        "required": [
+          "rows",
+          "provenance",
+          "next_offset",
+          "downsampling",
+          "authoritative_for_aggregation"
+        ],
+        "properties": {
+          "rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Observation"
+            }
+          },
+          "next_offset": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "source_rows": {
+            "type": "integer"
+          },
+          "total_rows": {
+            "type": "integer"
+          },
+          "downsampling": {
+            "type": "string"
+          },
+          "authoritative_for_aggregation": {
+            "type": "boolean",
+            "const": false
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          }
+        }
+      },
+      "Interval": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start": {
+            "type": "number"
+          },
+          "end": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "start",
+          "end"
+        ]
+      },
+      "Provenance": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "run_id": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "model_version": {
+            "type": "string"
+          },
+          "native_manifest_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "engine_identity": {
+            "type": "object"
+          },
+          "artifacts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "run_id",
+          "model_id",
+          "model_version",
+          "engine_identity",
+          "artifacts"
+        ]
+      },
+      "MetricValue": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "aggregation": {
+            "type": "string"
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "dimensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "interval": {
+            "$ref": "#/components/schemas/Interval"
+          }
+        },
+        "required": [
+          "metric",
+          "value",
+          "unit",
+          "aggregation",
+          "reason",
+          "dimensions",
+          "interval"
+        ]
+      },
+      "ThresholdResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "gte",
+              "lte"
+            ]
+          },
+          "value": {
+            "type": "number"
+          },
+          "observed": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "passed": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "metric",
+          "operator",
+          "value",
+          "observed",
+          "passed"
+        ]
+      },
+      "Summary": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "scenario": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "replication": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MetricValue"
+            }
+          },
+          "thresholds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ThresholdResult"
+            }
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "calculation_version": {
+            "type": "string"
+          },
+          "data_resolution": {
+            "type": "string",
+            "const": "full"
+          }
+        },
+        "required": [
+          "scenario",
+          "replication",
+          "values",
+          "thresholds",
+          "provenance",
+          "calculation_version",
+          "data_resolution"
+        ]
+      },
+      "ComparisonValue": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "baseline": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "candidate": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "delta": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "percent_change": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "percent_convention": {
+            "type": "string"
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "dimensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "metric",
+          "baseline",
+          "candidate",
+          "delta",
+          "percent_change",
+          "percent_convention",
+          "reason",
+          "unit",
+          "dimensions"
+        ]
+      },
+      "ValuationResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "annual_discount_rate": {
+            "type": "number",
+            "exclusiveMinimum": -1
+          },
+          "time_units_per_year": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "initial_incremental_cash_flow": {
+            "type": "number"
+          },
+          "incremental_npv": {
+            "type": "number"
+          },
+          "undiscounted_payback_time": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "payback_status": {
+            "type": "string",
+            "enum": [
+              "recovered",
+              "not_recovered",
+              "no_deficit"
+            ]
+          },
+          "convention": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "metric",
+          "annual_discount_rate",
+          "time_units_per_year",
+          "initial_incremental_cash_flow",
+          "incremental_npv",
+          "undiscounted_payback_time",
+          "payback_status",
+          "convention",
+          "unit"
+        ]
+      },
+      "Comparison": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComparisonValue"
+            }
+          },
+          "baseline_provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "candidate_provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "calculation_version": {
+            "type": "string"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/Interval"
+          },
+          "replication": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "uncertainty": {
+            "type": "string"
+          },
+          "valuation": {
+            "$ref": "#/components/schemas/ValuationResult"
+          }
+        },
+        "required": [
+          "values",
+          "baseline_provenance",
+          "candidate_provenance",
+          "calculation_version",
+          "interval",
+          "replication",
+          "uncertainty"
+        ]
+      },
+      "Empty": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      }
+    }
+  }
+}

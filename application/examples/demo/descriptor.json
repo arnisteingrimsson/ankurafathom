@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "id": "economics_demo",
+  "label": "Economics API demonstration",
+  "description": "Synthetic one-person fixture for UI integration; not an Ankura forecast.",
+  "parameters": [
+    {
+      "id": "demand_hours",
+      "label": "Monthly demand",
+      "description": "Incoming work in baseline hours.",
+      "kind": "number",
+      "minimum": 0,
+      "maximum": 300,
+      "status": "synthetic",
+      "source": "application/examples/make_demo.py: hand-calculable fixture"
+    },
+    {
+      "id": "productivity",
+      "label": "Delivery-hour reduction",
+      "description": "Fraction of delivery hours saved on each unit of work.",
+      "kind": "number",
+      "minimum": 0,
+      "maximum": 0.5,
+      "status": "synthetic",
+      "source": "application/examples/make_demo.py: hand-calculable fixture"
+    },
+    {
+      "id": "fixed_fee",
+      "label": "Fixed-fee pricing",
+      "description": "0 bills actual hours; 1 bills baseline contracted work.",
+      "kind": "boolean",
+      "minimum": 0,
+      "maximum": 1,
+      "status": "synthetic",
+      "source": "application/examples/make_demo.py: hand-calculable fixture"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "definition": "Cumulative revenue difference over the selected interval.",
+      "unit": "USD",
+      "format": "currency",
+      "dimensions": {
+        "practice": "demo"
+      },
+      "output": "cum_revenue",
+      "aggregation": "delta",
+      "interpolation": "hold"
+    },
+    {
+      "id": "cost",
+      "label": "Cost",
+      "definition": "Cumulative cost difference over the selected interval.",
+      "unit": "USD",
+      "format": "currency",
+      "dimensions": {
+        "practice": "demo"
+      },
+      "output": "cum_cost",
+      "aggregation": "delta",
+      "interpolation": "hold"
+    },
+    {
+      "id": "profit",
+      "label": "Profit",
+      "definition": "Cumulative profit difference over the selected interval.",
+      "unit": "USD",
+      "format": "currency",
+      "dimensions": {
+        "practice": "demo"
+      },
+      "output": "cum_profit",
+      "aggregation": "delta",
+      "interpolation": "hold"
+    },
+    {
+      "id": "hours",
+      "label": "Hours",
+      "definition": "Cumulative hours difference over the selected interval.",
+      "unit": "hours",
+      "format": "number",
+      "dimensions": {
+        "practice": "demo"
+      },
+      "output": "cum_hours",
+      "aggregation": "delta",
+      "interpolation": "hold"
+    },
+    {
+      "id": "capacity",
+      "label": "Capacity",
+      "definition": "Cumulative capacity difference over the selected interval.",
+      "unit": "hours",
+      "format": "number",
+      "dimensions": {
+        "practice": "demo"
+      },
+      "output": "cum_capacity",
+      "aggregation": "delta",
+      "interpolation": "hold"
+    },
+    {
+      "id": "margin",
+      "label": "Operating contribution margin",
+      "definition": "Selected operating contribution divided by selected revenue; excludes tax and financing.",
+      "unit": "1",
+      "format": "percent",
+      "dimensions": {
+        "practice": "demo"
+      },
+      "aggregation": "ratio",
+      "numerator": "profit",
+      "denominator": "revenue"
+    },
+    {
+      "id": "utilization",
+      "label": "Utilization",
+      "definition": "Actual delivery hours divided by paid capacity hours over the selected interval.",
+      "unit": "1",
+      "format": "percent",
+      "dimensions": {
+        "practice": "demo"
+      },
+      "aggregation": "ratio",
+      "numerator": "hours",
+      "denominator": "capacity"
+    }
+  ]
+}

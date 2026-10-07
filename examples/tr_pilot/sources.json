@@ -1,0 +1,33 @@
+{
+  "retrieved": "2026-09-30",
+  "model_parameters": "All staffing, prices, costs, fee terms, AI, workforce and feedback parameters are synthetic or explicit policies. Operational estimates come only from synthetic exports.",
+  "fti": {
+    "status": "peer_proxy_comparison_only",
+    "period": "2026-Q2",
+    "scope": "Corporate Finance segment; broader than T&R",
+    "url": "https://ir.fticonsulting.com/news-releases/news-release-details/fti-consulting-reports-second-quarter-2026-financial-results/",
+    "average_billable_rate_usd": 553,
+    "utilization": 0.59,
+    "period_end_billable_headcount": 2358,
+    "adjusted_segment_ebitda_margin": 0.209,
+    "caveat": "Definitions differ from the example: no parameter is fitted to these figures."
+  },
+  "bankruptcy": {
+    "status": "observed",
+    "url": "https://www.uscourts.gov/sites/default/files/document/bf_f2.1_0630.2026.pdf",
+    "table": "F-2 Monthly, national Total row, Business / Chapter 11 column",
+    "vintage": "2026-06-30",
+    "unit": "cases commenced",
+    "series": [
+      {"month": "2026-04", "value": 727, "pdf_page": 1},
+      {"month": "2026-05", "value": 760, "pdf_page": 9},
+      {"month": "2026-06", "value": 895, "pdf_page": 17}
+    ],
+    "normalization": "Each count divided by April 2026 count (727).",
+    "use": "Separate three-month input demonstration. Elasticity and lag are synthetic; not a forecast or a backtest against practice outcomes. Publication availability is not reconstructed."
+  },
+  "court_fee_basis": {
+    "url": "https://uscode.house.gov/view.xhtml?edition=prelim&num=0&req=granuleid%3AUSC-prelim-title11-section328",
+    "use": "Section 328 permits multiple approved fee bases; illustrative fees and holdbacks are not universal legal rules."
+  }
+}

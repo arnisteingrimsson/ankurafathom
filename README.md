@@ -1,8 +1,30 @@
 # AnkuraFathom
 
+The [control center](application/control_center/README.md) is the local operator
+workspace for project configuration, model inspection, saved runs, traces and
+validation evidence. It opens each project's separate customer UI.
+
+```sh
+.venv-runtime/bin/python -m application.control_center.server
+```
+
+Open `http://127.0.0.1:8086`. Browsing the console does not start simulations.
+
 Current focus: [independent benchmark workloads](tests/benchmarks/README.md) and
 [worked examples with independently checked results](examples/worked_validation/README.md).
 Reporting expansion is deferred while we validate model mechanics.
+
+The [synthetic T&R AI decision case](examples/ai_decision/README.md) adds operational
+Parquet exports, independently checked parameter recovery, and native experiments
+for pipeline growth, fixed-fee mix and acquisition under AI hours reductions.
+Its assumptions are synthetic; historical reconstruction is an accounting check,
+not an out-of-sample business backtest.
+
+The [150-person T&R monthly pilot](examples/tr_pilot/README.md) extends this with
+seven billable levels and practice support, loaded costs, attrition/hiring,
+level-specific AI, fee/cash timing, constrained pricing, BD feedback and imperfect
+operational data. It runs through the native engine with independent monthly
+checks. Its expected-FTE and commercial assumptions remain synthetic.
 
 AnkuraFathom is a standalone hybrid simulation platform in development. A working
 [synthetic Ankura preview](examples/ankura_pilot/README.md) now runs two practices,

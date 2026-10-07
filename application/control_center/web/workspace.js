@@ -1,0 +1,130 @@
+const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = v => v==null?'—':Number(v).toLocaleString(undefined,{maximumFractionDigits:2});
+const clone = v => structuredClone(v);
+const cache = new Map();
+let active = null;
+const states=['Qualification queue','Qualifying','Design queue','Designing','Capacity allocation','Equipment procurement','Installation queue','Installing','Active','Lost'];
+const colors={ABM:'agent',DES:'process',SD:'stock',Hybrid:'hybrid',Resource:'resource',Data:'data'};
+export function pauseWorkspace(){if(active){active.playing=false;clearTimeout(active.timer);}}
+export function unmountWorkspace(){pauseWorkspace();if(active){active.host.onclick=null;active.host.onchange=null;active.host.onkeydown=null;}active=null;}
+function changes(a,b,path=''){
+ if(a&&b&&typeof a==='object'&&typeof b==='object')return [...new Set([...Object.keys(a),...Object.keys(b)])].flatMap(k=>changes(a[k],b[k],path+'/'+k));
+ return a===b?[]:[{path,before:a,after:b}];
+}
+function changedNode(w,n){return changes(w.data.current.config,w.draft).some(c=>n.parameters.some(p=>c.path==='/parameters/'+p)||(n.config_table&&c.path.startsWith('/'+n.config_table+'/')));}
+function evidenceRows(w,n){return w.evidence?.rows.filter(r=>n.metrics?.includes(r.metric))||[];}
+function evidencePanel(w,n){const rows=evidenceRows(w,n);if(!rows.length)return '';return `<div class="vw-reason">${esc(w.evidence.kind)} comparison · ${esc(w.evidence.source)}<br>${rows.filter(r=>r.passed).length}/${rows.length} within supplied tolerances</div>${rows.map(r=>`<div class="vw-check"><span>${esc(r.metric)} · day ${fmt(r.time)}<br>Observed ${fmt(r.actual)} · simulated ${fmt(r.predicted)} ${esc(r.unit)}<br>Error ${fmt(r.error)} · tolerance ${fmt(r.tolerance)}</span><b class="${r.passed?'pass':'fail'}">${r.passed?'PASS':'FAIL'}</b></div>`).join('')}<p class="small">Point comparisons do not establish causal validity or independent holdout performance.</p><button class="button" data-vw="export-evidence">Export comparison receipt</button>`;}
+function nodeValue(w,n){
+ const f=w.session?.frame,p=w.draft.parameters;
+ if(w.mode==='run'&&f){if(n.states)return n.states.length===2?`${f.counts[n.states[0]]} wait · ${f.counts[n.states[1]]} busy`:String(n.states.reduce((v,i)=>v+f.counts[i],0));if(n.metric){const unit=w.project.catalog.metric_units[n.metric];return unit==='USD'?'$'+fmt(f.metrics[n.metric]):fmt(f.metrics[n.metric])+' '+unit;}if(n.id==='teams')return 'Busy '+f.busy.join(' / ');if(n.id==='partners')return String(w.draft.providers.filter(x=>x.enabled).length)+' enabled';}
+ if(w.mode==='run'&&!f)return '—';
+ if(n.kind==='Data')return evidenceRows(w,n).length?'Compared ('+w.evidence.kind+')':'Not attached';
+ const values={customers:`${fmt(p.arrivals)} / day`,teams:`${p.qualifiers} / ${p.designers} / ${p.installers}`,sites:'3 sites',partners:`${w.draft.providers.filter(x=>x.enabled).length} enabled`,qualify:`${fmt(p.qualification_days)} day`,design:`${fmt(p.design_days)} d base`,allocate:p.alternatives?'Alternatives on':'Preferred only',equipment:'By provider',install:`${fmt(p.installation_days)} d / block`,active:'Persistent state',lost:`${fmt(p.patience)} d patience`,revenue:'∫ revenue rate',energy:'∫ facility draw',cost:'∫ expense rate',crm:'Not attached',delivery:'Not attached',meters:w.evidence?'Compared':'Not attached'};
+ return values[n.id]||'Defined';
+}
+function glyph(n){
+ if(n.kind==='ABM')return '<circle cx="21" cy="24" r="6"/><circle cx="37" cy="24" r="6"/><circle cx="29" cy="39" r="6"/>';
+ if(n.kind==='SD')return '<path d="M17 17h26v27H17zM12 17v27M48 17v27M23 34h14M23 28h14"/>';
+ if(n.kind==='Data')return '<path d="M18 15h18l9 9v23H18zM35 15v11h10M24 32h15M24 39h15"/>';
+ if(n.kind==='Resource')return '<path d="M16 18h30v8H16zM16 30h30v8H16zM16 42h30M22 18v8M22 30v8"/>';
+ if(n.kind==='Hybrid')return '<path d="M30 13l18 18-18 18-18-18zM22 31h16M30 23v16"/>';
+ return '<path d="M15 18h32v28H15zM21 24h5M21 32h5M21 40h5M32 24h9M32 32h9M32 40h9"/>';
+}
+function edgePath(w,e){
+ const a=w.map.nodes.find(n=>n.id===e.source),b=w.map.nodes.find(n=>n.id===e.target),ax=a.x+a.width/2,bx=b.x+b.width/2;
+ const custom={
+ 'sites-allocate':`M${ax} 169V211H${bx}V268`,
+ 'teams-design':`M${ax} 169V227H${bx}V268`,
+ 'partners-equipment':`M${ax} 169V195H${bx}V268`,
+ 'active-energy':`M${ax} 374V420H${bx}V461`,
+ 'lost-sites':`M401 514H419V203H570V116H585`,
+ 'crm-customers':`M30 690H12V116H30`,
+ 'delivery-install':`M523 637V608H1035V321H1016`,
+ 'meters-cost':`M933 637V567`
+ };
+ if(custom[e.id])return custom[e.id];
+ if(a.y===b.y)return `M${a.x+a.width} ${a.y+53}H${b.x}`;
+ return `M${ax} ${a.y+a.height}V${(a.y+a.height+b.y)/2}H${bx}V${b.y}`;
+}
+function graph(w){
+ const selectedNode=w.map.nodes.find(n=>n.id===w.selected), selectedEdge=w.map.edges.find(e=>e.id===w.selected), f=w.session?.frame;
+ const related=new Set([w.selected,...w.map.edges.filter(e=>e.source===w.selected||e.target===w.selected).flatMap(e=>[e.source,e.target]),...(selectedEdge?[selectedEdge.source,selectedEdge.target]:[])]);
+ const categories={all:null,agents:['ABM'],process:['DES','Resource'],stocks:['SD','Hybrid'],data:['Data']};
+ return `<svg class="vw-svg ${w.playing?'executing':''}" viewBox="0 0 ${w.map.width} ${w.map.height}" aria-label="Connected hybrid model" role="group"><defs><pattern id="vw-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#dce3ec"/></pattern><marker id="vw-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0 0L7 3.5L0 7" fill="#8fa2b8"/></marker></defs><rect width="1250" height="790" fill="url(#vw-dots)"/>
+ <text class="vw-lane" x="30" y="35">01 / POPULATIONS & RESOURCES</text><text class="vw-lane" x="30" y="242">02 / DELIVERY PROCESS</text><text class="vw-lane" x="30" y="442">03 / OUTCOMES & ACCUMULATION</text><text class="vw-lane" x="30" y="612">04 / SUPPLEMENTAL EVIDENCE</text>
+ ${w.map.edges.map(e=>`<g class="vw-link ${e.kind} ${e.id===w.selected?'selected':''} ${w.selected&&!related.has(e.source)&&!related.has(e.target)?'faded':''}" tabindex="0" role="button" aria-label="Connection: ${esc(e.label)}" data-edge="${e.id}"><path class="vw-link-hit" d="${edgePath(w,e)}"/><path class="vw-link-line" d="${edgePath(w,e)}" marker-end="url(#vw-arrow)"/><title>${esc(e.label)} · ${esc(e.unit)}</title></g>`).join('')}
+ ${w.map.nodes.map(n=>{const dim=categories[w.filter]&&!categories[w.filter].includes(n.kind);const agents=w.mode==='run'&&f&&n.states?f.customers.filter(a=>n.states.includes(a.state)).slice(0,7):[];const checks=f?.checks.filter(c=>n.checks.includes(c.name))||[];const validity=w.mode==='validate'?checks.length?(checks.every(c=>c.passed)?'checked':'failed'):'unchecked':'';return `<g transform="translate(${n.x},${n.y})" class="vw-node ${colors[n.kind]} ${w.selected===n.id?'selected':''} ${dim?'dim':''} ${changedNode(w,n)?'changed':''} ${validity}" tabindex="0" role="button" aria-label="${esc(n.label)}, ${n.kind}" data-node="${n.id}"><rect class="vw-node-body" width="${n.width}" height="${n.height}" rx="${n.kind==='SD'?2:n.kind==='ABM'?18:7}"/>${n.kind==='SD'?'<path class="stock-rails" d="M5 8V98M161 8V98"/>':''}<g class="vw-glyph">${glyph(n)}</g><text class="vw-kind" x="58" y="28">${esc(n.kind.toUpperCase())}</text><circle class="vw-assumption" cx="149" cy="23" r="3.5"/><text class="vw-node-title" x="14" y="66">${esc(n.label)}</text><text class="vw-node-value" x="14" y="88">${esc(w.mode==='validate'?checks.length?`${checks.filter(c=>c.passed).length}/${checks.length} checks pass`:'No runtime check':nodeValue(w,n))}</text>${agents.map((a,i)=>`<circle class="vw-agent-dot" data-entity="${a.id}" role="button" tabindex="0" aria-label="Inspect customer ${a.id+1}" cx="${16+i*18}" cy="119" r="5"><title>Customer ${a.id+1}</title></circle>`).join('')}</g>`;}).join('')}
+ </svg>`;
+}
+function parameterControl(w,p){const value=w.draft.parameters[p.id],disabled=!!w.session;return `<div class="vw-input"><label for="vw-p-${p.id}">${esc(p.label)}<small>${esc(p.unit)}</small></label><div class="vw-value-control"><input id="vw-p-${p.id}" type="number" data-param="${p.id}" min="${p.minimum}" max="${p.maximum}" step="any" value="${value}" ${disabled?'disabled':''}><span>${esc(p.minimum)}–${esc(p.maximum)}</span></div><p>${esc(p.description)}</p></div>`;}
+function inspector(w){
+ if(w.panel==='json')return `<div class="vw-inspector-head"><span>DEFINITION</span><h2>Executable configuration</h2></div><p class="small">${w.session?'Captured for this live run':'Working definition · changes require acceptance'}</p><pre class="json">${esc(JSON.stringify(w.draft,null,2))}</pre><button class="button" data-vw="export">Export JSON</button>`;
+ if(w.panel==='settings')return `<div class="vw-inspector-head"><span>RUN SETTINGS</span><h2>Time & interventions</h2></div>${w.project.catalog.parameters.filter(p=>w.map.global_parameters.includes(p.id)).map(p=>parameterControl(w,p)).join('')}`;
+ if(w.entity!=null&&w.session){const a=w.session.frame.customers.find(a=>a.id===w.entity);if(a)return `<div class="vw-inspector-head"><span>LIVE CUSTOMER AGENT</span><h2>Customer ${a.id+1}</h2></div><div class="vw-reason">${esc(a.reason)}</div><dl class="kv"><dt>State</dt><dd>${esc(states[a.state])}</dd><dt>Rack blocks</dt><dd>${a.blocks}</dd><dt>Liquid required</dt><dd>${a.liquid?'Yes':'No'}</dd><dt>Deadline</dt><dd>Day ${fmt(a.deadline)}</dd><dt>Site</dt><dd>${a.site<0?'Unassigned':esc(w.draft.sites[a.site].name)}</dd><dt>Reserved power</dt><dd>${fmt(a.kw)} kW</dd><dt>Earned revenue</dt><dd>$${fmt(a.revenue)}</dd></dl><button class="button" data-vw="clear-entity">Back to component</button><details><summary>Agent state JSON</summary><pre class="json">${esc(JSON.stringify(a,null,2))}</pre></details>`;}
+ const e=w.map.edges.find(x=>x.id===w.selected);
+ if(e)return `<div class="vw-inspector-head"><span>CONNECTION · ${esc(e.kind)}</span><h2>${esc(e.label)}</h2></div><div class="vw-port">${esc(w.map.nodes.find(n=>n.id===e.source).label)}<b>↓</b>${esc(w.map.nodes.find(n=>n.id===e.target).label)}</div><dl class="kv"><dt>Transfers / constrains</dt><dd>${esc(e.unit)}</dd><dt>Update timing</dt><dd>${esc(e.timing)}</dd></dl>${e.kind==='evidence'?'<div class="vw-reason">Validation relationship only. This connection does not feed data into the running model.</div>':''}${e.kind==='exit'?'<p class="small">Deadlines apply at every pre-active stage; this connection summarizes those exits and commercial rejection.</p>':''}<details><summary>Connection contract</summary><pre class="json">${esc(JSON.stringify(e,null,2))}</pre></details>`;
+ const n=w.map.nodes.find(x=>x.id===w.selected)||w.map.nodes[0],params=w.project.catalog.parameters.filter(p=>n.parameters.includes(p.id)),checks=w.session?.frame.checks.filter(c=>n.checks.includes(c.name))||[];
+ return `<div class="vw-inspector-head"><span>${esc(n.kind)} COMPONENT</span><h2>${esc(n.label)}</h2><span class="vw-evidence-state">${n.kind==='Data'?'Validation target':'Assumed behavior'}</span></div><div class="vw-formula">${esc(n.formula)}</div><p class="vw-rule">${esc(n.rule)}</p>
+ ${w.mode==='validate'?`<div class="vw-evidence-box"><h3>Implementation checks</h3>${checks.length?checks.map(c=>`<div class="vw-check"><span>${esc(c.name)}</span><b class="${c.passed?'pass':'fail'}">${c.passed?'PASS':'FAIL'}</b></div>`).join(''):`<p class="small">${w.session?'No dedicated check is mapped to this component.':'Run the model to execute its checks.'}</p>`}<h3>Business validation</h3><p class="small">No calibrated evidence attached. Runtime checks test mechanics, not the realism of this rule.</p></div>`:''}
+ ${n.kind==='Data'?`<div class="vw-data-targets"><h3>Connected targets</h3>${n.targets.map(id=>`<button data-node="${id}">${esc(w.map.nodes.find(x=>x.id===id).label)} →</button>`).join('')}<h3>Observable quantities</h3>${n.metrics.map(k=>`<span class="pill">${esc(k)}</span>`).join('')}<p class="small">Attach named point observations after running. Matching timestamps, units and tolerances are required.</p><button class="button" data-vw="template">Download observation template</button><label class="button vw-file">Compare observations<input type="file" id="vw-observation-file" accept=".json" ${!w.session?'disabled':''}></label>${evidencePanel(w,n)}</div>`:''}
+ ${w.mode==='define'?params.map(p=>parameterControl(w,p)).join(''):params.length?`<div class="vw-bound-inputs">${params.map(p=>`<div><span>${esc(p.label)}</span><b>${fmt(w.draft.parameters[p.id])} <small>${esc(p.unit)}</small></b></div>`).join('')}</div>`:''}
+ ${n.config_table?tableInspector(w,n.config_table):''}
+ ${w.mode==='run'&&w.session&&n.states?`<h3>Customers at this stage</h3><div class="vw-customer-list">${w.session.frame.customers.filter(a=>n.states.includes(a.state)).slice(0,30).map(a=>`<button data-entity="${a.id}"><b>${a.id+1}</b>${esc(a.reason)}</button>`).join('')||'<p class="small">No customers at this stage.</p>'}</div>`:''}
+ <details class="vw-source"><summary>Implementation & bindings</summary><code>${esc(n.source)}</code><p class="small">${esc(w.map.scope)}</p><pre class="json">${esc(JSON.stringify(n,null,2))}</pre></details>`;
+}
+function tableInspector(w,table){return `<div class="vw-table-cards">${w.draft[table].map((row,i)=>`<details><summary>${esc(row.name)}</summary>${Object.entries(row).filter(([k])=>k!=='name').map(([k,v])=>`<label>${esc(k.replaceAll('_',' '))}<input data-table="${table}" data-index="${i}" data-field="${k}" type="${typeof v==='boolean'?'checkbox':'number'}" ${typeof v==='boolean'?(v?'checked':''):`value="${v}" step="any"`} ${w.session||w.mode!=='define'?'disabled':''}></label>`).join('')}</details>`).join('')}</div>`;}
+function reviewDialog(w){const pending=w.data.proposals.filter(p=>p.status==='proposed');return `<dialog id="vw-review"><div class="vw-dialog-head"><h2>Review definition changes</h2><button class="button" data-vw="close-review">Close</button></div><div id="vw-review-body">${pending.length?pending.map(p=>`<button class="vw-proposal" data-proposal="${p.id}"><b>${esc(p.author)}</b> · ${p.changes.length} changes · based on v${p.base_revision}<small>${esc(p.note)}</small></button>`).join(''):'<p>No pending proposals.</p>'}</div></dialog>`;}
+function shell(w){const delta=w.session?[]:changes(w.data.current.config,w.draft),ready=w.data.mapping.current;return `<div class="vw-heading"><div><div class="eyebrow">MODEL WORKSPACE / ${esc(w.project.client)}</div><h1>${esc(w.map.title)}</h1></div><div class="row"><span class="pill">Version ${w.session?.definition_revision??w.data.current.revision}</span><button class="button" data-vw="json">{ } Definition</button><button class="button" data-vw="settings">Run settings</button></div></div><div class="vw-topbar"><div class="vw-modes">${['define','run','validate'].map((m,i)=>`<button data-mode="${m}" class="${w.mode===m?'active':''}"><span>0${i+1}</span>${m[0].toUpperCase()+m.slice(1)}</button>`).join('')}</div><div class="row"><span class="vw-change-count">${delta.length?`${delta.length} unsaved change${delta.length===1?'':'s'}`:'Accepted definition'}</span><button class="button primary" data-vw="review" ${!delta.length||w.session?'disabled':''}>Review changes${delta.length?' ('+delta.length+')':''}</button><button class="button" data-vw="proposals">Proposals (${w.data.proposals.filter(p=>p.status==='proposed').length})</button></div></div>${!ready?'<div class="callout warn">The visual mapping is stale relative to the native source. Editing and execution are blocked until it is reviewed.</div>':''}
+ ${w.mode==='run'?`<div class="vw-runbar"><div class="row"><button class="button primary" data-vw="play" ${w.pending&&!w.playing||!ready||w.session&&w.session.status!=='paused'?'disabled':''}>${w.playing?'Ⅱ Pause':'▶ Play'}</button><button class="button" data-vw="step" ${w.pending||w.playing||!ready||w.session&&w.session.status!=='paused'?'disabled':''}>Step</button><button class="button" data-vw="reset" ${w.pending?'disabled':''}>End / reset</button><b>${w.session?'Day '+fmt(w.session.frame.time)+' / '+w.draft.parameters.days:'Not started'}</b><span class="small">${w.pending?'Computing…':w.playing?'Live native execution':w.session?w.session.status==='completed'?'Horizon reached':'Paused · no future state computed':'No outcomes computed'}</span></div><label>Advance <select id="vw-advance"><option value="1" ${w.advance===1?'selected':''}>1 day</option><option value="0.25" ${w.advance===.25?'selected':''}>6 hours</option><option value="7" ${w.advance===7?'selected':''}>1 week</option></select></label></div>`:''}
+ ${w.mode==='validate'?`<div class="vw-validation-strip"><span>${w.session?`${w.session.frame.checks.filter(c=>c.passed).length} / ${w.session.frame.checks.length} native checks passed`:'Runtime checks: not executed'}</span><span>Operational calibration: not established</span><a href="#validation">Project verification receipt →</a></div>`:''}
+ <div id="vw-notice" role="status">${esc(w.notice||'')}</div><div class="vw-layout"><section class="vw-canvas"><div class="vw-canvas-tools"><div class="vw-filters">${[['all','All'],['agents','Agents'],['process','Process'],['stocks','Economics'],['data','Data']].map(([id,l])=>`<button data-filter="${id}" class="${w.filter===id?'active':''}">${l}</button>`).join('')}</div><div class="row"><button class="button" data-vw="zoom-out" aria-label="Zoom out">−</button><span class="small">${w.zoom}%</span><button class="button" data-vw="zoom-in" aria-label="Zoom in">+</button><button class="button" data-vw="fit">Fit</button></div></div><div class="vw-viewport" tabindex="0" aria-label="Model canvas, scroll to explore"><div class="vw-graph" id="vw-graph">${graph(w)}</div></div><div class="vw-legend"><span class="agent">● Agent / state</span><span class="process">▤ Process / queue</span><span class="stock">▥ Stock</span><span class="hybrid">◇ Hybrid constraint</span><span>┄ Validation link</span><span class="vw-assumed-dot">● Assumed</span></div><div class="vw-canvas-foot">${w.mode==='define'?'Select a component or connection to inspect its rules. Amber outlines show proposed edits.':w.mode==='run'?'Values and customer dots come from computed native state. Dots show up to seven agents per stage.':'Green means the mapped implementation checks passed. It does not establish business validity.'}</div></section><aside id="vw-inspector" class="vw-inspector">${inspector(w)}</aside></div><p class="vw-boundary">Native model structure · editable configuration · ${w.map.nodes.length} components · ${w.map.edges.length} connections. Structure changes require a model implementation change.</p>${reviewDialog(w)}`;}
+function paint(w){if(active!==w||!w.host.isConnected)return;w.host.innerHTML=shell(w);w.host.querySelector('#vw-graph').style.width=w.zoom+'%';}
+function download(name,data){const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function proposalView(w,p){w.proposal=p;w.host.querySelector('#vw-review-body').innerHTML=`<p><b>${esc(p.author)}</b> · based on version ${p.base_revision}</p><p class="small">${esc(p.validation_scope)}</p><table><thead><tr><th>Binding</th><th>Before</th><th>After</th></tr></thead><tbody>${p.changes.map(c=>`<tr><td class="mono">${esc(c.path)}</td><td>${esc(c.before)}</td><td>${esc(c.after)}</td></tr>`).join('')}</tbody></table><div class="row space"><button class="button primary" data-vw="accept" ${w.session||p.base_revision!==w.data.current.revision||p.status!=='proposed'?'disabled':''}>Accept version ${p.base_revision+1}</button><span class="small">Acceptance does not execute the simulation.</span></div>`;}
+async function advance(w){if(w.pending)return;const delta=changes(w.data.current.config,w.draft);if(delta.length)throw new Error('Review and accept your changes before running.');w.pending=true;paint(w);try{if(!w.session)w.session=await w.api(w.base+'/start',{revision:w.data.current.revision});if(w.session.status==='paused')w.session={...(await w.api(`${w.base}/runs/${w.session.id}/step`,{expected_revision:w.session.revision,days:w.advance})),definition_revision:w.session.definition_revision};if(w.session.status!=='paused')w.playing=false;}catch(e){w.playing=false;w.notice=e.message;}finally{w.pending=false;paint(w);}if(w.playing&&active===w)w.timer=setTimeout(()=>advance(w),450);}
+async function act(w,fn){w.notice='';try{await fn();}catch(e){w.playing=false;w.notice=e.message;const n=w.host.querySelector('#vw-notice');if(n)n.textContent=e.message;}}
+export async function mountWorkspace(host,key,project,api,isCurrent){
+ unmountWorkspace();
+ host.innerHTML='<p class="empty">Reading the visual model definition…</p>';const data=await api(`/api/projects/${key}/workspace`);if(!isCurrent())return;
+ if(!data.mapping.available){host.innerHTML=`<div class="vw-heading"><div><div class="eyebrow">VISUAL WORKSPACE</div><h1>${esc(project.name)}</h1></div></div><section class="card"><h2>Visual mapping not registered yet</h2><p class="lede">The first visual workspace is available for AI Opportunity Lab. This project’s existing models and definitions remain inspectable.</p><a class="button" href="#model">Open model register</a><a class="button" href="#configuration">Inspect configuration</a></section>`;return;}
+ let w=cache.get(key);if(!w){w={key,data,project,map:data.mapping.definition,draft:clone(data.current.config),mode:'define',selected:'design',filter:'all',panel:null,entity:null,zoom:100,advance:1,session:null,playing:false,pending:false};cache.set(key,w);}else{if(!w.session&&w.data.current.revision!==data.current.revision)w.draft=clone(data.current.config);w.data=data;w.project=project;w.map=data.mapping.definition;}
+ Object.assign(w,{host,api,base:`/api/projects/${key}/workspace`});active=w;paint(w);
+ host.onclick=event=>act(w,async()=>{
+  const el=event.target.closest('[data-node],[data-edge],[data-entity],[data-vw],[data-mode],[data-filter],[data-proposal]');if(!el)return;
+  if(el.dataset.entity!=null){w.entity=Number(el.dataset.entity);w.panel=null;paint(w);return;}
+  if(el.dataset.node||el.dataset.edge){w.selected=el.dataset.node||el.dataset.edge;w.panel=null;w.entity=null;paint(w);return;}
+  if(el.dataset.mode){pauseWorkspace();w.mode=el.dataset.mode;w.panel=null;paint(w);return;}
+  if(el.dataset.filter){w.filter=el.dataset.filter;paint(w);return;}
+  if(el.dataset.proposal){proposalView(w,w.data.proposals.find(p=>p.id===el.dataset.proposal));return;}
+  switch(el.dataset.vw){
+   case 'json':w.panel='json';paint(w);break;
+   case 'settings':w.panel='settings';paint(w);break;
+   case 'export':download(key+'-visual-definition.json',w.draft);break;
+   case 'zoom-in':w.zoom=Math.min(180,w.zoom+20);paint(w);break;
+   case 'zoom-out':w.zoom=Math.max(80,w.zoom-20);paint(w);break;
+   case 'fit':w.zoom=100;paint(w);break;
+   case 'clear-entity':w.entity=null;paint(w);break;
+   case 'review':{if(w.session)throw new Error('End the current run before changing its definition.');const p=await api(w.base+'/propose',{base_revision:w.data.current.revision,config:w.draft,author:'Human operator',note:'Proposed from the visual workspace'});w.data.proposals.push(p);paint(w);proposalView(w,p);w.host.querySelector('#vw-review').showModal();break;}
+   case 'proposals':w.host.querySelector('#vw-review').showModal();break;
+   case 'close-review':w.host.querySelector('#vw-review').close();break;
+   case 'accept':if(w.session)throw new Error('End the current run first.');await api(w.base+'/accept',{proposal_id:w.proposal.id});w.data=await api(w.base);w.draft=clone(w.data.current.config);w.notice='Version '+w.data.current.revision+' accepted. Ready to run.';paint(w);break;
+   case 'play':if(w.playing){pauseWorkspace();paint(w);}else{w.playing=true;await advance(w);}break;
+   case 'step':await advance(w);break;
+   case 'reset':pauseWorkspace();if(w.session)await api(`${w.base}/runs/${w.session.id}/stop`,{});w.session=null;w.evidence=null;w.entity=null;w.draft=clone(w.data.current.config);paint(w);break;
+   case 'template':{const n=w.map.nodes.find(n=>n.id===w.selected),metric=n.metrics[0];download('validation-observations.json',{source:'Name the dataset and date alignment',kind:'observed',rows:[{time:w.session?.frame.time??1,metric,unit:w.project.catalog.metric_units[metric],actual:null,tolerance:1}]});break;}
+   case 'export-evidence':download('comparison-receipt.json',w.evidence);break;
+  }
+ });
+ host.onkeydown=event=>{if((event.key==='Enter'||event.key===' ')&&event.target.matches('g[data-node],g[data-edge],circle[data-entity]')){event.preventDefault();event.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));}};
+ host.onchange=event=>act(w,async()=>{
+  const el=event.target;
+  if(el.id==='vw-advance'){w.advance=Number(el.value);return;}
+  if(el.id==='vw-observation-file'){const file=el.files[0];if(!file)return;if(file.size>1000000)throw new Error('Observation file exceeds 1 MB.');w.evidence=await api(`${w.base}/runs/${w.session.id}/evidence`,JSON.parse(await file.text()));paint(w);return;}
+  if(w.session)return;
+  if(el.dataset.param){if(el.value===''||!Number.isFinite(Number(el.value)))throw new Error('Enter a finite numeric value.');w.draft.parameters[el.dataset.param]=Number(el.value);}
+  if(el.dataset.table){const value=el.type==='checkbox'?el.checked:Number(el.value);if(el.type!=='checkbox'&&(el.value===''||!Number.isFinite(value)))throw new Error('Enter a finite numeric value.');w.draft[el.dataset.table][Number(el.dataset.index)][el.dataset.field]=value;}
+  if(el.dataset.param||el.dataset.table)paint(w);
+ });
+}
+window.addEventListener('pagehide',()=>{for(const w of cache.values()){if(w.session)fetch(`${w.base}/runs/${w.session.id}/stop`,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}',keepalive:true});}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){pauseWorkspace();if(active)paint(active);}});

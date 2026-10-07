@@ -1,0 +1,1823 @@
+{
+  "recorded_date": "2026-09-30",
+  "synthetic": true,
+  "forecast": {
+    "batches": [
+      {
+        "native": {
+          "manifest_id": "95699e2cb48399f2177799191d78a05df94ee61fdf670d9a819f5c66d2371762",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 2.384185791015625e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "95699e2cb48399f2177799191d78a05df94ee61fdf670d9a819f5c66d2371762",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "c2c4f40917d5afd2440bfafc34efb5b1d0e38f9872d8e5158ce604a5b148d700",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "95699e2cb48399f2177799191d78a05df94ee61fdf670d9a819f5c66d2371762",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "c2c4f40917d5afd2440bfafc34efb5b1d0e38f9872d8e5158ce604a5b148d700",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "9cbbc8deea351b652d805d4d6595624b8da55eb34c0642fc7f380cd23973b65a",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 2.980232238769531e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "9cbbc8deea351b652d805d4d6595624b8da55eb34c0642fc7f380cd23973b65a",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "46d0db55e19edd4cef4ecb8112e8cfc3ae8821746cadec9038f1a4aefbf1eedf",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "9cbbc8deea351b652d805d4d6595624b8da55eb34c0642fc7f380cd23973b65a",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "46d0db55e19edd4cef4ecb8112e8cfc3ae8821746cadec9038f1a4aefbf1eedf",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "43ebbcf74a371385361efa2a48c1e77edc53bfbb297d64fbbe14ba5afe5db3b5",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 2.980232238769531e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "43ebbcf74a371385361efa2a48c1e77edc53bfbb297d64fbbe14ba5afe5db3b5",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "5cb51319407f8440dec4bfe2ba47661cc825e267c200612ff6ca97a11723998a",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "43ebbcf74a371385361efa2a48c1e77edc53bfbb297d64fbbe14ba5afe5db3b5",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "5cb51319407f8440dec4bfe2ba47661cc825e267c200612ff6ca97a11723998a",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "0ae06e1306386e610bea7edc9f1593d2432d9b34c528d9e3d5955185219173e3",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 1.7881393432617188e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "0ae06e1306386e610bea7edc9f1593d2432d9b34c528d9e3d5955185219173e3",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "84844ea9e31a1cafb3dbb9fcebf2a6c0bf18718d3d7a353b22e08af3ebb1cf0c",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "0ae06e1306386e610bea7edc9f1593d2432d9b34c528d9e3d5955185219173e3",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "84844ea9e31a1cafb3dbb9fcebf2a6c0bf18718d3d7a353b22e08af3ebb1cf0c",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "ca3a8a40930e714c00589207d653c7a9c60fad199196d35ee273e64d70cb3852",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 1.7881393432617188e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "ca3a8a40930e714c00589207d653c7a9c60fad199196d35ee273e64d70cb3852",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "c099c2e7b722b8b5c0276bdb0b8e2c8cb7f91a8f3f77a7c43411a1896bcc7a42",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "ca3a8a40930e714c00589207d653c7a9c60fad199196d35ee273e64d70cb3852",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "c099c2e7b722b8b5c0276bdb0b8e2c8cb7f91a8f3f77a7c43411a1896bcc7a42",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "e7bd170da912e0d9c2eb66bd3cb26a694b189b75cbae2e24bdbc56e693511f04",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 2.384185791015625e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "e7bd170da912e0d9c2eb66bd3cb26a694b189b75cbae2e24bdbc56e693511f04",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "4cd0aeea8f56ae6c8a18713c7f380a1a92cddf1a929038fb937d075a82ab6dc5",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "e7bd170da912e0d9c2eb66bd3cb26a694b189b75cbae2e24bdbc56e693511f04",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "4cd0aeea8f56ae6c8a18713c7f380a1a92cddf1a929038fb937d075a82ab6dc5",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "594d8f6742573d65a1b589b23c77d10d9a95ea9cf1946973f76d87129c5a6851",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 1.4901161193847656e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "594d8f6742573d65a1b589b23c77d10d9a95ea9cf1946973f76d87129c5a6851",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "a1f0ec2cac46cbd2882afe4e9e688f0ea44f0c67c3ab6f7ca3ad34fcb9a5f3a5",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "594d8f6742573d65a1b589b23c77d10d9a95ea9cf1946973f76d87129c5a6851",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "a1f0ec2cac46cbd2882afe4e9e688f0ea44f0c67c3ab6f7ca3ad34fcb9a5f3a5",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "7cc2f86b34651e9a5b4323cc5e19cee5ede12abcb504b6d5eabdc662316d4b02",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 2.384185791015625e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "7cc2f86b34651e9a5b4323cc5e19cee5ede12abcb504b6d5eabdc662316d4b02",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "569eb98e65ea9e514b3d13ca9e53e48dd28770121202dc4b915db16045a0256b",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "7cc2f86b34651e9a5b4323cc5e19cee5ede12abcb504b6d5eabdc662316d4b02",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "569eb98e65ea9e514b3d13ca9e53e48dd28770121202dc4b915db16045a0256b",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "39e95d9064f98f95ea1779984ff5ccdd441b87b00071c98b07932263ab425d38",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 1.4901161193847656e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "39e95d9064f98f95ea1779984ff5ccdd441b87b00071c98b07932263ab425d38",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "7b4c783d52ecb0c2117ac4c5859affbbcf00f74c6fccd9f975bf92f932ed6f5c",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "39e95d9064f98f95ea1779984ff5ccdd441b87b00071c98b07932263ab425d38",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "7b4c783d52ecb0c2117ac4c5859affbbcf00f74c6fccd9f975bf92f932ed6f5c",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "2539e335cc641bca7c850734430e97db01deb53de95c198bc32d80a4facba83f",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 2.384185791015625e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "2539e335cc641bca7c850734430e97db01deb53de95c198bc32d80a4facba83f",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "98f13f0e8ecdd19dca92b63416f7e888a2ef5cae5c15b5ab1a41583655d51237",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "2539e335cc641bca7c850734430e97db01deb53de95c198bc32d80a4facba83f",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "98f13f0e8ecdd19dca92b63416f7e888a2ef5cae5c15b5ab1a41583655d51237",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "ef7bb9e87fc5752628fe4365ae93f4e59afbd4be1e0a6d2230bd4738c931e63e",
+          "rules": 4209
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 44652,
+          "max_absolute_gap": 2.980232238769531e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "ef7bb9e87fc5752628fe4365ae93f4e59afbd4be1e0a6d2230bd4738c931e63e",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "423363c4a5ddb6df4778b8fef6bfdd66557fdb254513f822d6f0e2e11b3eb4de",
+            "trajectories": 3
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "ef7bb9e87fc5752628fe4365ae93f4e59afbd4be1e0a6d2230bd4738c931e63e",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 44652,
+            "sha256": "423363c4a5ddb6df4778b8fef6bfdd66557fdb254513f822d6f0e2e11b3eb4de",
+            "trajectories": 3
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      },
+      {
+        "native": {
+          "manifest_id": "c636af4c17061907a6a615d351f89fe3202ab6bd10e6de995357c2e126198e79",
+          "rules": 1403
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 14884,
+          "max_absolute_gap": 3.5762786865234375e-07,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        },
+        "one_thread_replay": {
+          "manifest_id": "c636af4c17061907a6a615d351f89fe3202ab6bd10e6de995357c2e126198e79",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 14884,
+            "sha256": "f88ba064efc838c5f3450d8bd0f9c078d352f545e3359e68ac1e9d4f87aec2d8",
+            "trajectories": 1
+          },
+          "threads": 1,
+          "verdict": "pass"
+        },
+        "bundle_replay": {
+          "manifest_id": "c636af4c17061907a6a615d351f89fe3202ab6bd10e6de995357c2e126198e79",
+          "result": {
+            "encoding": "ordered-ieee754-le-v1",
+            "rows": 14884,
+            "sha256": "f88ba064efc838c5f3450d8bd0f9c078d352f545e3359e68ac1e9d4f87aec2d8",
+            "trajectories": 1
+          },
+          "threads": 8,
+          "verdict": "pass"
+        }
+      }
+    ],
+    "independent": {
+      "verdict": "pass",
+      "comparisons": 506056,
+      "max_absolute_gap": 3.5762786865234375e-07
+    },
+    "observed_macro_input": {
+      "native": {
+        "manifest_id": "42612128737044762c99ceaae40f3e2f9bd91c70c354348c6a8263297b256e61",
+        "rules": 184
+      },
+      "independent": {
+        "verdict": "pass",
+        "comparisons": 1952,
+        "max_absolute_gap": 3.725290298461914e-09,
+        "relative_tolerance": 2e-10,
+        "absolute_tolerance": 2e-06
+      }
+    },
+    "scripts": {
+      "run.py": "3dc5a2f9c35ec0dd8d5261a7ce60a2c20c0ba3532a7235f0d0d80c9bd434dc79",
+      "config.py": "f58321a74840b1f1c68b3bcb7a981abe22cb5a8458b09850932f86ca5e863807",
+      "model.py": "43aa3c29a841bffe000ff87e266c844f4aa9c23b1061c4023d0e57014139b06a",
+      "test_pilot.py": "4ef048966bf417b202b02dabce2a2e7dbb79d16000870d194c30709080694994",
+      "test_data.py": "fef2d8bffdbb0ec29936371e3785483cdd8df14d35afc9e7b6ee3f7af09118c8",
+      "oracle.py": "53fc8a40eed8c60e3bb34020710f11c354f2bd1392db8f7a3eda89c65bea5fc4",
+      "data.py": "b76445e76385ba0a586d4c35762da7f8dc66ba24368edf6a959957cac13baa68"
+    },
+    "scope": "Synthetic expected-FTE monthly model; no real-data calibration or forecast validation."
+  },
+  "focused_tests": {
+    "normal": {
+      "ctest_suites": 2,
+      "mechanism_tests": 17,
+      "adapter_tests": 10,
+      "verdict": "pass"
+    },
+    "sanitizer": {
+      "mechanism_tests": 17,
+      "verdict": "pass",
+      "eight_level": {
+        "native": {
+          "manifest_id": "062d593f750e542b4f119d3ca7aaa5cbda73af1256762a78216b169a7ae89e11",
+          "rules": 276
+        },
+        "independent": {
+          "verdict": "pass",
+          "comparisons": 2928,
+          "max_absolute_gap": 5.587935447692871e-09,
+          "relative_tolerance": 2e-10,
+          "absolute_tolerance": 2e-06
+        }
+      }
+    },
+    "scope": "Focused example tests only; no new full platform regression or sanitizer claim."
+  },
+  "environment": {
+    "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "pyarrow": "25.0.1",
+    "executables": {
+      "build-arrow/fathom": "c67a269132464bbe25d0f43991c805c847d329d27375754a8b2ff55d1a1d0eb8",
+      "build-arrow-sanitize/fathom": "b3b37ac83c2d7c640fbd414325557b63c7205338dbdcf4b6b4b0b71719fab083"
+    }
+  },
+  "selected_annual_results": [
+    {
+      "scenario": "baseline",
+      "year": 1,
+      "revenue": 62044311.683479525,
+      "ebitda": 14725507.74091311,
+      "ebitda_margin": 0.23733856241383777,
+      "operating_cash": 3438167.3622728568,
+      "collections": 50756971.30483926,
+      "ending_receivables": 11287340.37864026,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 36757500.0,
+      "comp_ratio": 0.5924394840177972,
+      "average_expected_fte": 150.0,
+      "ending_expected_fte": 150.0,
+      "billable_role_utilization": 0.5022142597252691,
+      "all_staff_utilization": 0.45199283375274224,
+      "blended_hourly_rate": 496.99427860472696,
+      "hourly_realization_before_disallowance": 0.9000683785754902,
+      "revenue_per_fte": 413628.74455653015,
+      "revenue_per_md": 10340718.613913255,
+      "leverage": 21.5,
+      "ai_cost_per_fte": 0.0,
+      "won_work": 514.5214866434378,
+      "delivered_work": 514.5214866434378,
+      "win_rate": 0.43437862950058076,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.4466332349335396,
+          "exits": 1.8881879662144918,
+          "starts": 1.8881879662144918,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 27.0,
+          "utilization": 0.5955109799113862,
+          "exits": 2.8322819493217377,
+          "starts": 2.8322819493217377,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 30.0,
+          "utilization": 0.5359598819202476,
+          "exits": 3.1469799436908197,
+          "starts": 3.1469799436908197,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 24.0,
+          "utilization": 0.5024623893002321,
+          "exits": 2.5175839549526557,
+          "starts": 2.5175839549526557,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.4466332349335396,
+          "exits": 1.8881879662144918,
+          "starts": 1.8881879662144918,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 12.0,
+          "utilization": 0.44663323493353974,
+          "exits": 1.2587919774763279,
+          "starts": 1.2587919774763279,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 6.0,
+          "utilization": 0.3573065879468318,
+          "exits": 0.6293959887381639,
+          "starts": 0.6293959887381639,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 15.0,
+          "utilization": 0.0,
+          "exits": 1.5734899718454098,
+          "starts": 1.5734899718454098,
+          "requests": 0.0
+        }
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "year": 5,
+      "revenue": 61977729.024044335,
+      "ebitda": 14662254.214449681,
+      "ebitda_margin": 0.23657295040225565,
+      "operating_cash": 14662254.214449681,
+      "collections": 61977729.024044335,
+      "ending_receivables": 11287340.37864026,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 36757500.0,
+      "comp_ratio": 0.5930759416134768,
+      "average_expected_fte": 150.0,
+      "ending_expected_fte": 150.0,
+      "billable_role_utilization": 0.5022142597252688,
+      "all_staff_utilization": 0.4519928337527419,
+      "blended_hourly_rate": 496.99427860472724,
+      "hourly_realization_before_disallowance": 0.9000683785754902,
+      "revenue_per_fte": 413184.86016029556,
+      "revenue_per_md": 10329621.50400739,
+      "leverage": 21.5,
+      "ai_cost_per_fte": 0.0,
+      "won_work": 514.5214866434376,
+      "delivered_work": 514.5214866434376,
+      "win_rate": 0.4343786295005805,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.4466332349335396,
+          "exits": 1.888187966214499,
+          "starts": 1.888187966214499,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 27.0,
+          "utilization": 0.5955109799113862,
+          "exits": 2.8322819493217324,
+          "starts": 2.8322819493217324,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 30.0,
+          "utilization": 0.5359598819202476,
+          "exits": 3.146979943690809,
+          "starts": 3.146979943690809,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 24.0,
+          "utilization": 0.5024623893002323,
+          "exits": 2.5175839549526557,
+          "starts": 2.5175839549526557,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.4466332349335396,
+          "exits": 1.888187966214499,
+          "starts": 1.888187966214499,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 12.0,
+          "utilization": 0.4466332349335396,
+          "exits": 1.2587919774763279,
+          "starts": 1.2587919774763279,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 6.0,
+          "utilization": 0.3573065879468317,
+          "exits": 0.6293959887381639,
+          "starts": 0.6293959887381639,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 15.0,
+          "utilization": 0.0,
+          "exits": 1.5734899718454045,
+          "starts": 1.5734899718454045,
+          "requests": 0.0
+        }
+      ]
+    },
+    {
+      "scenario": "ai20%_hold_erosion50%",
+      "year": 1,
+      "revenue": 59361930.9606673,
+      "ebitda": 12048143.925765712,
+      "ebitda_margin": 0.20296078194876627,
+      "operating_cash": 1427889.5634569246,
+      "collections": 48741676.59835853,
+      "ending_receivables": 10620254.362308785,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 36757500.0,
+      "comp_ratio": 0.6192099786032096,
+      "average_expected_fte": 150.0,
+      "ending_expected_fte": 150.0,
+      "billable_role_utilization": 0.4644961573396837,
+      "all_staff_utilization": 0.41804654160571536,
+      "blended_hourly_rate": 506.1178053922083,
+      "hourly_realization_before_disallowance": 0.9000683785754902,
+      "revenue_per_fte": 395746.20640444866,
+      "revenue_per_md": 9893655.160111217,
+      "leverage": 21.5,
+      "ai_cost_per_fte": 1512.4496657281807,
+      "won_work": 514.5214866434378,
+      "delivered_work": 514.5214866434378,
+      "win_rate": 0.43437862950058076,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.39359215345381027,
+          "exits": 1.8881879662144918,
+          "starts": 1.8881879662144918,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 27.0,
+          "utilization": 0.5336297181850352,
+          "exits": 2.8322819493217377,
+          "starts": 2.8322819493217377,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 30.0,
+          "utilization": 0.48822290858849127,
+          "exits": 3.1469799436908197,
+          "starts": 3.1469799436908197,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 24.0,
+          "utilization": 0.4726267809678844,
+          "exits": 2.5175839549526557,
+          "starts": 2.5175839549526557,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.43337296456360735,
+          "exits": 1.8881879662144918,
+          "starts": 1.8881879662144918,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 12.0,
+          "utilization": 0.4400030997485735,
+          "exits": 1.2587919774763279,
+          "starts": 1.2587919774763279,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 6.0,
+          "utilization": 0.3573065879468318,
+          "exits": 0.6293959887381639,
+          "starts": 0.6293959887381639,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 15.0,
+          "utilization": 0.0,
+          "exits": 1.5734899718454098,
+          "starts": 1.5734899718454098,
+          "requests": 0.0
+        }
+      ]
+    },
+    {
+      "scenario": "ai20%_hold_erosion50%",
+      "year": 5,
+      "revenue": 58550840.78560805,
+      "ebitda": 11379974.56362763,
+      "ebitda_margin": 0.19436056614963004,
+      "operating_cash": 11379974.563627645,
+      "collections": 58550840.78560805,
+      "ending_receivables": 10620254.362308785,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 36757500.0,
+      "comp_ratio": 0.6277877397968141,
+      "average_expected_fte": 150.0,
+      "ending_expected_fte": 150.0,
+      "billable_role_utilization": 0.45393816962045364,
+      "all_staff_utilization": 0.40854435265840827,
+      "blended_hourly_rate": 508.94324745697577,
+      "hourly_realization_before_disallowance": 0.9000683785754895,
+      "revenue_per_fte": 390338.9385707204,
+      "revenue_per_md": 9758473.464268008,
+      "leverage": 21.5,
+      "ai_cost_per_fte": 1012.4496657281835,
+      "won_work": 514.5214866434376,
+      "delivered_work": 514.5214866434376,
+      "win_rate": 0.4343786295005805,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.37874498322364153,
+          "exits": 1.888187966214499,
+          "starts": 1.888187966214499,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 27.0,
+          "utilization": 0.5163080195831725,
+          "exits": 2.8322819493217324,
+          "starts": 2.8322819493217324,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 30.0,
+          "utilization": 0.4748604553813395,
+          "exits": 3.146979943690809,
+          "starts": 3.146979943690809,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 24.0,
+          "utilization": 0.4642752477134141,
+          "exits": 2.5175839549526557,
+          "starts": 2.5175839549526557,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 18.0,
+          "utilization": 0.42966117200606474,
+          "exits": 1.888187966214499,
+          "starts": 1.888187966214499,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 12.0,
+          "utilization": 0.4381472034698018,
+          "exits": 1.2587919774763279,
+          "starts": 1.2587919774763279,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 6.0,
+          "utilization": 0.3573065879468317,
+          "exits": 0.6293959887381639,
+          "starts": 0.6293959887381639,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 15.0,
+          "utilization": 0.0,
+          "exits": 1.5734899718454045,
+          "starts": 1.5734899718454045,
+          "requests": 0.0
+        }
+      ]
+    },
+    {
+      "scenario": "ai20%_responsive_erosion50%",
+      "year": 1,
+      "revenue": 59361930.9606673,
+      "ebitda": 14163188.787594229,
+      "ebitda_margin": 0.23859043259523743,
+      "operating_cash": 3542934.425285447,
+      "collections": 48741676.59835853,
+      "ending_receivables": 10620254.362308785,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 34801475.87760342,
+      "comp_ratio": 0.5862591616277203,
+      "average_expected_fte": 142.3222579717208,
+      "ending_expected_fte": 136.24225783482862,
+      "billable_role_utilization": 0.4915503052227321,
+      "all_staff_utilization": 0.4405985552401585,
+      "blended_hourly_rate": 506.1178053922083,
+      "hourly_realization_before_disallowance": 0.9000683785754902,
+      "revenue_per_fte": 417095.2021605954,
+      "revenue_per_md": 10469901.928951096,
+      "leverage": 21.5,
+      "ai_cost_per_fte": 1491.5121982083303,
+      "won_work": 514.5214866434378,
+      "delivered_work": 514.5214866434378,
+      "win_rate": 0.43437862950058076,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.41651656339109167,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 24.29999999999999,
+          "utilization": 0.5647104862009691,
+          "exits": 2.7000000000000046,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 26.999999999999996,
+          "utilization": 0.5166589990924343,
+          "exits": 3.0000000000000053,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 21.599999999999998,
+          "utilization": 0.5001544894833362,
+          "exits": 2.4000000000000044,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.4586143709489025,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 10.799999999999999,
+          "utilization": 0.4656306722085375,
+          "exits": 1.2000000000000022,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 5.3999999999999995,
+          "utilization": 0.37811757877453817,
+          "exits": 0.6000000000000011,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828626,
+          "utilization": 0.0,
+          "exits": 1.5497745422161417,
+          "starts": 1.2920323770447695,
+          "requests": 1.5497745422161433
+        }
+      ]
+    },
+    {
+      "scenario": "ai20%_responsive_erosion50%",
+      "year": 5,
+      "revenue": 58550840.78560817,
+      "ebitda": 22096827.206425697,
+      "ebitda_margin": 0.37739555760328397,
+      "operating_cash": 22028191.754955195,
+      "collections": 58482205.33413759,
+      "ending_receivables": 10716812.131322118,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 26127218.954626545,
+      "comp_ratio": 0.44623131972254493,
+      "average_expected_fte": 109.7337202949202,
+      "ending_expected_fte": 108.54937596689,
+      "billable_role_utilization": 0.6451280074196875,
+      "all_staff_utilization": 0.5584578079924787,
+      "blended_hourly_rate": 508.943247456975,
+      "hourly_realization_before_disallowance": 0.900068378575488,
+      "revenue_per_fte": 533572.0016440435,
+      "revenue_per_md": 15183129.670613453,
+      "leverage": 23.63274092704911,
+      "ai_cost_per_fte": 1010.9026490588818,
+      "won_work": 514.5214866434376,
+      "delivered_work": 514.521486643438,
+      "win_rate": 0.4343786295005805,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 10.628819999999987,
+          "utilization": 0.6108895496128809,
+          "exits": 1.1809800000000008,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 20.996109321447506,
+          "utilization": 0.659995298172517,
+          "exits": 2.212499070676122,
+          "starts": 2.5749097682434687,
+          "requests": 2.5749097682434687
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 21.456231676850454,
+          "utilization": 0.6599946642231088,
+          "exits": 2.2609881283464013,
+          "starts": 2.6312558190912085,
+          "requests": 2.6312558190912085
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 16.782357287843034,
+          "utilization": 0.6599938798258443,
+          "exits": 1.7684732232116875,
+          "starts": 2.0580020394274534,
+          "requests": 2.0580020394274534
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 11.64838571972418,
+          "utilization": 0.6550438569923561,
+          "exits": 1.2399251231734496,
+          "starts": 1.078510842897641,
+          "requests": 1.078510842897641
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 8.528097640719686,
+          "utilization": 0.6128519844396473,
+          "exits": 0.898663680937438,
+          "starts": 1.0458203588794799,
+          "requests": 1.0458203588794799
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 3.767116485476947,
+          "utilization": 0.5559304205545765,
+          "exits": 0.4060058031486844,
+          "starts": 0.23652228862563351,
+          "requests": 0.23652228862563351
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828205,
+          "utilization": 0.0,
+          "exits": 1.546452991030769,
+          "starts": 1.546452991030769,
+          "requests": 1.546452991030769
+        }
+      ]
+    },
+    {
+      "scenario": "ai20%_responsive_bd",
+      "year": 1,
+      "revenue": 59921331.24406446,
+      "ebitda": 14683368.0088362,
+      "ebitda_margin": 0.24504408870740285,
+      "operating_cash": 3901349.463851444,
+      "collections": 49139312.6990797,
+      "ending_receivables": 10782018.544984762,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 34801475.87760342,
+      "comp_ratio": 0.5807860932837786,
+      "average_expected_fte": 142.3222579717208,
+      "ending_expected_fte": 136.24225783482862,
+      "billable_role_utilization": 0.49614380631854554,
+      "all_staff_utilization": 0.444715916016473,
+      "blended_hourly_rate": 506.13734667046594,
+      "hourly_realization_before_disallowance": 0.9000683785754905,
+      "revenue_per_fte": 421025.72076934535,
+      "revenue_per_md": 10568565.601298217,
+      "leverage": 21.5,
+      "ai_cost_per_fte": 1491.5121982083303,
+      "won_work": 519.4131916585065,
+      "delivered_work": 519.4131916585065,
+      "win_rate": 0.43437862950058065,
+      "backlog_months": 0.0,
+      "bd_hours": 1537.5664900435006,
+      "bd_generated_prospects": 15.375664900435009,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.42036427403134236,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 24.29999999999999,
+          "utilization": 0.5699484139266343,
+          "exits": 2.7000000000000046,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 26.999999999999996,
+          "utilization": 0.5214700162303304,
+          "exits": 3.0000000000000053,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 21.599999999999998,
+          "utilization": 0.5048464721466096,
+          "exits": 2.4000000000000044,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.46294649251314157,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 10.799999999999999,
+          "utilization": 0.47004352892677465,
+          "exits": 1.2000000000000022,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 5.3999999999999995,
+          "utilization": 0.38171245227232636,
+          "exits": 0.6000000000000011,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828626,
+          "utilization": 0.0,
+          "exits": 1.5497745422161417,
+          "starts": 1.2920323770447695,
+          "requests": 1.5497745422161433
+        }
+      ]
+    },
+    {
+      "scenario": "ai20%_responsive_bd",
+      "year": 5,
+      "revenue": 58645276.587420404,
+      "ebitda": 22156120.813375264,
+      "ebitda_margin": 0.3777988970748212,
+      "operating_cash": 22108157.78261055,
+      "collections": 58597313.556655556,
+      "ending_receivables": 10735961.923553437,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 26156934.380377755,
+      "comp_ratio": 0.44601945633910606,
+      "average_expected_fte": 109.8488059809536,
+      "ending_expected_fte": 108.57720304127774,
+      "billable_role_utilization": 0.6453867036511127,
+      "all_staff_utilization": 0.5587725879724728,
+      "blended_hourly_rate": 508.9432474569747,
+      "hourly_realization_before_disallowance": 0.900068378575489,
+      "revenue_per_fte": 533872.6813069662,
+      "revenue_per_md": 15199164.26676811,
+      "leverage": 23.64887425270193,
+      "ai_cost_per_fte": 1010.2843013689162,
+      "won_work": 515.3514215455402,
+      "delivered_work": 515.3514215455407,
+      "win_rate": 0.43437862950058054,
+      "backlog_months": 0.0,
+      "bd_hours": 189.99080758784203,
+      "bd_generated_prospects": 1.8999080758784146,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 10.628819999999987,
+          "utilization": 0.61187492840019,
+          "exits": 1.1809800000000008,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 21.003134880110235,
+          "utilization": 0.6600671157267244,
+          "exits": 2.2162178229569935,
+          "starts": 2.5344385381748396,
+          "requests": 2.5344385381748396
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 21.463411196363378,
+          "utilization": 0.6600666788039458,
+          "exits": 2.264787471419776,
+          "starts": 2.589923141547313,
+          "requests": 2.589923141547313
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 16.787972871316597,
+          "utilization": 0.6600659057201761,
+          "exits": 1.7714449072872789,
+          "starts": 2.0256740192094647,
+          "requests": 2.0256740192094647
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 11.652280978307598,
+          "utilization": 0.6555215612499183,
+          "exits": 1.2409848142400657,
+          "starts": 1.0834657925476758,
+          "requests": 1.0834657925476758
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 8.530951247240052,
+          "utilization": 0.6129188648967326,
+          "exits": 0.9001737674840093,
+          "starts": 1.0293926003537894,
+          "requests": 1.0293926003537894
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 3.768374033111687,
+          "utilization": 0.5565176037314001,
+          "exits": 0.40621981394783724,
+          "starts": 0.23799384705952598,
+          "requests": 0.23799384705952598
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828205,
+          "utilization": 0.0,
+          "exits": 1.546452991030769,
+          "starts": 1.546452991030769,
+          "requests": 1.546452991030769
+        }
+      ]
+    },
+    {
+      "scenario": "baseline_responsive",
+      "year": 1,
+      "revenue": 62044311.683479525,
+      "ebitda": 16825960.536723778,
+      "ebitda_margin": 0.2711926376516481,
+      "operating_cash": 5538620.158083526,
+      "collections": 50756971.30483926,
+      "ending_receivables": 11287340.37864026,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 34801475.87760342,
+      "comp_ratio": 0.560913239800998,
+      "average_expected_fte": 142.3222579717208,
+      "ending_expected_fte": 136.24225783482862,
+      "billable_role_utilization": 0.5314652634997675,
+      "all_staff_utilization": 0.47637612014547215,
+      "blended_hourly_rate": 496.99427860472696,
+      "hourly_realization_before_disallowance": 0.9000683785754902,
+      "revenue_per_fte": 435942.4349198256,
+      "revenue_per_md": 10943004.178986752,
+      "leverage": 21.5,
+      "ai_cost_per_fte": 0.0,
+      "won_work": 514.5214866434378,
+      "delivered_work": 514.5214866434378,
+      "win_rate": 0.43437862950058076,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.47264697346817264,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 24.29999999999999,
+          "utilization": 0.6301959646242302,
+          "exits": 2.7000000000000046,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 26.999999999999996,
+          "utilization": 0.567176368161807,
+          "exits": 3.0000000000000053,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 21.599999999999998,
+          "utilization": 0.5317278451516941,
+          "exits": 2.4000000000000044,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.47264697346817264,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 10.799999999999999,
+          "utilization": 0.4726469734681727,
+          "exits": 1.2000000000000022,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 5.3999999999999995,
+          "utilization": 0.37811757877453817,
+          "exits": 0.6000000000000011,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828626,
+          "utilization": 0.0,
+          "exits": 1.5497745422161417,
+          "starts": 1.2920323770447695,
+          "requests": 1.5497745422161433
+        }
+      ]
+    },
+    {
+      "scenario": "baseline_responsive",
+      "year": 5,
+      "revenue": 61977729.024044275,
+      "ebitda": 23524651.39473571,
+      "ebitda_margin": 0.3795662049122406,
+      "operating_cash": 23496822.048852623,
+      "collections": 61949899.678161204,
+      "ending_receivables": 11374326.36792486,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 27922659.664427683,
+      "comp_ratio": 0.4505273120542232,
+      "average_expected_fte": 118.66769914453893,
+      "ending_expected_fte": 117.68216787422611,
+      "billable_role_utilization": 0.652380439365776,
+      "all_staff_utilization": 0.5713342851649226,
+      "blended_hourly_rate": 496.9942786047265,
+      "hourly_realization_before_disallowance": 0.9000683785754884,
+      "revenue_per_fte": 522279.6891726579,
+      "revenue_per_md": 16102062.101644004,
+      "leverage": 26.000245673095247,
+      "ai_cost_per_fte": 0.0,
+      "won_work": 514.5214866434376,
+      "delivered_work": 514.5214866434385,
+      "win_rate": 0.4343786295005805,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 12.069311269476518,
+          "utilization": 0.6601910337433086,
+          "exits": 1.276621724346609,
+          "starts": 1.365561556792061,
+          "requests": 1.365561556792061
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 24.138622834237996,
+          "utilization": 0.6601624122918603,
+          "exits": 2.5533921033164244,
+          "starts": 2.7269372224717685,
+          "requests": 2.7269372224717685
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 24.138622834238706,
+          "utilization": 0.6601624122225126,
+          "exits": 2.5533921036766234,
+          "starts": 2.7269372123291973,
+          "requests": 2.7269372123291973
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 18.103967125633297,
+          "utilization": 0.6601624181333876,
+          "exits": 1.9150440547314656,
+          "starts": 2.045203557624511,
+          "requests": 2.045203557624511
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 12.069311269476518,
+          "utilization": 0.6601910337433086,
+          "exits": 1.276621724346609,
+          "starts": 1.365561556792061,
+          "requests": 1.365561556792061
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 8.665146659776347,
+          "utilization": 0.613007620331596,
+          "exits": 0.9166029640334781,
+          "starts": 0.9788816601330268,
+          "requests": 0.9788816601330268
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 3.7549280465585086,
+          "utilization": 0.5569780912315515,
+          "exits": 0.4053514433497343,
+          "starts": 0.22367948990824482,
+          "requests": 0.22367948990824482
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828205,
+          "utilization": 0.0,
+          "exits": 1.546452991030769,
+          "starts": 1.546452991030769,
+          "requests": 1.546452991030769
+        }
+      ]
+    },
+    {
+      "scenario": "ai20_pipeline20",
+      "year": 1,
+      "revenue": 71234317.15280075,
+      "ebitda": 24994989.91921166,
+      "ebitda_margin": 0.3508841092081546,
+      "operating_cash": 12250684.684441125,
+      "collections": 58490011.91803022,
+      "ending_receivables": 12744305.234770542,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 34989078.14063414,
+      "comp_ratio": 0.49118289525512016,
+      "average_expected_fte": 143.49844770859056,
+      "ending_expected_fte": 137.79334366535173,
+      "billable_role_utilization": 0.5844715566241853,
+      "all_staff_utilization": 0.5243846096637882,
+      "blended_hourly_rate": 506.1178053922083,
+      "hourly_realization_before_disallowance": 0.9000683785754907,
+      "revenue_per_fte": 496411.7611743078,
+      "revenue_per_md": 12563882.314741315,
+      "leverage": 21.70744930287097,
+      "ai_cost_per_fte": 1492.9428407697926,
+      "won_work": 617.4257839721253,
+      "delivered_work": 617.4257839721253,
+      "win_rate": 0.43437862950058065,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.49981987606931005,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 25.851085830523107,
+          "utilization": 0.6477895839739469,
+          "exits": 2.8098225281756988,
+          "starts": 1.6609083586988014,
+          "requests": 1.6609083586988014
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 26.999999999999996,
+          "utilization": 0.6199907989109211,
+          "exits": 3.0000000000000053,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 21.599999999999998,
+          "utilization": 0.6001853873800035,
+          "exits": 2.4000000000000044,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.5503372451386829,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 10.799999999999999,
+          "utilization": 0.5587568066502452,
+          "exits": 1.2000000000000022,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 5.3999999999999995,
+          "utilization": 0.4537410945294457,
+          "exits": 0.6000000000000011,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828626,
+          "utilization": 0.0,
+          "exits": 1.5497745422161417,
+          "starts": 1.2920323770447695,
+          "requests": 1.5497745422161433
+        }
+      ]
+    },
+    {
+      "scenario": "ai20_pipeline20",
+      "year": 5,
+      "revenue": 70261008.94272953,
+      "ebitda": 28268787.26461859,
+      "ebitda_margin": 0.4023396146739192,
+      "operating_cash": 28244668.063362718,
+      "collections": 70236889.74147373,
+      "ending_receivables": 12848896.373299683,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 30797460.560376078,
+      "comp_ratio": 0.43832932409893804,
+      "average_expected_fte": 127.54468725404415,
+      "ending_expected_fte": 126.50856575236898,
+      "billable_role_utilization": 0.6519184370153832,
+      "all_staff_utilization": 0.5765664181059922,
+      "blended_hourly_rate": 508.9432474569767,
+      "hourly_realization_before_disallowance": 0.9000683785754876,
+      "revenue_per_fte": 550873.6620505666,
+      "revenue_per_md": 15450841.049379865,
+      "leverage": 23.80596896012191,
+      "ai_cost_per_fte": 1015.0091001788397,
+      "won_work": 617.4257839721258,
+      "delivered_work": 617.4257839721254,
+      "win_rate": 0.4343786295005811,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 12.281027031563472,
+          "utilization": 0.6600263151277509,
+          "exits": 1.2995702628262729,
+          "starts": 1.372276325725549,
+          "requests": 1.372276325725549
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 25.112383156844615,
+          "utilization": 0.6600214533658764,
+          "exits": 2.6574022689651926,
+          "starts": 2.8053060643301997,
+          "requests": 2.8053060643301997
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 25.662712199497502,
+          "utilization": 0.6600214533658736,
+          "exits": 2.715638304847957,
+          "starts": 2.8667833598570773,
+          "requests": 2.8667833598570773
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 20.07252771360244,
+          "utilization": 0.6600214533659561,
+          "exits": 2.124082782459725,
+          "starts": 2.242303463193963,
+          "requests": 2.242303463193963
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 13.932014185055092,
+          "utilization": 0.6600214532684356,
+          "exits": 1.474291224481708,
+          "starts": 1.5563462627542446,
+          "requests": 1.5563462627542446
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 10.200025737914528,
+          "utilization": 0.6128770638397385,
+          "exits": 1.0793707379400903,
+          "starts": 1.1394455826901275,
+          "requests": 1.1394455826901275
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 4.505617893063115,
+          "utilization": 0.5657326749391215,
+          "exits": 0.4767862579812787,
+          "starts": 0.5033229072909702,
+          "requests": 0.5033229072909702
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828205,
+          "utilization": 0.0,
+          "exits": 1.546452991030769,
+          "starts": 1.546452991030769,
+          "requests": 1.546452991030769
+        }
+      ]
+    },
+    {
+      "scenario": "ai20_pipeline40",
+      "year": 1,
+      "revenue": 83042556.70539458,
+      "ebitda": 33373081.806033228,
+      "ebitda_margin": 0.401879266849033,
+      "operating_cash": 18362239.526402194,
+      "collections": 68031714.42576355,
+      "ending_receivables": 15010842.279631035,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 37421589.48734355,
+      "comp_ratio": 0.450631471043239,
+      "average_expected_fte": 154.2783801794525,
+      "ending_expected_fte": 151.9000292543272,
+      "billable_role_utilization": 0.6282230952672039,
+      "all_staff_utilization": 0.5681509989213142,
+      "blended_hourly_rate": 506.3067843715722,
+      "hourly_realization_before_disallowance": 0.9000683785754903,
+      "revenue_per_fte": 538264.3803286091,
+      "revenue_per_md": 14646548.900353828,
+      "leverage": 23.608749242817726,
+      "ai_cost_per_fte": 1504.6878515359276,
+      "won_work": 720.3300813008129,
+      "delivered_work": 720.3300813008129,
+      "win_rate": 0.43437862950058076,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 16.199999999999996,
+          "utilization": 0.5816200640888627,
+          "exits": 1.800000000000003,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 31.04723736954483,
+          "utilization": 0.651617943893214,
+          "exits": 3.204636209875771,
+          "starts": 7.251873579420604,
+          "requests": 7.251873579420604
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 31.48052442222793,
+          "utilization": 0.642775648610463,
+          "exits": 3.327221428644815,
+          "starts": 4.807745850872738,
+          "requests": 4.807745850872738
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 24.26212701635073,
+          "utilization": 0.644838706542497,
+          "exits": 2.577915303003531,
+          "starts": 2.8400423193542643,
+          "requests": 2.8400423193542643
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 16.631326548298905,
+          "utilization": 0.6321531262136303,
+          "exits": 1.823131551371143,
+          "starts": 0.45445809967005246,
+          "requests": 0.45445809967005246
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 12.136556063076172,
+          "utilization": 0.6029832186222919,
+          "exits": 1.2844105873395357,
+          "starts": 1.4209666504157088,
+          "requests": 1.4209666504157088
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 5.3999999999999995,
+          "utilization": 0.5293646102843534,
+          "exits": 0.6000000000000011,
+          "starts": 0.0,
+          "requests": 0.0
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828626,
+          "utilization": 0.0,
+          "exits": 1.5497745422161417,
+          "starts": 1.2920323770447695,
+          "requests": 1.5497745422161433
+        }
+      ]
+    },
+    {
+      "scenario": "ai20_pipeline40",
+      "year": 5,
+      "revenue": 81971177.09985125,
+      "ebitda": 34276595.92300001,
+      "ebitda_margin": 0.418154248062667,
+      "operating_cash": 34263592.93674512,
+      "collections": 81958174.11359644,
+      "ending_receivables": 14985689.756227896,
+      "ending_deposit_liability": 0.0,
+      "loaded_comp": 35643411.16593626,
+      "comp_ratio": 0.4348285876451192,
+      "average_expected_fte": 146.33761461444428,
+      "ending_expected_fte": 145.00830085722052,
+      "billable_role_utilization": 0.6519554804805614,
+      "all_staff_utilization": 0.586276565217412,
+      "blended_hourly_rate": 508.9432474569737,
+      "hourly_realization_before_disallowance": 0.9000683785754866,
+      "revenue_per_fte": 560151.1088985611,
+      "revenue_per_md": 15451731.490569355,
+      "leverage": 23.805989011081227,
+      "ai_cost_per_fte": 1013.6516083058658,
+      "won_work": 720.3300813008118,
+      "delivered_work": 720.3300813008123,
+      "win_rate": 0.4343786295005799,
+      "backlog_months": 0.0,
+      "bd_hours": 0.0,
+      "bd_generated_prospects": 0.0,
+      "levels": [
+        {
+          "level": "analyst",
+          "ending_expected_fte": 14.313801971464025,
+          "utilization": 0.6600594915035747,
+          "exits": 1.516489681651251,
+          "starts": 1.555484470658051,
+          "requests": 1.555484470658051
+        },
+        {
+          "level": "consultant",
+          "ending_expected_fte": 29.269024314290547,
+          "utilization": 0.6600594915258837,
+          "exits": 3.100935268707511,
+          "starts": 3.1806722588211755,
+          "requests": 3.1806722588211755
+        },
+        {
+          "level": "senior_consultant",
+          "ending_expected_fte": 29.91044468565332,
+          "utilization": 0.6600594915258841,
+          "exits": 3.1688911742501205,
+          "starts": 3.250375572451862,
+          "requests": 3.250375572451862
+        },
+        {
+          "level": "manager",
+          "ending_expected_fte": 23.39496407128414,
+          "utilization": 0.6600594915258865,
+          "exits": 2.4786022390014875,
+          "starts": 2.5423366497849287,
+          "requests": 2.5423366497849287
+        },
+        {
+          "level": "director",
+          "ending_expected_fte": 16.2380630855522,
+          "utilization": 0.6600594915258879,
+          "exits": 1.720357398210263,
+          "starts": 1.7645944134872877,
+          "requests": 1.7645944134872877
+        },
+        {
+          "level": "senior_director",
+          "ending_expected_fte": 11.88835004088565,
+          "utilization": 0.6129123849883257,
+          "exits": 1.2595228160893281,
+          "starts": 1.2919099991915903,
+          "requests": 1.2919099991915903
+        },
+        {
+          "level": "managing_director",
+          "ending_expected_fte": 5.251394853262434,
+          "utilization": 0.5657652784507604,
+          "exits": 0.5563641389453382,
+          "starts": 0.5706704039921711,
+          "requests": 0.5706704039921711
+        },
+        {
+          "level": "support",
+          "ending_expected_fte": 14.742257834828205,
+          "utilization": 0.0,
+          "exits": 1.546452991030769,
+          "starts": 1.546452991030769,
+          "requests": 1.546452991030769
+        }
+      ]
+    }
+  ],
+  "limitations": "Expected-FTE monthly mechanism validation; no real Ankura calibration, no real-outcome backtest, no full-platform regression claim."
+}

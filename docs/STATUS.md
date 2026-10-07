@@ -2,6 +2,70 @@
 
 The acceptance target is the Phase 1 CPU platform in `IMPLEMENTATION_PLAN.md`. An item is complete only when the named conformance and analytic tests pass.
 
+## September 30: level-based T&R monthly pilot
+
+The new [150-person monthly example](../examples/tr_pilot/README.md) uses seven
+billable levels (135 initial employees) plus 15 practice support staff. Native SD
+now exercises loaded compensation/overhead, expected-FTE workforce policies,
+level-specific AI, fee/value backlogs, price erosion, approval/disallowance/
+holdback/collection/deposits, senior BD and exogenous demand. Synthetic operational
+estimates feed typed native inputs; commercial and workforce policies remain
+assumptions. This is a bounded example, not full acceptance of the
+[T&R specification](TR_PILOT_SPEC.md).
+
+All **34 five-year scenarios** pass **506,056** independent public monthly-value
+comparisons and **47,702** native declared-check evaluations. Maximum absolute
+oracle difference is 3.5763e-7 (tolerances: abs 2e-6, rel 2e-10). All twelve batches
+pass exact 1/8-thread and portable-bundle replay. A separate observed-filings input
+demonstration passes 1,952 comparisons and 184 native checks; its demand elasticity
+is synthetic and no real-practice backtest is claimed.
+
+The two new CTest suites pass **27 focused tests** (17 native mechanisms and 10
+imperfect-data adapter tests). All 17 native fixtures also pass ASan/UBSan. An
+additional three-month/eight-level sanitizer run passes 2,928 comparisons and 276
+native checks. These are focused results; the historical full-platform normal and
+sanitizer checkpoints below are unchanged. No production C++ engine source changed.
+
+[Recorded results](../examples/tr_pilot/RESULTS.md) explain matched workforce-policy
+comparisons. [Compact evidence](../examples/tr_pilot/run-evidence.json) records the
+receipts and hashes; full local artifacts are under
+`artifacts/tr-pilot-150-validated-20260930/`. Integer-person behavior, contract-level
+contingencies, actual Ankura calibration, acquisition economics and business
+acceptance remain open. FTI supplies external comparison figures only.
+
+## September 30: synthetic T&R decision test
+
+The current user-specified case is **150 employees**, modeled as 150 full-time
+paid staff, superseding an interrupted 200-person attempt. The
+[150-person run](../artifacts/ai-decision-tr-150-20260930/validation.json) passes
+the same 983 scenarios and 719,556 independent forecast comparisons, historical
+reconciliation, and exact 1/8-thread and portable replay. Nine adapter tests pass.
+Pipeline and acquisition costs scale 7.5-fold from the original 20-person case;
+fee rates and other per-person assumptions remain synthetic and unchanged.
+No FTI operating datapoints calibrate either case. The original evidence below
+remains historical evidence for the 20-person run.
+
+The [AI decision example](../examples/ai_decision/README.md) now generates 36 months
+of operational Parquet exports, recovers 55 planted parameter/seasonality/utilization
+values, and executes 983 five-year scenarios through the existing native SD runtime.
+All 719,556 forecast stock values agree with an independent Decimal ledger within
+the declared mixed absolute/relative tolerance; 444 historical stock values and
+72 transaction-reconciliation values also pass. The historical exercise is an
+in-sample reconstruction, not predictive validation or a public-peer backtest.
+Native forecast declarations pass 773,621 rule evaluations; exact result replay
+passes at 1 and 8 threads, including a portable bundle. A deliberately incorrect
+T&M formula passes accounting checks but is rejected on 59 revenue observations.
+
+Nine focused Python adapter tests pass, including nondefault parameter recovery,
+calibration without the truth file, row-order invariance and corrupt-data rejection.
+The forecast, historical and negative-control model files pass IR JSON Schema
+validation. [Local evidence](../artifacts/ai-decision-tr-validated-20260930/validation.json)
+and [results](../artifacts/ai-decision-tr-validated-20260930/results.txt) retain the
+inputs, assumptions and provenance. All business inputs and intervention effects
+are synthetic. No production engine sources changed, no fresh full regression or
+sanitizer run is claimed, and platform milestone acceptance remains unchanged.
+
+## Prior platform evidence
 
 The current priority is **independent benchmarks, worked examples and result validation**,
 with reporting expansion deferred. The [benchmark campaign](../tests/benchmarks/README.md)

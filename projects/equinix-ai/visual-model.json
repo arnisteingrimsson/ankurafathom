@@ -1,0 +1,550 @@
+{
+  "schema_version": "1",
+  "model_version": "equinix-ai-1",
+  "title": "From opportunity to operating customer",
+  "width": 1250,
+  "height": 790,
+  "nodes": [
+    {
+      "id": "customers",
+      "label": "Customer population",
+      "kind": "ABM",
+      "x": 30,
+      "y": 63,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "arrivals",
+        "enterprise_share",
+        "dense_share",
+        "patience",
+        "site_lock",
+        "provider_lock"
+      ],
+      "rule": "Poisson opportunities create individuals with a type, deployment size, budget, preferences and deadline.",
+      "source": "Market::arrive",
+      "metric": "opportunities",
+      "unit": "customers",
+      "formula": "Interarrival = \u2212ln(U) / arrivals",
+      "checks": [
+        "Customer conservation"
+      ]
+    },
+    {
+      "id": "teams",
+      "label": "Delivery teams",
+      "kind": "Resource",
+      "x": 250,
+      "y": 63,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "qualifiers",
+        "designers",
+        "installers",
+        "team_cost"
+      ],
+      "rule": "Three shared pools of concurrent service lanes. Occupied until completion or cancellation.",
+      "source": "Market::dispatch",
+      "formula": "Qualification / design / installation lanes",
+      "checks": [
+        "Team 1 capacity",
+        "Team 2 capacity",
+        "Team 3 capacity"
+      ]
+    },
+    {
+      "id": "sites",
+      "label": "Site capacity",
+      "kind": "Resource",
+      "x": 585,
+      "y": 63,
+      "width": 166,
+      "height": 106,
+      "parameters": [],
+      "rule": "Reserve IT power, rack positions and liquid-capable positions before procurement. Release reservations when a waiting customer leaves.",
+      "source": "Market::reserve",
+      "config_table": "sites",
+      "metric": "reserved_kw",
+      "unit": "kW reserved",
+      "formula": "Reserved \u2264 available capacity",
+      "checks": [
+        "Site 1 capacity limits",
+        "Site 2 capacity limits",
+        "Site 3 capacity limits"
+      ]
+    },
+    {
+      "id": "partners",
+      "label": "Partner profiles",
+      "kind": "Resource",
+      "x": 820,
+      "y": 63,
+      "width": 166,
+      "height": 106,
+      "parameters": [],
+      "rule": "Enabled profiles supply power per rack block and equipment lead time. Substitution requires customer flexibility and the alternatives policy.",
+      "source": "Market::reserve",
+      "config_table": "providers",
+      "formula": "Equal defaults; illustrative profiles",
+      "checks": []
+    },
+    {
+      "id": "qualify",
+      "label": "Qualification",
+      "kind": "DES",
+      "x": 30,
+      "y": 268,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "qualification_days",
+        "qualifiers"
+      ],
+      "rule": "FIFO qualification with a shared lane pool. On completion, the customer enters the design queue.",
+      "source": "Market::dispatch",
+      "states": [
+        0,
+        1
+      ],
+      "formula": "Duration = qualification_days",
+      "checks": [
+        "Team 1 exclusivity",
+        "Team 1 capacity"
+      ]
+    },
+    {
+      "id": "design",
+      "label": "Solution design",
+      "kind": "DES",
+      "x": 235,
+      "y": 268,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "design_days",
+        "designers",
+        "design_saving",
+        "design_rework",
+        "win_rate"
+      ],
+      "rule": "Design uses one lane per customer. AI can reduce duration but may add rework. A commercial acceptance draw follows completion.",
+      "source": "Market::dispatch",
+      "states": [
+        2,
+        3
+      ],
+      "formula": "days \u00d7 (0.75 + 0.25 \u00d7 blocks) \u00d7 (1 \u2212 AI saving)",
+      "checks": [
+        "Team 2 exclusivity",
+        "Team 2 capacity"
+      ]
+    },
+    {
+      "id": "allocate",
+      "label": "Allocate capacity",
+      "kind": "Hybrid",
+      "x": 440,
+      "y": 268,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "alternatives",
+        "colo_price"
+      ],
+      "rule": "Try preferred then permitted alternative site/provider combinations. Budget, rack density, racks, liquid cooling and IT power must all be feasible.",
+      "source": "Market::reserve",
+      "states": [
+        4
+      ],
+      "formula": "First feasible site \u00d7 provider",
+      "checks": [
+        "Site 1 reservations",
+        "Site 2 reservations",
+        "Site 3 reservations"
+      ]
+    },
+    {
+      "id": "equipment",
+      "label": "Equipment lead time",
+      "kind": "DES",
+      "x": 645,
+      "y": 268,
+      "width": 166,
+      "height": 106,
+      "parameters": [],
+      "rule": "A successful reservation schedules equipment arrival using the selected provider\u2019s lead time.",
+      "source": "Market::dispatch",
+      "config_table": "providers",
+      "states": [
+        5
+      ],
+      "formula": "Arrival = reservation time + lead days",
+      "checks": []
+    },
+    {
+      "id": "install",
+      "label": "Installation",
+      "kind": "DES",
+      "x": 850,
+      "y": 268,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "installation_days",
+        "installers"
+      ],
+      "rule": "Shared lanes commission one customer deployment at a time. Deadlines can cancel work and release the lane.",
+      "source": "Market::dispatch",
+      "states": [
+        6,
+        7
+      ],
+      "formula": "Duration = days per block \u00d7 blocks",
+      "checks": [
+        "Team 3 exclusivity",
+        "Team 3 capacity"
+      ]
+    },
+    {
+      "id": "active",
+      "label": "Active customers",
+      "kind": "ABM",
+      "x": 1055,
+      "y": 268,
+      "width": 166,
+      "height": 106,
+      "parameters": [],
+      "rule": "Installation must complete strictly before the deadline. Activated customers remain through the horizon and generate recurring revenue.",
+      "source": "Market::internal_transition",
+      "states": [
+        8
+      ],
+      "metric": "active",
+      "unit": "customers",
+      "formula": "Activation changes financial flow rates",
+      "checks": [
+        "Customer conservation"
+      ]
+    },
+    {
+      "id": "lost",
+      "label": "Lost opportunities",
+      "kind": "ABM",
+      "x": 235,
+      "y": 461,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "patience"
+      ],
+      "rule": "Customers leave at their deadline or after a failed commercial draw. Unfinished work and reservations are released immediately.",
+      "source": "Market::lose",
+      "metric": "lost",
+      "unit": "customers",
+      "formula": "No revenue before activation",
+      "checks": [
+        "Customer conservation"
+      ]
+    },
+    {
+      "id": "revenue",
+      "label": "Earned revenue",
+      "kind": "SD",
+      "x": 1055,
+      "y": 461,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "colo_price"
+      ],
+      "rule": "Revenue is integrated between exact event boundaries. A modeled month is 30 days.",
+      "source": "Market::rates",
+      "metric": "revenue",
+      "unit": "USD",
+      "formula": "dRevenue/dt = active kW \u00d7 price / 30",
+      "checks": [
+        "Revenue vs customer ledger"
+      ]
+    },
+    {
+      "id": "energy",
+      "label": "Facility energy",
+      "kind": "SD",
+      "x": 645,
+      "y": 461,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "it_load"
+      ],
+      "rule": "Facility energy accumulates from activated IT draw and site PUE; reserved capacity is not actual draw.",
+      "source": "Market::rates",
+      "metric": "energy_kwh",
+      "unit": "kWh",
+      "formula": "dEnergy/dt = \u03a3 active kW \u00d7 draw \u00d7 PUE \u00d7 24",
+      "checks": [
+        "Energy integration"
+      ]
+    },
+    {
+      "id": "cost",
+      "label": "Operating expense",
+      "kind": "SD",
+      "x": 850,
+      "y": 461,
+      "width": 166,
+      "height": 106,
+      "parameters": [
+        "electricity",
+        "overhead_day",
+        "team_cost"
+      ],
+      "rule": "Accrue overhead, service-lane cost and energy expense over calendar time. Investment is accounted for separately.",
+      "source": "Market::rates",
+      "metric": "cost",
+      "unit": "USD",
+      "formula": "dCost/dt = overhead + lanes \u00d7 cost + energy rate \u00d7 tariff",
+      "checks": [
+        "Operating-cost integration"
+      ]
+    },
+    {
+      "id": "crm",
+      "label": "CRM observations",
+      "kind": "Data",
+      "x": 30,
+      "y": 637,
+      "width": 166,
+      "height": 106,
+      "parameters": [],
+      "rule": "Future opportunity arrival counts, acceptance cohorts and decision deadlines can challenge customer assumptions. No dataset is attached.",
+      "source": "Validation target",
+      "targets": [
+        "customers",
+        "lost"
+      ],
+      "metrics": [
+        "opportunities",
+        "lost",
+        "accepted"
+      ],
+      "formula": "Not attached \u00b7 validation target",
+      "checks": []
+    },
+    {
+      "id": "delivery",
+      "label": "Delivery observations",
+      "kind": "Data",
+      "x": 440,
+      "y": 637,
+      "width": 166,
+      "height": 106,
+      "parameters": [],
+      "rule": "Future activity times, staffing and activation histories can challenge the process rules. No dataset is attached.",
+      "source": "Validation target",
+      "targets": [
+        "design",
+        "install",
+        "active"
+      ],
+      "metrics": [
+        "active",
+        "activation_days"
+      ],
+      "formula": "Not attached \u00b7 validation target",
+      "checks": []
+    },
+    {
+      "id": "meters",
+      "label": "Finance & energy",
+      "kind": "Data",
+      "x": 850,
+      "y": 637,
+      "width": 166,
+      "height": 106,
+      "parameters": [],
+      "rule": "Named observations can be compared with computed revenue, cost and energy points using explicit units and tolerances.",
+      "source": "Validation target",
+      "targets": [
+        "revenue",
+        "energy",
+        "cost"
+      ],
+      "metrics": [
+        "revenue",
+        "cost",
+        "energy_kwh"
+      ],
+      "formula": "Not attached \u00b7 validation target",
+      "checks": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "customers-qualify",
+      "source": "customers",
+      "target": "qualify",
+      "label": "Arrivals",
+      "kind": "flow",
+      "unit": "customer",
+      "timing": "At the corresponding DES event"
+    },
+    {
+      "id": "qualify-design",
+      "source": "qualify",
+      "target": "design",
+      "label": "Qualified",
+      "kind": "flow",
+      "unit": "customer",
+      "timing": "At the corresponding DES event"
+    },
+    {
+      "id": "design-allocate",
+      "source": "design",
+      "target": "allocate",
+      "label": "Accepted",
+      "kind": "flow",
+      "unit": "customer",
+      "timing": "At the corresponding DES event"
+    },
+    {
+      "id": "allocate-equipment",
+      "source": "allocate",
+      "target": "equipment",
+      "label": "Reserved",
+      "kind": "flow",
+      "unit": "customer",
+      "timing": "At the corresponding DES event"
+    },
+    {
+      "id": "equipment-install",
+      "source": "equipment",
+      "target": "install",
+      "label": "Equipment ready",
+      "kind": "flow",
+      "unit": "customer",
+      "timing": "At the corresponding DES event"
+    },
+    {
+      "id": "install-active",
+      "source": "install",
+      "target": "active",
+      "label": "Commissioned",
+      "kind": "flow",
+      "unit": "customer",
+      "timing": "At the corresponding DES event"
+    },
+    {
+      "id": "teams-design",
+      "source": "teams",
+      "target": "design",
+      "label": "Service lanes",
+      "kind": "dependency",
+      "unit": "concurrent jobs",
+      "timing": "At dispatch and release"
+    },
+    {
+      "id": "sites-allocate",
+      "source": "sites",
+      "target": "allocate",
+      "label": "Power + cooling",
+      "kind": "dependency",
+      "unit": "kW / rack positions",
+      "timing": "At reservation and release"
+    },
+    {
+      "id": "partners-equipment",
+      "source": "partners",
+      "target": "equipment",
+      "label": "Procurement",
+      "kind": "dependency",
+      "unit": "days",
+      "timing": "At capacity reservation"
+    },
+    {
+      "id": "active-revenue",
+      "source": "active",
+      "target": "revenue",
+      "label": "Revenue flow",
+      "kind": "hybrid",
+      "unit": "USD/day",
+      "timing": "Rates change at activation; integrated between events"
+    },
+    {
+      "id": "active-energy",
+      "source": "active",
+      "target": "energy",
+      "label": "IT draw",
+      "kind": "hybrid",
+      "unit": "kW",
+      "timing": "Rates change at activation; integrated between events"
+    },
+    {
+      "id": "energy-cost",
+      "source": "energy",
+      "target": "cost",
+      "label": "Energy cost",
+      "kind": "hybrid",
+      "unit": "USD/day",
+      "timing": "Energy flow \u00d7 tariff, integrated between events"
+    },
+    {
+      "id": "design-lost",
+      "source": "design",
+      "target": "lost",
+      "label": "Rejected / deadline",
+      "kind": "exit",
+      "unit": "customer",
+      "timing": "On commercial rejection or customer deadline"
+    },
+    {
+      "id": "lost-sites",
+      "source": "lost",
+      "target": "sites",
+      "label": "Release reservation",
+      "kind": "feedback",
+      "unit": "kW / rack positions",
+      "timing": "Only if a departing customer holds a reservation"
+    },
+    {
+      "id": "crm-customers",
+      "source": "crm",
+      "target": "customers",
+      "label": "Validate demand",
+      "kind": "evidence",
+      "unit": "customer",
+      "timing": "When observations are supplied; no runtime coupling"
+    },
+    {
+      "id": "delivery-install",
+      "source": "delivery",
+      "target": "install",
+      "label": "Validate duration",
+      "kind": "evidence",
+      "unit": "day",
+      "timing": "When observations are supplied; no runtime coupling"
+    },
+    {
+      "id": "meters-cost",
+      "source": "meters",
+      "target": "cost",
+      "label": "Validate outcomes",
+      "kind": "evidence",
+      "unit": "USD / kWh",
+      "timing": "When observations are supplied; no runtime coupling"
+    }
+  ],
+  "source_sha256": {
+    "projects/equinix-ai/native/model.cpp": "db139fabe8a8f4f1e6889ee31c9f5cecedeea8c7b968791599ca60ebe5759ca0"
+  },
+  "scope": "Semantic projection of the native model, not an executable graph editor. Parameter and table edits are validated by the project adapter. Structural changes require native implementation and a reviewed mapping.",
+  "global_parameters": [
+    "days",
+    "seed",
+    "sd_dt",
+    "upgrade",
+    "upgrade_day",
+    "upgrade_cost"
+  ]
+}

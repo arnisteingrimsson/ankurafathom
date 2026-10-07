@@ -2182,10 +2182,10 @@ std::vector<Row> run_agent_pool_sd(const Model& model, const std::map<std::strin
     return rows;
 }
 
-std::vector<Row> run(const Model& spec,
+static std::vector<Row> run_impl(const Model& spec,
                      const std::map<std::string, double>& parameter_overrides,
                      std::uint64_t seed, std::uint32_t scenario,
-                     std::uint32_t replication) {
+                     std::uint32_t replication, const SDObserver& observer) {
     auto parameters = spec.parameters;
     for (const auto& [id, value] : parameter_overrides) {
         if (!parameters.contains(id) || !std::isfinite(value))
@@ -2299,6 +2299,8 @@ std::vector<Row> run(const Model& spec,
                 throw Error("IR_OUTPUT_RUNTIME", "/outputs/" + std::to_string(i) + "/expr", error.what());
             }
         }
+        if (observer && !observer(time, values,
+                std::span<const Row>(rows).last(spec.outputs.size()))) break;
         if (step >= steps) continue;
 
         auto next_delays = delay_states;
@@ -2318,6 +2320,20 @@ std::vector<Row> run(const Model& spec,
         delay_states = std::move(next_delays);
     }
     return rows;
+}
+
+std::vector<Row> run(const Model& spec,
+                     const std::map<std::string, double>& overrides,
+                     std::uint64_t seed, std::uint32_t scenario, std::uint32_t replication) {
+    return run_impl(spec, overrides, seed, scenario, replication, {});
+}
+
+std::vector<Row> run_observed_sd(const Model& spec,
+                     const std::map<std::string, double>& overrides,
+                     const SDObserver& observer) {
+    if (spec.kind != Model::Kind::sd || !observer)
+        throw Error("IR_OBSERVER_SCOPE", "/mode", "a nonempty observer and standalone SD model are required");
+    return run_impl(spec, overrides, 0, 0, 0, observer);
 }
 
 runtime::Experiment load_experiment_document(const Json& document,const Model& model,

@@ -1,0 +1,8 @@
+{
+  "models": [
+    {
+      "model": "model.json",
+      "descriptor": "descriptor.json"
+    }
+  ]
+}

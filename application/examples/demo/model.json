@@ -1,0 +1,199 @@
+{
+  "ir_version": "0.1",
+  "name": "Application integration economics fixture",
+  "mode": "sd",
+  "time": {
+    "unit": "month",
+    "dt": 1,
+    "horizon": 12
+  },
+  "parameters": [
+    {
+      "id": "demand_hours",
+      "value": 100,
+      "unit": "hours"
+    },
+    {
+      "id": "paid_hours",
+      "value": 160,
+      "unit": "hours"
+    },
+    {
+      "id": "productivity",
+      "value": 0,
+      "unit": "1"
+    },
+    {
+      "id": "fixed_fee",
+      "value": 0,
+      "unit": "1"
+    },
+    {
+      "id": "rate",
+      "value": 200,
+      "unit": "USD/hours"
+    },
+    {
+      "id": "payroll",
+      "value": 10000,
+      "unit": "USD"
+    },
+    {
+      "id": "variable_cost",
+      "value": 10,
+      "unit": "USD/hours"
+    },
+    {
+      "id": "license",
+      "value": 40,
+      "unit": "USD"
+    },
+    {
+      "id": "zero_usd",
+      "value": 0,
+      "unit": "USD"
+    },
+    {
+      "id": "one_month",
+      "value": 1,
+      "unit": "month"
+    }
+  ],
+  "components": [
+    {
+      "id": "work",
+      "kind": "aux",
+      "expr": "MIN(demand_hours,paid_hours/(1-productivity))",
+      "unit": "hours"
+    },
+    {
+      "id": "hours",
+      "kind": "aux",
+      "expr": "work*(1-productivity)",
+      "unit": "hours"
+    },
+    {
+      "id": "revenue",
+      "kind": "aux",
+      "expr": "(fixed_fee*work+(1-fixed_fee)*hours)*rate",
+      "unit": "USD"
+    },
+    {
+      "id": "cost",
+      "kind": "aux",
+      "expr": "payroll+hours*variable_cost+IF_POSITIVE(productivity,license,zero_usd)",
+      "unit": "USD"
+    },
+    {
+      "id": "cum_revenue",
+      "kind": "stock",
+      "init": 0,
+      "unit": "USD",
+      "non_negative": true
+    },
+    {
+      "id": "flow_revenue",
+      "kind": "flow",
+      "source": null,
+      "destination": "cum_revenue",
+      "expr": "(revenue)/one_month",
+      "unit": "USD/month",
+      "non_negative": true
+    },
+    {
+      "id": "cum_cost",
+      "kind": "stock",
+      "init": 0,
+      "unit": "USD",
+      "non_negative": true
+    },
+    {
+      "id": "flow_cost",
+      "kind": "flow",
+      "source": null,
+      "destination": "cum_cost",
+      "expr": "(cost)/one_month",
+      "unit": "USD/month",
+      "non_negative": true
+    },
+    {
+      "id": "cum_profit",
+      "kind": "stock",
+      "init": 0,
+      "unit": "USD",
+      "non_negative": false
+    },
+    {
+      "id": "flow_profit",
+      "kind": "flow",
+      "source": null,
+      "destination": "cum_profit",
+      "expr": "(revenue-cost)/one_month",
+      "unit": "USD/month",
+      "non_negative": false
+    },
+    {
+      "id": "cum_hours",
+      "kind": "stock",
+      "init": 0,
+      "unit": "hours",
+      "non_negative": true
+    },
+    {
+      "id": "flow_hours",
+      "kind": "flow",
+      "source": null,
+      "destination": "cum_hours",
+      "expr": "(hours)/one_month",
+      "unit": "hours/month",
+      "non_negative": true
+    },
+    {
+      "id": "cum_capacity",
+      "kind": "stock",
+      "init": 0,
+      "unit": "hours",
+      "non_negative": true
+    },
+    {
+      "id": "flow_capacity",
+      "kind": "flow",
+      "source": null,
+      "destination": "cum_capacity",
+      "expr": "(paid_hours)/one_month",
+      "unit": "hours/month",
+      "non_negative": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "cum_revenue",
+      "stock": "cum_revenue"
+    },
+    {
+      "id": "cum_cost",
+      "stock": "cum_cost"
+    },
+    {
+      "id": "cum_profit",
+      "stock": "cum_profit"
+    },
+    {
+      "id": "cum_hours",
+      "stock": "cum_hours"
+    },
+    {
+      "id": "cum_capacity",
+      "stock": "cum_capacity"
+    }
+  ],
+  "checks": [
+    {
+      "id": "accounting",
+      "kind": "assert",
+      "expr": "cum_profit == cum_revenue - cum_cost",
+      "absolute_tolerance": 1e-08,
+      "relative_tolerance": 1e-12
+    }
+  ]
+}

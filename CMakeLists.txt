@@ -1319,6 +1319,12 @@ if(FATHOM_HAS_ARROW AND _output_python_status EQUAL 0)
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/ir_abm_data_composition.py $<TARGET_FILE:fathom> ${_parameter_schema_args})
   add_test(NAME ankura_pilot_reference COMMAND "${_output_python}"
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/ankura_pilot_contract.py $<TARGET_FILE:fathom> $<TARGET_FILE:economics_monthly_probe> ${_parameter_schema_args})
+  add_test(NAME tr_pilot_native_mechanisms COMMAND ${CMAKE_COMMAND} -E env
+    "FATHOM_EXECUTABLE=$<TARGET_FILE:fathom>" "${_output_python}"
+    ${CMAKE_CURRENT_SOURCE_DIR}/examples/tr_pilot/test_pilot.py)
+  add_test(NAME tr_pilot_imperfect_data COMMAND "${_output_python}"
+    ${CMAKE_CURRENT_SOURCE_DIR}/examples/tr_pilot/test_data.py)
+  set_tests_properties(tr_pilot_native_mechanisms tr_pilot_imperfect_data PROPERTIES TIMEOUT 240)
 elseif(NOT FATHOM_HAS_ARROW)
   add_test(NAME ir_population_data_contract COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/ir_population_data_contract.py $<TARGET_FILE:fathom> --without-arrow)
